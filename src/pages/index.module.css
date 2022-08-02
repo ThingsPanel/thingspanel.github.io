@@ -21,3 +21,37 @@
   align-items: center;
   justify-content: center;
 }
+
+.function_Introduction{
+  font-size: 32px;
+  text-align: center;
+  color: #314694;
+}
+.function_background{
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 426px;
+}
+.container_backgraund{
+  background-color: #fff;
+  width: 100%;
+  height: 426px;
+}
+.features{
+  float: left;
+}
+.features h2{
+  position: relative;
+  flex-basis: calc(33% - 4rem);
+  overflow: hidden;
+  margin: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: transform .3s,box-shadow .3s;
+  color: #3a5169;
+}
+.features p{
+  color: #476582;
+  line-height: 1.4;
+}

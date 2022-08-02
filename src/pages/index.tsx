@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageContent from '@site/src/components/HomepageContent';
 
 import styles from './index.module.css';
 
@@ -35,6 +36,49 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <div className={styles.function_background}>
+        <div className="container">
+          <div className="container_backgraund">
+                <h1 className={styles.function_Introduction}>功能介绍</h1>
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div>  
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+                <div className={styles.features}>
+                  <span></span>
+                  <h2>业务管理</h2>
+                  <p>一个系统可整合多个业务，可拓展更多功能</p>
+                </div> 
+          </div>
+        </div>
+        </div>
+        <HomepageContent />
       </main>
     </Layout>
   );
