@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# ThingsPanel
+# ThingsPanel-test
 
 物联网核心支撑软件 ・适用所有物联网场景 ・免费、开源AGPLv3 ・简洁、易用 ・功能可无限扩展。
 
