@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ThingsPanel',
-  tagline: 'Dinosaurs are cool',
+  tagline: '物联网核心支撑软件',
   url: 'https://thingspanel.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
