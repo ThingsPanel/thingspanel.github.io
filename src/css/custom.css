@@ -33,3 +33,7 @@
   --ifm-col-width: calc(4 / 16 * 100%);
 }
 
+/* footer底部颜色 */
+.footer {
+  background-color:#314694;
+}
