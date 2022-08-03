@@ -10,38 +10,38 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '通用',
+    title: '业务管理',
     Svg: require('@site/static/img/general.svg').default,
     description: (
       <>
-        设备上云与企业物联网+
+        一个系统可整合多个业务， 可拓展更多功能
       </>
     ),
   },
   {
-    title: '开源',
+    title: '资产管理',
     Svg: require('@site/static/img/open_source.svg').default,
     description: (
       <>
-        AGPLv3开源协议，100%开源
+        树结构资产与设备组织模式， 清晰又方便
       </>
     ),
   },
   {
-    title: '简洁易用',
+    title: '应用管理',
     Svg: require('@site/static/img/easy_to_use.svg').default,
     description: (
       <>
-        优良设计，上手门槛低
+        设备插件：例如PM2.5传感器 报表插件：热力图单元农业可视化大屏幕 应用插件：商城插件，新闻插件
       </>
     ),
   },
   {
-    title: '快速',
+    title: '自动化',
     Svg: require('@site/static/img/speediness.svg').default,
     description: (
       <>
-        模块化构建，让项目交付更快
+        IFTTT模式，包括时间与设备 两种触发模式，自动化告警 和自动化控制
       </>
     ),
   },
