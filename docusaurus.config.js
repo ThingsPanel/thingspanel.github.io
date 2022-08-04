@@ -30,10 +30,18 @@ const config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
+      //'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'v2',
+              path: 'v2',
+            },
+          },
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -96,70 +104,70 @@ const config = {
         ],
 
       },
-      // footer: {
-      //   style: 'dark',
-      //   links: [
-      //     {
-      //       title: 'thingspanel',
-      //       items: [
-      //         {
-      //           logo: {
-      //             alt: 'ThingsPanel',
-      //             src: 'img/dark.svg',
-      //             srcDark: 'img/logo.svg',
-      //           },
-      //           label: 'GitHub',
-      //           to: '/docs/intro',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'Community',
-      //       items: [
-      //         {
-      //           label: 'Gitee',
-      //           href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //         },
-      //         {
-      //           label: 'Discord',
-      //           href: 'https://discordapp.com/invite/docusaurus',
-      //         },
-      //         {
-      //           label: 'Twitter',
-      //           href: 'https://twitter.com/docusaurus',
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: 'More',
-      //       items: [
-      //         {
-      //           label: '微信交流群',
-      //           to: '/blog',
-      //         },
-      //         // {
-      //         //   label: 'GitHub',
-      //         //   href: 'https://github.com/facebook/docusaurus',
-      //         // },
-      //       ],
-      //     },
-      //     {
-      //       // title: 'More',
-      //       items: [
-      //         {
-      //           label: 'QQ交流群',
-      //           to: '/blog',
-      //         },
-      //         // {
-      //         //   label: 'GitHub',
-      //         //   href: 'https://github.com/facebook/docusaurus',
-      //         // },
-      //       ],
-      //     },
-      //   ],
-      //   // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      //   copyright: `Copyright © ${new Date().getFullYear()} 北京极益科技有限公司版权所有.`,
-      // },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'GitHub',
+            items: [
+              {
+                logo: {
+                  alt: 'ThingsPanel',
+                  src: 'img/dark.svg',
+                  srcDark: 'img/logo.svg',
+                },
+                label: 'GitHub',
+                to: '/docs/intro',
+              },
+            ],
+          },
+          {
+            title: 'Gitee',
+            items: [
+              {
+                label: 'Gitee',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              },
+              // {
+              //   label: 'Discord',
+              //   href: 'https://discordapp.com/invite/docusaurus',
+              // },
+              // {
+              //   label: 'Twitter',
+              //   href: 'https://twitter.com/docusaurus',
+              // },
+            ],
+          },
+          {
+            title: '微信交流群',
+            items: [
+              {
+                label: '微信交流群',
+                to: '/blog',
+              },
+              // {
+              //   label: 'GitHub',
+              //   href: 'https://github.com/facebook/docusaurus',
+              // },
+            ],
+          },
+          {
+            title: 'QQ交流群',
+            items: [
+              {
+                label: 'QQ交流群',
+                to: '/blog',
+              },
+              // {
+              //   label: 'GitHub',
+              //   href: 'https://github.com/facebook/docusaurus',
+              // },
+            ],
+          },
+        ],
+        // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 北京极益科技有限公司版权所有.`,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,

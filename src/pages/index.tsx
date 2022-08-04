@@ -91,7 +91,7 @@ export default function Home(): JSX.Element {
         }
           <h3 className={styles.function_Introduction}>功能介绍</h3>
           <HomepageContent />
-          <div className={styles.footermy}>
+          {/* <div className={styles.footermy}>
             <div className="container"> 
               <img className={styles.logoone} src='dark.svg'></img>
               <div className={styles.relevant}>
@@ -123,7 +123,7 @@ export default function Home(): JSX.Element {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
       </main>
     </Layout>
   );
