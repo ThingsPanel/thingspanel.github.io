@@ -27,7 +27,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/systeminduction/demo">
-            Demo
+            查看演示
           </Link>
           </span>
         </div>

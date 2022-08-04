@@ -15,16 +15,16 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
-        一个系统可整合多个业务， 可拓展更多功能
+        一个系统可整合多个业务， 可拓展更多智慧场景。
       </>
     ),
   },
   {
-    title: '资产管理',
+    title: '分组管理',
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
-        树结构资产与设备组织模式， 清晰又方便
+        可按照组织结构、资产机构等多种分组方式管理设备。
       </>
     ),
   },
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/use.svg').default,
     description: (
       <>
-        设备插件：例如PM2.5传感器 报表插件：热力图单元农业可视化大屏幕 应用插件：商城插件，新闻插件
+        设备插件、大屏插件，用积木的方式搭建系统。
       </>
     ),
   },
@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/automation.svg').default,
     description: (
       <>
-        IFTTT模式，包括时间与设备 两种触发模式，自动化告警 和自动化控制
+        IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制
       </>
     ),
   },
@@ -51,16 +51,16 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-        支持以插件为容易的图表单元自由组织，也可以直接设计自己的可视化大屏幕。
+        基于插件提供的图表单元快速搭建可视化。
       </>
     ),
   },
   {
-    title: '可视化',
+    title: '规则引擎',
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-        支持以插件为容易的图表单元自由组织，也可以直接设计自己的可视化大屏幕。
+        接入各类协议并转换数据，转发数据到外部系统。
       </>
     ),
   },
