@@ -26,7 +26,7 @@ function HomepageHeader() {
           <span className={styles.mybuttonstyle}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/systeminduction/demo_platform">
+            to="/docs/systeminduction/demo">
             Demo
           </Link>
           </span>
