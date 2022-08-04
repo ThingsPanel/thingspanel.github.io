@@ -24,8 +24,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr', 'zh-Hans'],
+    defaultLocale: 'zh-Hans',
+    locales: [ 'zh-Hans','en', 'fr'],
   },
 
   presets: [
@@ -76,7 +76,8 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownItemsAfter: [
-              { to: 'http://docs.thingspanel.io', label: 'v1', target: '_blank' },
+              // { to: '/docs/next/intro', label: 'v2', target: '_blank' },
+              // { to: '/docs/next/intro', label: 'v1', target: '_blank' },
             ],
             // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
             dropdownActiveClassDisabled: true,
@@ -102,7 +103,11 @@ const config = {
       //       title: 'thingspanel',
       //       items: [
       //         {
-              
+      //           logo: {
+      //             alt: 'ThingsPanel',
+      //             src: 'img/dark.svg',
+      //             srcDark: 'img/logo.svg',
+      //           },
       //           label: 'GitHub',
       //           to: '/docs/intro',
       //         },

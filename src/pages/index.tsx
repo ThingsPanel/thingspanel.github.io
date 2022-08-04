@@ -118,7 +118,7 @@ export default function Home(): JSX.Element {
                 </div>
                 <div className={styles.line}></div>
                 <div className={styles.company}>
-                  <div>北京极益科技有限公司版权所有</div>
+                  <div>北京极益科技有限公司版权所有.</div>
                   <div><a href='https://beian.miit.gov.cn/'>ICP：京ICP备15045763号-12</a></div>
                 </div>
               </div>
