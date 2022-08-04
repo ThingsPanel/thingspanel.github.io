@@ -7,7 +7,7 @@
         <lastBuildDate>Fri, 22 Jul 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
-        <language>en</language>
+        <language>zh-Hans</language>
         <item>
             <title><![CDATA[text Post]]></title>
             <link>https://thingspanel.github.io/blog/text</link>
