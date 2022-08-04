@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ThingsPanel',
-  tagline: '物联网核心支撑软件',
-  url: 'https://thingspanel.github.io/',
+  tagline: '物联网应用支撑平台',
+  url: 'https://www.thingspanel.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -17,7 +17,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'ThingsPanel', // Usually your GitHub org/user name.
-  projectName: 'thingspanel.github.io', // Usually your repo name.
+  projectName: 'thingspanel.io', // Usually your repo name.
   deploymentBranch:"main",
 
   // Even if you don't use internalization, you can use this field to set useful
