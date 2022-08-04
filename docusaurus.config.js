@@ -58,7 +58,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'ThingsPanel',
+        title: '首页',
         logo: {
           alt: 'ThingsPanel',
           src: 'img/dark.svg',
@@ -69,9 +69,9 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Docs',
+            label: '文档',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/blog', label: '博客', position: 'left' },
           {
             type: 'docsVersionDropdown',
             position: 'right',
@@ -92,7 +92,6 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-
         ],
 
       },
