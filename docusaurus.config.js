@@ -30,18 +30,10 @@ const config = {
 
   presets: [
     [
-      '@docusaurus/preset-classic',
-      //'classic',
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'v2',
-              path: 'v2',
-            },
-          },
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
