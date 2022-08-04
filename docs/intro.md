@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# ThingsPanel应用支撑平台
+# ThingsPanel物联网应用支撑平台
 
 - 设备上云与企业物联网+。
 - 开源、AGPLv3 。
