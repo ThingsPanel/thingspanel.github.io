@@ -112,52 +112,52 @@ const config = {
               },
             ],
           },
-          {
-            title: 'Gitee',
-            items: [
-              {
-                label: 'Gitee',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              // {
-              //   label: 'Discord',
-              //   href: 'https://discordapp.com/invite/docusaurus',
-              // },
-              // {
-              //   label: 'Twitter',
-              //   href: 'https://twitter.com/docusaurus',
-              // },
-            ],
-          },
-          {
-            title: '微信交流群',
-            items: [
-              {
-                label: '微信交流群',
-                to: '/blog',
-              },
-              // {
-              //   label: 'GitHub',
-              //   href: 'https://github.com/facebook/docusaurus',
-              // },
-            ],
-          },
-          {
-            title: 'QQ交流群',
-            items: [
-              {
-                label: 'QQ交流群',
-                to: '/blog',
-              },
-              // {
-              //   label: 'GitHub',
-              //   href: 'https://github.com/facebook/docusaurus',
-              // },
-            ],
-          },
+          // {
+          //   title: 'Gitee',
+          //   items: [
+          //     {
+          //       label: 'Gitee',
+          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+          //     },
+          //     // {
+          //     //   label: 'Discord',
+          //     //   href: 'https://discordapp.com/invite/docusaurus',
+          //     // },
+          //     // {
+          //     //   label: 'Twitter',
+          //     //   href: 'https://twitter.com/docusaurus',
+          //     // },
+          //   ],
+          // },
+          // {
+          //   title: '微信交流群',
+          //   items: [
+          //     {
+          //       label: '微信交流群',
+          //       to: '/blog',
+          //     },
+          //     // {
+          //     //   label: 'GitHub',
+          //     //   href: 'https://github.com/facebook/docusaurus',
+          //     // },
+          //   ],
+          // },
+          // {
+          //   title: 'QQ交流群',
+          //   items: [
+          //     {
+          //       label: 'QQ交流群',
+          //       to: '/blog',
+          //     },
+          //     // {
+          //     //   label: 'GitHub',
+          //     //   href: 'https://github.com/facebook/docusaurus',
+          //     // },
+          //   ],
+          // },
         ],
         // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-        copyright: `Copyright © ${new Date().getFullYear()} 北京极益科技有限公司版权所有.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 北京极益科技有限公司 版权所有.`,
       },
       prism: {
         theme: lightCodeTheme,
