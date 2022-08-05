@@ -2,51 +2,51 @@
  --><!-- Title: g Pages: 1 --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="556pt" height="489pt" viewBox="0.00 0.00 556.00 489.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 485)">
 <title>g</title>
-<text text-anchor="middle" x="274" y="-450" font-family="Microsoft YaHei" font-size="30.00" fill="#000000">系统部署结构</text>
+<text text-anchor="middle" x="274" y="-450" font-family="Microsoft YaHei" font-size="30.00" fill="#1874cd">系统部署结构</text>
 <g id="clust1" class="cluster">
 <title>cluster_0</title>
 <path fill="transparent" stroke="#1874cd" d="M214,-179.6C214,-179.6 428,-179.6 428,-179.6 434,-179.6 440,-185.6 440,-191.6 440,-191.6 440,-245.4 440,-245.4 440,-251.4 434,-257.4 428,-257.4 428,-257.4 214,-257.4 214,-257.4 208,-257.4 202,-251.4 202,-245.4 202,-245.4 202,-191.6 202,-191.6 202,-185.6 208,-179.6 214,-179.6"/>
-<text text-anchor="middle" x="321" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">MQTT Broker集群</text>
+<text text-anchor="middle" x="321" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">MQTT Broker集群</text>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_2</title>
 <path fill="transparent" stroke="#1874cd" d="M79,-351.2C79,-351.2 125,-351.2 125,-351.2 131,-351.2 137,-357.2 137,-363.2 137,-363.2 137,-417 137,-417 137,-423 131,-429 125,-429 125,-429 79,-429 79,-429 73,-429 67,-423 67,-417 67,-417 67,-363.2 67,-363.2 67,-357.2 73,-351.2 79,-351.2"/>
-<text text-anchor="middle" x="102" y="-412.4" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">用户端</text>
+<text text-anchor="middle" x="102" y="-412.4" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">用户端</text>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_3</title>
 <path fill="transparent" stroke="#1874cd" d="M79,-265.4C79,-265.4 125,-265.4 125,-265.4 131,-265.4 137,-271.4 137,-277.4 137,-277.4 137,-331.2 137,-331.2 137,-337.2 131,-343.2 125,-343.2 125,-343.2 79,-343.2 79,-343.2 73,-343.2 67,-337.2 67,-331.2 67,-331.2 67,-277.4 67,-277.4 67,-271.4 73,-265.4 79,-265.4"/>
-<text text-anchor="middle" x="102" y="-326.6" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">前端服务</text>
+<text text-anchor="middle" x="102" y="-326.6" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">前端服务</text>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_4</title>
 <path fill="transparent" stroke="#1874cd" d="M288,-265.4C288,-265.4 478,-265.4 478,-265.4 484,-265.4 490,-271.4 490,-277.4 490,-277.4 490,-331.2 490,-331.2 490,-337.2 484,-343.2 478,-343.2 478,-343.2 288,-343.2 288,-343.2 282,-343.2 276,-337.2 276,-331.2 276,-331.2 276,-277.4 276,-277.4 276,-271.4 282,-265.4 288,-265.4"/>
-<text text-anchor="middle" x="383" y="-326.6" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">设备端</text>
+<text text-anchor="middle" x="383" y="-326.6" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">设备端</text>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_5</title>
 <path fill="transparent" stroke="#1874cd" d="M20,-8C20,-8 378,-8 378,-8 384,-8 390,-14 390,-20 390,-20 390,-73.8 390,-73.8 390,-79.8 384,-85.8 378,-85.8 378,-85.8 20,-85.8 20,-85.8 14,-85.8 8,-79.8 8,-73.8 8,-73.8 8,-20 8,-20 8,-14 14,-8 20,-8"/>
-<text text-anchor="middle" x="199" y="-69.2" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">数据库集群</text>
+<text text-anchor="middle" x="199" y="-69.2" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">数据库集群</text>
 </g>
 <g id="clust7" class="cluster">
 <title>cluster_6</title>
 <path fill="transparent" stroke="#1874cd" d="M32,-179.6C32,-179.6 80,-179.6 80,-179.6 86,-179.6 92,-185.6 92,-191.6 92,-191.6 92,-245.4 92,-245.4 92,-251.4 86,-257.4 80,-257.4 80,-257.4 32,-257.4 32,-257.4 26,-257.4 20,-251.4 20,-245.4 20,-245.4 20,-191.6 20,-191.6 20,-185.6 26,-179.6 32,-179.6"/>
-<text text-anchor="middle" x="56" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">前端代理</text>
+<text text-anchor="middle" x="56" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">前端代理</text>
 </g>
 <g id="clust8" class="cluster">
 <title>cluster_7</title>
 <path fill="transparent" stroke="#1874cd" d="M410,-8C410,-8 528,-8 528,-8 534,-8 540,-14 540,-20 540,-20 540,-73.8 540,-73.8 540,-79.8 534,-85.8 528,-85.8 528,-85.8 410,-85.8 410,-85.8 404,-85.8 398,-79.8 398,-73.8 398,-73.8 398,-20 398,-20 398,-14 404,-8 410,-8"/>
-<text text-anchor="middle" x="469" y="-69.2" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">缓存服务集群</text>
+<text text-anchor="middle" x="469" y="-69.2" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">缓存服务集群</text>
 </g>
 <g id="clust9" class="cluster">
 <title>cluster_8</title>
 <path fill="transparent" stroke="#1874cd" d="M173,-93.8C173,-93.8 363,-93.8 363,-93.8 369,-93.8 375,-99.8 375,-105.8 375,-105.8 375,-159.6 375,-159.6 375,-165.6 369,-171.6 363,-171.6 363,-171.6 173,-171.6 173,-171.6 167,-171.6 161,-165.6 161,-159.6 161,-159.6 161,-105.8 161,-105.8 161,-99.8 167,-93.8 173,-93.8"/>
-<text text-anchor="middle" x="268" y="-155" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">后端集群</text>
+<text text-anchor="middle" x="268" y="-155" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">后端集群</text>
 </g>
 <g id="clust10" class="cluster">
 <title>cluster_9</title>
 <path fill="transparent" stroke="#1874cd" d="M112,-179.6C112,-179.6 182,-179.6 182,-179.6 188,-179.6 194,-185.6 194,-191.6 194,-191.6 194,-245.4 194,-245.4 194,-251.4 188,-257.4 182,-257.4 182,-257.4 112,-257.4 112,-257.4 106,-257.4 100,-251.4 100,-245.4 100,-245.4 100,-191.6 100,-191.6 100,-185.6 106,-179.6 112,-179.6"/>
-<text text-anchor="middle" x="147" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#000000">规则引擎</text>
+<text text-anchor="middle" x="147" y="-240.8" font-family="Microsoft YaHei" font-size="14.00" fill="#1874cd">规则引擎</text>
 </g>
 <!-- MQTT Broker -->
 <g id="node1" class="node">
