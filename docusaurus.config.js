@@ -75,13 +75,13 @@ const config = {
           { to: '/blog', label: '博客', position: 'left' },
           {
             // 新增
-            lastVersion: 'current',
-            versions: {
-              current: {
-                label: 'v2',
-                path: '1.0.0',
-              },
-            },
+            // lastVersion: 'current',
+            // versions: {
+            //   current: {
+            //     label: 'v2',
+            //     path: '1.0.0',
+            //   },
+            // },
             // 新增
             type: 'docsVersionDropdown',
             position: 'right',

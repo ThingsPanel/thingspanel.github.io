@@ -34,9 +34,9 @@
 }
 
 /* footer底部颜色 */
-/* .footer {
+.footer {
   background-color:#314694;
-} */
+}
 /* dark版本的字体号颜色 */
 .hero--primary {
   --ifm-hero-text-color: #fff;
