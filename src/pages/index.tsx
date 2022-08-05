@@ -31,7 +31,7 @@ function HomepageHeader() {
           </Link>
           </span>
         </div>
-      
+
       </div>
     </header>
   );
@@ -42,88 +42,29 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="物联网应用支撑平台 <head />">
+      description="物联网应用支撑平台">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        {/* <div className={styles.function_background}>
-        <div className="container">
-          <div className="container_backgraund">
-                <h1 className={styles.function_Introduction}>功能介绍</h1>
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>业务管理</h2>
-                  <p>一个系统可整合多个业务，可拓展更多功能</p>
-                </div>  
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>资产管理</h2>
-                  <p>树结构资产与设备组织模式， 清晰又方便</p>
-                </div> 
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>应用管理</h2>
-                  <p>设备插件：例如PM2.5传感器 报表插件：热力图单元农业可视化大屏幕 应用插件：商城插件，新闻插件</p>
-                </div> 
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>自动化</h2>
-                  <p>IFTTT模式，包括时间与设备 两种触发模式，自动化告警 和自动化控制</p>
-                </div> 
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>可视化</h2>
-                  <p>支持以插件为容易的图表单元自由组织，也可以直接设计自己的可视化大屏幕</p>
-                </div> 
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>业务管理</h2>
-                  <p>一个系统可整合多个业务，可拓展更多功能</p>
-                </div> 
-                <div className={styles.features}>
-                  <span></span>
-                  <h2>业务管理</h2>
-                  <p>一个系统可整合多个业务，可拓展更多功能</p>
-                </div> 
-          </div>
-        </div>
-        </div> */
-        }
           <h3 className={styles.function_Introduction}>功能介绍</h3>
           <HomepageContent />
-          {/* <div className={styles.footermy}>
-            <div className="container"> 
-              <img className={styles.logoone} src='dark.svg'></img>
-              <div className={styles.relevant}>
-                <div className={styles.relevant_left}>
-                    <div className={styles.hand}>
-                      <img src='dark.svg' alt=''></img>
-                      <span>Github</span>
-                    </div>
-                    <div className={styles.hand}>
-                      <img src='dark.svg' alt=''></img>
-                      <span>Gitee</span>
-                    </div>
-                    <div className={styles.hand}>
-                      <img src='dark.svg' alt=''></img>
-                      <span>微信交流群</span>
-                    </div>
-                    <div className={styles.hand}>
-                      <img src='dark.svg' alt=''></img>
-                      <span>QQ交流群</span>
-                    </div>
-                </div>
-                <div className={styles.relevant_right}>
-                    <span>商务咨询</span>
-                </div>
-                <div className={styles.line}></div>
-                <div className={styles.company}>
-                  <div>北京极益科技有限公司版权所有.</div>
-                  <div><a href='https://beian.miit.gov.cn/'>ICP：京ICP备15045763号-12</a></div>
-                </div>
-              </div>
+        
+{/* footer */}
+        <footer className="footer footer--dark">
+          <div className="container container--fluid">
+            <div className="footer__links">
+              <a className="footer__link-item" href="https://github.com/ThingsPanel">Github</a>
+              <span className="footer__link-separator">&middot;</span>
+              <a className="footer__link-item" href="https://gitee.com/ThingsPanel">Gitee</a>
+              {/* <span className="footer__link-separator">&middot;</span>
+              <a className="footer__link-item" href="#url">Blog</a>
+              <span className="footer__link-separator">&middot;</span>
+              <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
-          </div> */}
+            <div>Copyright © 2022 北京极益科技有限公司 版权所有.</div>
+          </div>
+        </footer>
+{/* footer */}
       </main>
     </Layout>
   );
