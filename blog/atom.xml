@@ -8,64 +8,19 @@
     <subtitle>ThingsPanel Blog</subtitle>
     <icon>https://www.thingspanel.io/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[text Post]]></title>
-        <id>text</id>
-        <link href="https://www.thingspanel.io/blog/text"/>
+        <title type="html"><![CDATA[ThingsPanel 发布物联网手机客户端（多图）]]></title>
+        <id>thingspanel-app</id>
+        <link href="https://www.thingspanel.io/blog/thingspanel-app"/>
         <updated>2022-07-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <summary type="html"><![CDATA[ThingsPanel 是一款物联网底层开源软件，主要功能是采集设备数据、可视化、自动化控制，为众多集成商、设备商、方案商提供快速的产品和交付方案。]]></summary>
+        <content type="html"><![CDATA[<p>ThingsPanel 是一款物联网底层开源软件，主要功能是采集设备数据、可视化、自动化控制，为众多集成商、设备商、方案商提供快速的产品和交付方案。</p><p>ThingsPanel 的手机端 APP 用于对 ThingsPanel 提供移动管理和控制支持。主要实现的功能包括监测、控制、策略、以及设备添加管理等功能。是 ThingsPanel 的轻型使用客户端，支持 SAAS 场景。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="手机端的功能特点包括">手机端的功能特点包括：<a class="hash-link" href="#手机端的功能特点包括" title="标题的直接链接">​</a></h2><ul><li>使用 Uniapp 开发，可以方便的编译成 iOS，安卓，微信小程序以及其他小程序，H5。 </li><li>可以扫码添加设备（设备需要在后台先导入）。 </li><li>查看监测值。     </li><li>切换智能化业务和设备分组。     </li><li>手动控制。     </li><li>设置控制策略，</li><li>分为设备触发和时间条件触发两种。   </li><li>查看操作日志。  </li><li>个人账号管理功能。   </li><li>手机验证码登录。</li></ul><p>ThingsPanel-APP手机客户端登录页面
+<img loading="lazy" alt="ThingsPanel-APP登录页" src="/assets/images/thingspanel-app-login-c0f332e33ebb51113ab0296a79a29d71.webp" width="519" height="1031" class="img_ev3q"></p><p>ThingsPanel-APP手机客户端首页
+<img loading="lazy" alt="ThingsPanel-APP" src="/assets/images/thingspanel-app-home-519993a05bd1fdc486ffef36daba299a.webp" width="519" height="1031" class="img_ev3q"></p>]]></content>
         <author>
-            <name>Gao Wei</name>
-            <uri>https://github.com/wgao19</uri>
+            <name>zjhong</name>
+            <uri>https://github.com/zjhong</uri>
         </author>
-        <category label="hola" term="hola"/>
-        <category label="docusaurus" term="docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>welcome</id>
-        <link href="https://www.thingspanel.io/blog/welcome"/>
-        <updated>2021-08-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></summary>
-        <content type="html"><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer">blog plugin</a>.</p><p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p><p>Regular blog authors can be added to <code>authors.yml</code>.</p><p>The blog post date can be extracted from filenames, such as:</p><ul><li><code>2019-05-30-welcome.md</code></li><li><code>2019-05-30-welcome/index.md</code></li></ul><p>A blog post folder can be convenient to co-locate blog post images:</p><p><img loading="lazy" alt="Docusaurus Plushie" src="/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p><p>The blog supports tags as well!</p><p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content>
-        <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
-        </author>
-        <author>
-            <name>Yangshun Tay</name>
-            <uri>https://github.com/yangshun</uri>
-        </author>
-        <category label="facebook" term="facebook"/>
-        <category label="hello" term="hello"/>
-        <category label="docusaurus" term="docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Long Blog Post]]></title>
-        <id>long-blog-post</id>
-        <link href="https://www.thingspanel.io/blog/long-blog-post"/>
-        <updated>2019-05-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This is the summary of a very long blog post,]]></summary>
-        <content type="html"><![CDATA[<p>This is the summary of a very long blog post,</p><p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Endilie Yacop Sucipto</name>
-            <uri>https://github.com/endiliey</uri>
-        </author>
-        <category label="hello" term="hello"/>
-        <category label="docusaurus" term="docusaurus"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>first-blog-post</id>
-        <link href="https://www.thingspanel.io/blog/first-blog-post"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
-        <author>
-            <name>Gao Wei</name>
-            <uri>https://github.com/wgao19</uri>
-        </author>
-        <category label="hola" term="hola"/>
-        <category label="docusaurus" term="docusaurus"/>
+        <category label="ThingsPanel" term="ThingsPanel"/>
+        <category label="APP" term="APP"/>
     </entry>
 </feed>

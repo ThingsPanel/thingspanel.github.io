@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[6068],{6593:e=>{e.exports=JSON.parse('{"label":"ThingsPanel","permalink":"/en/blog/tags/things-panel","allTagsPath":"/en/blog/tags","count":1}')}}]);

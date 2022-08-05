@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"ThingsPanel \u53d1\u5e03\u7269\u8054\u7f51\u624b\u673a\u5ba2\u6237\u7aef\uff08\u591a\u56fe\uff09","permalink":"/en/blog/thingspanel-app"}]}')}}]);
