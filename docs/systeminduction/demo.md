@@ -12,4 +12,5 @@ http://dev.thingspanel.cn/
 
 - 用户名：admin@thingspanel.cn 
 - 密码：123456
-![查看手机端](./../img/2022-08-04-17-53-42.png)
+
+![查看手机端](./../img/Thingspanel-app.png )
