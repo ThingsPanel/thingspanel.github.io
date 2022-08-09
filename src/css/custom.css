@@ -33,10 +33,11 @@
   --ifm-col-width: calc(4 / 16 * 100%);
 }
 
-/* footer底部颜色 */
-.footer {
-  background-color:#314694;
+/* footer底部的自定义颜色 */
+[data-theme='light'] .footer--dark {
+  --ifm-footer-background-color: #314694;
 }
+
 /* dark版本的字体号颜色 */
 .hero--primary {
   --ifm-hero-text-color: #fff;

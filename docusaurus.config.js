@@ -93,25 +93,25 @@ const config = {
             label: '文档',
           },
           { to: '/blog', label: '博客', position: 'left' },
-          {
-            // 新增
-            // lastVersion: 'current',
-            // versions: {
-            //   current: {
-            //     label: 'v2',
-            //     path: '1.0.0',
-            //   },
-            // },
-            // 新增
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [
-              // { to: '/docs/next/intro', label: 'v2', target: '_blank' },
-              // { to: '/docs/next/intro', label: 'v1', target: '_blank' },
-            ],
-            // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-            dropdownActiveClassDisabled: true,
-          },
+          // {
+          //   // 新增
+          //   // lastVersion: 'current',
+          //   // versions: {
+          //   //   current: {
+          //   //     label: 'v2',
+          //   //     path: '1.0.0',
+          //   //   },
+          //   // },
+          //   // 新增
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          //   dropdownItemsAfter: [
+          //     // { to: '/docs/next/intro', label: 'v2', target: '_blank' },
+          //     // { to: '/docs/next/intro', label: 'v1', target: '_blank' },
+          //   ],
+          //   // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+          //   dropdownActiveClassDisabled: true,
+          // },
 
           {
             type: 'localeDropdown',
