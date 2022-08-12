@@ -13,6 +13,7 @@
   --ifm-color-primary-light: #364da3;
   --ifm-color-primary-lighter: #3851aa;
   --ifm-color-primary-lightest: #405bc0;
+  /* --ifm-footer-link-hover-color:#FFF; */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -26,6 +27,7 @@
   --ifm-color-primary-light: #364da3;
   --ifm-color-primary-lighter: #3851aa;
   --ifm-color-primary-lightest: #405bc0;
+  /* --ifm-navbar-link-hover-color:#314694; */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 /* 图片自定义样式-banner下4组 */
@@ -33,14 +35,38 @@
   --ifm-col-width: calc(4 / 16 * 100%);
 }
 
-/* footer底部颜色 */
-.footer {
-  background-color:#314694;
+/* footer底部的自定义颜色 */
+[data-theme='light'] .footer--dark {
+  --ifm-footer-background-color: #314694;
 }
+
+/* footer底部暗黑的hover效果 */
+[data-theme='dark'] .footer__link-item:hover {
+  color: #314694;
+}
+
+/* footer底部root的hover效果 */
+.footer__link-item:hover {
+  color: #fff;
+}
+
 /* dark版本的字体号颜色 */
 .hero--primary {
   --ifm-hero-text-color: #fff;
 }
+
+/* dark版本的hover字体号颜色 */
+.navbar__link--active, .navbar__link:hover {
+  color: #314694;
+}
+
+/* dark版本的[首页]hover字体号颜色 */
+.navbar__brand:hover{
+  color: #314694;
+}
+
+
+
 /* ============================搜索主题 start================================== */
 [data-theme='light'] .DocSearch {
   /* --docsearch-primary-color: var(--ifm-color-primary); */
