@@ -6,7 +6,7 @@ authors:
   title: 极益科技
   url: https://github.com/zjhong
   image_url: https://avatars.githubusercontent.com/u/61645647?s=64&v=4
-tags: [ThingsPanel, 规则引擎，权限系统，性能测试]
+tags: [ThingsPanel, 规则引擎, 权限系统, 性能测试]
 ---
 
 ## 发布说明
