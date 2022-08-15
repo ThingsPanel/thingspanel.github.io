@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.thingspanel.io/fr/blog</id>
     <title>ThingsPanel Blog</title>
-    <updated>2022-07-22T00:00:00.000Z</updated>
+    <updated>2022-08-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.thingspanel.io/fr/blog"/>
     <subtitle>ThingsPanel Blog</subtitle>
     <icon>https://www.thingspanel.io/fr/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[ThingsPanel-0.3.0 发布，增加规则引擎、权限系统、优化设备接入]]></title>
+        <id>thingspanel-ver</id>
+        <link href="https://www.thingspanel.io/fr/blog/thingspanel-ver"/>
+        <updated>2022-08-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[发布说明]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="发布说明">发布说明<a class="hash-link" href="#发布说明" title="Lien direct vers le titre">​</a></h2><p>这次的发布修改了之前用户提出的众多问题，尤其是大规模设备的管理、复杂设备的接入、如何高效的将数据转发给第三方。另外这次也是对性能进行了一个整体的测试，模拟10000个设备对系统进行了压力测试，并实现了单TimescaleDB节点5000设备/秒接入能力（4核心8G）。在权限方面，横向精细到操作和按钮，建立了较为完整的RBAC权限支持。当然也包括很多细节改进。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="系统演示">系统演示<a class="hash-link" href="#系统演示" title="Lien direct vers le titre">​</a></h2><p>演示地址：<a href="http://dev.thingspanel.cn" target="_blank" rel="noopener noreferrer">http://dev.thingspanel.cn</a></p><p>账号密码</p><ul><li>用户名：<a href="mailto:admin@thingspanel.cn" target="_blank" rel="noopener noreferrer">admin@thingspanel.cn</a> </li><li>密码：123456</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="新增功能">新增功能​<a class="hash-link" href="#新增功能" title="Lien direct vers le titre">​</a></h2><ul><li>增加了 Redis 作为缓存模块</li><li>增加了 RBAC 权限管理模块，使用的是 Casbin 权限框架，权限粒度具体到设备、按钮或者接口</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-25-27-edcc0589a23120a34297081a4ca00b08.png" width="1920" height="942" class="img_ev3q"></p><ul><li>增加了角色管理页面，支持多个角色。</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-28-22-ef641defb0c7ef82e37eff61dec239b5.png" width="2736" height="1548" class="img_ev3q"></p><ul><li>增加了权限管理页面，权限精细到操作。</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-29-21-07cf8310aba9a9d2182610e9b595c74c.png" width="1920" height="942" class="img_ev3q"></p><ul><li>系统后端增加了对 Docker 环境变量的支持，方便配置。</li><li>简化了部署，增加了对华为云 / 阿里云的适配。</li><li>增加了接入规则引擎和数据转发功能。</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-30-05-615543ea96b534fc116214c3caa54679.png" width="1920" height="942" class="img_ev3q"></p><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-30-15-f7ad6ee09cb2ad7f29898a1d6d5c087a.png" width="1920" height="942" class="img_ev3q"></p><ul><li>重写了业务 - 设备分组 - 设备模块，支持设备无限分组</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-30-50-c66dceb356a3b33ff680550f2bef2a24.png" width="1920" height="942" class="img_ev3q"></p><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-30-59-4609e9396e966f1dea780ef3b283bee9.png" width="911" height="435" class="img_ev3q"></p><ul><li>增加了操作设备的日志，支持查询手动操作和自动操作记录</li></ul><p><img loading="lazy" src="/fr/assets/images/2022-08-15-11-31-15-05ace52bf2c3aa8873d76e1d9c768a2c.png" width="1920" height="942" class="img_ev3q"></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="优化和修复">优化和修复​<a class="hash-link" href="#优化和修复" title="Lien direct vers le titre">​</a></h2><ul><li>优化了首次登录加载速度。</li><li>优化了整体的 UI。</li><li>优化了部分表索引和排序，提高了操作的流畅度。</li><li>提高了压力测试标准，对各方面性能和结构进行了优化。</li><li>优化了自动化的告警和控制策略。</li><li>重写了用户添加功能和页面。</li><li>优化了告警信息页面。</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="下一个版本计划">下一个版本计划<a class="hash-link" href="#下一个版本计划" title="Lien direct vers le titre">​</a></h2><p>下一个版本编号0.4.0，功能上计划借鉴HomeAssistant，实现更为开放的结构，增加共享图表组件组，使开发插件更为简单，更高的插件开发效率。ThingsPanel之前存在的重大结构性问题将得到改进，尤其在大型集成项目上，效率将非常突出。</p>]]></content>
+        <author>
+            <name>zjhong</name>
+            <uri>https://github.com/zjhong</uri>
+        </author>
+        <category label="ThingsPanel" term="ThingsPanel"/>
+        <category label="规则引擎，权限系统，性能测试" term="规则引擎，权限系统，性能测试"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ThingsPanel 发布物联网手机客户端（多图）]]></title>
         <id>thingspanel-app</id>
