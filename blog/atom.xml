@@ -19,7 +19,9 @@
             <uri>https://github.com/zjhong</uri>
         </author>
         <category label="ThingsPanel" term="ThingsPanel"/>
-        <category label="规则引擎，权限系统，性能测试" term="规则引擎，权限系统，性能测试"/>
+        <category label="规则引擎" term="规则引擎"/>
+        <category label="权限系统" term="权限系统"/>
+        <category label="性能测试" term="性能测试"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[ThingsPanel 发布物联网手机客户端（多图）]]></title>
