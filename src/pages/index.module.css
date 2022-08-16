@@ -43,4 +43,9 @@
     flex-basis: calc(25% - 4rem);
 }
 
+/* 首页底部间距 */
+p {
+  margin-bottom: 40px;
+}
+
 
