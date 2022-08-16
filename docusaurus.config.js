@@ -47,8 +47,6 @@ const config = {
   ],
 
 
-
-
   presets: [
     [
       'classic',
@@ -112,6 +110,8 @@ const config = {
           //   // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           //   dropdownActiveClassDisabled: true,
           // },
+
+
 
           {
             type: 'localeDropdown',
