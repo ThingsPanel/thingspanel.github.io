@@ -4,16 +4,17 @@ sidebar_position: 2
 
 # Docker安装
 
-## windows环境准备
-
-- **windows电脑安装 [Docker Desktop](https://www.docker.com/products/docker-desktop)**
-- **git**
-
 ## linux环境准备
+
+:::tip
+
+windows环境下请安装`Docker Desktop`和`git`。
+
+:::
 
 - **安装docker**
 
-    ```bash
+    ```bash showLineNumbers
     dnf config-manager --add-repo <https://download.docker.com/linux/centos/docker-ce.repo>
     dnf install docker-ce docker-ce-cli containerd.io
     systemctl start docker.service
@@ -22,7 +23,7 @@ sidebar_position: 2
 
 - **安装docker-compose**
 
-    ```bash
+    ```bash showLineNumbers
     curl -L "<https://github.com/docker/compose/releases/download/v2.9.0/docker-compose>-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     ```
@@ -33,9 +34,11 @@ sidebar_position: 2
     dnf install git -y
     ```
 
-- **使用拉取项目**
+## 开始安装
 
-    ```bash
+- **拉取项目**
+
+    ```bash showLineNumbers
     # 拉取docker配置
     git clone https://github.com/ThingsPanel/thingsPanel-go-docker.git
     cd thingsPanel-go-docker
@@ -45,7 +48,7 @@ sidebar_position: 2
 
     > 在`thingsPanel-go-docker`目录下(win需要打开`cmd` 窗口)
 
-    ```bash
+    ```bash showLineNumbers
     # 以日志显示前台方式启动项目(默认账户和密码 admin@thingspanel.cn 123456)(默认端口8080)
     docker-compose -f docker-compose.yml up
     # 或者以隐藏日志显示的方式启动项目
@@ -56,7 +59,7 @@ sidebar_position: 2
 
 ## 挂载说明
 
-- **查看挂载的卷(后面./的目录为卷)**
+- **查看挂载的卷(后面非./开头的目录为卷)**
 
     ```bash
     docker volume ls
@@ -66,36 +69,36 @@ sidebar_position: 2
     thingspanel-postgres #数据库
     ```
 
-- **系统日志、图片等存放目录**
+- **系统日志**
 
     ```bash
-    ./thingspanel-go/files
+    ./init_files/backend/logs/
     ```
 
-- **插件**
+- **插件目录**
     > 无需重启容器
 
     ```bash
-    ./thingspanel-go/extensions
+    thingspanel-go/extensions/
     ```
 
 - **后端代码目录**
     > 可在此处更新和编译代码，编译后重启后端容器
 
     ```bash
-    ./init_files/backend
+    thingspanel-go
     ```
 
 - **前端代码目录**
     > 可将vue打包好的文件放在此处，重启前端容器
 
     ```bash
-    ./init_files/html
+    thingspanel-html
     ```
 
 ## 查看容器运行日志
 
-```bash
+```bash showLineNumbers
 docker logs -f containerID
 或
 ./init_files/files/log/
@@ -103,27 +106,24 @@ docker logs -f containerID
 
 ## 注意事项
 
-- 端口：
+端口：
 
-    ```bash
-    > 8080（前端服务端口）
-    > 9998（tcp端口）
-    > 9999（API端口）
-    > 1883（mqtt端口）
-    > 5432（postogresql端口）
-    > 6379（redis端口）
-    ```
-
-- mqtt订阅主题：thingspanel.telemetry
-- mqtt默认账号：guest
-- mqtt默认密码：guest
-- 温湿度数据推送案例：{"token":"123456","type":"ep","values":{"temp":23.0,"hum":13}}
-
-    > （注意数字和字符串的区分）
-
-##  前台访问 
+```bash showLineNumbers
+8080（前端服务端口）
+9998（tcp端口）
+9999（API端口）
+1883（mqtt端口）
+5432（postogresql端口）
+6379（redis端口）
 ```
-- 地址：:8080
-- 用户名：admin@thingspanel.cn
-- 密码：123456
-```
+
+mqtt订阅主题：thingspanel.telemetry  
+mqtt默认账号：guest  
+mqtt默认密码：guest  
+
+:::tip 测试案例
+
+温湿度数据推送：{"token":"123456","type":"ep","values":{"temp":23.0,"hum":13}}  
+`注意数字和字符串的区分`
+
+:::
