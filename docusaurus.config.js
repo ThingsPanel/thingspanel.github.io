@@ -25,7 +25,8 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: [ 'zh-Hans','en', 'fr'],
+    locales: [ 'zh-Hans','en'],
+    // locales: [ 'zh-Hans','en', 'fr'],
   },
   themes: [
     // ... Your other themes.
@@ -48,7 +49,7 @@ const config = {
 
 
   presets: [
-    [
+    [ 
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       // /** @type {import('@docusaurus/preset-classic').Options} */
@@ -110,7 +111,7 @@ const config = {
           //   // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           //   dropdownActiveClassDisabled: true,
           // },
-
+          // { to: '/docs/next/intro', label: 'V2', target: '_blank' ,position: 'right'},
 
 
           {
@@ -197,8 +198,6 @@ const config = {
         darkTheme: darkCodeTheme,
       }
     }),
-
-  
 };
 
 module.exports = config;
