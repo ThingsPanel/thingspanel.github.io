@@ -1,0 +1,34 @@
+---
+sidebar_position: 1
+---
+
+# 可视化
+
+## 1. 说明
+在ThingsPanel的可视化模块中，用户可以自定义设备的可视化图表，以及用于和设备进行交互的组件。
+
+## 2. 操作步骤
+
+### 1). 列表
+**可视化**
+![img.png](images/visualization_02_01.png)
+
+### 2). 新增
+**可视化** -> **新增**  
+填入自定义的名称，在业务列表中选择对应的业务，点击`保存`。  
+
+![img.png](images/visualization_02_02.png) 
+
+### 3). 编辑
+**可视化** -> **编辑**  
+
+![img.png](images/visualization_02_03.png)
+
+### 4). 删除
+**可视化** -> **删除**  
+
+### 5). 可视化图表
+**可视化** -> **可视化图表**   
+新增了一条可视化数据后，点击`可视化图表`按钮可进入可视化图表管理界面。  
+
+具体操作方法请查看：[`可视化图表`](/docs/operation-manual/visualization/visualization_chart)
