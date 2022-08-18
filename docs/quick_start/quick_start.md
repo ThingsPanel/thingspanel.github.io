@@ -12,11 +12,11 @@ sidebar_position: 1
 
 通过容器化部署是搭建ThingsPanel的最快方式。
 
-```bash title="获取docker-compose源码:"
+```bash title="获取docker-compose源码:" showLineNumbers
 git clone https://github.com/ThingsPanel/thingsPanel-go-docker.git
 ```
 
-```bash title="进入目录并启动服务:"
+```bash title="进入目录并启动服务:" showLineNumbers
 cd thingsPanel-go-docker
 docker-compose -f docker-compose.yml up
 ```
