@@ -10,6 +10,6 @@ sidebar_position: 3
 
 :::info
 
-请查阅[`代码库`](./systeminduction/code_repository)的README安装步骤。
+请查阅[`代码库`](../systeminduction/code_repository)的README安装步骤。
 
 :::
