@@ -7,7 +7,7 @@ sidebar_position: 6
 ### ThingsPanel系统首页  
 ![ThingsPanel系统首页](/img/thingspanel-home.png)  
 
-### <ThingsPanel业务管理  
+### ThingsPanel业务管理  
 ![ThingsPanel业务管理](/img/thingspanel-application.png)  
 
 ### ThingsPanel空气质量插件  
