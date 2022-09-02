@@ -46,9 +46,27 @@ const config = {
       },
     ],
   ],
-
+  plugins: [
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'G-18JL3B13JT',
+        anonymizeIP: true,
+      },
+    ],
+  ],
 
   presets: [
+    // [
+    //   '@docusaurus/preset-classic',
+    //   {
+    //     googleAnalytics: {
+    //       trackingID: 'G-18JL3B13JT',
+    //       anonymizeIP: true,
+    //     },
+    //   },
+
+    // ],
     [ 
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
