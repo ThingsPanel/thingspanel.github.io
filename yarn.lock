@@ -1178,10 +1178,10 @@
   "resolved" "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz"
   "version" "1.5.0"
 
-"@crowdin/cli@^3.7.9":
-  "integrity" "sha512-UmGWBuRI0atIMjqtDf7SbyyJNAeB5xW2E8q7R+rtkeqY6LqyNtb+sKS2deMLhTH93AtWfDmGFt4TzOTeILvCaA=="
-  "resolved" "https://registry.npmjs.org/@crowdin/cli/-/cli-3.7.9.tgz"
-  "version" "3.7.9"
+"@crowdin/cli@^3.7.10":
+  "integrity" "sha512-L0sjeEv4bn7LHNYsKxl2aTrah16u1ThufN0xvMMH7o53lD29llvVfAD9jVOttSl/kyQ+mMDY8GLzjPRNFdLJqQ=="
+  "resolved" "https://registry.npmmirror.com/@crowdin/cli/-/cli-3.7.10.tgz"
+  "version" "3.7.10"
   dependencies:
     "njre" "^0.2.0"
     "shelljs" "^0.8.4"
