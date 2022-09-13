@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: crowdin
-        run: npm run crowdin:sync
+        run: shell set "CROWDIN_PERSONAL_TOKEN=7df4c53876fdb3a6f63911c3e14c262f5ea16a2f466b8097dd2b6a693b1c8510fc24e9cf18f46cab" && npm run crowdin:sync
       - name: Build website
         run: npm run build
 
