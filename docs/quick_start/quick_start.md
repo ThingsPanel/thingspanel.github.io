@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 快速开始
+# 快速安装
 
 本章节将指导您从下载安装开始，快速搭建ThingsPanel。
 
