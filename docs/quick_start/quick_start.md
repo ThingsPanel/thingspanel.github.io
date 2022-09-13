@@ -23,8 +23,8 @@ docker-compose -f docker-compose.yml up
 
 ```text
 输入网址:服务器ip:8080
-输入账户:123456
-输入密码:super@super.cn
+输入账户:super@super.cn
+输入密码:123456
 ```
 
 :::info
