@@ -29,7 +29,6 @@ jobs:
         run: npm run crowdin:sync
       - name: Build website
         run: npm run build
-
       # 部署到 GitHub Pages 的热门选择：
       # 文档：https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
