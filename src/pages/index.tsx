@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import HomepageContent from '@site/src/components/HomepageContent';
 import styles from './index.module.css';
+import {translate} from '@docusaurus/Translate';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -42,7 +43,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="物联网应用支撑平台">
+      description={translate({message: '物联网应用支撑平台'})}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
