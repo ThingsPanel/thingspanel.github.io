@@ -21,6 +21,11 @@ cd thingsPanel-go-docker
 docker-compose -f docker-compose.yml up
 ```
 
+```text
+默认端口:8080
+默认账户和密码:super@super.cn 123456
+```
+
 :::info
 
 更详细的`步骤`请参考[`Docker安装`](./system-installation/docker_installation)。
