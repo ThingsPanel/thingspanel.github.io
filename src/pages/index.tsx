@@ -66,7 +66,6 @@ export default function Home(): JSX.Element {
           </div>
         </footer>
 {/* footer */}
-
       </main>
     </Layout>
   );
