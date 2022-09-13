@@ -24,7 +24,8 @@ jobs:
       - name: create en
         run: npm run write-translations -- --locale en
       - name: crowdin
-        run: export CROWDIN_PERSONAL_TOKEN="7df4c53876fdb3a6f63911c3e14c262f5ea16a2f466b8097dd2b6a693b1c8510fc24e9cf18f46cab" && npm run crowdin:sync
+        env:CROWDIN_PERSONAL_TOKEN: ${{secrets.CROWDIN_PERSONAL_TOKEN}}
+        run: export CROWDIN_PERSONAL_TOKEN="%CROWDIN_PERSONAL_TOKEN%" && npm run crowdin:sync
       - name: Build website
         run: npm run build
 
