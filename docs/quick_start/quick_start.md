@@ -21,7 +21,7 @@ cd thingsPanel-go-docker
 docker-compose -f docker-compose.yml up
 ```
 
-```text
+```text title="登录:" showLineNumbers
 输入网址:服务器ip:8080
 输入账户:super@super.cn
 输入密码:123456
