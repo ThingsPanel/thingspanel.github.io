@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
-            <div>Copyright © 2022 北京极益科技有限公司 版权所有.</div>
+            <div><Translate>Copyright © 2022 北京极益科技有限公司 版权所有.</Translate></div>
           </div>
         </footer>
 {/* footer */}
