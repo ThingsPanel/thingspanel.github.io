@@ -45,11 +45,18 @@ export default function Home(): JSX.Element {
     <Layout
       title={`${siteConfig.title}`}
       description={translate({message: '物联网应用支撑平台'})}>
-        
+
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3>
+          {/* <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3> */}
+      <h2>
+        <Translate
+          id="styles.function_Introduction"
+          description="The homepage welcome message">
+          功能介绍
+        </Translate>
+      </h2>
           {/* <Translate
           id="styles.function_Introduction"
           description="The homepage welcome message">
