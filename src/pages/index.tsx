@@ -49,12 +49,12 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          {/* <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3> */}
-          <Translate
+          <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3>
+          {/* <Translate
           id="styles.function_Introduction"
           description="The homepage welcome message">
           功能介绍
-        </Translate>
+        </Translate> */}
           <HomepageContent />
         
 {/* footer */}
