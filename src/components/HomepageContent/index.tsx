@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-
+import Translate, {translate} from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -11,57 +11,87 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '业务管理',
+    title: translate({message: "业务管理"}),
     Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
-        一个系统可整合多个业务， 可拓展更多智慧场景。
+      <Translate
+          id="business.one"
+          description="副标题">
+          一个系统可整合多个业务， 可拓展更多智慧场景。
+      </Translate>
       </>
+        // 一个系统可整合多个业务， 可拓展更多智慧场景。 
     ),
   },
   {
-    title: '分组管理',
+    title:translate({message: "分组管理"}),
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
-        可按照组织结构、资产机构等多种分组方式管理设备。
+       <Translate
+          id="group.one"
+          description="副标题">
+          可按照组织结构、资产机构等多种分组方式管理设备。
+      </Translate>
       </>
+      //可按照组织结构、资产机构等多种分组方式管理设备。
     ),
   },
   {
-    title: '应用管理',
+    title:translate({message: "应用管理"}),
     Svg: require('@site/static/img/use.svg').default,
     description: (
       <>
-        设备插件、大屏插件，用积木的方式搭建系统。
+       <Translate
+          id="application.one"
+          description="副标题">
+          设备插件、大屏插件，用积木的方式搭建系统。
+      </Translate>
       </>
+        // 设备插件、大屏插件，用积木的方式搭建系统。
     ),
   },
   {
-    title: '自动化',
+    title:translate({message: "自动化"}),
     Svg: require('@site/static/img/automation.svg').default,
     description: (
       <>
-        IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制
+       <Translate
+          id="automation.one"
+          description="副标题">
+          IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制。
+      </Translate>     
       </>
+      // IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制。
     ),
   },
   {
-    title: '可视化',
+    title:translate({message: "可视化"}),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-        基于插件提供的图表单元快速搭建可视化。
+      <Translate
+          id="visualization.one"
+          description="副标题">
+          基于插件提供的图表单元快速搭建可视化。
+      </Translate>
       </>
+      // 基于插件提供的图表单元快速搭建可视化。
     ),
   },
   {
-    title: '规则引擎',
+    title:translate({message: "规则引擎"}),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-        接入各类协议并转换数据，转发数据到外部系统。
+      <Translate
+          id="ruleEngine.one"
+          description="副标题">
+          接入各类协议并转换数据，转发数据到外部系统。
+      </Translate>
       </>
+        // 接入各类协议并转换数据，转发数据到外部系统。
     ),
   },
 ];
