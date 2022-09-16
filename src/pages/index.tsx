@@ -74,7 +74,7 @@ export default function Home(): JSX.Element {
               <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
             <div>
-                <Translate>bottom.ofTheInformation</Translate>
+              <Translate id="bottom.ofTheInformation">Copyright © 2022 北京极益科技有限公司 版权所有.</Translate>
             </div>
                 {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
                 {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
