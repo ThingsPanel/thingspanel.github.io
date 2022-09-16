@@ -18,7 +18,7 @@ function HomepageHeader() {
         <p className="hero__subtitle"><Translate
                   id="home.visitMyBlog"
                   description="副标题">
-                  blog
+                  物联网应用支撑平台
                 </Translate></p>
         <div className={styles.buttons}>
           <span>
@@ -70,8 +70,8 @@ export default function Home(): JSX.Element {
             </div>
             <div><Translate
                   id="bottom.ofTheInformation"
-                  description="The label for the link to my blog">
-                  blog
+                  description="bottom messgae">
+                  Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.
                 </Translate></div>
                 {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
           </div>
