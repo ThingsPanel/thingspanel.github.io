@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
       <Translate
-          id="business.one"
+          id="general.one"
           description="副标题">
           设备上云与企业物联网+
       </Translate>
@@ -24,29 +24,41 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '开源',
+    title:translate({message: "开源"}),
     Svg: require('@site/static/img/open_source.svg').default,
     description: (
       <>
-        AGPLv3开源协议，100%开源
+      <Translate
+          id="OpenSource.one"
+          description="副标题">
+          AGPLv3开源协议，100%开源
+      </Translate>
       </>
     ),
   },
   {
-    title: '简洁易用',
+    title:translate({message: "简洁易用"}),
     Svg: require('@site/static/img/easy_to_use.svg').default,
     description: (
       <>
-        优良设计，上手门槛低
+       <Translate
+          id="ConciseAndEasyToUse.one"
+          description="副标题">
+          优良设计，上手门槛低
+      </Translate>
       </>
     ),
   },
   {
-    title: '快速',
+    title:translate({message: "快速"}),
     Svg: require('@site/static/img/speediness.svg').default,
     description: (
       <>
+      <Translate
+          id="fast.one"
+          description="副标题">
         模块化构建，让项目交付更快
+      </Translate>
       </>
     ),
   },

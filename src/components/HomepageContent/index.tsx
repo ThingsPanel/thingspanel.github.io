@@ -9,9 +9,12 @@ type FeatureItem = {
   description: JSX.Element;
 };
 
+// title={`${siteConfig.title}`}
+//       description={translate({message: '物联网应用支撑平台'})}
+
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({message: "业务管理"}),
+    title:translate({message: "业务管理"}),
     Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
