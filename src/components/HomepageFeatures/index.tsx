@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Translate, {translate} from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -10,11 +11,15 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '通用',
+    title:translate({message: "通用"}),
     Svg: require('@site/static/img/general.svg').default,
     description: (
       <>
-        设备上云与企业物联网+
+      <Translate
+          id="business.one"
+          description="副标题">
+          设备上云与企业物联网+
+      </Translate>
       </>
     ),
   },

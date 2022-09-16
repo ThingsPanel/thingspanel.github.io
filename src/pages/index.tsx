@@ -17,7 +17,7 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle"><Translate
                   id="home.visitMyBlog"
-                  description="副标题">
+                  description="dicte">
                   物联网应用支撑平台
                 </Translate></p>
         <div className={styles.buttons}>
@@ -53,11 +53,12 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          <h3 className={styles.function_Introduction}><Translate
+          <h3 className={styles.function_Introduction}>
+            <Translate
                   id="Function.Introduced"
-                  description="副标题">
+                  description="serf">
                   功能介绍
-                </Translate></h3>
+              </Translate></h3>
           <HomepageContent />
         
 {/* footer */}
