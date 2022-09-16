@@ -23,6 +23,8 @@ jobs:
         run: npm ci
       - name: create en
         run: npm run write-translations -- --locale en
+      - name: create zh
+        run: npm run write-translations -- --locale zh-Hans 
       - name: crowdin
         env:
           CROWDIN_PERSONAL_TOKEN: ${{secrets.CROWDIN_PERSONAL_TOKEN}}
