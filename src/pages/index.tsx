@@ -15,7 +15,11 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle"><Translate
+                  id="home.visitMyBlog"
+                  description="副标题">
+                  blog
+                </Translate></p>
         <div className={styles.buttons}>
           <span>
           <Link
@@ -50,18 +54,6 @@ export default function Home(): JSX.Element {
       <main>
         <HomepageFeatures />
           <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3>
-      {/* <h2>
-        <Translate
-          id="function_Introduction_G8nV"
-          description="The homepage welcome message">
-          功能介绍
-        </Translate>
-      </h2> */}
-          {/* <Translate
-          id="styles.function_Introduction"
-          description="The homepage welcome message">
-          功能介绍
-        </Translate> */}
           <HomepageContent />
         
 {/* footer */}
@@ -76,7 +68,12 @@ export default function Home(): JSX.Element {
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
-            <div><Translate>Copyright © 2022 北京极益科技有限公司 版权所有.</Translate></div>
+            <div><Translate
+                  id="bottom.ofTheInformation"
+                  description="The label for the link to my blog">
+                  blog
+                </Translate></div>
+                {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
           </div>
         </footer>
 {/* footer */}

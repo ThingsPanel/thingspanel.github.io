@@ -4,10 +4,14 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+
 /** @type {import('@docusaurus/types').Config} */
+
+
+
 const config = {
   title: 'ThingsPanel',
-  tagline: '物联网应用支撑平台',
+  tagline: "物联网应用支撑平台",
   url: 'https://www.thingspanel.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -38,7 +42,7 @@ const config = {
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:
         // ```
-        language: ["en", "zh"],
+        language: ["zh", "en"],
         // ```
         docsRouteBasePath: "/docs",
         highlightSearchTermsOnTargetPage: true,
