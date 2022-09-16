@@ -53,7 +53,11 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          <h3 className={styles.function_Introduction}><Translate>功能介绍</Translate></h3>
+          <h3 className={styles.function_Introduction}><Translate
+                  id="Function.Introduced"
+                  description="副标题">
+                  功能介绍
+                </Translate></h3>
           <HomepageContent />
         
 {/* footer */}
