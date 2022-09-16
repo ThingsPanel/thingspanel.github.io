@@ -79,6 +79,7 @@ export default function Home(): JSX.Element {
                 </Translate></div>
                 {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
                 {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
+                
           </div>
         </footer>
 {/* footer */}
