@@ -75,7 +75,7 @@ export default function Home(): JSX.Element {
             <div><Translate
                   id="bottom.ofTheInformation"
                   description="bottom messgae">
-                  Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.
+                  Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved. 
                 </Translate></div>
                 {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
           </div>
