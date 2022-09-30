@@ -62,10 +62,3 @@ ThingsPanel 对同一个设备身份信息只支持一个 MQTT 连接，如果�
 | 网关设备订阅属性主题 | gateway/attributes/{AccessToken} |
 | 事件上报的响应主题 | event/response/{accesstoken} |
 | 服务指令主题 | command/send/{accesstoken} |
-
-:::info
-
-上报属性消息规范
-{key1:value1, key2:value2} 例：{"temp":18.5, "hum":40}
-
-:::
