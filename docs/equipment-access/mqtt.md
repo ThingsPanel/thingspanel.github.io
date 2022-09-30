@@ -20,6 +20,8 @@ ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，�
 | ----- | --- | -------- |
 | MQTT | username/password普通认证方式 | mqtt://{服务IP}:1883|
 
+![接入配置](image/1.png)
+
 ## MQTT身份认证
 | MQTT | 连接参数 | 值 | 说明 |
 | ---- | ----- | ---- | ---------- |
