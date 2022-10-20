@@ -12,10 +12,10 @@ windows环境下请安装`Docker Desktop`和`git`。
 
 :::
 
-- **安装docker**
+- **安装docker（centos）**
 
     ```bash showLineNumbers
-    dnf config-manager --add-repo <https://download.docker.com/linux/centos/docker-ce.repo>
+    dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
     dnf install docker-ce docker-ce-cli containerd.io
     systemctl start docker.service
     systemctl enable docker.service
