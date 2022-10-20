@@ -24,7 +24,7 @@ windows环境下请安装`Docker Desktop`和`git`。
 - **安装docker-compose**
 
     ```bash showLineNumbers
-    curl -L "<https://github.com/docker/compose/releases/download/v2.9.0/docker-compose>-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    curl -L "https://github.com/docker/compose/releases/download/v2.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     ```
 
