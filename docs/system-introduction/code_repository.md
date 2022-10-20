@@ -8,10 +8,13 @@ https://github.com/ThingsPanel/
 
 ## 后端代码库
 https://github.com/ThingsPanel/ThingsPanel-Go
+
 ## 前端代码库
 https://github.com/ThingsPanel/ThingsPanel-Backend-Vue
-## 插件开发工具
-https://github.com/ThingsPanel/plugin-devtools
+
+## Modbus协议插件库
+https://github.com/ThingsPanel/modbus-protocol-plugin
+
 ## 手机端代码库
 
 https://github.com/ThingsPanel/app
