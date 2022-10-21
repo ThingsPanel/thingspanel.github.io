@@ -95,7 +95,7 @@ versions.json   版本管理器  最新版本在最前面 ['0.4','0.3','0.2','0.
 ```
      {
       type: 'doc',
-      docId: 'intro',
+      docId: 'overview',
       position: 'left',
       label: 'Docs',
     },
@@ -127,7 +127,7 @@ docs  最新版本
   文档文件
     文件名称就是路由
       sidebar_position 列表位置
-      # Tutorial Intro 左侧显示的名称
+      # Tutorial overview 左侧显示的名称
     文件加 就是可以下拉菜单
       里面的内容和文件命名一样
 i18n 不用管 
