@@ -2,10 +2,11 @@
 sidebar_position: 1
 ---
 
-# 快速安装
+# 快速安装并推送数据、查看可视化
 
 本章节将指导您从下载安装开始，快速搭建ThingsPanel。
-
+## 先决条件
+需要先安装好Docker、Docker Compose、Git
 
 ## 通过Docker容器安装ThingsPanel
 
@@ -31,3 +32,21 @@ docker-compose -f docker-compose.yml up
 更详细的`步骤`请参考[`Docker安装`](./system-installation/docker_installation)。
 
 :::
+
+## 接入一个温湿度设备并查看数据
+```bash title="第一步、创建业务、创建设备:" showLineNumbers
+创建业务
+创建设备
+获得连接参数：选择MQTT协议，官方标准报文（默认）
+```
+
+```bash title="第二步、推送数据（可使用MQTT工具推送模拟数据）:"
+用户名为Token
+key为物模型名
+```
+
+```text title="查看可视化:"
+点击可视化
+查看分组
+查看设备：即可看到数据
+```
