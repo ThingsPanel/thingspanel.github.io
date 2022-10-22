@@ -2,11 +2,12 @@
 sidebar_position: 1
 ---
 
-# 快速安装并推送数据、查看可视化
+# 快速安装并接入设备
 
-本章节将指导您从下载安装开始，快速搭建ThingsPanel。
+本章节将指导您快速安装ThingsPanel，并实现接入设备，查看设备数据。
 ## 先决条件
-需要先安装好Docker、Docker Compose、Git
+* 需要先安装好Docker、Docker Compose、Git
+* 使用MQTT模拟器，可使用MQTTbox、 MQTT.fx ，或者使用设备推送数据。
 
 ## 通过Docker容器安装ThingsPanel
 
