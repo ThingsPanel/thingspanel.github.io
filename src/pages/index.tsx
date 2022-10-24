@@ -37,13 +37,7 @@ function HomepageHeader() {
           </Link>
           </span>
         </div>
-
       </div>
-      <div>
-    <video id="video" controls="" autoplay="true" loop="loop" preload="none" poster="封面">
-      <source id="mp4" src="http://dev.thingspanel.cn:9999/files/tp.mp4" type="video/mp4">
-    </videos>
-     </div>
     </header>
   );
 }
