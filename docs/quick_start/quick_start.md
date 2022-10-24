@@ -37,6 +37,7 @@ docker-compose -f docker-compose.yml up
 
 ## 接入一个温湿度设备并查看数据
 
+![对接](./images/tp.gif)
 
 ```bash title="第一步、创建业务、创建设备:" showLineNumbers
 创建业务
