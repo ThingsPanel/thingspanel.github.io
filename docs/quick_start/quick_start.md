@@ -34,7 +34,15 @@ docker-compose -f docker-compose.yml up
 
 :::
 
+
 ## 接入一个温湿度设备并查看数据
+
+<p>
+  <video id="video" controls="" autoplay="true" loop="loop" preload="none" poster="封面">
+        <source id="mp4" src="http://dev.thingspanel.cn:9999/files/tp.mp4" type="video/mp4">
+  </videos>
+</p>
+
 ```bash title="第一步、创建业务、创建设备:" showLineNumbers
 创建业务
 创建设备
