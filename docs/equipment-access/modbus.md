@@ -15,6 +15,12 @@ Modbus允许多个 (大约240个) 设备连接在同一个网络上进行通信�
 【ThingsPanel对接ModBus设备(通过规则引擎)】  
 https://www.bilibili.com/video/BV1s14y1h7YQ?share_source=copy_web&vd_source=ffdc396f72a54b325037ada71bc99b05
 
+如私有化部署需要自行安装modbus节点，一般需要进入容器执行命令安装运行环境
+```bash
+docker exec -it containerID /bin/sh
+apk add gcc g++ make cmake gfortran libffi-dev openssl-dev libtool
+```
+
 ## 其他方式接入
 
 开发中
