@@ -39,19 +39,18 @@ docker-compose -f docker-compose.yml up
 
 ![对接](./tp.gif)
 
-```bash title="第一步、创建业务、创建设备:" showLineNumbers
-创建业务
-创建设备
-获得连接参数：选择MQTT协议，官方标准报文（默认）
+```text title="第一步、创建业务、创建设备:" showLineNumbers
+1. 创建业务
+2. 创建设备
+3. 绑定插件
+5. 编辑参数
 ```
 
-```bash title="第二步、推送数据（可使用MQTT工具推送模拟数据）:"
-用户名为Token
-key为物模型名
+```text title="第二步、推送数据（可使用MQTT工具推送模拟数据）:"
+1. mqtt用户名为AccessToken
 ```
 
-```text title="查看可视化:"
-点击可视化
-查看分组
-查看设备：即可看到数据
+```text title="查看数据和可视化:"
+1. 点击数据管理查看数据
+2. 点击可视化通过图表展示数据
 ```
