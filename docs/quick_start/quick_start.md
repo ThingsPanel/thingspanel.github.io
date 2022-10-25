@@ -58,7 +58,7 @@ docker-compose -f docker-compose.yml up
 :::tip 设备对接
 
 详细对接请参考
-[`mqtt对接`](../equipment-access/mqtt)
+[`mqtt对接`](./equipment-access/mqtt)
 
 :::
 
