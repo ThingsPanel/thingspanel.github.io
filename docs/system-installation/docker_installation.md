@@ -116,7 +116,6 @@ docker logs -f containerID
 5432（postogresql端口）
 6379（redis端口）
 ```
- 
 
 :::tip 设备对接
 
@@ -124,3 +123,4 @@ docker logs -f containerID
 [`mqtt对接`](../equipment-access/mqtt)
 
 :::
+
