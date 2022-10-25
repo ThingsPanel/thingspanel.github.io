@@ -118,9 +118,9 @@ docker logs -f containerID
 ```
  
 
-:::tip 测试案例
+:::tip 设备对接
 
-快速接入请参考
+设备接入请参考
 [`mqtt对接`](../equipment-access/mqtt)
 
 :::
