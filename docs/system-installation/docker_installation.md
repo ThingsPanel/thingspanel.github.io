@@ -116,14 +116,11 @@ docker logs -f containerID
 5432（postogresql端口）
 6379（redis端口）
 ```
-
-mqtt订阅主题：thingspanel.telemetry  
-mqtt默认账号：guest  
-mqtt默认密码：guest  
+ 
 
 :::tip 测试案例
 
-温湿度数据推送：{"token":"123456","type":"ep","values":{"temp":23.0,"hum":13}}  
-`注意数字和字符串的区分`
+快速接入请参考
+[mqtt对接](../equipment-access/mqtt)`
 
 :::
