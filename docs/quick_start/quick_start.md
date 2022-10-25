@@ -54,3 +54,10 @@ docker-compose -f docker-compose.yml up
 1. 点击数据管理查看数据
 2. 点击可视化通过图表展示数据
 ```
+
+:::tip 设备对接
+
+详细对接请参考
+[`mqtt对接`](../equipment-access/mqtt)
+
+:::
