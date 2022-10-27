@@ -107,6 +107,17 @@ go build #编译
 ./TP.sql
 ```
 
+## nginx安装
+
+### dnf或yum安装
+
+```
+dnf install nginx -y
+```
+
+### 配置参考
+https://github.com/ThingsPanel/thingsPanel-go-docker/blob/main/init_files/nginx.conf
+
 ## 源码安装指导
 
 :::info
