@@ -16,12 +16,12 @@ sidebar_position: 2
 
 mqtt用户：root  
 发布主题：`device/attributes`  
-报文规范：{"token":sub_device_id,"values":{key:walue...}}
+报文规范：{"token":sub_device_token,"values":{key:value...}}
 
 ### Gmqtt——>ProtocolPlugin
 mqtt用户：root  
 订阅主题：`plugin/modbus` (说明：modbus为注册插件时填写的插件订阅主题名称)  
-报文规范：{"token":sub_device_id,"values":{key:walue...}}
+报文规范：{"token":sub_device_token,"values":{key:value...}}
 
 ## 插件表单
 
