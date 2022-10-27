@@ -10,18 +10,31 @@ sidebar_position: 2
 
 :::
 
-## mqtt相关
+## 交换数据相关
 
-### ProtocolPlugin——>Gmqtt
+### 插件推送数据到平台
 
+设备对接到协议插件，协议插件处理设备端的消息后，将消息通过mqtt发给thingspanel平台
+
+协议插件发送主题如下：
+
+```text
 mqtt用户：root  
-发布主题：`device/attributes`  
+发布主题：device/attributes
 报文规范：{"token":sub_device_token,"values":{key:value...}}
+```
 
-### Gmqtt——>ProtocolPlugin
+### 平台推送数据给插件
+
+平台向设备发送消息需要通过协议插件，平台将消息通过mqtt发给协议插件
+
+协议插件订阅主题如下：
+
+```text
 mqtt用户：root  
-订阅主题：`plugin/modbus` (说明：modbus为注册插件时填写的插件订阅主题名称)  
+订阅主题：plugin/modbus (说明：modbus为注册插件时填写的插件订阅主题名称)  
 报文规范：{"token":sub_device_token,"values":{key:value...}}
+```
 
 ## 插件表单
 
@@ -40,6 +53,4 @@ thingspanel前端通过`/api/form/config`接口获取表单配置，生成子设
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
 | /api/gateway/config           | 设备连接时送来密钥，根据密钥获取插件相关设备的信息，"SubDevice"的属性时插件表单中定义的属性 | [传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43535958)      |
-
-
 
