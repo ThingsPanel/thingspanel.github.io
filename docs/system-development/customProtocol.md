@@ -20,15 +20,15 @@ mqtt以外的协议除了可以从规则引擎接入，也可以开发协议插�
 
 您需要开发一个服务程序，不管您以什么编程语言进行开发，实现以下规范内容就可以跟tingspanel平台对接
 
-## plugin需要提供的接口
+## 协议插件服务需要提供的接口
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
 | /api/form/config              | 获取插件表单配置      |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43746721) |
 | /api/device/config/update     | 修改子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43903019)|
 | /api/device/config/add        | 新增子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43925736)|
-| /api/device/config/add        | 删除子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43965145)|
+| /api/device/config/delete        | 删除子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43965145)|
 
-## thingspanel提供给插件的接口
+## thingspanel提供给协议插件服务的接口
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
 | /api/gateway/config           | 设备连接时送来密钥，根据密钥获取插件相关设备的信息，"SubDevice"的属性时插件表单中定义的属性 | [传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43535958)      |
@@ -41,7 +41,7 @@ thingspanel前端通过`/api/form/config`接口获取表单配置，生成子设
 
 ## 交换数据相关
 
-### 插件推送数据到平台
+### 协议插件服务推送数据到平台
 
 设备对接到协议插件，协议插件处理设备端的消息后，将消息通过mqtt发给thingspanel平台
 
@@ -53,7 +53,7 @@ mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码�
 报文规范：{"token":sub_device_token,"values":{key:value...}}
 ```
 
-### 平台推送数据给插件
+### 平台推送数据给协议插件服务
 
 平台向设备发送消息需要通过协议插件，平台将消息通过mqtt发给协议插件
 
