@@ -19,7 +19,7 @@ sidebar_position: 2
 协议插件发送主题如下：
 
 ```text
-mqtt用户：root  
+mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
 发布主题：device/attributes
 报文规范：{"token":sub_device_token,"values":{key:value...}}
 ```
@@ -31,7 +31,7 @@ mqtt用户：root
 协议插件订阅主题如下：
 
 ```text
-mqtt用户：root  
+mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
 订阅主题：plugin/modbus (说明：modbus为注册插件时填写的插件订阅主题名称)  
 报文规范：{"token":sub_device_token,"values":{key:value...}}
 ```
@@ -41,7 +41,7 @@ mqtt用户：root
 `./form_config.json`  
 thingspanel前端通过`/api/form/config`接口获取表单配置，生成子设备的表单，用户填写的表单数据会在thingspanel提供的`/api/gateway/config`接口的"SubDevice"属性中返回
 
-## plugin提供的接口
+## plugin需要提供的接口
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
 | /api/form/config              | 获取插件表单配置      |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43746721) |
