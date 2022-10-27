@@ -61,6 +61,6 @@ mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码�
 
 ```text
 mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-订阅主题：plugin/modbus (说明：modbus为注册插件时填写的插件订阅主题名称)  
-报文规范：{"token":sub_device_token,"values":{key:value...}}
+订阅主题：plugin/modbus/# (说明：modbus为注册插件时填写的插件订阅主题名称,thingpanel平台发来主题#部分是sub_device_token)  
+报文规范：{key:value...}
 ```
