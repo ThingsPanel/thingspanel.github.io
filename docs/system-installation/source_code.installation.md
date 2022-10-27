@@ -6,6 +6,65 @@ sidebar_position: 3
 
 根据情况可选择源码方式安装。
 
+## timescaledb数据库搭建
+
+### TP.sql脚本
+
+修改后端TP.sql文件的权限
+
+```bash
+chmod 777 TP.sql
+```
+
+### 获取数据库镜像
+
+```bash
+docker pull timescale/timescaledb:latest-pg12
+```
+
+### 创建并运行容器
+
+```
+docker run --name timescaledb -p 5432:5432 \
+-v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
+-e TZ=Asia/Shanghai \
+-e POSTGRES_DB=tp \
+-e POSTGRES_USER=postgres \
+-e POSTGRES_PASSWORD=postgres2022 \
+-v /home/tp/data/dir:/var/lib/postgresql/data \
+timescale/timescaledb:latest-pg12
+```
+
+## GMQTT部署
+
+### 获取源码
+
+```
+git clone https://github.com/ThingsPanel/gmqtt.git
+```
+
+### 运行服务
+
+```
+cd gmqtt/cmd/gmqttd&&go run . start -c default_config.yml
+```
+
+## redis部署
+
+###下载安装包和编译
+
+```
+wget http://download.redis.io/releases/redis-6.0.8.tar.gz
+tar xzf redis-6.0.8.tar.gz
+cd redis-6.0.8&&make
+```
+
+###启动
+
+```
+cd src&&./redis-server
+```
+
 ## 后端部署
 
 ### 环境版本及linux安装示例
@@ -46,35 +105,6 @@ go build #编译
 
 ```text
 ./TP.sql
-```
-
-## timescaledb数据库搭建
-
-### TP.sql脚本
-
-修改后端TP.sql文件的权限
-
-```bash
-chmod 777 TP.sql
-```
-
-### 获取数据库镜像
-
-```bash
-docker pull timescale/timescaledb:latest-pg12
-```
-
-### 创建并运行容器
-
-```
-docker run --name timescaledb -p 5432:5432 \
--v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
--e TZ=Asia/Shanghai \
--e POSTGRES_DB=tp \
--e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgres2022 \
--v /home/tp/data/dir:/var/lib/postgresql/data \
-timescale/timescaledb:latest-pg12
 ```
 
 ## 源码安装指导
