@@ -10,4 +10,5 @@ sidebar_position: 2
 
 ## 直连接入
 
-即将发布
+系统已经支持MQTT网关，按照官方报文发送。
+系统已经支持Modbus RTP/TCP透传。

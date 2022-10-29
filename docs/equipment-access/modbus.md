@@ -21,7 +21,8 @@ docker exec -it containerID /bin/sh
 apk add gcc g++ make cmake gfortran libffi-dev openssl-dev libtool
 ```
 
-## 其他方式接入
+## 系统自带Modbus协议接入接入
 
-开发中
+系统当前已经支持Modbus RTU/TCP接入。如果需要其他接入，需要自行开发协议插件。
+
 

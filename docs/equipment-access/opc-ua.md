@@ -23,4 +23,4 @@ https://www.bilibili.com/video/BV1G14y1a7iN/?spm_id_from=333.999.0.0
 
 ## 其他方式
 
-开发中
+需要开发插件支持，按照ThingsPanel的协议插件标准进行开发。
