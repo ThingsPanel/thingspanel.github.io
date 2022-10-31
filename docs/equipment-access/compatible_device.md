@@ -2,7 +2,7 @@
 sidebar_position: 8
 ---
 
-# 非官方标准MQTT报文设备接入
+# 非标设备接入
 
 ## 问题
 
