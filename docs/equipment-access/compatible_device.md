@@ -92,7 +92,7 @@ sidebar_position: 8
         return msg;
     }
     ```
-4. 使用在线js调试工具（这里用的是：https://www.lddgo.net/code/runcode/javascript）
+4. 使用在线js调试工具,这里用的是：https://www.lddgo.net/code/runcode/javascript
 ![](./image/compatible_device_01.png)
 5. 调试好以后，将函数粘贴进脚本保存（脚本在网关的编辑参数中，如图）
 ![](./image/compatible_device_03.png)
