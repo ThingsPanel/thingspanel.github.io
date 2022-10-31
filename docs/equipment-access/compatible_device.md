@@ -68,6 +68,7 @@ sidebar_position: 8
 
 1. 分析发现设备发来的报文多了一层嵌套，并且数值都未做处理
 2. 创建网关设备，添加两个子设备。（注意子设备地址在编辑参数中填写，同一网关中不可重复，如下图）
+![](./image/compatible_device_02.png)
 3. 首先编写代码
     ```javascript
     var device_msg = '{"sensorDatas":{"TH180001":{"temp":265,"hum":455},"TH180002":{"temp":26.5,"hum":45.5}},"type":2}'
@@ -92,6 +93,9 @@ sidebar_position: 8
     }
     ```
 4. 使用在线js调试工具（这里用的是：https://www.lddgo.net/code/runcode/javascript）
+![](./image/compatible_device_01.png)
 5. 调试好以后，将函数粘贴进脚本保存（脚本在网关的编辑参数中，如图）
+![](./image/compatible_device_03.png)
+![](./image/compatible_device_04.png)
 6. 下行脚本的编写也同上
 
