@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 
@@ -19,7 +19,7 @@ sidebar_position: 3
 - 增加代码复用性
 
 ## 解决问题的思路
-![抽象化接入ThingsPanel平台](./001.png)
+![抽象化接入ThingsPanel平台](../001.png)
 
 上图是对设备接入核心流程进行的抽象：
 - 服务和通信层；不同协议的设备使用各自的通信方式连接不同协议的服务
@@ -30,7 +30,7 @@ sidebar_position: 3
 
 
 
-![协议插件与ThingsPanel的数据流转](./002.png)
+![协议插件与ThingsPanel的数据流转](../002.png)
 
 - 协议插件是独立运行的系统
 - 平台从协议插件获取json配置报文，解析后生成交互界面供用户配置设备，最后设备配置信息保存。
