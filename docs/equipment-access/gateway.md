@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# MQTT网关接入
+# MQTT网关设备接入
 
 ## 通过规则引擎接入
 
