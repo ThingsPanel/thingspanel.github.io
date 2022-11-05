@@ -53,4 +53,11 @@ cd thingsPanel-go-docker&&docker-compose -f docker-compose.yml up
 1. 点击数据管理查看数据
 2. 点击可视化通过图表展示数据
 ```
+:::info
+
+mqtt客户端工具推荐：[`点击下载mqtt.fx工具`](https://file.bemfa.com/hw/zip/mqtt/mqttfx1.7.1_windows_64.exe)  
+工具使用推荐参考文档：[`点击浏览`](https://cloud.tencent.com/developer/article/1662831)
+
+:::
+
 
