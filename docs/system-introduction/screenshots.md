@@ -4,17 +4,19 @@ sidebar_position: 6
 
 # 系统截图
 
-### ThingsPanel系统首页  
+### 系统首页  
 ![ThingsPanel系统首页](/img/thingspanel-home.png)  
 
-### ThingsPanel业务管理  
+### 业务管理  
 ![ThingsPanel业务管理](/img/thingspanel-application.png)  
 
-### ThingsPanel空气质量插件  
+### 可视化-空气质量插件  
 ![ThingsPanel空气质量插件](/img/plugin-pm25.png)
 
-### ThingsPanel-APP手机客户端登录页面  
+### APP手机客户端登录页面  
 ![ThingsPanel-APP登录页](/img/thingspanel-app-login.webp)
 
-### ThingsPanel-APP手机客户端首页  
+### APP手机客户端首页  
 ![ThingsPanel-APP](/img/thingspanel-app-home.webp)
+### 组态功能
+![一个简单采暖系统的演示效果图](../operation-manual/visualization//images/scada-view.jpeg)

@@ -9,8 +9,8 @@ sidebar_position: 1
 
 ## 2. 组态效果
 
-![一个简单采暖系统的演示效果图](images/scada-view.jpeg)
+![一个简单采暖系统的演示效果图](../operation-manual/visualization/images/scada-view.jpeg)
 
 ## 3. 组态编辑器
 
-![一个简单采暖系统的演示效果图](images/scada-editor.jpeg)
+![一个简单采暖系统的演示效果图](../operation-manual/visualization/images/scada-editor.jpeg)
