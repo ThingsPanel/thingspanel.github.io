@@ -12,7 +12,7 @@ sidebar_position: 3
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ## GMQTT安装启动
-
+GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平台，平台通过GMQTT发送消息给设备。
 1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
 2. Star仓库
 3. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
@@ -52,6 +52,8 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 ```
 
 ## ThingsPanel-Go安装启动
+
+平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库。
 
 1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
 2. Star仓库
@@ -122,6 +124,8 @@ $ go run . start
 ## ThingsPanel-Backend-Vue安装启动
 
 ## modbus-protocol-plugin安装启动（可选-MODBUS协议插件）
+
+modbus-protocol-plugin是平台的协议插件，MODBUS协议的设备对接协议插件，协议插件将数据转发到GMQTT进入平台。
 
 1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
 2. Star仓库
