@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 使用源码安装启动ThingsPanel
+# 源码安装
 
 ## 系统环境
 
