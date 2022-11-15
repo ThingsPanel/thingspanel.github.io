@@ -2,126 +2,120 @@
 sidebar_position: 3
 ---
 
-# 源码安装
+# 使用源码安装启动ThingsPanel
 
-根据情况可选择源码方式安装。
+## 系统环境
 
-## timescaledb数据库搭建
+启动ThingsPanel之前，请先确定已经安装好以下环境:
+1. go 1.17.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
+2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+3. TimescaleDB [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
-### TP.sql脚本
+## GMQTT安装启动
 
-修改后端TP.sql文件的权限
+1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
+2. Star仓库
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
 
-```bash
-chmod 777 TP.sql
+### 配置文件
+
+```text
+./gmqtt/cmd/gmqttd/default_config.yml        --系统配置 
 ```
 
-### 获取数据库镜像
-
-```bash
-docker pull timescale/timescaledb:latest-pg12
+./gmqtt/cmd/gmqttd/default_config.yml说明：
+```yml
+listeners:
+  - address: ":1883"   # 接入端口
+api:
+  http:
+    - address: "tcp://0.0.0.0:8083"  # http服务配置（ThingsPanel-GO调用，主要用来管理接入的权限）
+log:
+  level: info # 日志级别 debug | info | warn | error
 ```
 
-### 创建并运行容器
+### 直接运行服务
 
-```
-docker run --name timescaledb -p 5432:5432 \
--v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
--e TZ=Asia/Shanghai \
--e POSTGRES_DB=tp \
--e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgres2022 \
--v /home/tp/data/dir:/var/lib/postgresql/data \
-timescale/timescaledb:latest-pg12
+```sh
+$ git clone https://github.com/ThingsPanel/gmqtt.git
+$ cd gmqtt/cmd/gmqttd
+$ go run . start -c default_config.yml
 ```
 
-## GMQTT部署
+### docker方式运行服务
 
-### 获取源码
-
-```
-git clone https://github.com/ThingsPanel/gmqtt.git
-```
-
-### 运行服务
-
-```
-cd gmqtt/cmd/gmqttd&&go run . start -c default_config.yml
+```sh
+$ git clone https://github.com/ThingsPanel/gmqtt.git
+$ cd gmqtt
+$ docker build -t gmqtt .
+$ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  gmqtt
 ```
 
-## redis部署
+## ThingsPanel-Go安装启动
 
-###下载安装包和编译
+1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
+2. Star仓库
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
 
-```
-wget http://download.redis.io/releases/redis-6.0.8.tar.gz
-tar xzf redis-6.0.8.tar.gz
-cd redis-6.0.8&&make
-```
-
-###启动
-
-```
-cd src&&./redis-server
-```
-
-## 后端部署
-
-### 环境版本及linux安装示例
-
-Golang-v1.17.6（下载地址：<https://golang.google.cn/dl/>）
-
-```bash
-wget https://golang.google.cn/dl/go1.17.6.linux-arm64.tar.gz
-tar -C /usr/local -zxvf go1.17.6.linux-amd64.tar.gz
-vim /etc/profile #将"export PATH=$PATH:/usr/local/go/bin"添加到文件底部
-source /etc/profile #（让配置生效）
-go version #(查看版本)
-```
-
-### 后端相关配置文件
+### 相关目录文件说明
 
 ```text
 ./conf/app.conf                  --系统配置 
 ./modules/dataService/config.yml --mqtt客户端等
+./files/logs/                    --系统日志存放目录
+./TP.sql                         --数据库初始化脚本
 ```
 
-### 日志存放目录
+1. ./conf/app.conf配置说明
+```yml
+```
+2. ./modules/dataService/config.yml配置说明
+```yml
+```
+
+### 运行
+
+GMQTT、redis、TimescaleDB首先启动，更新ThingsPanel-Go相关配置
+
+```sh
+$ git clone https://github.com/ThingsPanel/ThingsPanel-Go.git
+$ cd ThingsPanel-Go
+$ go run . start
+```
+
+## ThingsPanel-Backend-Vue安装启动
+
+## modbus-protocol-plugin安装启动（可选）
+
+1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
+2. Star仓库
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
+
+### 配置文件
 
 ```text
-./files/logs/
+./config.yaml        --配置文件
 ```
 
-### 编译和运行
+### 运行
 
-main.go文件的目录下对go代码进行编译和运行
-
-```bash
-go build #编译
-./ThingsPanel-Go #或者以守护方式运行
+```sh
+$ git clone https://github.com/ThingsPanel/modbus-protocol-plugin.git
+$ cd modbus-protocol-plugin
+$ go run . start
 ```
 
-### 数据库脚本
+## rule-engine安装启动（可选）
 
-```text
-./TP.sql
-```
-
-## nginx安装
-
-### dnf或yum安装
-
-```
-dnf install nginx -y
-```
-
-### 配置参考
-https://github.com/ThingsPanel/thingsPanel-go-docker/blob/main/init_files/nginx.conf
-
-## 源码安装指导
 
 :::info
 
-请查阅[`代码库`](../system-introduction/code_repository)的README安装步骤。
+安装手册若有没帮助到您的地方，请联系我们。`qq群：260150504`
+
+:::
+
+:::info
+
+其他信息请查阅[`代码库`](../system-introduction/code_repository)的README安装步骤。
 
 :::
