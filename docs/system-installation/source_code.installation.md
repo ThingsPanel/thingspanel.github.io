@@ -55,7 +55,9 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 
 1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
 2. Star仓库
+![star](./image/git1.png)
 3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
+![下载](./image/git2.png)
 
 ### 相关目录文件说明
 
