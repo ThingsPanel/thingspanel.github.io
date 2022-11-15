@@ -9,13 +9,14 @@ sidebar_position: 3
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 1. go 1.17.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
-3. TimescaleDB [安装](https://docs.timescale.com/install/latest/installation-docker/)
+3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ## GMQTT安装启动
 
 1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
-2. Star仓库
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
+
+3. Star仓库
+4. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
 
 ### 配置文件
 
@@ -68,9 +69,41 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 
 1. ./conf/app.conf配置说明
 ```yml
+httpport = 9999 # api服务端口
+# redis配置
+redis.conn=127.0.0.1:6379
+redis.dbNum=0
+redis.password="redis2022"
+# 数据库配置
+psqladdr = "127.0.0.1"
+psqlport = 5432
+psqldb = ThingsPanel # 库名
+psqluser = postgres # 用户名
+psqlpass = postgresThingsPanel2022 # 用户密码
+psqlMaxConns = 5 # 空闲连接池中连接的最大数量
+psqlMaxOpen = 500 # 打开数据库连接的最大数量
+# 日志
+maxdays = 60 # 文件最多保存多少天
+# 1-紧急级别LevelEmergency 2-报警级别LevelAlert 3-严重错误级别LevelCritical 4-错误级别LevelError
+# 5-警告级别LevelWarning 6-注意级别LevelWarning 7-报告级别LevelInformational 8-除错级别LevelDebug
+level = 8 # 系统日志级别
+sqlloglevel = 3 # sql的日志级别 1-Silent 2-Error 3-Warn 4-Info
+maxlines = 10000 # 每个文件保存的最大行数
 ```
 2. ./modules/dataService/config.yml配置说明
 ```yml
+mqtt:
+  broker: 127.0.0.1:1883 #mqtt接入地址和端口
+  user: root # 平台的mqtt用户名
+  pass: root # 平台的mqtt用户密码
+  topicToSubscribe: device/attributes # 平台订阅设备属性主题
+  topicToPublish: device/attributes # 平台发布设备属性主题前置
+  topicToStatus: device/status # 平台订阅设备状态主题
+  gateway_topic: gateway/attributes # 平台订阅网关设备属性主题
+api:
+  http_host: 127.0.0.1:8083 # gmqttAPI服务地址（主要用来管理接入的权限）
+plugin:
+  http_host: 127.0.0.1:503 # MODEBUS协议插件API服务地址
 ```
 
 ### 运行
@@ -85,7 +118,7 @@ $ go run . start
 
 ## ThingsPanel-Backend-Vue安装启动
 
-## modbus-protocol-plugin安装启动（可选）
+## modbus-protocol-plugin安装启动（可选-MODBUS协议插件）
 
 1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
 2. Star仓库
@@ -97,6 +130,24 @@ $ go run . start
 ./config.yaml        --配置文件
 ```
 
+./config.yaml说明
+
+```yaml
+server:
+  address: 0.0.0.0:502 # 设备接入地址
+mqtt:
+  broker: 127.0.0.1:1883 # gmqtt服务端地址
+  username: root
+  password: root
+  topic_to_publish: device/attributes # 发送主题
+  topic_to_subscribe: plugin/modbus/# # 订阅主题
+  subscribe_pool: 100 # 客户端订阅处理并发数量
+http_server:
+  address: 0.0.0.0:503 # 插件http服务地址
+thingspanel:
+  address: 127.0.0.1:9999 # ThingsPanel平台地址
+```
+
 ### 运行
 
 ```sh
@@ -105,7 +156,7 @@ $ cd modbus-protocol-plugin
 $ go run . start
 ```
 
-## rule-engine安装启动（可选）
+## rule-engine安装启动（可选-规则引擎）
 
 
 :::info
