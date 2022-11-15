@@ -14,9 +14,8 @@ sidebar_position: 3
 ## GMQTT安装启动
 
 1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
-
-3. Star仓库
-4. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
+2. Star仓库
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
 
 ### 配置文件
 
@@ -68,6 +67,7 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 ```
 
 1. ./conf/app.conf配置说明
+
 ```yml
 httpport = 9999 # api服务端口
 # redis配置
@@ -91,6 +91,7 @@ sqlloglevel = 3 # sql的日志级别 1-Silent 2-Error 3-Warn 4-Info
 maxlines = 10000 # 每个文件保存的最大行数
 ```
 2. ./modules/dataService/config.yml配置说明
+
 ```yml
 mqtt:
   broker: 127.0.0.1:1883 #mqtt接入地址和端口
