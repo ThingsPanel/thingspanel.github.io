@@ -11,6 +11,35 @@ sidebar_position: 3
 2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
+### (可参考)timescaledb数据库搭建
+1. 修改后端TP.sql文件的权限
+
+```bash
+chmod 777 TP.sql
+```
+
+2. 获取数据库镜像
+
+```bash
+docker pull timescale/timescaledb:latest-pg12
+```
+
+3. 创建并运行容器
+POSTGRES_DB 数据库名
+POSTGRES_USER 用户名
+POSTGRES_PASSWORD 密码
+请对应修改后端配置文件
+```
+docker run --name timescaledb -p 5432:5432 \
+-v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
+-e TZ=Asia/Shanghai \
+-e POSTGRES_DB=tp \
+-e POSTGRES_USER=postgres \
+-e POSTGRES_PASSWORD=postgres2022 \
+-v /home/tp/data/dir:/var/lib/postgresql/data \
+timescale/timescaledb:latest-pg12
+```
+
 ## GMQTT安装启动
 GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平台，平台通过GMQTT发送消息给设备。
 1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
