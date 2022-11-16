@@ -24,7 +24,7 @@ chmod 777 TP.sql
 docker pull timescale/timescaledb:latest-pg12
 ```
 
-3. 创建并运行容器
+3. 创建并运行容器  
 POSTGRES_DB 数据库名  
 POSTGRES_USER 用户名  
 POSTGRES_PASSWORD 密码  
