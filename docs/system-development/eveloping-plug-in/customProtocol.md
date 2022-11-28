@@ -67,15 +67,16 @@ sidebar_position: 4
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
 | /api/form/config              | 获取插件表单配置      |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43746721) |
-| /api/device/config/update     | 修改子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43903019)|
-| /api/device/config/add        | 新增子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43925736)|
-| /api/device/config/delete        | 删除子设备配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43965145)|
+| /api/device/config/update     | 修改设备表单配置        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43903019)|
+| /api/device/config/add        | 新增网关子设备        |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43925736)|
+| /api/device/config/delete        | 删除设备配       |[传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43965145)|
 
 ### thingspanel提供给插件的接口
 
 | 接口                          | 接口描述              |接口链接|
 | ----------- | ---------- | ---------- |
-| /api/gateway/config           | 设备连接时送来密钥，根据密钥获取插件相关设备的信息，"SubDevice"的属性时插件表单中定义的属性 | [传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43535958)      |
+| /api/plugin/device/config           | 设备连接时送来密钥，根据密钥获取设备信息(包含表单信息) | [传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-43535958)      |
+| /api/plugin/register | 设备自动注册接口 | [传送](https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-51644896)      |
 
 ### 交换数据相关
 
@@ -83,10 +84,21 @@ sidebar_position: 4
 
 协议插件发送主题如下：
 
+1. 直连设备或子设备消息
 ```text
 mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
 发布主题：device/attributes
-报文规范：{"token":sub_device_token,"values":{key:value...}}
+报文规范：{"token":device_token,"values":{key:value...}}
+或自定义报文：{"token":device_token,"values":自定义报文}
+token：设备AccessToken或子设备AccessToken
+```
+2. 网关设备消息
+```text
+mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
+发布主题：device/attributes
+报文规范：{"token":device_token,"values":{sub_device_addr1:{key:value...},sub_device_add2r:{key:value...}}}
+或自定义报文：{"token":device_token,"values":自定义报文}
+token：设备AccessToken或子设备AccessToken
 ```
 
 #### 平台推送数据给插件
@@ -96,14 +108,14 @@ mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码�
 
 ```text
 mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-订阅主题：plugin/modbus/# (说明：modbus为注册插件时填写的插件订阅主题名称,ThingsPanel平台发来主题#部分是sub_device_token)  
+订阅主题：plugin/modbus/# (说明：modbus为注册插件时填写的插件订阅主题名称,ThingsPanel平台发来主题#部分是设备或子设备的AccessToken)  
 报文规范：{key:value...}
 ```
 
 
 ## 如何部署到现有系统
-1. 在平台注册协议插件
-1. 运行协议插件
+1. 在平台注册协议插件或使用协议插件接口注册
+1. 独立运行协议插件
 
 ## 开发完如何测试
 
