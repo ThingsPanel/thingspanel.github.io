@@ -95,7 +95,7 @@ token：设备AccessToken或子设备AccessToken
 2. 网关设备消息
 ```text
 mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-发布主题：device/attributes
+发布主题：gateway/attributes
 报文规范：{"token":device_token,"values":{sub_device_addr1:{key:value...},sub_device_add2r:{key:value...}}}
 或自定义报文：{"token":device_token,"values":自定义报文}
 token：设备AccessToken或子设备AccessToken
