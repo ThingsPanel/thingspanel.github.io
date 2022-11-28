@@ -106,10 +106,19 @@ token：设备AccessToken或子设备AccessToken
 
 协议插件订阅主题如下：
 
+1. 直连设备消息
 ```text
 mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-订阅主题：plugin/modbus/# (说明：modbus为注册插件时填写的插件订阅主题名称,ThingsPanel平台发来主题#部分是设备或子设备的AccessToken)  
+订阅主题：plugin/modbus/# (说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题#部分是设备的AccessToken)  
 报文规范：{key:value...}
+或自定义报文：自定义报文
+```
+2. 网关设备消息
+```text
+mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
+订阅主题：plugin/modbus/# (说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题#部分是网关设备的AccessToken)  
+报文规范：{sub_device_addr:{key:value...},sub_device_addr:{key:value...}}
+或自定义报文：自定义报文
 ```
 
 
