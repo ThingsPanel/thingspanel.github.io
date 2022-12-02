@@ -54,21 +54,22 @@ TCP协议插件支持两种TCP类型的报文接入：
 TP-TCP协议是协议插件定义的规范，按照此规范便可以对接到平台。
 #### 规范
 在客户端连接到服务器之前，必须在 thingsPanel 中创建 IoT 设备并获取访问令牌。 然后客户端发送以下结构：
+
 |  IDENT  |  IDENT  |     TYPE       |  CMD     |  LENGTH  |     PAYLOAD    |
 | --- | --- | --- | --- | --- | --- |
 |   'T'   |  'P'    |       1 byte   |  1 byte  | 4 byte   |     Variable   |
 
 - TYPE：
-    0x0：数据包
-    0x1：心跳数据包
+    0x0：数据包  
+    0x1：心跳数据包  
 - CMD：
-    0x0：设备身份验证
-    0x1：发布属性
-    0x2：推送事件
+    0x0：设备身份验证  
+    0x1：发布属性  
+    0x2：推送事件  
 - LENGTH：PAYLOAD的长度
 - PAYLOAD：有效载荷数据
-    如果 CMD 0x0，则PAYLOAD是访问令牌
-    如果 CMD 0x1，则PAYLOAD是属性
+    如果 CMD 0x0，则PAYLOAD是访问令牌  
+    如果 CMD 0x1，则PAYLOAD是属性  
     如果 CMD 0x2，则PAYLOAD是事件
 
 #### 对接步骤
