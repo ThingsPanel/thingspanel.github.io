@@ -6,6 +6,7 @@ sidebar_position: 3
 
 ## 一、概述
 ThingsPanel目前提供了两种主题，深蓝色和白色，如果这两种主题不满足您的需求，可以定制自己想要的主题。
+
 ![img.png](images/multiThemes_1_1_1.png)
 
 ## 二、开发步骤
