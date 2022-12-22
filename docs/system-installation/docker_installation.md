@@ -64,50 +64,21 @@ windows环境下请安装`Docker Desktop`和`git`。
 
 ## 挂载说明
 
-- **查看挂载的卷(后面非./开头的目录为卷)**
+- **后端配置文件、日志以及其他差分文件**
 
     ```bash
-    docker volume ls
-    docker volume inspect xxx
-    thingspanel-go #后端
-    thingspanel-html #前端
-    thingspanel-postgres #数据库
+    ./init_files/backend/
     ```
-
-- **系统日志**
-
-    ```bash
-    ./init_files/backend/logs/
-    ```
-
-- **插件目录**
-    > 无需重启容器
+- **redis配置以及差分文件**
 
     ```bash
-    thingspanel-go/extensions/
-    ```
-
-- **后端代码目录**
-    > 可在此处更新和编译代码，编译后重启后端容器
-
-    ```bash
-    thingspanel-go
-    ```
-
-- **前端代码目录**
-    > 可将vue打包好的文件放在此处，重启前端容器
-
-    ```bash
-    thingspanel-html
+    ./init_files/redis/
     ```
 
 ## 查看容器运行日志
 
 ```bash showLineNumbers
 docker logs -f containerID
-或
-./init_files/files/log/
-```
 
 ## 注意事项
 
@@ -115,11 +86,11 @@ docker logs -f containerID
 
 ```bash showLineNumbers
 8080（前端服务端口）
-9998（tcp端口）
-9999（API端口）
+9999（后端API端口）
 1883（mqtt端口）
 5432（postogresql端口）
 6379（redis端口）
+1880（规则引擎端口）
 ```
 
 :::tip 设备对接
