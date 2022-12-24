@@ -10,7 +10,7 @@ sidebar_position: 2
 ## 二、开发步骤
 
 ### 1. 编写Vue页面
-用开发工具打开前端项目，在`src/view/pages`目录下新建一个文件夹，名称为`test123`
+用开发工具打开前端项目，在`src/view/pages`目录下新建一个文件夹，名称由开发者自己定义，本例中命名为`test123`
 ![img.png](images/devPage_2_1_1.png)
 
 在test123目录内新建一个Vue页面，名称为index.vue。记住这里的路径 **/pages/test123/index.vue** ，等会添加菜单时要用到。  

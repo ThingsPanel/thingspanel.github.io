@@ -6,15 +6,23 @@ sidebar_position: 1
 
 本章节将指导您快速安装ThingsPanel，并实现接入设备，查看设备数据。
 ## 先决条件
-* 需要先安装好Docker、DockerCompose、Git
+* 需要先安装好Docker（[安装docker社区版](https://docs.docker.com/engine/installation/)）
+* DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
+* Git
 * 使用MQTT模拟器，可使用MQTTbox、MQTT X、 MQTT.fx ，或者使用设备推送数据。
+
+:::info
+
+可参考[`Docker安装环境搭建`](./system-installation/docker_installation)案例。
+
+:::
 
 ## 通过Docker容器安装ThingsPanel
 
 通过容器化部署是搭建ThingsPanel的最快方式。
 
 ```bash title="第一步、获取docker-compose源码:" showLineNumbers
-git clone https://github.com/ThingsPanel/thingsPanel-go-docker.git
+git clone https://github.com/ThingsPanel/thingspanel-docker.git
 ```
 
 ```bash title="第二步、进入目录并启动服务:" showLineNumbers
@@ -32,6 +40,7 @@ cd thingsPanel-go-docker&&docker-compose -f docker-compose.yml up
 更详细的`步骤`请参考[`Docker安装`](./system-installation/docker_installation)。
 
 :::
+
 ## 设备接入与查看数据的步骤
 :::info
 
