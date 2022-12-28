@@ -219,6 +219,10 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      googleAnalytics: {
+        trackingID: 'G-18JL3B13JT',
+        anonymizeIP: true,
       }
     }),
 };
