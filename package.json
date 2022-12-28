@@ -19,6 +19,7 @@
   "dependencies": {
     "@crowdin/cli": "^3.7.10",
     "@docusaurus/core": "2.0.0-rc.1",
+    "@docusaurus/plugin-google-gtag": "^2.2.0",
     "@docusaurus/preset-classic": "2.0.0-rc.1",
     "@easyops-cn/docusaurus-search-local": "^0.30.2",
     "@mdx-js/react": "^1.6.22",

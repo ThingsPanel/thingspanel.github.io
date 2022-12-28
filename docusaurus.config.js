@@ -52,25 +52,14 @@ const config = {
   ],
   plugins: [
     [
-      '@docusaurus/plugin-google-analytics',
+      '@docusaurus/plugin-google-gtag',
       {
         trackingID: 'G-18JL3B13JT',
         anonymizeIP: true,
       },
     ],
   ],
-
   presets: [
-    // [
-    //   '@docusaurus/preset-classic',
-    //   {
-    //     googleAnalytics: {
-    //       trackingID: 'G-18JL3B13JT',
-    //       anonymizeIP: true,
-    //     },
-    //   },
-
-    // ],
     [ 
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
@@ -219,10 +208,6 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-      },
-      googleAnalytics: {
-        trackingID: 'G-18JL3B13JT',
-        anonymizeIP: true,
       }
     }),
 };
