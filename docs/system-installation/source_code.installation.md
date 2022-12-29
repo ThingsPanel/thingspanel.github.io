@@ -7,7 +7,7 @@ sidebar_position: 3
 ## 系统环境
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
-1. go 1.17.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
+1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
