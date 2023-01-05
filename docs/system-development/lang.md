@@ -60,7 +60,7 @@ languages: [
 ```
   
 
-- script  
+- js  
   格式： this.$t(名称);  
   举例：
 ```aidl
@@ -70,4 +70,11 @@ this.$t("COMMON.SYSTEMMANAGEMENT");
 // vue 3.0
 const self = getCurrentInstance().proxy;
 self.$t("COMMON.SYSTEMMANAGEMENT");
+```
+如果以上方式没有效果，可使用如下方法：
+
+```aidl
+import i18n from "@/core/plugins/vue-i18n"
+
+i18n.t('PLUGIN.DEVICE_INFO')
 ```
