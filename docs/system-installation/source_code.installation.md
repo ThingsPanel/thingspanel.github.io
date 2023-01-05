@@ -7,8 +7,16 @@ sidebar_position: 3
 ## 系统环境
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
-1. go 1.17.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
+1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+  可参考docker安装：
+  ```sh
+  docker run --name tp-redis \
+  -v /home/tp/backend/redis/data:/data \
+  -v /home/tp/backend/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
+  -v /home/tp/backend/redis/logs:/logs \
+  -d -p 6379:6379 redis redis-server --requirepass redis2022
+  ```
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ### (可参考)timescaledb数据库搭建
@@ -82,7 +90,7 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 
 ## ThingsPanel-Go安装启动
 
-平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库。
+平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意安装数据库时候设置的用户名密码，与./conf/app.conf保持一致）。
 
 1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
 2. Star仓库
@@ -193,6 +201,57 @@ $ go run . start
 ```
 
 ## rule-engine安装启动（可选-规则引擎）
+请参考https://github.com/ThingsPanel/rule-engine的readme安装
+## 前端部署
+### 安装nginx
+```sh
+yum install nginx
+```
+### nginx配置
+安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html
+```conf
+server {
+    listen       8080;
+    server_name _;
+    root         /usr/share/nginx/html;
+
+    # Load configuration files for the default server block.
+    #include /etc/nginx/default.d/*.conf;
+    location /api{
+        proxy_pass  http://127.0.0.1:9999;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header X-real-ip $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+    location /files{
+        proxy_pass  http://127.0.0.1:9999;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header X-real-ip $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+    location / {
+        index       index.html index.htm;
+    }
+
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+}
+```
+### 重启nginx
+```sh
+nginx -t
+nginx -s reload
+```
+
 
 
 :::info
