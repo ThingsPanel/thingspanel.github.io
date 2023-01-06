@@ -26,7 +26,7 @@ git clone https://github.com/ThingsPanel/thingspanel-docker.git
 ```
 
 ```bash title="第二步、进入目录并启动服务:" showLineNumbers
-cd thingsPanel-go-docker&&docker-compose -f docker-compose.yml up
+cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 ```
 
 ```text title="第三步、登录:" showLineNumbers
