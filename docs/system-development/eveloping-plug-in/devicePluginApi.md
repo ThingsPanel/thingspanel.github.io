@@ -187,6 +187,38 @@ sidebar_position: 1
 }
 ```
 
+### 获取插件的分类名称
+通过api/dict/list接口获取插件分类列表
+
+- 参数：
+```aidl
+{
+    "current_page": 1,
+    "per_page": 10,
+    "dict_code":"chart_type"
+}
+```
+
+:::info 参数说明
+注意：dict_code为chart_type时获取的是插件的分类列表
+:::
+
+- 返回值：
+```aidl
+{
+    "id": "fd55cc73-427e-7dfc-121e-1e4f73b55e65",
+    "dict_code": "chart_type",
+    "dict_value": "1",
+    "describe": "传感器",
+    "created_at": 1663226829
+}
+```
+:::info 返回值说明
+dict_value对应插件JSON中的pluginCategory
+describe就是插件的分类名称
+:::
+
+
 ## 三、开发步骤
 - 1、设备绑定插件
 - 2、通过设备id获取插件id
