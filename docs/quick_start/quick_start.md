@@ -4,6 +4,7 @@ sidebar_position: 1
 
 # 快速安装并接入设备
 
+
 本章节将指导您快速安装ThingsPanel，并实现接入设备，查看设备数据。
 ## 先决条件
 * 需要先安装好Docker（[安装docker社区版](https://docs.docker.com/engine/installation/)）
@@ -26,7 +27,7 @@ git clone https://github.com/ThingsPanel/thingspanel-docker.git
 ```
 
 ```bash title="第二步、进入目录并启动服务:" showLineNumbers
-cd thingsPanel-go-docker&&docker-compose -f docker-compose.yml up
+cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 ```
 
 ```text title="第三步、登录:" showLineNumbers

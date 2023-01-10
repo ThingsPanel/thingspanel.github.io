@@ -46,12 +46,12 @@ windows环境下请安装`Docker Desktop`和`git`。
     ```bash showLineNumbers
     # 拉取docker配置
     git clone https://github.com/ThingsPanel/thingspanel-docker.git
-    cd thingsPanel-go-docker
+    cd thingspanel-docker
     ```
 
 - **运行项目**
 
-    > 在`thingsPanel-go-docker`目录下(win需要打开`cmd` 窗口)
+    > 在`thingspanel-docker`目录下(win需要打开`cmd` 窗口)
 
     ```bash showLineNumbers
     # 以日志显示前台方式启动项目(默认账户和密码 super@super.cn 123456)(默认端口8080)
