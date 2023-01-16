@@ -14,3 +14,8 @@ http://dev.thingspanel.cn/
 - 密码：123456
 
 ![查看手机端](./../img/Thingspanel-app.png )
+
+
+Android安卓客户端
+
+[安卓客户端下载](http://119.91.238.241:9090/data/1/ThingsPanel-0.4.5.apk)
