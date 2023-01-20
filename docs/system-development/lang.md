@@ -20,17 +20,20 @@ ch.js是中文语言文件，en.js是英文语言文件，其他语种请自定�
 语言文件的格式如下：
 ```aidl
 export const locale = {
-  COMMON: {
-    SYSTEMMANAGEMENT:"系统管理",
-    SYSTEMSETUP: "系统设置",
-    MANAGEMENT:"角色管理",
-    PERMISSIONMANAGEMENT: "权限管理",
-    PERMISSIONADD: "添加权限",
-    
-    // ...
+  /**
+   * 首页
+   */
+  HOME: {
+    QUICK_GUIDE: "快捷指南",
+    LAST_VISIT: "最近访问",
+    TEXT1: "接入数据需要从设备插件开发开始，也可以下载已有插件，快速接入数据。"
   }
 }
 ```
+:::info
+所有的key都是大写，多个单词用下划线隔开
+:::
+
 ### 2、使用语言文件
 打开src/core/services/i18n.service.js文件，将您定义的语言添加到languages中
 ```aidl
@@ -50,13 +53,22 @@ languages: [
     }
 ```
 其中lang是文件名，name是项目中语言下拉列表的语种名称，flag是语种图标。
+然后您就可以在页面中翻译文本了。
 
 ### 3、翻译页面
 - Template  
   格式： {{ $t(名称)}}  
   举例：
 ```aidl
-{{ $t("COMMON.SYSTEMMANAGEMENT")}}
+// 插槽方式
+<span class="font-weight-bolder text-dark">
+  {{ $t("HOME.QUICK_GUIDE") }}
+</span>
+```
+
+```aidl
+// 传值方式
+<el-table-column :label="$t('COMMON.NO')" type="index" width="260"></el-table-column>
 ```
   
 
@@ -65,11 +77,11 @@ languages: [
   举例：
 ```aidl
 // vue 2.0
-this.$t("COMMON.SYSTEMMANAGEMENT");
+this.$t("PLUGIN.DEVICE_INFO");
 
 // vue 3.0
 const self = getCurrentInstance().proxy;
-self.$t("COMMON.SYSTEMMANAGEMENT");
+self.$t("PLUGIN.DEVICE_INFO");
 ```
 如果以上方式没有效果，可使用如下方法：
 

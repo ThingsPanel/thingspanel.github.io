@@ -213,6 +213,7 @@ sidebar_position: 1
     "created_at": 1663226829
 }
 ```
+
 :::info 返回值说明
 dict_value对应插件JSON中的pluginCategory
 describe就是插件的分类名称
