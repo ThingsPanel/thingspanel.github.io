@@ -1,10 +1,10 @@
 ---
 sidebar_position: 9
-
+---
 
 # 更新记录
 
-## ThingsPanel-Ver0.4.5
+## ThingsPanel-Ver0.4.6
 ### 新增功能
 
 - 增加更换登录页背景功能。
