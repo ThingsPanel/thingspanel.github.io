@@ -100,7 +100,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
       <Translate
-          id="ruleEngine.one"
+          id="protocols.one"
           description="副标题">
           支持MQTT、TCP、Modbus、GB28181等，可自行扩展。
       </Translate>
