@@ -11,28 +11,28 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title:translate({message: "业务管理"}),
+    title:translate({message: "设备接入"}),
     Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
       <Translate
           id="business.one"
           description="副标题">
-          一个系统可整合多个业务， 可拓展更多智慧场景。
+          多项目、多分组、多接入协议、自定义脚本
       </Translate>
       </>
         // 一个系统可整合多个业务， 可拓展更多智慧场景。 
     ),
   },
   {
-    title:translate({message: "分组管理"}),
+    title:translate({message: "插件生成器"}),
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
        <Translate
           id="group.one"
           description="副标题">
-          可按照组织结构、资产机构等多种分组方式管理设备。
+          生成设备插件，快速定制个性化设备功能。
       </Translate>
       </>
       //可按照组织结构、资产机构等多种分组方式管理设备。
@@ -46,7 +46,7 @@ const FeatureList: FeatureItem[] = [
        <Translate
           id="application.one"
           description="副标题">
-          设备插件、大屏插件，用积木的方式搭建系统。
+          设备插件、协议插件，用积木的方式搭建系统。
       </Translate>
       </>
         // 设备插件、大屏插件，用积木的方式搭建系统。
@@ -89,6 +89,20 @@ const FeatureList: FeatureItem[] = [
           id="ruleEngine.one"
           description="副标题">
           接入各类协议并转换数据，转发数据到外部系统。
+      </Translate>
+      </>
+        // 接入各类协议并转换数据，转发数据到外部系统。
+    ),
+  },
+  {
+    title:translate({message: "多接入协议"}),
+    Svg: require('@site/static/img/chartpie.svg').default,
+    description: (
+      <>
+      <Translate
+          id="ruleEngine.one"
+          description="副标题">
+          支持MQTT、TCP、Modbus、GB28181等，可自行扩展。
       </Translate>
       </>
         // 接入各类协议并转换数据，转发数据到外部系统。
