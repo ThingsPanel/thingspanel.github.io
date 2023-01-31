@@ -8,7 +8,8 @@ sidebar_position: 3
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
-2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+2. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
+3. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
   可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
   ```sh
   docker run --name tp-redis \
@@ -18,8 +19,7 @@ sidebar_position: 3
   -d -p 6379:6379 redis redis-server --requirepass redis2022
   ```
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
-4. 需要先安装好Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
-5. DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
+
 
 ### (可参考)timescaledb数据库搭建
 1. 获取TP.sql文件[点击下载](https://github.com/ThingsPanel/ThingsPanel-Go/blob/main/TP.sql)，放在linux服务器上
