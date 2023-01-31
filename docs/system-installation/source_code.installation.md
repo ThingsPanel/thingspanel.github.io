@@ -9,7 +9,7 @@ sidebar_position: 3
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 2. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
-  可参考docker安装：
+  可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
   ```sh
   docker run --name tp-redis \
   -v /home/tp/backend/redis/data:/data \
@@ -22,13 +22,14 @@ sidebar_position: 3
 5. DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
 
 ### (可参考)timescaledb数据库搭建
-1. 修改后端TP.sql文件的权限
+1. 获取TP.sql(https://github.com/ThingsPanel/ThingsPanel-Go/blob/main/TP.sql)文件，放在linux服务器上
+2. 在文件当前目录执行以下命令修改文件权限
 
 ```bash
 chmod 777 TP.sql
 ```
 
-2. 获取数据库镜像
+3. 获取数据库镜像
 
 ```bash
 docker pull timescale/timescaledb:latest-pg12
@@ -38,7 +39,7 @@ docker pull timescale/timescaledb:latest-pg12
 POSTGRES_DB 数据库名  
 POSTGRES_USER 用户名  
 POSTGRES_PASSWORD 密码  
-请对应修改后端配置文件  
+请对应修改后端配置文件（根据服务器上TP.sql实际路径修改命令中的`/home/tp/backend/TP.sql`） 
 ```
 docker run --name timescaledb -p 5432:5432 \
 -v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
@@ -92,7 +93,7 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 
 ## ThingsPanel-Go安装启动
 
-平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意安装数据库时候设置的用户名密码，与./conf/app.conf保持一致）。
+平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./conf/app.conf，与安装数据库时候设置的用户名密码保持一致）。
 
 1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
 2. Star仓库
@@ -160,7 +161,32 @@ $ cd ThingsPanel-Go
 $ go run . start
 ```
 
-## ThingsPanel-Backend-Vue安装启动
+## ThingsPanel-Backend-Vue安装打包
+
+### 安装node.js 16.13（如果要在服务器打包前端需要安装node.js）
+[安装node.js](https://nodejs.org/zh-cn/download/)
+1. 点击上面链接进入下载页
+2. 往下翻找到`以往的版本`
+3. 例如找到16.13点下载然后选node-v16.13.2-linux-x64.tar.xz,执行命令下载
+  ```
+  wget https://nodejs.org/download/release/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+  ```
+4. 获取到压缩包后，[node.js二进制安装](https://github.com/nodejs/help/wiki/Installation)
+
+### 前端源码打包
+1. 下载源码
+  ```bash
+  git clone https://github.com/ThingsPanel/ThingsPanel-Backend-Vue.git
+  ```
+2. 安装依赖
+  ```bash
+  npm install
+  ```
+3. 打包生成dist文件(打包前删除.env.dev和.env.production文件)
+  ```bash
+  rm .env.dev&&rm .env.production
+  npm run build
+  ```
 
 ## modbus-protocol-plugin安装启动（可选-MODBUS协议插件）
 
@@ -210,7 +236,7 @@ $ go run . start
 yum install nginx
 ```
 ### nginx配置
-安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html
+安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)
 ```conf
 server {
     listen       8080;
