@@ -22,7 +22,7 @@ sidebar_position: 3
 5. DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
 
 ### (可参考)timescaledb数据库搭建
-1. 获取TP.sql(https://github.com/ThingsPanel/ThingsPanel-Go/blob/main/TP.sql)文件，放在linux服务器上
+1. 获取TP.sql文件[点击下载](https://github.com/ThingsPanel/ThingsPanel-Go/blob/main/TP.sql)，放在linux服务器上
 2. 在文件当前目录执行以下命令修改文件权限
 
 ```bash
