@@ -18,6 +18,8 @@ sidebar_position: 3
   -d -p 6379:6379 redis redis-server --requirepass redis2022
   ```
 3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
+4. 需要先安装好Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
+5. DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
 
 ### (可参考)timescaledb数据库搭建
 1. 修改后端TP.sql文件的权限
