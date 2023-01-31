@@ -8,7 +8,7 @@
     <subtitle>ThingsPanel Blog</subtitle>
     <icon>https://www.thingspanel.io/en/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[ThingsPanel 发布物联网手机客户端（多图）]]></title>
+        <title type="html"><![CDATA[ThingsPanel 非官方标准MQTT协议设备接入]]></title>
         <id>script</id>
         <link href="https://www.thingspanel.io/en/blog/script"/>
         <updated>2023-01-31T00:00:00.000Z</updated>

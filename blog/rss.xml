@@ -9,7 +9,7 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <item>
-            <title><![CDATA[ThingsPanel 发布物联网手机客户端（多图）]]></title>
+            <title><![CDATA[ThingsPanel 非官方标准MQTT协议设备接入]]></title>
             <link>https://www.thingspanel.io/blog/script</link>
             <guid>script</guid>
             <pubDate>Tue, 31 Jan 2023 00:00:00 GMT</pubDate>
