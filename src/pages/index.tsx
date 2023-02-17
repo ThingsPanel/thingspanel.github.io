@@ -26,14 +26,18 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/overview">
             {/* Docusaurus Tutorial - 5min ⏱️ */}
-            查看文档
+            <Translate id="home.viewDoc">
+                  查看文档
+                </Translate>
           </Link>
           </span>
           <span className={styles.mybuttonstyle}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/system-introduction/demo">
-            查看演示
+            <Translate id="home.viewDemo">
+                  查看演示
+                </Translate>
           </Link>
           </span>
         </div>
