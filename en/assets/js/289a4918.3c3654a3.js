@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5803],{6751:e=>{e.exports=JSON.parse('{"label":"Rule engine","permalink":"/en/blog/tags/rule-engine","allTagsPath":"/en/blog/tags","count":1}')}}]);
