@@ -37,8 +37,8 @@ ThingsPanel的插件主要有3类，分别是：
 ![功能结构图](./img/gnjgt.png)
 ## 技术栈
 * Golang：天生优异的并发性能，节省硬件成本，可适用于边缘设备。
-* Vue.js：前端构建，体验更佳
-* PostgreSQL：更高的负载能力，更低的拥有成本。
+* Vue.js：简单易用
+* PostgreSQL：广泛的社区与低成本。
 * TimescaleDB ：时序数据库，PostgreSQL插件。
 * Nginx：高性能Web服务器。
 * GMQTT：高性能消息队列处理。
