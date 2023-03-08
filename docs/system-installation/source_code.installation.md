@@ -229,7 +229,7 @@ $ go run . start
 ```
 
 ## rule-engine安装启动（可选-规则引擎）
-请参考https://github.com/ThingsPanel/rule-engine的readme安装
+请参考https://github.com/ThingsPanel/rule-engine 的readme安装
 ## 前端部署
 ### 安装nginx
 ```sh
