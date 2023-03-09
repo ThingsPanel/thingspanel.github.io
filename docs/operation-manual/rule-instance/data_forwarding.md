@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 数据转发、
+# 数据转发
 设备使用device/attributes或gateway/attributes主题将属性上报至平台，在规则引擎中可以通过订阅attributes/relaying/{AccessToken}可获取设备上报的属性（需要使用创建设备时候生成的认证信息登录mqtt客户端-与设备登录的认证一致），然后将数据处理后以各种方式转发出去。
 ## 1. 说明
 基于一款可视化的流编程工具，可以非常轻松的实现对设备的数据转发。
