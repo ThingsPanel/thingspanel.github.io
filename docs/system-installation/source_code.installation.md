@@ -44,9 +44,9 @@ POSTGRES_PASSWORD 密码
 docker run --name timescaledb -p 5432:5432 \
 -v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
 -e TZ=Asia/Shanghai \
--e POSTGRES_DB=tp \
+-e POSTGRES_DB=ThingsPanel \
 -e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgres2022 \
+-e POSTGRES_PASSWORD=postgresThingsPanel2022 \
 -v /home/tp/data/dir:/var/lib/postgresql/data \
 timescale/timescaledb:latest-pg12
 ```
