@@ -96,7 +96,7 @@ docker logs -f containerID
 :::tip 设备对接
 
 设备接入请参考
-[`mqtt对接`](../equipment-access/mqtt)
+[`mqtt对接`](../device_connect/mqtt)
 
 :::
 
