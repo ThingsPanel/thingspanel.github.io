@@ -18,7 +18,7 @@ sidebar_position: 3
   -v /home/tp/backend/redis/logs:/logs \
   -d -p 6379:6379 redis redis-server --requirepass redis2022
   ```
-3. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
+4. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 
 ### (可参考)timescaledb数据库搭建
@@ -35,7 +35,7 @@ chmod 777 TP.sql
 docker pull timescale/timescaledb:latest-pg12
 ```
 
-3. 创建并运行容器  
+4. 创建并运行容器  
 POSTGRES_DB 数据库名  
 POSTGRES_USER 用户名  
 POSTGRES_PASSWORD 密码  
