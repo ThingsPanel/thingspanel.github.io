@@ -1,3 +1,11 @@
+<!--
+ * @Author: chaoxiaoshu-mx leukotrichia@163.com
+ * @Date: 2023-03-17 09:35:28
+ * @LastEditors: chaoxiaoshu-mx leukotrichia@163.com
+ * @LastEditTime: 2023-03-17 09:36:09
+ * @FilePath: \thingspanel.github.io\docs\overview.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 ---
 sidebar_position: 1
 ---
@@ -15,7 +23,7 @@ ThingsPanel的插件主要有3类，分别是：
 除此之外，还有两类可复用的部分，分别是：
 - 报文解析脚本
 - 规则引擎脚本
-
+ 
 通过以上五种的**复用**，可以大大提高研发效率，比以前的方式，成倍的提高效率，降低成本。
 
 ## 产品用途
