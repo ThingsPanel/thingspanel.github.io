@@ -100,7 +100,7 @@ sidebar_position: 9
 	// 调试代码
 	const topic = "gateway/attributes";
 	const encodedMsg = encodeInp(decodedMsg, topic);
-	console.log(encodedMsg); // {"TH180001":{"temp":26.5,"hum":45.5},"TH180002":{"temp":2.65,"hum":4.55}}
+	console.log(encodedMsg); // {"TH180001":{"temp":26.5,"hum":45.5},"TH180002":{"temp":2.65,"hum":4.55}}注意：控制台的输出结果一定不包含转义字符，否则平台无法解析
     ```
 4. 使用在线js调试工具,这里用的是：https://www.lddgo.net/code/runcode/javascript
 ![](./image/compatible_device_01.png)
