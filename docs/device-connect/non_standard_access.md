@@ -71,32 +71,36 @@ sidebar_position: 9
 ![](./image/compatible_device_02.png)
 3. 首先编写代码
     ```javascript
-    var device_msg = '{"sensorDatas":{"TH180001":{"temp":265,"hum":455},"TH180002":{"temp":26.5,"hum":45.5}},"type":2}'
-    var public_topic = "gateway/attributes"
-    var msg = encodeInp(device_msg,public_topic)
-    console.log(msg)
-    function encodeInp(msg, topic){
-        // 将设备自定义msg（自定义形式）数据转换为json形式数据, 设备上报数据到物联网平台时调用
-	// 入参：topic string 设备上报消息的 topic
-	// 入参：msg byte[] 数组 不能为空
-	// 出参：string
-	// 处理完后将对象转回字符串形式
-	// 例，byte[]转string：var msgString = String.fromCharCode.apply(null, msg);
-	// 例，string转jsonObj：msgJson = JSON.parse(msgString);
-	// 例，jsonObj转string：msgString = JSON.stringify(msgJson);
-	var msgString = String.fromCharCode.apply(null, msg)
-        if (topic === "gateway/attributes"){
-            var jsonObj = JSON.parse(msgString);
-            newObj = jsonObj.sensorDatas
-            for(var key in newObj){
-                for(var k in newObj[key]){
-                    newObj[key][k] = newObj[key][k]/10
-                }
-            }
-            msg = JSON.stringify(newObj);
-        }
-        return msg;
-    }
+    // 调试说明：按照node环境下的调试方式，将此文件放在某个文件夹下，然后在这个文件夹下执行 node ThingsPanelScriptTestDemo.js
+	function encodeInp(msg, topic){
+	    // 将设备自定义msg（自定义形式）数据转换为json形式数据, 设备上报数据到物联网平台时调用
+	    // 入参：topic string 设备上报消息的 topic
+	    // 入参：msg byte[] 数组 不能为空
+	    // 出参：string
+	    // 处理完后将对象转回字符串形式
+	    // 例，byte[]转string：var msgString = String.fromCharCode.apply(null, msg);
+	    // 例，string转jsonObj：msgJson = JSON.parse(msgString);
+	    // 例，jsonObj转string：msgString = JSON.stringify(msgJson);
+	    var msgString = String.fromCharCode.apply(null, msg)
+	    if (topic === "gateway/attributes"){
+		var jsonObj = JSON.parse(msgString);
+		newObj = jsonObj.sensorDatas
+		for(var key in newObj){
+		    for(var k in newObj[key]){
+			newObj[key][k] = newObj[key][k]/10
+		    }
+		}
+		msg = JSON.stringify(newObj);
+	    }
+	    return msg;
+	}
+	// 字符串转字节数组
+	const decodedMsg = new Uint8Array([...'{"sensorDatas":{"TH180001":{"temp":265,"hum":455},"TH180002":{"temp":26.5,"hum":45.5}},"type":2}'].map(c => c.charCodeAt(0)));
+	console.log(decodedMsg);
+	// 调试代码
+	const topic = "gateway/attributes";
+	const encodedMsg = encodeInp(decodedMsg, topic);
+	console.log(encodedMsg); // {"TH180001":{"temp":26.5,"hum":45.5},"TH180002":{"temp":2.65,"hum":4.55}}
     ```
 4. 使用在线js调试工具,这里用的是：https://www.lddgo.net/code/runcode/javascript
 ![](./image/compatible_device_01.png)
