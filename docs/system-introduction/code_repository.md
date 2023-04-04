@@ -15,6 +15,9 @@ https://github.com/ThingsPanel/ThingsPanel-Backend-Vue
 ## Modbus协议插件库
 https://github.com/ThingsPanel/modbus-protocol-plugin
 
+## TCP协议插件库
+https://github.com/ThingsPanel/tcp-protocol-plugin
+
 ## 手机端代码库
 
 https://github.com/ThingsPanel/app
