@@ -22,27 +22,19 @@ sidebar_position: 3
 
 
 ### (可参考)timescaledb数据库搭建
-1. 获取TP.sql文件[点击下载](https://github.com/ThingsPanel/ThingsPanel-Go/blob/main/TP.sql)，放在linux服务器上
-2. 在文件当前目录执行以下命令修改文件权限
-
-```bash
-chmod 777 TP.sql
-```
-
-3. 获取数据库镜像
+1. 获取数据库镜像
 
 ```bash
 docker pull timescale/timescaledb:latest-pg12
 ```
 
-4. 创建并运行容器  
+2. 创建并运行容器  
 POSTGRES_DB 数据库名  
 POSTGRES_USER 用户名  
 POSTGRES_PASSWORD 密码  
 请对应修改后端配置文件（根据服务器上TP.sql实际路径修改命令中的`/home/tp/backend/TP.sql`） 
 ```
 docker run --name timescaledb -p 5432:5432 \
--v /home/tp/backend/TP.sql:/docker-entrypoint-initdb.d/TP.sql \
 -e TZ=Asia/Shanghai \
 -e POSTGRES_DB=ThingsPanel \
 -e POSTGRES_USER=postgres \
