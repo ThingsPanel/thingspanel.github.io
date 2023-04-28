@@ -19,4 +19,4 @@ sidebar_position: 9
 
 ## 4、查看效果
 在设备监控查看效果  
-![](image/ezviz_04.png)
+![](image/ezviz_04.png) 
