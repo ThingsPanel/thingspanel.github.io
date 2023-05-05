@@ -22,7 +22,7 @@ MQTT协议下OTA升级流程如下图所示。
 ## 数据格式说明
 OTA升级流程及使用的Topic和数据格式如下：
 1. （可选）设备连接OTA服务，上报版本号。  
-    设备端通过MQTT协议推送当前设备OTA模块版本号到Topic： /ota/device/inform/${AccessToken}。消息格式如下：
+    设备端通过MQTT协议推送当前设备OTA模块版本号到Topic： ota/device/inform/${AccessToken}。消息格式如下：
     ```
     {
         "id": "147258369",
@@ -38,7 +38,7 @@ OTA升级流程及使用的Topic和数据格式如下：
     | version | String | OTA模块版本。 |
     | module | String | OTA模块名。设备的默认（default）模块的版本号代表整个设备的固件版本号。 |
 2. 您在控制台触发升级操作之后，设备会收到物联网平台OTA服务推送的升级包的URL地址。
-    设备端订阅Topic：/ota/device/upgrade/${AccessToken}。物联网平台对设备发起OTA升级请求后，设备端会通过该Topic收到升级包的存储地址URL。
+    设备端订阅Topic：ota/device/upgrade/${AccessToken}。物联网平台对设备发起OTA升级请求后，设备端会通过该Topic收到升级包的存储地址URL。
     消息格式如下：
     ```
     {
@@ -69,7 +69,7 @@ OTA升级流程及使用的Topic和数据格式如下：
     | signMethod | String | 签名方法。取值：SHA256、MD5。对于Android差分升级包类型，仅支持MD5签名方法。 |
     | module | String | 升级包所属的模块名。模块名为default时，物联网平台不下发module参数。 |
     | extData | Object | 升级批次标签列表和推送给设备的自定义信息。_package_udi表示自定义信息的字段。单个标签格式："key":"value"。 |
-3. 升级过程中，设备端向服务端推送升级进度到Topic：/ota/device/progress/${AccessToken}。
+3. 升级过程中，设备端向服务端推送升级进度到Topic：ota/device/progress/${AccessToken}。
     消息格式如下：
     ```
     {
