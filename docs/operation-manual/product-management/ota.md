@@ -22,7 +22,7 @@ MQTT协议下OTA升级流程如下图所示。
 ## 数据格式说明
 OTA升级流程及使用的Topic和数据格式如下：
 1. （可选）设备连接OTA服务，上报版本号。  
-    设备端通过MQTT协议推送当前设备OTA模块版本号到Topic： ota/device/inform/${AccessToken}。消息格式如下：
+    设备端通过MQTT协议推送当前设备OTA模块版本号到Topic： ota/device/inform。消息格式如下：
     ```
     {
         "id": "147258369",
