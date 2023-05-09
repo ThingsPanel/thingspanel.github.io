@@ -33,7 +33,7 @@ Using SSH:
 $ USE_SSH=true yarn deploy
 ```
 
-http://docs.thingspanel.io/
+http://thingspanel.io/
 
 2.0搭建  查看在package.json  
     @docusaurus/core": "2.0.0-rc.1",
