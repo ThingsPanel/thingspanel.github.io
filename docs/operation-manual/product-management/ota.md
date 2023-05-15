@@ -69,7 +69,7 @@ OTA升级流程及使用的Topic和数据格式如下：
     | signMethod | String | 签名方法。取值：SHA256、MD5。对于Android差分升级包类型，仅支持MD5签名方法。 |
     | module | String | 升级包所属的模块名。模块名为default时，物联网平台不下发module参数。 |
     | extData | Object | 升级批次标签列表和推送给设备的自定义信息。_package_udi表示自定义信息的字段。单个标签格式："key":"value"。 |
-3. 升级过程中，设备端向服务端推送升级进度到Topic：ota/device/progress/${AccessToken}。
+3. 升级过程中，设备端向服务端推送升级进度到Topic：ota/device/progress。
     消息格式如下：
     ```
     {
