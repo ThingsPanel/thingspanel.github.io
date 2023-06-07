@@ -32,7 +32,13 @@ docker pull timescale/timescaledb:latest-pg12
 POSTGRES_DB 数据库名  
 POSTGRES_USER 用户名  
 POSTGRES_PASSWORD 密码  
-请对应修改后端配置文件
+
+:::tip
+
+此处如果修改了数据库名、用户名或密码请对应修改后端配置文件（./conf/app.conf）
+
+:::
+
 ```
 docker run --name timescaledb -p 5432:5432 \
 -e TZ=Asia/Shanghai \
