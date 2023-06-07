@@ -65,6 +65,11 @@ GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平�
 ```yml
 listeners:
   - address: ":1883"   # 接入端口
+  - address: ":8883"  # mqtts接入
+    tls:
+      cacert: "./certs/ca.crt"
+      cert: "./certs/server.crt"
+      key: "./certs/server.key"
 api:
   http:
     - address: "tcp://0.0.0.0:8083"  # http服务配置（ThingsPanel-GO调用，主要用来管理接入的权限）
@@ -143,6 +148,9 @@ mqtt:
   topicToPublish: device/attributes # 平台发布设备属性主题前置
   topicToStatus: device/status # 平台订阅设备状态主题
   gateway_topic: gateway/attributes # 平台订阅网关设备属性主题
+  topicToCommand: device/command # 平台发布命令主题
+  topicToEvent: device/event # 设备上报事件主题
+  topicToInform: ota/device/inform # 设备订阅升级信息主题
 api:
   http_host: 127.0.0.1:8083 # gmqttAPI服务地址（主要用来管理接入的权限）
 plugin:
@@ -235,6 +243,7 @@ yum install nginx
 ```
 ### nginx配置
 安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)
+**注意如果访问有权限问题，修改nginx.conf配置**
 ```conf
 server {
     listen       8080;
