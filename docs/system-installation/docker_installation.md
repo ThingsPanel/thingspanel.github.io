@@ -85,10 +85,9 @@ windows环境下请安装`Docker Desktop`和`git`。
 
 ```bash showLineNumbers
 docker logs -f containerID
+```
 
-## 注意事项
-
-端口说明：
+## 端口说明
 
 ```bash showLineNumbers
 8080（前端服务端口）
