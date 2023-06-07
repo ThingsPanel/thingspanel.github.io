@@ -32,8 +32,8 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 
 ```text title="第三步、登录:" showLineNumbers
 输入网址:服务器IP:8080
-输入账户:super@super.cn
-输入密码:123456
+系统管理员：super@super.cn / 123456
+租户管理员：tenant@tenant.cn / 123456
 ```
 
 :::info
@@ -52,7 +52,6 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 :::
 ## 30秒接入一个温湿度设备并查看数据【适合老手】
 
-
 ![30秒接入一个温湿度设备并查看数据](./30s.gif)
 
 ## 详细步骤【适合新手】
@@ -60,7 +59,6 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 ### 创建设备
 
 1、在**设备管理**菜单中，点击**新建项目**按钮，输入**项目名称**，例如环境监测。
-
 
 ![创建分组](./creategroup.png)
 2、创建设备，并输入**设备名称**、选择**分组**、设定为**设备**（直连设备）
