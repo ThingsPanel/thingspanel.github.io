@@ -54,25 +54,31 @@ windows环境下请安装`Docker Desktop`和`git`。
     > 在`thingspanel-docker`目录下(win需要打开`cmd` 窗口)
 
     ```bash showLineNumbers
-    # 以日志显示前台方式启动项目(默认账户和密码 super@super.cn 123456)(默认端口8080)
+    # 以日志显示前台方式启动项目(默认端口8080)
     docker-compose -f docker-compose.yml up
     # 或者以隐藏日志显示的方式启动项目
     docker-compose -f docker-compose.yml up -d
     # 停止服务
     docker-compose -f docker-compose.yml down
     ```
+    
+- **登录**
+     - 系统管理员 super@super.cn / 123456
+     - 租户管理员 tenant@tenant.cn / 123456
 
 ## 挂载说明
 
-- **后端配置文件、日志以及其他差分文件**
+- **配置文件、日志以及其他差分文件**
 
     ```bash
-    ./init_files/backend/
+    ./data
     ```
-- **redis配置以及差分文件**
+- **docker数据卷名**
 
     ```bash
-    ./init_files/redis/
+    go
+    gmqtt
+    nginx
     ```
 
 ## 查看容器运行日志
@@ -82,12 +88,13 @@ docker logs -f containerID
 
 ## 注意事项
 
-端口：
+端口说明：
 
 ```bash showLineNumbers
 8080（前端服务端口）
 9999（后端API端口）
 1883（mqtt端口）
+8883（mqtts端口）
 5432（postogresql端口）
 6379（redis端口）
 1880（规则引擎端口）
