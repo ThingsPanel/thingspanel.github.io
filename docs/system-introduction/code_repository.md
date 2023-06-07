@@ -12,6 +12,12 @@ https://github.com/ThingsPanel/ThingsPanel-Go
 ## 前端代码库
 https://github.com/ThingsPanel/ThingsPanel-Backend-Vue
 
+## GMQTT代码库
+https://github.com/ThingsPanel/gmqtt.git
+
+## HTTP协议插件库
+https://github.com/ThingsPanel/http-protocol-plugin.git
+
 ## Modbus协议插件库
 https://github.com/ThingsPanel/modbus-protocol-plugin
 
@@ -24,4 +30,4 @@ https://github.com/ThingsPanel/app
 
 ## 容器代码库
 
-https://github.com/ThingsPanel/thingsPanel-go-docker
+https://github.com/ThingsPanel/thingspanel-docker.git
