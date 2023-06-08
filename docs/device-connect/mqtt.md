@@ -28,7 +28,7 @@ ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，�
 | --- | --- |
 | 设备上报属性主题 | device/attributes |
 | 设备上报事件主题 | device/event |
-| 设备服务指令响应主题 | device/command/reply |
+| 设备命令响应主题 | device/command/reply |
 
 **上报属性消息规范**
 
@@ -46,6 +46,6 @@ ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，�
 ### 设备订阅主题
 | 消息类型 | 主题 |
 | --- | --- |
-| 订阅属性主题 | device/attributes/{AccessToken或username} |
+| 平台下发属性主题 | device/attributes/{AccessToken或username} |
 | 事件上报的响应主题 | event/response/{AccessToken或username} |
-| 服务指令主题 | command/send/{AccessToken或username} |
+| 平台下发命令主题 | device/command/{AccessToken或username} |
