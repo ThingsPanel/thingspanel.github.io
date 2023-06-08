@@ -3,32 +3,22 @@ sidebar_position: 4
 ---
 
 # 数据转发
-设备使用device/attributes或gateway/attributes主题将属性上报至平台，在规则引擎中可以通过订阅attributes/relaying/{AccessToken}可获取设备上报的属性（需要使用创建设备时候生成的认证信息登录mqtt客户端-与设备登录的认证一致），然后将数据处理后以各种方式转发出去。
-## 1. 说明
-基于一款可视化的流编程工具，可以非常轻松的实现对设备的数据转发。
+可在设备与平台传递消息的途中，将消息转发出去
+![](images/data_transpond01.png)
 
-![](images/access_engine_01_01.png)
-
-## 2. 操作步骤
+## 操作步骤
 
 ### 1). 创建转发规则
-**规则引擎** -> **数据转发** -> **创建转发规则**  
-点击`创建转发规则`按钮，填入自定义的规则名称。
+点击`创建转发`按钮
 
-![img.png](images/access_engine_02_01.png)
+### 2). 填写转发规则
+- 可选的数据源有属性上报、属性下发、事件上报
+![img.png](images/data_transpond02.png)
 
-### 2). 编辑
-**规则引擎** -> **数据转发** -> **编辑**  
-创建好规则后，就可以点击`编辑`按钮进入可视化的流编程工具，编辑节点。  
-流编程工具的具体操作方法可查看： [`规则引擎`](./rule_instance)
-如图：
-
-![img.png](images/access_engine_02_02.png)
-
-编辑完后不要忘了点击`保存并运行`，否则规则不会生效。
-
+- 解析脚本对数据源的数据做对应处理后再转发（数据源都为平台数据规范）
+- 数据目的目前有有外部MQTT和外部URL两种
+![img.png](images/data_transpond03.png)
+![img.png](images/data_transpond04.png)
 ### 3). 启动/暂停
-**规则引擎** -> **数据转发** -> **启动**/**暂停**  
-当我们在流编程工具中编辑好一个规则并保存后，就可以直接在ThingsPanel中`启动`/`暂停`了，无需再打开流编程工具。
+创建后可以启动和暂停
 
-![img.png](images/access_engine_02_03.png)
