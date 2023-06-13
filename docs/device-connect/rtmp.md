@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # RTMP摄像头接入
@@ -16,7 +16,8 @@ RTMP摄像头通过将视频数据编码为RTMP流，并通过网络传输到服
 
 ### 1、搭建SRS
 
-``` docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 \
+``` 
+docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 \
 registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/docker.conf
  ```
 需要打开 1935 1985 8080 3个端口
@@ -28,7 +29,7 @@ http://124.223.111.248:8080/
 
 系统提示，推流到rtmp://124.223.111.248/live/livestream
 
-![SRS安装界面](srs.png)
+![SRS安装界面](./image/srs.png)
 
 ### 2、推流
 
@@ -47,4 +48,4 @@ ffmpeg -re -i ElectricityMeter.mp4 -c copy -f flv  rtmp://124.223.111.248/live/l
 ### 3、在ThingsPanel中使用视频地址插件播放
 
 
-![在ThingsPanel中播放RTMP视频流](playRtmpVideo.png)
+![在ThingsPanel中播放RTMP视频流](./image/playRtmpVideo.png)
