@@ -15,4 +15,4 @@ http://dev.thingspanel.cn/
 
 Android安卓客户端
 
-[安卓客户端下载](http://119.91.238.241:9090/data/1/ThingsPanel-0.4.5.apk)
+[安卓客户端下载](http://119.91.238.241:9090/data/1/ThingsPanel-0.4.7.apk)

@@ -9,9 +9,17 @@ sidebar_position: 3
 * 从设备接入选择项目后进入设备管理页面可对设备进行管理。
 * 在设备列表页面可对设备进行查看、添加、修改和删除操作。
 
+支持的接入协议：
+- MQTT
+- HTTP
+- TCP
+- Modbus
+- 视频地址
+- 萤石云视频协议
+
 :::tip
 
-ThingsPanel的设备分组可比做磁盘的分区（比如C盘），子设备分组可比做文件夹，设备像就是一个个文件。
+ThingsPanel使用项目与分组（可多级）对设备进行分类，设备类似文件系统中的文件。
 
 :::
 
@@ -19,8 +27,8 @@ ThingsPanel的设备分组可比做磁盘的分区（比如C盘），子设备�
 
 :::info
 
-操作步骤可参考[`创建设备`](./getting-started-with-example/create-device)。
-
+快速接入设备可参考 [`创建设备`](../quick_start/quick_start.md)。
+不同协议的接入可参考【`MQTT接入与其他协议`】(../device-connect/mqtt.md)
 :::
 
 ## 设备详情
