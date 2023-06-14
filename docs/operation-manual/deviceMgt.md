@@ -19,7 +19,7 @@ sidebar_position: 3
 
 :::tip
 
-ThingsPanel使用项目与分组（可多级）对设备进行分类，设备类似文件系统中的文件。
+ThingsPanel新增更多的协议需要自行开发，参考协议插件开发部分文档。
 
 :::
 

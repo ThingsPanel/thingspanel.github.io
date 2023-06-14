@@ -12,6 +12,9 @@ https://github.com/ThingsPanel/ThingsPanel-Go
 ## 前端代码库
 https://github.com/ThingsPanel/ThingsPanel-Backend-Vue
 
+## 可视化编辑器代码库
+https://github.com/ThingsPanel/visual-editor
+
 ## GMQTT代码库
 https://github.com/ThingsPanel/gmqtt.git
 
