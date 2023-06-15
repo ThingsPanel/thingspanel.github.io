@@ -94,7 +94,7 @@ docker logs -f containerID
 9999（后端API端口）
 1883（mqtt端口）
 8883（mqtts端口）
-5432（postogresql端口）
+5432（postgresql端口）
 6379（redis端口）
 1880（规则引擎端口）
 ```
