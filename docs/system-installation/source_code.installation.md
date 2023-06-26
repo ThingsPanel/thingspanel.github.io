@@ -193,6 +193,26 @@ $ go run . start
   rm .env.dev&&rm .env.production
   npm run build
   ```
+## visual-editor安装打包（可视化）
+
+### 安装pnpm
+1. 在以上node.js按照好的前提下，执行命令安装pnpm
+```
+npm i -g pnpm
+```
+### 可视化源码打包
+1. 下载源码
+```bash
+https://github.com/ThingsPanel/visual-editor.git
+```
+2. 安装依赖
+```bash
+npm install
+```
+3. 打包生成dist
+```bash
+pnpm run build
+```
 
 ## modbus-protocol-plugin安装启动（可选-MODBUS协议插件）
 
@@ -242,7 +262,7 @@ $ go run . start
 yum install nginx
 ```
 ### nginx配置
-安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)
+安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
 **注意如果访问有权限问题，修改nginx.conf配置**
 ```conf
 server {
@@ -268,10 +288,15 @@ server {
         proxy_set_header X-real-ip $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
     }
+    location ^~ /visual {
+        alias /usr/share/nginx/visual-editor/dist;
+        index index.html index.htm;
+        try_files $uri $uri/ /visual/index.html;
+    }
     location / {
         index       index.html index.htm;
     }
-
+  
     error_page 404 /404.html;
         location = /40x.html {
     }
