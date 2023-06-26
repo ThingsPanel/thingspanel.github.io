@@ -196,7 +196,7 @@ $ go run . start
 ## visual-editor安装打包（可视化）
 
 ### 安装pnpm
-1. 在以上node.js按照好的前提下，执行命令安装pnpm
+1. 在以上node.js安装好的前提下，执行命令安装pnpm
 ```
 npm i -g pnpm
 ```
