@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # 可视化3D插件开发
@@ -10,7 +10,7 @@ sidebar_position: 5
 2. 通过数据面板设置设备标签中的展示文字
 3. 通过绑定设备在设备标签上显示接口数据
    最终效果如下图：
-   ![img.png](images/visual3DPlugin_01.png)
+   ![img.png](images/visual_3d_plugin_1.png)
    如上图所示，插件开发完成后，我们只需两步就可完成3d场景的搭建，和数据接入，是不是非常方便，接下来我们进入开发过程
 
 # 开发文档
