@@ -74,11 +74,11 @@ timescale/timescaledb:latest-pg12
 
 2.进入服务目录：
 
-cd gmqtt/cmd/gmqttd
+`cd gmqtt/cmd/gmqttd`
 
 3.go 命令启动：
 
-go run . start -c default_config.yml
+`go run . start -c default_config.yml`
 
 4.启动成功：
 
