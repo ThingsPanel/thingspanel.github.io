@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 树莓派源码安装
 
-本文档的目的在于说明如何在树莓派 4 上通过源码安装 ThingsPanel。安装过程基本与在 x86 服务器安装过程一样。基本参考[源码安装](http://thingspanel.io/zh-Hans/docs/system-installation/source_code.installation)进行安装
+本文档的目的在于说明如何在树莓派 4 上通过源码安装 ThingsPanel。安装过程基本与在 x86 服务器安装过程一样。基本参考[源码安装](http://thingspanel.io/zh-Hans/docs/system-installation/source_code.installation)进行安装。
 
 ## 安装后打开的界面
 
@@ -214,4 +214,3 @@ server {
 
 ![](image/raspberry_home_page.png)
 
-enjoy it !
