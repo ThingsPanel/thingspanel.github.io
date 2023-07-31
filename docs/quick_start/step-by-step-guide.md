@@ -5,7 +5,7 @@ sidebar_position: 2
 # 实战教程
 
 ## 设备接入
-
+- [畅维通达PN网关---10分钟接入ThingsPanel 实现物联网环境监测应用](http://thingspanel.cn/posts/62)
 - [八合一环境传感器通过有人网关ModbusRTU透传接入ThingsPanel](http://thingspanel.cn/posts/55)
 - [有人口红网关USR-DR154接智能电表接入ThingsPanel](http://thingspanel.cn/posts/54)
 - [RTSP摄像头接入到ThingsPanel并播放](http://thingspanel.cn/posts/53)
