@@ -56,7 +56,7 @@ sub_device_addr在子设备`编辑参数`弹窗的`设备地址`栏输入，同�
 | --- | --- |
 | 网关设备订阅属性主题 | gateway/attributes/{AccessToken或username} |
 | 事件上报的响应主题 | event/response/{accesstoken或username} |
-| 服务指令主题 | command/send/{accesstoken或username} |
+| 订阅命令主题 | gateway/command/{accesstoken或username} |
 
 :::info
 
