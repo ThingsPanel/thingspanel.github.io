@@ -2,7 +2,7 @@
 sidebar_position: 18
 ---
 
-# 应用市场
+# 发布插件
 ## 关于ThingsPanel应用市场
 
 ThingsPanel应用市场是一个在线商店，用户可以在其中找到各种物联网应用程序和服务。ThingsPanel应用市场包含了各种类型的插件，例如设备插件、协议插件、解析脚本、规则引擎等等。所有的插件都可以通过自定义发布到应用市场，供所有人下载和使用。
@@ -27,50 +27,58 @@ ThingsPanel应用市场是一个在线商店，用户可以在其中找到各种
 4. 如果插件通过审核，它将被发布到应用市场供所有人下载和使用。
 
 ### 设备插件
-设备插件是一种用于扩展设备支持的插件，包含了物模型和图表单元，用户创建设备后，只要绑定设备插件就可直接推送并查看数据，无需一一映射设备属性，无需绑定图表。要发布设备插件，请按照以下步骤操作：
-![](images/plugin_market_3_1_1.png)
+
+设备插件是一种用于扩展设备支持的插件，包含了物模型和图表单元，用户创建设备后，只要绑定设备插件就可直接推送并查看数据，无需一一映射设备属性，无需绑定图表。
+
+#### 视频教程如下：  
+<iframe src="//player.bilibili.com/player.html?aid=316788098&bvid=BV11P41147yt&cid=1222050093&page=1" scrolling="no" border="0" width="800" height="400" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+#### 文档教程如下：
+
 打开ThingsPanel后台管理系统，打开应用管理 -> 设备插件生成器 -> 自定义插件
+![](images/plugin_market_3_1_1.png)
 #### 第一步：填写插件信息
 在这里填写插件的名称，选择插件分类以及填写其他信息，如作者、版本、简介等。  
 比如：名称为温湿度插件，分类选择传感器。  
 
-![img.png](plugin-managment/images/device_plugin_02_02_03.png)
+![img.png](images/device_plugin_02_02_03.png)
 
 填写完插件信息后点击下一步。
 
 #### 第二步：选择或自定义物模型
 在这里用户可以选择标准物模型或者自定义物模型
-![img.png](plugin-managment/images/device_plugin_02_02_04.png)
+![img.png](images/device_plugin_02_02_04.png)
 
  选择标准物模型  
-![img.png](plugin-managment/images/device_plugin_02_02_05.png)
+![img.png](images/device_plugin_02_02_05.png)
 
-![img.png](plugin-managment/images/device_plugin_02_02_06.png)
+![img.png](images/device_plugin_02_02_06.png)
 
 如果标准物模型无法满足您的需求的话，可以选择自定义  
 
-![img.png](plugin-managment/images/device_plugin_02_02_07.png)
+![img.png](images/device_plugin_02_02_07.png)
 
 选择物模型分类，添加您需要映射的设备属性
 
 共有三种模式可供选择  
-![img.png](plugin-managment/images/device_plugin_02_02_08.png)
+![img.png](images/device_plugin_02_02_08.png)
 
 **简单模式**：  
 只需要添加标题和名称
 标题由用户自定义，可以是中文或英文，如温度、湿度、风速、光照等等。
 名称是设备要映射的属性，必须与设备的属性对应。  
 点击新增按钮，在标题栏填入"温度"，在名称栏填入"temp"，点击保存。
-![img.png](plugin-managment/images/device_plugin_02_02_09.png)
+![img.png](images/device_plugin_02_02_09.png)
 
 如果您想编辑更多信息，比如该属性的取值范围、步长、单位等等，请选择高级模式，然后点击新增
 
-![img.png](plugin-managment/images/device_plugin_02_02_10.png)
+![img.png](images/device_plugin_02_02_10.png)
 
 我们将取值范围设置为0-100，单位设置为摄氏度，点击保存。
 然后再添加一个湿度属性，如图所示：
 
-![img.png](plugin-managment/images/device_plugin_02_02_11.png)
+![img.png](images/device_plugin_02_02_11.png)
 
 物模型定义完成之后，点击下一步进入绑定图表面板。
 
@@ -79,35 +87,35 @@ ThingsPanel应用市场是一个在线商店，用户可以在其中找到各种
 我们可以给温度属性绑定一个仪表盘，给湿度属性绑定另外一个仪表盘
 再给温度属性绑定一个历史曲线图。
 
-![img.png](plugin-managment/images/device_plugin_02_02_12.png)
+![img.png](images/device_plugin_02_02_12.png)
 
 选定一个图表单击，在弹出的对话框中选择我们上一步定义的物模型属性。  
 填入图表名称，这个名称由用户自己定义，这里取名"温度仪表盘"，如图所示：
 
-![img.png](plugin-managment/images/device_plugin_02_02_13.png)
+![img.png](images/device_plugin_02_02_13.png)
 
 点击确定就绑定成功了，在右侧的已绑定图表的列表中可以看到，如图：  
-![img.png](plugin-managment/images/device_plugin_02_02_14.png)
+![img.png](images/device_plugin_02_02_14.png)
 
 我们再绑定一个湿度仪表盘。
 
 然后点击历史数据  
-![img.png](plugin-managment/images/device_plugin_02_02_15.png)
+![img.png](images/device_plugin_02_02_15.png)
 
 绑定温度历史曲线图  
-![img.png](plugin-managment/images/device_plugin_02_02_16.png)
+![img.png](images/device_plugin_02_02_16.png)
 
 绑定湿度历史曲线图  
-![img.png](plugin-managment/images/device_plugin_02_02_17.png)
+![img.png](images/device_plugin_02_02_17.png)
 
 绑定后的列表如图：  
-![img.png](plugin-managment/images/device_plugin_02_02_18.png)
+![img.png](images/device_plugin_02_02_18.png)
 
 图表绑定完成后，就可以点击下一步发布插件了。
 
 #### 第四步：发布
 发布页面如图所示：  
-![img.png](plugin-managment/images/device_plugin_02_02_19.png)
+![img.png](images/device_plugin_02_02_19.png)
 
 点击发布，插件就发布到应用市场中了。  
 
@@ -115,7 +123,7 @@ ThingsPanel应用市场是一个在线商店，用户可以在其中找到各种
 ### 规则引擎
 规则引擎是物联网平台的一个极其重要的功能模块，是处理复杂逻辑的引擎,它按照用户设定的条件，在设备和物联网平台之间进行消息的处理和传递。要发布规则引擎，请按照以下步骤操作：
 
-点这里[编辑规则引擎](./rule-instance/rule_instance.md)
+点这里[编辑规则引擎](../rule-instance/rule_instance.md)
 规则引擎编辑完成后，在画布上右键，选择导出
 
 ![img.png](images/plugin_market_3_2_1.png)
