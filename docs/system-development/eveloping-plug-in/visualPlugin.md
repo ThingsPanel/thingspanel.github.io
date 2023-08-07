@@ -7,8 +7,12 @@ sidebar_position: 5
 ## 立即上手 开发第一个插件
 以文本组件为例，我们为官方插件开发一个可以拖拽到画布上的文本组件，可以通过右侧属性面板调整文字的大小、颜色以及背景框。 通过数据面板设置文本显示的值。
 如下图所示：  
-![文本组件](images/text_example.png)    
+![文本组件](images/text_example.png)  
 
+## 视频教程如下： 
+<iframe src="//player.bilibili.com/player.html?aid=956951149&bvid=BV1kp4y137kS&cid=1225254148&page=1" scrolling="no" border="0" width="800" height="400" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 文档教程如下：
 ### 第一步：下载visual-editor项目
 https://github.com/ThingsPanel/visual-editor  
 用代码编辑器打开
