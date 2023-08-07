@@ -72,16 +72,14 @@ sidebar_position: 9
 	    // 例，string转jsonObj：msgJson = JSON.parse(msgString);
 	    // 例，jsonObj转string：msgString = JSON.stringify(msgJson);
 	    var msgString = String.fromCharCode.apply(null, msg)
-	    if (topic === "gateway/attributes"){
-		var jsonObj = JSON.parse(msgString);
-		newObj = jsonObj.sensorDatas
-		for(var key in newObj){
-		    for(var k in newObj[key]){
-			newObj[key][k] = newObj[key][k]/10
-		    }
+	    var jsonObj = JSON.parse(msgString);
+	    newObj = jsonObj.sensorDatas
+	    for(var key in newObj){
+	        for(var k in newObj[key]){
+		    newObj[key][k] = newObj[key][k]/10
 		}
-		msg = JSON.stringify(newObj);
 	    }
+	    msg = JSON.stringify(newObj);
 	    return msg;
 	}
 	// 字符串转字节数组
