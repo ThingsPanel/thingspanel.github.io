@@ -180,9 +180,9 @@ $ go run . start
 [安装node.js](https://nodejs.org/zh-cn/download/)
 1. 点击上面链接进入下载页
 2. 往下翻找到`以往的版本`
-3. 例如找到16.14点下载然后选node-v16.13.2-linux-x64.tar.xz,执行命令下载
+3. 例如找到16.14点下载然后选node-v16.14.2-linux-x64.tar.xz,执行命令下载
   ```
-  wget https://nodejs.org/download/release/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+  wget https://nodejs.org/download/release/v16.14.2/node-v16.14.2-linux-x64.tar.xz
   ```
 4. 获取到压缩包后，[node.js二进制安装](https://github.com/nodejs/help/wiki/Installation)
 
