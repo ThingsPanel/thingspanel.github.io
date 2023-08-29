@@ -77,15 +77,22 @@ log:
   level: info # 日志级别 debug | info | warn | error
 ```
 
-### 直接运行服务
-
+### （推荐）直接运行服务
+这里有三种方式可根据实际需要选择其中一种
+#### 直接运行
 ```sh
 $ git clone https://github.com/ThingsPanel/gmqtt.git
 $ cd gmqtt/cmd/gmqttd
 $ go run . start -c default_config.yml
 ```
+#### （推荐）pm2托管
+这里建议使用pm2托管（pm2的安装需要node.js环境，安装pm2的步骤非常简单，可百度自行查找）
+1. git clone https://github.com/ThingsPanel/gmqtt.git
+2. cd gmqtt/cmd/gmqttd，在这个目录下创建gmqtt.sh
+3. 将go run . start -c default_config.yml写入gmqtt.sh
+4. pm2 start gmqtt.sh即可启动gmqtt（pm2 save后会保存进程状态（运行或停止），在系统重启后会自动恢复到保存状态）
 
-### docker方式运行服务
+#### docker方式运行服务
 
 ```sh
 $ git clone https://github.com/ThingsPanel/gmqtt.git
@@ -169,13 +176,13 @@ $ go run . start
 
 ## ThingsPanel-Backend-Vue安装打包
 
-### 安装node.js 16.13（如果要在服务器打包前端需要安装node.js）
+### 安装node.js 16.14（如果要在服务器打包前端需要安装node.js）
 [安装node.js](https://nodejs.org/zh-cn/download/)
 1. 点击上面链接进入下载页
 2. 往下翻找到`以往的版本`
-3. 例如找到16.13点下载然后选node-v16.13.2-linux-x64.tar.xz,执行命令下载
+3. 例如找到16.14点下载然后选node-v16.14.2-linux-x64.tar.xz,执行命令下载
   ```
-  wget https://nodejs.org/download/release/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+  wget https://nodejs.org/download/release/v16.14.2/node-v16.14.2-linux-x64.tar.xz
   ```
 4. 获取到压缩包后，[node.js二进制安装](https://github.com/nodejs/help/wiki/Installation)
 
