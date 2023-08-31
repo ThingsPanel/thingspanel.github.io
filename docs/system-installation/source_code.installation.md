@@ -123,26 +123,73 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 1. ./conf/app.conf配置说明
 
 ```yml
-httpport = 9999 # api服务端口
-# redis配置
-redis.conn=127.0.0.1:6379
-redis.dbNum=0
-redis.password="redis2022"
-# 数据库配置
+appname = ThingsPanel-Go
+runmode = prod
+
+[dev]
+httpport = 9999
+
+[prod]
+httpport = 9999
+
+# Redis 配置
+# redis 连接字符串
+redis.conn = 127.0.0.1:6379
+# redis 数据库号
+redis.dbNum = 0
+# redis 密码
+redis.password = "****"
+
+# JWT 配置
+# JWT 加密密钥
+jwt_secret = "tp-Go"
+# 返回原始请求体数据字节
+copyrequestbody = true
+# 开启 session
+sessionon = true
+# 关闭自动渲染
+autorender = false
+
+# 数据库配置 (TimescaleDB, Cassandra)
+dbType = timescaledb
 psqladdr = "127.0.0.1"
 psqlport = 5432
-psqldb = ThingsPanel # 库名
-psqluser = postgres # 用户名
-psqlpass = postgresThingsPanel2022 # 用户密码
-psqlMaxConns = 5 # 空闲连接池中连接的最大数量
-psqlMaxOpen = 500 # 打开数据库连接的最大数量
-# 日志
-maxdays = 60 # 文件最多保存多少天
-# 1-紧急级别LevelEmergency 2-报警级别LevelAlert 3-严重错误级别LevelCritical 4-错误级别LevelError
-# 5-警告级别LevelWarning 6-注意级别LevelWarning 7-报告级别LevelInformational 8-除错级别LevelDebug
-level = 8 # 系统日志级别
-sqlloglevel = 3 # sql的日志级别 1-Silent 2-Error 3-Warn 4-Info
-maxlines = 10000 # 每个文件保存的最大行数
+psqldb = ****
+psqluser = postgres
+psqlpass = ****
+# 空闲连接池中连接的最大数量
+psqlMaxConns = 5
+# 打开数据库连接的最大数量
+psqlMaxOpen = 256
+# channel 缓冲区大小
+channel_buffer_size = 10000
+# 批次等待时间（秒）
+batch_wait_time = 1
+# 批次大小
+batch_size = 1000
+# 批次写入线程数
+write_workers = 2
+
+# 日志配置
+# 0-控制台输出 1-文件输出 2-文件和控制台输出
+adapter_type = 0
+# 文件最多保存多少天
+maxdays = 7
+# 日志级别 (0-紧急 1-报警 2-严重错误 3-错误 4-警告 5-注意 6-信息 7-调试)
+level = 5
+# SQL日志级别 (1-静音 2-错误 3-警告 4-信息). 注意: sql日志只在level大于等于5级别才会输出。
+sqlloglevel = 1
+# 慢SQL阈值（毫秒）。慢SQL会在sqlloglevel大于等于3时输出。
+slow_threshold = 200
+# 每个文件保存的最大行数
+maxlines = 10000
+
+# OpenAPI 配置
+openapi.httpport = 9990
+# 验签标志
+openapi.sign = false
+# X-OpenAPI-Timestamp 过期时间（分钟）
+openapi.timestamp = 5
 ```
 2. ./modules/dataService/config.yml配置说明
 
@@ -273,45 +320,69 @@ yum install nginx
 **注意如果访问有权限问题，修改nginx.conf配置**
 ```conf
 server {
-    listen       8080;
-    server_name _;
-    root         /usr/share/nginx/html;
+    listen 80;
+    server_name dev.thingspanel.cn 39.98.176.26 ;
+    charset utf-8;
+    client_max_body_size 10m;
+    root /home/dev/dist;
+    
+    gzip on;
+    # 设置最小的文件大小为1KB，小于1KB的文件不会被压缩。
+    gzip_min_length 1k;
+    # 设置Gzip压缩级别为4。压缩级别从1到9，1是最低的压缩级别但是最快的压缩速度，9是最高的压缩级别但是最慢的压缩速度，压缩会消耗cpu资源。
+    gzip_comp_level 6;
+    # 可以被压缩的类型
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+    # 在HTTP响应头部中添加Vary: Accept-Encoding头部字段。
+    gzip_vary on;
+    gzip_disable "MSIE [1-6]\.";
 
-    # Load configuration files for the default server block.
-    #include /etc/nginx/default.d/*.conf;
-    location /api{
+    location /api {
+        # 设置HTTP头部字段，默认是1.0，ws必须设置http版本为1.1.
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        # 设置字段为客户端的IP地址
+        proxy_set_header X-real-ip $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        # 反向代理到
         proxy_pass  http://127.0.0.1:9999;
+    }
+    location /ws {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header X-real-ip $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
-    }
-    location /files{
         proxy_pass  http://127.0.0.1:9999;
+    }
+    location /files {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header X-real-ip $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_pass  http://127.0.0.1:9999;
+        # 设置CORS头部字段
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
+        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
     }
-    location ^~ /visual {
-        alias /usr/share/nginx/visual-editor/dist;
+    
+    # 可视化部分
+    location /visual {
+        alias /home/visual-editor/dist;
         index index.html index.htm;
         try_files $uri $uri/ /visual/index.html;
     }
+    
     location / {
-        index       index.html index.htm;
-    }
-  
-    error_page 404 /404.html;
-        location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
+        index index.html index.htm;
     }
 }
+
 ```
 ### 重启nginx
 ```sh
