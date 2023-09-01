@@ -9,8 +9,25 @@ sidebar_position: 9
 1. mqtt设备/网关`发送和订阅主题`与平台不一致并无法修改，怎么接入ThingsPanel平台?
    
 2. mqtt设备/网关`json报文规范`与平台规范不一致，怎么接入ThingsPanel平台?
+   
+## 使用MQTT主题报文转换器
 
-  
+可以同时解决主题和报文转换。它一个平台外部的转换器，实现了简单的broker，并在broker内部做了主题和报文转换，数据流转流程：设备-》MQTT主题报文转换器-》ThingsPanel的MQTT Broker服务-》ThingsPanel平台,具体功能查看代码的README。
+
+仓库地址：https://github.com/ThingsPanel/mqtt-converter.git
+
+视频讲解：https://www.bilibili.com/video/BV1Zh4y127Za/?spm_id_from=333.337.search-card.all.click&vd_source=3205f3f58f033fa90037cb65ee98074c
+
+## 使用规则引擎转发设备数据
+
+使用规则引擎转发设备数据的方式常用来解决第一种问题。
+
+1. 然后在规则引擎中新建一条接入规则
+2. 拖拽一个`mqtt in`节点，填写设备主题接入数据(这里不使用平台的mqtt服务，需自己搭建一个私有的mqtt服务做转换用，数据流转流程：设备-》私有MQTT Broker服务-》规则引擎-》ThingsPanel的MQTT Broker服务-》ThingsPanel平台)
+3. 再拖拽一个`mqtt out`节点，与`mqtt in`节点连线
+4. 在`mqtt out`配置中需要添加新的mqtt-broker节点，根据平台mqtt网关/设备接入规则填写主题和认证方式（AccessToken接入填写用户名,MQTTBasic认证填写用户名和密码）
+5. 平台到设备的通信参考以上步骤
+6. 除了以上节点，合理使用其他功能节点，也可以转换报文规范并对设备传输的值加工和处理  
 ## 使用编辑参数页面的`数据处理脚本`功能
 
 数据处理脚本功能可解决第二种问题。
@@ -96,15 +113,6 @@ sidebar_position: 9
 ![](./image/compatible_device_03.png)
 ![](./image/compatible_device_04.png)
 6. 下行脚本的编写也同上
-## 使用规则引擎转发设备数据
 
-使用规则引擎转发设备数据的方式常用来解决第一种问题。
-
-1. 在规则引擎中新建一条接入规则
-2. 拖拽一个`mqtt in`节点，填写设备主题接入数据(这里不使用平台的mqtt服务，需自己搭建一个私有的mqtt服务做转换用：设备-》私有mqtt服务-》规则引擎-》ThingsPanel的mqtt服务-》ThingsPanel平台)
-3. 再拖拽一个`mqtt out`节点，与`mqtt in`节点连线
-4. 在`mqtt out`配置中需要添加新的mqtt-broker节点，根据平台mqtt网关/设备接入规则填写主题和认证方式（AccessToken接入填写用户名,MQTTBasic认证填写用户名和密码）
-5. 平台到设备的通信参考以上步骤
-6. 除了以上节点，合理使用其他功能节点，也可以转换报文规范并对设备传输的值加工和处理
  
 
