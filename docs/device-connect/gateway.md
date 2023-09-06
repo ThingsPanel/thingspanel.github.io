@@ -24,7 +24,6 @@ sidebar_position: 2
 | --- | --- |
 | 网关设备上报属性主题 | gateway/attributes |
 | 设备上报事件主题 | gateway/event |
-| 设备服务指令响应主题 | gateway/command/reply |
 
 **上报属性消息规范**
 
@@ -45,6 +44,23 @@ sidebar_position: 2
 }
 ```
 
+**上报事件规范**
+``` showLineNumbers
+{sub_device_addr1:{"method":identifier,"params":{param1:value,param2:value2...}}}
+```
+例如：
+```json showLineNumbers
+{
+	"A0001":{
+		"method": "warning",
+		"params": {
+			"battery":0
+		}
+	}
+}
+```
+
+
 :::tip
 
 sub_device_addr在子设备`编辑参数`弹窗的`设备地址`栏输入，同一个网关设备下不重复
@@ -55,8 +71,11 @@ sub_device_addr在子设备`编辑参数`弹窗的`设备地址`栏输入，同�
 | 消息类型 | 主题 |
 | --- | --- |
 | 网关设备订阅属性主题 | gateway/attributes/{AccessToken或username} |
-| 事件上报的响应主题 | event/response/{accesstoken或username} |
 | 订阅命令主题 | gateway/command/{accesstoken或username} |
+
+**下发属性报文的规范同上报属性规**
+
+**下发命令规范同上报事件**
 
 :::info
 
