@@ -8,8 +8,18 @@ sidebar_position: 3
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
-2. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
-3. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+
+:::tip
+
+安装成功后，国内往往要配置代理
+
+:::
+
+```bash
+go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
+```
+3. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
+4. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
   可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
   ```sh
   docker run --name tp-redis \
