@@ -63,6 +63,7 @@ windows环境下请安装`Docker Desktop`和`git`。
     ```
     
 - **登录**
+     - 打开浏览器，输入**服务器ip:8080**
      - 系统管理员 super@super.cn / 123456
      - 租户管理员 tenant@tenant.cn / 123456
 
