@@ -16,6 +16,7 @@ sidebar_position: 4
 **2. 测试环境**
 
 **服务器配置**
+
 |机型|CPU|内存|硬盘|说明|
 |-|-|-|-|-|
 |云服务器1|Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz 4核|8G|ESSD云盘 PL0 40GiB (2280 IOPS)|Cassandra数据库、VerneMQ等服务|
