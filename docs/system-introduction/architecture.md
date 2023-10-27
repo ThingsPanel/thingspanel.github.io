@@ -12,7 +12,7 @@ sidebar_position: 7
   
 参见如下架构图及关键组件。
 
-![系统架构图](./../img/ThingsPanel.svg)
+![系统架构图](./../img/ThingsPanel.png)
 
 说明：
 
