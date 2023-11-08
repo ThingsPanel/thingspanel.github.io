@@ -28,8 +28,6 @@ sidebar_position: 4
 
 ## 和系统的其他组件是如何关联的
 
-
-
 ![协议插件与ThingsPanel的数据流转](./images/时序图.png)
 
 - 协议插件是独立运行的系统
