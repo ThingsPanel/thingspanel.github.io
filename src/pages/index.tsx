@@ -71,6 +71,8 @@ export default function Home(): JSX.Element {
               <a className="footer__link-item" href="https://github.com/ThingsPanel">Github</a>
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="https://gitee.com/ThingsPanel">Gitee</a>
+              <span className="footer__link-separator">&middot;</span>
+              <a className="footer__link-item" href="https://discord.gg/KvM77UmZ">Discord</a>
               {/* <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="#url">Blog</a>
               <span className="footer__link-separator">&middot;</span>
