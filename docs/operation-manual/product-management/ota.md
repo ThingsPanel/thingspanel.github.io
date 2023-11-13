@@ -39,7 +39,7 @@ OTA升级流程及使用的Topic和数据格式如下：
     | version | String | OTA模块版本。 |
     | module | String | OTA模块名。设备的默认（default）模块的版本号代表整个设备的固件版本号。 |
 2. 您在控制台触发升级操作之后，设备会收到物联网平台OTA服务推送的升级包的URL地址。
-    设备端订阅Topic：ota/device/inform/${AccessToken}。物联网平台对设备发起OTA升级请求后，设备端会通过该Topic收到升级包的存储地址URL。
+    设备端订阅Topic：ota/device/inform/$\{AccessToken\}。物联网平台对设备发起OTA升级请求后，设备端会通过该Topic收到升级包的存储地址URL。
     消息格式如下：
     ```
     {

@@ -33,7 +33,7 @@ index.ts、Main.vue、Data.vue、Attribute.vue，并为在左侧列表展示图�
 
 1. 三维功能定制；
 2. 接口封装，比如freshAttributes接口；
-3. 注册场景加载完成的回调事件addEventListener('sceneLoaded', ({ flag }) => {})
+3. 注册场景加载完成的回调事件addEventListener('sceneLoaded', (\{ flag \}) => {})
 4. 键盘操作模式操作模式（无鼠标光标模式），快捷键为alt+1，除了此快捷键外，其他操作键可自定义，但需要在之后的编写中，给用户提示，此项要非常注意，因我们编辑器占用大量鼠标操作事件，因此编辑模式下场景的中移动的操作，不建议以鼠标为主
 
 ## 第三步：准备数据修改的数据仓库,数据仓库我们用的是  pinia，我将该文件的命名为 sceneRenderBackstage.js，并放在./threejs-demo/stroe/ 目录下

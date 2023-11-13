@@ -16,8 +16,8 @@ ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，�
 
 | 接入类型 | 认证 | 接入地址 | MQTT安全认证 |
 | ----- | --- | -------- | ---- |
-| MQTT | AccessToken接入认证 | mqtt://{服务IP}:1883| 用户名：AccessToken 密码：空 |
-| MQTT | MQTT Basic认证 | mqtt://{服务IP}:1883| 用户名：必填 密码：必填 |
+| MQTT | AccessToken接入认证 | mqtt://服务IP:1883| 用户名：AccessToken 密码：空 |
+| MQTT | MQTT Basic认证 | mqtt://服务IP:1883| 用户名：必填 密码：必填 |
 
 ![接入配置](image/1.png)
 
@@ -59,8 +59,8 @@ ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，�
 ### 设备订阅主题
 | 消息类型 | 主题 |
 | --- | --- |
-| 平台下发属性主题 | device/attributes/{AccessToken或username} |
-| 平台下发命令主题 | device/command/{AccessToken或username} |
+| 平台下发属性主题 | device/attributes/\{AccessToken或username\} |
+| 平台下发命令主题 | device/command/\{AccessToken或username\} |
 
 **下发属性报文的规范同上报属性规**
 
