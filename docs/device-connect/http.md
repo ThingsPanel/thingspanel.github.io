@@ -3,7 +3,10 @@ sidebar_position: 3
 ---
 
 # HTTP接入
-目前代码库有http协议插件，部署后注册协议插件便可接入http协议设备
+目前代码库有http协议插件，部署后注册协议插件便可接入http协议设备.
+
+## 仓库地址
+https://github.com/ThingsPanel/http-protocol-plugin
 
 ## 对接设备步骤
 - 创建设备
