@@ -9,7 +9,7 @@ sidebar_position: 5
 http://dev.thingspanel.cn/
 
 电脑和手机端共用账号密码
-**（如下账号为租户账号）**
+**（如下账号为租户用户账号）**
 - 用户名：admin@thingspanel.cn 
 - 密码：123456
 
