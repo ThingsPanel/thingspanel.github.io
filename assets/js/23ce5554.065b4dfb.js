@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5867],{876:s=>{s.exports=JSON.parse('{"label":"Permission system","permalink":"/blog/tags/permission-system","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
