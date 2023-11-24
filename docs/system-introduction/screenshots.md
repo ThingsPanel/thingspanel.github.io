@@ -10,6 +10,13 @@ sidebar_position: 6
 ### 设备接入
 ![ThingsPanel设备接入与管理](/img/device.png)  
 
+### 设备概览
+![ThingsPanel设备接入与管理](../img/device-gl.png)  
+
+### 设备数据时序图
+![ThingsPanel设备接入与管理](../img/device-data.png)  
+### 看板
+![ThingsPanel设备接入与管理](../img/device-kb.png) 
 ### 可视化-空气质量插件  
 ![ThingsPanel空气质量插件](/img/plugin-pm25.png)
 
