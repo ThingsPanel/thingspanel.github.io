@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# ThingsPanel 高并发与稳定性测试报告
+# 测试报告
 
 ## 1. 测试背景与目的
 
