@@ -21,6 +21,6 @@ Web服务（SOAP）通讯协定可以支援许多不同的工具（包括Java环
 ThingsPanel对接opc-ua设备【通过规则引擎】  
 https://www.bilibili.com/video/BV1G14y1a7iN/?spm_id_from=333.999.0.0
 
-## 其他方式
+## 通过OPC-UA协议插件
 
-需要开发插件支持，按照ThingsPanel的协议插件标准进行开发。
+此插件为企业版功能，如有需求，请联系我们。
