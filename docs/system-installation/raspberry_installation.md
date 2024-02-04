@@ -59,7 +59,7 @@ docker run --name timescaledb -p 5432:5432 \
 -e TZ=Asia/Shanghai \
 -e POSTGRES_DB=ThingsPanel \
 -e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgresThingsPanel2022 \
+-e POSTGRES_PASSWORD=ThingsPanel2023 \
 -v /home/tp/data/dir:/var/lib/postgresql/data \
 timescale/timescaledb:latest-pg12
 ```
