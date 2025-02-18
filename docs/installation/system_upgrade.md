@@ -2,73 +2,150 @@
 sidebar_position: 8
 ---
 
-# 系统升级
+# 系统升级指南
 
-## ThingsPanel版本升级（docker部署版本）
+## 版本兼容性说明
 
-0.5.4->1.0.0是无法升级的
+:::caution 重要提示
+ThingsPanel 从 0.5.4 版本升级到 1.0.0 版本是不支持直接升级的，需要重新部署。
+:::
 
-### 备份
+## Docker 部署版本升级指南
 
-根据情况备份数据（待更新）
+### 升级前准备
 
-### 部分容器升级（前端、后端、mqtt服务）
+1. **数据备份**
+   - 备份数据库
+   - 备份配置文件
+   - 备份自定义插件和扩展
 
-容器对应的卷名
+2. **环境检查**
+   - 确认系统资源充足
+   - 验证存储空间
+   - 检查现有服务状态
 
-```bash
-thingspanel-vue:nginx
-thingspanel-gmqtt:gmqtt
-thingspanel-go:go
-```
+### 升级方式选择
 
-1. thingspanel-docker目录下更新thingspanel-docker源码:git pull
-2. 停止目标容器:docker stop ContainerID，删除目标容器:docker rm ContainerID，删除目标镜像:docker rmi ImageID
-3. 删除目标容器的卷：
-   1. 清理没有使用的卷：docker volume prune
-   2. 查验卷有没有被清理：docker volume ls
-   3. 如果没有便删除卷：docker volume rm 卷名（thingspanel-docker_gmqtt，thingspanel-docker_go，thingspanel-docker_nginx）
-4. 执行：docker-compose -f docker-compose.yml up  
+您可以选择以下两种升级方式之一：
 
->注意如果镜像和升级的目标镜像相同，需要删除服务器上的镜像重新拉取
+- 部分容器升级（只更新特定服务）
+- 全系统升级（更新所有组件）
 
-### 全部升级
+### 部分容器升级流程
 
-#### 应用升级（前端thingspanel-vue、后端thingspanel-go）
-
-#### 更新thingspanel-docker源码
-
-1. 查看旧版本thingspanel-docker中的docker-compose.yml文件，与要升级的版本比对哪些镜像升级了(检查项)。
-1. 在thingspanel-docker源码主目录下执行git pull命令更新最新版本或指定版本
-
-#### 停止旧的容器容器(前端和后端)
+#### 1. 容器与卷的对应关系
 
 ```bash
-docker stop ContainerID
+前端服务: thingspanel-vue:nginx
+MQTT服务: thingspanel-gmqtt:gmqtt
+后端服务: thingspanel-go:go
 ```
 
-#### 升级
+#### 2. 升级步骤
 
-在thingspanel-docker源码主目录下执行下面命令升级：
+1. 更新源码
+
+```bash
+cd thingspanel-docker
+git pull
+```
+
+2. 停止并清理目标容器
+
+```bash
+# 停止容器
+docker stop <ContainerID>
+
+# 删除容器
+docker rm <ContainerID>
+
+# 删除镜像
+docker rmi <ImageID>
+```
+
+3. 清理卷
+
+```bash
+# 清理未使用的卷
+docker volume prune
+
+# 查看现有卷
+docker volume ls
+
+# 删除特定卷（如需要）
+docker volume rm thingspanel-docker_nginx
+docker volume rm thingspanel-docker_gmqtt
+docker volume rm thingspanel-docker_go
+```
+
+4. 重新部署服务
 
 ```bash
 docker-compose -f docker-compose.yml up
 ```
 
-### 修改卷里的配置（应用程序会优先使用环境变量）
+:::tip 提示
+如果新版本使用相同的镜像标签，请确保删除本地镜像并重新拉取，以获取最新版本。
+:::
 
-- 找到对应的卷名
+### 全系统升级流程
+
+1. **准备工作**
+   - 比对新旧版本的 docker-compose.yml 文件，确认需要更新的服务
+   - 更新源码到目标版本
+
+   ```bash
+   git pull
+   ```
+
+2. **停止现有服务**
+
+   ```bash
+   docker-compose down
+   ```
+
+3. **启动新版本**
+
+   ```bash
+   docker-compose -f docker-compose.yml up -d
+   ```
+
+### 配置更新
+
+如需修改卷中的配置：
+
+1. 查找卷位置
 
 ```bash
+# 列出所有卷
 docker volume ls
+
+# 查看特定卷的详细信息
+docker volume inspect <卷名>
 ```
 
-- 查看卷在宿主机的路径
+2. 修改配置
+   - 直接编辑卷目录下的配置文件
+   - 注意：应用程序会优先使用环境变量中的配置
+
+:::info 注意事项
+
+1. 升级前务必备份所有重要数据
+2. 建议在测试环境先进行升级测试
+3. 升级过程中注意保留自定义配置
+4. 如遇问题，可回退到备份版本
+:::
+
+## 源码部署版本升级
+
+对于源码部署的环境：
+
+1. 更新源码
 
 ```bash
-docker volume inspect
+git pull origin <target-version>
 ```
 
-## 源码升级
+2. 重新编译
 
-更新最新源码，重新编译启动即可
+3. 重启服务
