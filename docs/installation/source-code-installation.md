@@ -68,34 +68,42 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 
 ### TimescaleDB数据库搭建
 
-1. 获取数据库镜像
-
+**选择1：使用官方镜像（国际网络环境）**
 ```bash
-docker pull timescale/timescaledb:latest-pg14
+mkdir -p /home/tp/data/dir
+docker run --name timescaledb -d \
+  --restart always \
+  -p 5432:5432 \
+  -e TZ=Asia/Shanghai \
+  -e POSTGRES_DB=ThingsPanel \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgresThingsPanel \
+  -v /home/tp/data/dir:/var/lib/postgresql/data \
+  timescale/timescaledb:latest-pg14
 ```
 
-> 提示：如无法下载镜像可使用registry.jihulab.com/thingspanel/docker-images/timescaledb:14
-
-2. 创建并运行容器
-   POSTGRES_DB 数据库名
-   POSTGRES_USER 用户名
-   POSTGRES_PASSWORD 密码
-
-:::tip
-
-此处如果修改了数据库名、用户名或密码请对应修改后端配置文件（./configs/conf.yml）
-
-:::
-
+**选择2：使用国内镜像（推荐国内网络环境使用）**
+```bash
+mkdir -p /home/tp/data/dir
+docker run --name timescaledb -d \
+  --restart always \
+  -p 5432:5432 \
+  -e TZ=Asia/Shanghai \
+  -e POSTGRES_DB=ThingsPanel \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgresThingsPanel \
+  -v /home/tp/data/dir:/var/lib/postgresql/data \
+  registry.cn-hangzhou.aliyuncs.com/thingspanel/timescaledb:14
 ```
-docker run --name timescaledb -p 5432:5432 \
--e TZ=Asia/Shanghai \
--e POSTGRES_DB=ThingsPanel \
--e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgresThingsPanel \
--v /home/tp/data/dir:/var/lib/postgresql/data \
-timescale/timescaledb:latest-pg14
-```
+
+#### 配置说明
+
+- **数据库名**: ThingsPanel
+- **用户名**: postgres
+- **密码**: postgresThingsPanel
+- **端口**: 5432
+
+> **注意**: 如修改了数据库配置，请相应修改后端配置文件(./configs/conf.yml)
 
 ## 2. GMQTT安装
 
