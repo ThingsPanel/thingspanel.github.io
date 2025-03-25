@@ -38,21 +38,28 @@ flowchart LR
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 
-1. go 1.22.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
+### 1. Go 1.22.x 
+[下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 
 :::tip
-
 安装成功后，国内往往要配置代理
-
 :::
 
 ```bash
 go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 ```
 
-2. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
-3. redis 6(支持高版本，支持传统部署) [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+### 2. Docker
+
+数据库使用docker简化安装步骤，需要安装Docker
+[安装docker社区版](https://docs.docker.com/engine/install/)
+
+### 3. Redis 6
+
+支持高版本，支持传统部署 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+
 以下为docker部署方式：
+
 **选择1：使用官方镜像（国际网络环境）**
 ```bash
 mkdir -p /home/tp/backend/redis/{data,conf,logs}
@@ -79,9 +86,9 @@ docker run --name tp-redis -d \
 
 根据您的网络环境选择其中一个命令执行即可完成部署。
 
-4. TimescaleDB 14(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
+### 4. TimescaleDB 14
 
-### TimescaleDB数据库搭建
+支持高版本，支持传统部署 [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 **选择1：使用官方镜像（国际网络环境）**
 ```bash
@@ -110,6 +117,8 @@ docker run --name timescaledb -d \
   -v /home/tp/data/dir:/var/lib/postgresql/data \
   registry.cn-hangzhou.aliyuncs.com/thingspanel/timescaledb:14
 ```
+
+根据您的网络环境选择其中一个命令执行即可完成部署。
 
 #### 配置说明
 
