@@ -50,19 +50,34 @@ flowchart LR
 go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 ```
 
-3. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
-4. redis 6(支持高版本，支持传统部署) [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
-   可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
-
-```sh
-  docker run --name tp-redis \
+2. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
+3. redis 6(支持高版本，支持传统部署) [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+以下为docker部署方式：
+**选择1：使用官方镜像（国际网络环境）**
+```bash
+mkdir -p /home/tp/backend/redis/{data,conf,logs}
+docker run --name tp-redis -d \
+  --restart always \
+  -p 6379:6379 \
   -v /home/tp/backend/redis/data:/data \
-  -v /home/tp/backend/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
+  -v /home/tp/backend/redis/conf:/usr/local/etc/redis \
   -v /home/tp/backend/redis/logs:/logs \
-  -d -p 6379:6379 redis redis-server --requirepass redis
+  redis redis-server --requirepass redis
 ```
 
-> 提示：如无法下载镜像可使用registry.jihulab.com/thingspanel/docker-images/redis:6.2.7
+**选择2：使用国内镜像（推荐国内网络环境使用）**
+```bash
+mkdir -p /home/tp/backend/redis/{data,conf,logs}
+docker run --name tp-redis -d \
+  --restart always \
+  -p 6379:6379 \
+  -v /home/tp/backend/redis/data:/data \
+  -v /home/tp/backend/redis/conf:/usr/local/etc/redis \
+  -v /home/tp/backend/redis/logs:/logs \
+  registry.cn-hangzhou.aliyuncs.com/thingspanel/redis:6.2.7 redis-server --requirepass redis
+```
+
+根据您的网络环境选择其中一个命令执行即可完成部署。
 
 4. TimescaleDB 14(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
