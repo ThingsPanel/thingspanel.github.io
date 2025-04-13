@@ -39,8 +39,8 @@ OneNET平台提供了多种接入方式
   - 获取产品ID和ACCESS_KEY
       ![获取产品ID和ACCESS_KEY](./img/image-7.png)
 - ThingsPanel平台配置
-  - 如果没有该服务的配置模板，需要创建
-      ![配置模板](./img/image-8.png)
+  - 如果没有该服务的设备模板，需要创建
+      ![设备模板](./img/image-8.png)
   - 进入服务接入页面
       ![服务接入](./img/image-5.png)
   - 新增服务接入点

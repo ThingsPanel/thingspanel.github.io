@@ -25,7 +25,7 @@ sidebar_position: 4
 
 ### 操作步骤
 
-1. 首先需要创建一个设备配置模板，选择注册的iSecureCenter服务接入插件。![alt text](img-isc/image-0.png)
+1. 首先需要创建一个设备模板，选择注册的iSecureCenter服务接入插件。![alt text](img-isc/image-0.png)
 2. 在服务接入中选择注册的该服务。![alt text](img-isc/image-1.png)
 3. 新增一个接入点。![alt text](img-isc/image-2.png)
 4. 选择添加该接入点的设备。![alt text](img-isc/image-3.png)

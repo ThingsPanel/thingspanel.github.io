@@ -14,20 +14,20 @@ sidebar_position: 4
 
 ### 在平台创建Modbus网关设备
 
-1. 创建网关设备配置模板
-   1. 创建配置模板  ![创建配置模板](modbus_image/image.png)
+1. 创建网关设备模板
+   1. 创建设备模板  ![创建设备模板](modbus_image/image.png)
    2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP  ![协议配置](modbus_image/image-1.png)
-2. 创建设备，绑定刚创建的网关类型的配置模板
+2. 创建设备，绑定刚创建的网关类型的设备模板
    1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建网关设备  ![添加设备](modbus_image/image-2.png)
    2. 填入注册包信息（注意和网关或DTU配置中使用的注册包一致并且需要关闭设备的心跳包） ![alt text](modbus_image/image-3.png)
    3. 此时对设备上电，就可看到设备在线
 
 ### 在平台创建Modbus网关设备的子设备
 
-1. 创建子设备配置模板
-   1. 创建配置模板![创建配置模板](modbus_image/image-4.png)
+1. 创建子设备模板
+   1. 创建设备模板![创建设备模板](modbus_image/image-4.png)
    2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP，会出现配置表单，根据提示，填写对应的配置信息  ![协议配置](modbus_image/image-5.png)
-2. 创建设备，绑定刚创建的子设备类型的配置模板
+2. 创建设备，绑定刚创建的子设备类型的设备模板
    1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建子设备  ![alt text](modbus_image/image-6.png)
    2. 设置心跳时间 ![心跳设置](modbus_image/image-9.png)
 3. 绑定子设备到网关
@@ -40,8 +40,8 @@ sidebar_position: 4
 ```mermaid
 
 graph TD
-    A[创建子设备功能模板（可选）] --> B[创建网关设备配置模板]
-    A --> C[创建子设备模配置模板]
+    A[创建子设备模型（可选）] --> B[创建网关设备模板]
+    A --> C[创建子设备模设备模板]
     B --> D[创建网关设备]
     C --> E[创建子设备]
     D --> F[添加子设备到网关并设置从机地址]

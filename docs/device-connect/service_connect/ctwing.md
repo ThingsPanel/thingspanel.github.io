@@ -37,8 +37,8 @@ CTWing平台提供了多种接入方式
     - ![新增应用](./img-ctwing/image-4.png)
     - ![应用](./img-ctwing/image-5.png)
 - ThingsPanel平台配置
-  - 如果没有该服务的配置模板，需要创建
-    - ![配置模板](./img-ctwing/image-6.png)
+  - 如果没有该服务的设备模板，需要创建
+    - ![设备模板](./img-ctwing/image-6.png)
   - 进入服务接入页面
     - ![服务接入](./img/image-5.png)
   - 新增服务接入点

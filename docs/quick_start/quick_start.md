@@ -48,7 +48,7 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 ## 设备接入与查看数据的步骤
 :::info
 
-- 添加设备：可选择是否需要绑定设备配置模板。
+- 添加设备：可选择是否需要绑定设备模板。
 - 推送数据：使用系统提供的推送参数推送设备数据。
 - 查看数据：在设备详情或者看板查看数据。 
 

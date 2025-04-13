@@ -45,7 +45,7 @@ sidebar_position: 1
 
 ### 2.4、信息
 
-可以设备设备的地址位置信息。
+可以设备的地址位置信息。
 
 ![descript](./images/image45.png)
 

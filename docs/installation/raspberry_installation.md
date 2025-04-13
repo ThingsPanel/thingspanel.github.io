@@ -6,12 +6,36 @@ sidebar_position: 4
 
 本文档的目的在于说明如何在树莓派 4 上通过源码安装 ThingsPanel。安装过程基本与在 x86 服务器安装过程一样。基本参考[源码安装](http://thingspanel.io/zh-Hans/docs/system-installation/source_code.installation)进行安装。
 
-## 安装后打开的界面
 
-与在云服务器上的安装系统完全一样。
+## 安装流程图
+```mermaid
 
-![](image/raspberry_login_page.png)
+flowchart LR
+    classDef default fill:#f0f4f8,stroke:#d0d7de,stroke-width:2px,color:#24292f,rx:8,ry:8
+    classDef primary fill:#e8f0fe,stroke:#4a8af4,stroke-width:2px,color:#1a73e8,rx:8,ry:8
+    classDef optional fill:#fef1f1,stroke:#d73a49,stroke-width:2px,color:#cb2431,rx:8,ry:8
 
+    A[系统准备] --> B[Docker安装]
+    A --> C[Go 1.22.x安装]
+    B --> D[Redis安装]
+    B --> E[TimescaleDB安装]
+    
+    C & D & E --> F[GMQTT安装]
+    F --> G[后端安装]
+    G --> H[前端部署]
+    
+    H --> I[Nginx配置]
+    I --> J[完成安装]
+    
+    K[可选组件]
+    K -.-> L[Modbus插件]
+    
+    style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style J fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style K fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
+
+```
 ## ThingsPanel 在树莓派 4 上的内存占用
 
 ![](image/raspberry_memory_uasge.png)

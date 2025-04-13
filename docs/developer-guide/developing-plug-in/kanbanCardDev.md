@@ -19,16 +19,16 @@ sidebar_position: 1
 我们可以在3个地方使用看板卡片：
 1. 首页
    ![看板卡片用在首页](kanbanImages/shouye.png)
-2. 设备功能模板的Web图表配置（仅图表卡片）
-   ![看板卡片用在设备功能模板的Web图表配置](kanbanImages/gongnengmuban1.png)
-   ![看板卡片用在设备功能模板的Web图表配置](kanbanImages/gongnengmuban2.png)
-3. 设备功能模板的App图表配置（仅图表卡片）
-   ![看板卡片用在设备功能模板的Web图表配置](kanbanImages/gongnengmuban3.png)
-   ![看板卡片用在设备功能模板的Web图表卡片](kanbanImages/gongnengmuban2.png)
+2. 设备模型的Web图表配置（仅图表卡片）
+   ![看板卡片用在设备模型的Web图表配置](kanbanImages/gongnengmuban1.png)
+   ![看板卡片用在设备模型的Web图表配置](kanbanImages/gongnengmuban2.png)
+3. 设备模型的App图表配置（仅图表卡片）
+   ![看板卡片用在设备模型的Web图表配置](kanbanImages/gongnengmuban3.png)
+   ![看板卡片用在设备模型的Web图表卡片](kanbanImages/gongnengmuban2.png)
 
 ## 二、如何开发看板卡片
 ### 1. 明确将要开发的卡片类型
-看板卡片目前分为2个类型：**系统卡片** 和 **图表卡片**。其中只有图表卡片可以在设备功能模板的Web图表配置和App图表配置中使用。
+看板卡片目前分为2个类型：**系统卡片** 和 **图表卡片**。其中只有图表卡片可以在设备模型的Web图表配置和App图表配置中使用。
 <img src="kanbanImages/mulu.png" width="250" />
 ### 2. 在相应目录下创建文件夹和文件进行开发
 一般包括4个文件（参考demo：/src/card/chart-card/demo）：
