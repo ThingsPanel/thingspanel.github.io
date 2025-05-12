@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.5.2">
-<title data-rh="true">性能测试报告 | ThingsPanel开源物联网平台</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://www.thingspanel.io/docs/introduction/test_report"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="性能测试报告 | ThingsPanel开源物联网平台"><meta data-rh="true" name="description" content="核心结论"><meta data-rh="true" property="og:description" content="核心结论"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.thingspanel.io/docs/introduction/test_report"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/introduction/test_report" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/zh-Hans/docs/introduction/test_report" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/introduction/test_report" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="ThingsPanel开源物联网平台 RSS Feed">
+<title data-rh="true">性能测试报告 | ThingsPanel开源物联网平台</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://www.thingspanel.io/docs/introduction/test_report"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="性能测试报告 | ThingsPanel开源物联网平台"><meta data-rh="true" name="description" content="ThingsPanel在Raspberry Pi上的全面性能分析报告"><meta data-rh="true" property="og:description" content="ThingsPanel在Raspberry Pi上的全面性能分析报告"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.thingspanel.io/docs/introduction/test_report"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/introduction/test_report" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/zh-Hans/docs/introduction/test_report" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/introduction/test_report" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="ThingsPanel开源物联网平台 RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="ThingsPanel开源物联网平台 Atom Feed">
 
 
@@ -12,46 +12,268 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-18JL3B13JT"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-18JL3B13JT",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.f422a073.css">
-<script src="/assets/js/runtime~main.c2af862f.js" defer="defer"></script>
-<script src="/assets/js/main.ebc1ea33.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0bba8fe7.js" defer="defer"></script>
+<script src="/assets/js/main.4d53cec8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/dark.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">首页</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/overview">文档</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link icon-link language navbar__item"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/docs/introduction/test_report" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/zh-Hans/docs/introduction/test_report" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://github.com/ThingsPanel" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z"><input placeholder="Search" aria-label="Search" class="navbar__search-input"><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview">为什么选择ThingsPanel</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/快速开始">快速开始</a><button aria-label="Expand sidebar category &#x27;快速开始&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/docs/category/系统介绍">系统介绍</a><button aria-label="Collapse sidebar category &#x27;系统介绍&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/design_ideas">设计理念</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/concepts">相关概念</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/application_scenarios">应用场景</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/functions">功能介绍</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/introduction/test_report">性能测试报告</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/demo">演示平台</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/screenshots">系统截图</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/architecture">系统架构</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/code_repository">代码库地址</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/releases">更新记录</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/introduction/third_class_insurance">三级等保</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/系统安装">系统安装</a><button aria-label="Expand sidebar category &#x27;系统安装&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/设备接入">设备接入</a><button aria-label="Expand sidebar category &#x27;设备接入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/使用指南">使用指南</a><button aria-label="Expand sidebar category &#x27;使用指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/开发指南">开发指南</a><button aria-label="Expand sidebar category &#x27;开发指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/常见问题">常见问题</a><button aria-label="Expand sidebar category &#x27;常见问题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/category/系统介绍"><span itemprop="name">系统介绍</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">性能测试报告</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>性能测试报  告</h1></header>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="核心结论">核心结论<a href="#核心结论" class="hash-link" aria-label="Direct link to 核心结论" title="Direct link to 核心结论">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="thingspanel在raspberry-pi上的全面性能分析报告">ThingsPanel在Raspberry Pi上的全面性能分析报告<a href="#thingspanel在raspberry-pi上的全面性能分析报告" class="hash-link" aria-label="Direct link to ThingsPanel在Raspberry Pi上的全面性能分析报告" title="Direct link to ThingsPanel在Raspberry Pi上的全面性能分析报告">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="测试结论">测试结论<a href="#测试结论" class="hash-link" aria-label="Direct link to 测试结论" title="Direct link to 测试结论">​</a></h3>
+<p><strong>ThingsPanel能够在2GB内存的树莓派上稳定运行，适合中小规模IoT应用场景</strong>。测试表明系统能够处理每秒约700个数据点的持续写入，足以稳定支持5个设备的100毫秒数据上报，或者<strong>20000个温湿度传感器1分钟频率数据上报</strong>。<strong>主要性能瓶颈是存储I/O性能而非CPU或内存</strong>，特别是在使用标准Class 10 TF卡时。通过优化存储介质（如使用A2级SD卡或外接SSD），系统性能还有10-30倍提升空间。整体而言，树莓派是部署ThingsPanel的经济有效选择，为边缘计算IoT应用提供了可行方案。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="测试方法">测试方法<a href="#测试方法" class="hash-link" aria-label="Direct link to 测试方法" title="Direct link to 测试方法">​</a></h3>
+<p>本测试采用了多维度资源监控与实际负载测试相结合的方法，全面评估ThingsPanel在树莓派上的性能表现：</p>
+<ol>
+<li>
+<p><strong>系统资源监控</strong>：</p>
+<ul>
+<li>使用自定义脚本<code>monitor_thingspanel.sh</code>实时监控CPU、内存和各组件资源使用</li>
+<li>使用<code>pg_io_monitor.sh</code>专门监控磁盘I/O性能，重点关注数据库分区</li>
+<li>采样间隔1秒，记录各组件资源占用情况</li>
+</ul>
+</li>
+<li>
+<p><strong>负载  测试</strong>：</p>
+<ul>
+<li>模拟10个IoT设备并发连接，使用MQTT协议向系统发送数据</li>
+<li>测试数据发送速率约989点/秒，持续200个循环</li>
+<li>通过数据库查询验证数据写入成功率和性能</li>
+</ul>
+</li>
+<li>
+<p><strong>性能分析</strong>：</p>
+<ul>
+<li>对比空闲状态和负载状态下的资源使用差异</li>
+<li>识别系统瓶颈点及其影响程度</li>
+<li>分析各组件（PostgreSQL、Redis、GMQTT等）的资源占用特征</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="测试环境">测试环境<a href="#测试环境" class="hash-link" aria-label="Direct link to 测试环境" title="Direct link to 测试环境">​</a></h3>
+<ul>
+<li>
+<p><strong>硬件平台</strong>：</p>
+<ul>
+<li>Raspberry Pi 4</li>
+<li>CPU: 4核心ARM处理器 (aarch64架构)</li>
+<li>内存: 1849MB (约2GB)</li>
+<li>存储: Class 10 TF卡，根分区使用率约94%</li>
+</ul>
+</li>
+<li>
+<p><strong>软件环境</strong>：</p>
+<ul>
+<li>操作系统: Raspbian GNU/Linux 11 (bullseye)</li>
+<li>ThingsPanel组件版本:<!-- -->
+<ul>
+<li>PostgreSQL/TimescaleDB (Docker容器)</li>
+<li>Redis (Docker容器)</li>
+<li>GMQTT (PM2管理)</li>
+<li>Backend API (PM2管理)</li>
+<li>Nginx (系统服务)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>测试工具</strong>：</p>
+<ul>
+<li>自定义资源监控脚本</li>
+<li>MQTT性能测试客户端 (Go语言实现)</li>
+<li>数据库监控查询脚本</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="资源使用总结">资源使用总结<a href="#资源使用总结" class="hash-link" aria-label="Direct link to 资源使用总结" title="Direct link to 资源使用总结">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="空闲状态-无数据写入时">空闲状态 (无数据写入时)<a href="#空闲状态-无数据写入时" class="hash-link" aria-label="Direct link to 空闲状态 (无数据写入时)" title="Direct link to 空闲状态 (无数据写入时)">​</a></h4>
+<table><thead><tr><th>指标</th><th>使用率</th><th>实际使用量</th></tr></thead><tbody><tr><td>总CPU使用率</td><td>4.2% - 7.4%</td><td>单核最高约7.4%</td></tr><tr><td>总内存使用率</td><td>约35.2%</td><td>约651MB</td></tr><tr><td>磁盘写入</td><td>0 - 0.07MB/秒</td><td>几乎无写入</td></tr><tr><td>ThingsPanel总CPU</td><td>约2.2%</td><td>单核约2.2%</td></tr><tr><td>ThingsPanel总内存</td><td>约21.2%</td><td>约436MB</td></tr></tbody></table>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="负载状态-有大量数据写入时">负载状态 (有大量数据写入时)<a href="#负载状态-有大量数据写入时" class="hash-link" aria-label="Direct link to 负载状态 (有大量数据写入时)" title="Direct link to 负载状态 (有大量数据写入时)">​</a></h4>
+<table><thead><tr><th>指标</th><th>使用率</th><th>实际使用量</th></tr></thead><tbody><tr><td>总CPU使用率</td><td>92.3% - 94.1%</td><td>单核满负载</td></tr><tr><td>总内存使用率</td><td>36.4% - 36.9%</td><td>约682MB</td></tr><tr><td>磁盘写入(mmcblk0p2)</td><td>2.3 - 7.1MB/秒</td><td>峰值达7.1MB/秒</td></tr><tr><td>ThingsPanel总CPU</td><td>82.3% - 113.2%</td><td>超过单核100%</td></tr><tr><td>ThingsPanel总内存</td><td>28.0% - 30.9%</td><td>566MB - 621MB</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="各组件资源占用分析">各组件资源占用分析<a href="#各组件资源占用分析" class="hash-link" aria-label="Direct link to 各组件资源占用分析" title="Direct link to 各组件资源占用分析">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="postgresql数据库">PostgreSQL数据库<a href="#postgresql数据库" class="hash-link" aria-label="Direct link to PostgreSQL数据库" title="Direct link to PostgreSQL数据库">​</a></h4>
+<ul>
+<li><strong>空闲时</strong> - CPU: ~0%, 内存: 13.2% (267.3MB), 磁盘写入: 几乎为0</li>
+<li><strong>负载时</strong> - CPU: 80.1% - 111.0%, 内存: 19.9% - 22.8% (396MB - 451MB), 磁盘写入: 2.3 - 7.1MB/秒</li>
+<li><strong>特点</strong>:<!-- -->
+<ul>
+<li>是CPU、内存和磁盘I/O的主要消耗源</li>
+<li>负载时CPU利用率可达单核满载以上</li>
+<li>数据写入会产生大量磁盘I/O，是系统性能瓶颈</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="redis">Redis<a href="#redis" class="hash-link" aria-label="Direct link to Redis" title="Direct link to Redis">​</a></h4>
+<ul>
+<li><strong>空闲/负载时</strong> - CPU: 稳定在约1.6%, 内存: 0.4% (18.7MB), 磁盘I/O影响极小</li>
+<li><strong>特点</strong>: 资源占用稳定，不因负载增加而显著变化</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="gmqtt-mqtt服务器">GMQTT (MQTT服务器)<a href="#gmqtt-mqtt服务器" class="hash-link" aria-label="Direct link to GMQTT (MQTT服务器)" title="Direct link to GMQTT (MQTT服务器)">​</a></h4>
+<ul>
+<li><strong>空闲/负载时</strong> - CPU: ~0%, 内存: 0.1% (2.5MB), 磁盘I/O几乎无影响</li>
+<li><strong>特点</strong>: 资源占用极低，即使在MQTT消息频繁传输时也保持稳定</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="backend-后端api服务">Backend (后端API服务)<a href="#backend-后端api服务" class="hash-link" aria-label="Direct link to Backend (后端API服务)" title="Direct link to Backend (后端API服务)">​</a></h4>
+<ul>
+<li><strong>空闲/负载时</strong> - CPU: ~0%, 内存: 0.1% (2.7MB), 磁盘I/O影响极小</li>
+<li><strong>特点</strong>: 资源占用极低，处理能力良好，主要工作是数据传递</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nginx-web服务器">Nginx (Web服务器)<a href="#nginx-web服务器" class="hash-link" aria-label="Direct link to Nginx (Web服务器)" title="Direct link to Nginx (Web服务器)">​</a></h4>
+<ul>
+<li><strong>空闲/负载时</strong> - CPU: ~0%, 内存: 0.9% (19.0MB), 磁盘I/O几乎无影响</li>
+<li><strong>特点</strong>: 资源占用稳定，轻量级</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="nodejspm2-进程管理">NodeJS/PM2 (进程管理)<a href="#nodejspm2-进程管理" class="hash-link" aria-label="Direct link to NodeJS/PM2 (进程管理)" title="Direct link to NodeJS/PM2 (进程管理)">​</a></h4>
+<ul>
+<li><strong>空闲/负载时</strong> - CPU: 约0.6%, 内存: 6.5% - 6.6% (126MB - 127MB), 磁盘I/O几乎无影响</li>
+<li><strong>特点</strong>: 内存占用中等，CPU占用低</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="磁盘io性能分析">磁盘I/O性能分析<a href="#磁盘io性能分析" class="hash-link" aria-label="Direct link to 磁盘I/O性能分析" title="Direct link to 磁盘I/O性能分析">​</a></h3>
+<p>从磁盘I/O监控数据可以看出以下几点重要信息：</p>
+<ol>
+<li>
+<p><strong>I/O负载与CPU负载强相关</strong>:</p>
+<ul>
+<li>在CPU使用率高峰期(90%+)，分区写入速度稳定在2.3-3.0MB/秒</li>
+<li>在某些峰值时刻，写入速度可达7.1MB/秒</li>
+</ul>
+</li>
+<li>
+<p><strong>存储性能表现</strong>:</p>
+<ul>
+<li>Class 10 TF卡的随机写入性能为系统瓶颈之一</li>
+<li>写入速度在峰值负载下达到了7.1MB/秒，接近Class 10卡随机写入的性能上限</li>
+<li>根分区(mmcblk0p2)使用率已达94%，这可能对写入性能有负面影响</li>
+</ul>
+</li>
+<li>
+<p><strong>特定设备与分区I/O差异</strong>:</p>
+<ul>
+<li>整个设备(mmcblk0)的I/O监控数据与分区(mmcblk0p2)数据存在差异</li>
+<li>必须监控具体分区而非整个设备，才能准确捕获数据库的I/O活动</li>
+</ul>
+</li>
+<li>
+<p><strong>数据库I/O特性</strong>:</p>
+<ul>
+<li>PostgreSQL写入模式呈现为突发性，写入速率在负载期间相对稳定</li>
+<li>写入操作几乎完全由PostgreSQL数据库生成，其他组件几乎不产生磁盘写入</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="负载测试分析">负载测试分析<a href="#负载测试分析" class="hash-link" aria-label="Direct link to 负载测试分析" title="Direct link to 负载测试分析">​</a></h3>
+<p>根据测试日志中的数据，系统在执行性能测试时表现如下：</p>
+<ol>
+<li>
+<p><strong>数据写入能力</strong>:</p>
+<ul>
+<li>系统能够处理约989点/秒的数据写入速率</li>
+<li>平均数据库写入率达到70.7% - 96.3%</li>
+<li>在测试高峰期能够处理约710点/秒的数据库写入速率</li>
+</ul>
+</li>
+<li>
+<p><strong>系统响应</strong>:</p>
+<ul>
+<li>面对高频率数据写入，CPU使用率迅速上升至90%以上</li>
+<li>PostgreSQL数据库成为主要的资源消耗点(CPU和磁盘I/O)</li>
+<li>内存使用率保持相对稳定，仅增加约1.7%</li>
+<li>磁盘写入在数据库活动期间显著增加，与CPU使用率高度相关</li>
+</ul>
+</li>
+<li>
+<p><strong>资源恢复</strong>:</p>
+<ul>
+<li>当数据写入减少时，系统资源使用快速下降</li>
+<li>CPU使用率从92.3%降至25%</li>
+<li>PostgreSQL的CPU使用率从80.1%降至22.6%</li>
+<li>磁盘写入速率迅速下降，趋近于零</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="关键性能瓶颈识别">关键性能瓶颈识别<a href="#关键性能瓶颈识别" class="hash-link" aria-label="Direct link to 关键性能瓶颈识别" title="Direct link to 关键性能瓶颈识别">​</a></h3>
+<p>基于CPU、内存和磁盘I/O的综合监控数据，可以明确识别ThingsPanel在树莓派上的主要性能瓶颈：</p>
+<ol>
+<li>
+<p><strong>主要瓶颈 - 存储I/O性能</strong>:</p>
+<ul>
+<li>Class 10 TF卡的随机写入速度在处理数据库写入时接近极限</li>
+<li>实测峰值写入速度达7.1MB/秒，接近理论上限</li>
+<li>主要影响系统在高数据吞吐量情况下的稳定性</li>
+</ul>
+</li>
+<li>
+<p><strong>次要瓶颈 - CPU处理能力</strong>:</p>
+<ul>
+<li>PostgreSQL在高负载下CPU使用率超过100%，即超过单核心处理能力</li>
+<li>数据库写入和查询处理是CPU密集型工作</li>
+<li>多核心的利用有助于提升整体性能</li>
+</ul>
+</li>
+<li>
+<p><strong>非瓶颈 - 内存容量</strong>:</p>
+<ul>
+<li>即使在负载下，系统内存使用率仅增加约1.7%</li>
+<li>2GB内存对ThingsPanel来说有足够余量</li>
+<li>内存不是当前配置下的限制因素</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="结论与建议">结论与建议<a href="#结论与建议" class="hash-link" aria-label="Direct link to 结论与建议" title="Direct link to 结论与建议">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="总体评估">总体评估<a href="#总体评估" class="hash-link" aria-label="Direct link to 总体评估" title="Direct link to 总体评估">​</a></h4>
+<p>ThingsPanel在Raspberry Pi (2GB)上表现良好，能够满足中小规模IoT应用需求:</p>
+<ol>
+<li><strong>可行性</strong>: 即使在2GB RAM的Raspberry Pi上，ThingsPanel也能稳定运行</li>
+<li><strong>性能</strong>: 可持续处理约600-700点/秒的数据写入，足够支持10设备同时高频率数据上报</li>
+<li><strong>资源使用效率</strong>: 空闲时仅占用约21.2%的系统内存和极少的CPU</li>
+<li><strong>扩展性</strong>: 系统在负载下保持稳定，内存使用率增加有限</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="优化建议">优化建议<a href="#优化建议" class="hash-link" aria-label="Direct link to 优化建议" title="Direct link to 优化建议">​</a></h4>
+<p><strong>存储优化</strong> (首要优先级):</p>
+<ul>
+<li>使用高性能SD卡(A2级别)或外接SSD通过USB 3.0接口</li>
+<li>清理根分区，保持至少15-20%的可用空间</li>
+<li>考虑将PostgreSQL数据目录移至单独的高速存储设备</li>
+</ul>
+<p><strong>SD卡与SSD在ThingsPanel上的性能对比</strong></p>
+<table><thead><tr><th>性能指标</th><th>Class 10 SD卡</th><th>SSD (USB 3.0)</th><th>提升倍数</th></tr></thead><tbody><tr><td><strong>随机写入速度</strong></td><td>2-7 MB/秒</td><td><strong>80-300 MB/秒</strong></td><td><strong>10-30倍</strong></td></tr><tr><td>数据点处理能力</td><td>~700点/秒</td><td>3,500-10,000点/秒</td><td>5-15倍</td></tr><tr><td>数据库查询响应</td><td>较慢</td><td>显著更快</td><td>5-15倍</td></tr><tr><td>高负载时CPU使用率</td><td>90-110%</td><td>30-50%</td><td>CPU减负60-70%</td></tr><tr><td>系统稳定性</td><td>容易成为瓶颈</td><td>大幅提升</td><td>质的改善</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="总结">总结<a href="#总结" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结">​</a></h3>
+<p>ThingsPanel在ARM设备尤其是Raspberry Pi上是完全可行的，能够有效支持中小规模IoT应用场景。主要性能瓶颈在于存储I/O性能和数据库处理能力，而非内存限制。即使在2GB内存的设备上，ThingsPanel仍能保持较好的性能表现，这使其成为低成本IoT边缘计算的良好选择。</p>
+<p>通过适当的存储优化和数据库参数调整，性能还有提升空间。对于规模较大的部署，建议使用4GB内存版本的Raspberry Pi，并配备高性能存储设备。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="云服务器测试报告">云服务器测试报告<a href="#云服务器测试报告" class="hash-link" aria-label="Direct link to 云服务器测试报告" title="Direct link to 云服务器测试报告">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="核心结论">核心结论<a href="#核心结论" class="hash-link" aria-label="Direct link to 核心结论" title="Direct link to 核心结论">​</a></h3>
 <p>基于本次测试结果，ThingsPanel新架构在1万台设备并发接入的场景下表现出色：</p>
 <ul>
 <li>单集群支持25000/秒的数据写入，CPU峰值利用率维持在82%以下</li>
 <li>在高并发下系统各项指标稳定，数据处理无延迟积压</li>
 <li>基于当前硬件配置，预计可支持40万设备同时接入（按每分钟单设备4个数据点计算）</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-测试背景与目的">1. 测试背景与目的<a href="#1-测试背景与目的" class="hash-link" aria-label="Direct link to 1. 测试背景与目的" title="Direct link to 1. 测试背景与目的">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-测试背景与目的">1. 测试背景与目的<a href="#1-测试背景与目的" class="hash-link" aria-label="Direct link to 1. 测试背景与目的" title="Direct link to 1. 测试背景与目的">​</a></h3>
 <p>为验证新架构下系统的并发处理能力，搭建了三节点集群环境进行压力测试。本次测试重点关注：</p>
 <ul>
 <li>系统在高并发环境下的数据处理能力与稳定性</li>
 <li>集群架构下的资源利用效率</li>
 <li>系统扩展潜力评估</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-测试环境">2. 测试环境<a href="#2-测试环境" class="hash-link" aria-label="Direct link to 2. 测试环境" title="Direct link to 2. 测试环境">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="服务器配置">服务器配置<a href="#服务器配置" class="hash-link" aria-label="Direct link to 服务器配置" title="Direct link to 服务器配置">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-测试环境">2. 测试环境<a href="#2-测试环境" class="hash-link" aria-label="Direct link to 2. 测试环境" title="Direct link to 2. 测试环境">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="服务器配置">服务器配置<a href="#服务器配置" class="hash-link" aria-label="Direct link to 服务器配置" title="Direct link to 服务器配置">​</a></h4>
 <table><thead><tr><th>机型</th><th>CPU</th><th>内存</th><th>硬盘</th><th>说明</th></tr></thead><tbody><tr><td>云服务器1</td><td>Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz 4核</td><td>8GB</td><td>ESSD云盘 PL0 40GiB (2280 IOPS)</td><td>Cassandra数据库、VerneMQ、数据库和broker的插件应用</td></tr><tr><td>云服务器2</td><td>Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz 4核</td><td>8GB</td><td>ESSD云盘 PL0 40GiB (2280 IOPS)</td><td>Cassandra数据库、VerneMQ、数据库和broker的插件应用</td></tr><tr><td>云服务器3</td><td>Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz 4核</td><td>8GB</td><td>ESSD云盘 PL0 40GiB (2280 IOPS)</td><td>应用平台、TimescaleDB、负载均衡器、测试脚本等</td></tr></tbody></table>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="测试参数设置">测试参数设置<a href="#测试参数设置" class="hash-link" aria-label="Direct link to 测试参数设置" title="Direct link to 测试参数设置">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="测试参数设置">测试参数设置<a href="#测试参数设置" class="hash-link" aria-label="Direct link to 测试参数设置" title="Direct link to 测试参数设置">​</a></h4>
 <ul>
 <li>设备数量：分别以5000台和10000台设备进行测试</li>
 <li>数据上报频率：每台设备每6.4秒推送16个数据点</li>
 <li>测试持续时间：持续运行24小时以验证系统稳定性</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-测试结果">3. 测试结果<a href="#3-测试结果" class="hash-link" aria-label="Direct link to 3. 测试结果" title="Direct link to 3. 测试结果">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="性能指标数据">性能指标数据<a href="#性能指标数据" class="hash-link" aria-label="Direct link to 性能指标数据" title="Direct link to 性能指标数据">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-测试结果">3. 测试结果<a href="#3-测试结果" class="hash-link" aria-label="Direct link to 3. 测试结果" title="Direct link to 3. 测试结果">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="性能指标数据">性能指标数据<a href="#性能指标数据" class="hash-link" aria-label="Direct link to 性能指标数据" title="Direct link to 性能指标数据">​</a></h4>
 <table><thead><tr><th>设备数量</th><th>写入速度</th><th>CPU使用率（%）</th><th>内存使用率（%）</th><th>内网带宽</th><th>云盘读写BPS</th></tr></thead><tbody><tr><td>5000台</td><td>12000/s</td><td>36 / 37 / 40</td><td>35 / 37 / 17</td><td>25M</td><td>38M</td></tr><tr><td>10000台</td><td>25000/s</td><td>72 / 73 / 82</td><td>45 / 48 / 17</td><td>48M</td><td>76M</td></tr></tbody></table>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="系统稳定性表现">系统稳定性表现<a href="#系统稳定性表现" class="hash-link" aria-label="Direct link to 系统稳定性表现" title="Direct link to 系统稳定性表现">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="系统稳定性表现">系统稳定性表现<a href="#系统稳定性表现" class="hash-link" aria-label="Direct link to 系统稳定性表现" title="Direct link to 系统稳定性表现">​</a></h4>
 <ul>
 <li>数据处理能力：单集群实现25000/秒的持续稳定写入</li>
 <li>响应时间：Web操作平均响应时间维持在200ms以内</li>
 <li>队列状态：测试期间broker队列数据处理实时，无积压</li>
 <li>查询性能：历史数据查询平均响应时间<code>&lt;500ms</code></li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-分析与结论">4. 分析与结论<a href="#4-分析与结论" class="hash-link" aria-label="Direct link to 4. 分析与结论" title="Direct link to 4. 分析与结论">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="性能分析">性能分析<a href="#性能分析" class="hash-link" aria-label="Direct link to 性能分析" title="Direct link to 性能分析">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="4-分析与结论">4. 分析与结论<a href="#4-分析与结论" class="hash-link" aria-label="Direct link to 4. 分析与结论" title="Direct link to 4. 分析与结论">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="性能分析">性能分析<a href="#性能分析" class="hash-link" aria-label="Direct link to 性能分析" title="Direct link to 性能分析">​</a></h4>
 <ol>
 <li>
 <p>数据处理能力</p>
@@ -76,14 +298,14 @@
 </ul>
 </li>
 </ol>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="扩展性评估">扩展性评估<a href="#扩展性评估" class="hash-link" aria-label="Direct link to 扩展性评估" title="Direct link to 扩展性评估">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="扩展性评估">扩展性评估<a href="#扩展性评估" class="hash-link" aria-label="Direct link to 扩展性评估" title="Direct link to 扩展性评估">​</a></h4>
 <p>基于测试数据，对系统扩展性进行了如下评估：</p>
 <ol>
 <li>单集群容量：按每分钟单设备4个数据点计算，当前配置理论上可支持40万设备接入</li>
 <li>横向扩展：通过增加节点，预计系统可线性扩展至百万级设备规模</li>
 <li>资源瓶颈：当前配置下，CPU使用率是最先达到瓶颈的资源，建议后续扩容优先提升CPU配置</li>
 </ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-改进建议">5. 改进建议<a href="#5-改进建议" class="hash-link" aria-label="Direct link to 5. 改进建议" title="Direct link to 5. 改进建议">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="5-改进建议">5. 改进建议<a href="#5-改进建议" class="hash-link" aria-label="Direct link to 5. 改进建议" title="Direct link to 5. 改进建议">​</a></h3>
 <ol>
 <li>
 <p>硬件优化</p>
@@ -96,12 +318,12 @@
 <p>软件优化</p>
 <ul>
 <li>优化数据写入批处理机制，减少CPU消耗</li>
-<li>实现智能负载均衡，提高集群资源利用率</li>
+<li>实现智能负载 均衡，提高集群资源利用率</li>
 <li>增强监控告警机制，提前预警潜在瓶颈</li>
 </ul>
 </li>
 </ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="结论">结论<a href="#结论" class="hash-link" aria-label="Direct link to 结论" title="Direct link to 结论">​</a></h2>
-<p>测试表明，ThingsPanel架构具备优秀的并发处理能力和可扩展性。在中等硬件配置下，单集群可稳定支持万级设备接入，为未来支撑更大规模物联网应用奠定了基础。系统在设备数量倍增的情况下，仍保持线性的资源消耗增长，这验证了架构设计的合理性和效能。后续可通过优化资源配置和软件架构，进一步提升系统性能。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/introduction/test_report.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-04-30T22:12:46.000Z" itemprop="dateModified">Apr 30, 2025</time></b> by <b>zjhong</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/introduction/functions"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">功能介绍</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/introduction/demo"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">演示平台</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#核心结论" class="table-of-contents__link toc-highlight">核心结论</a></li><li><a href="#1-测试背景与目的" class="table-of-contents__link toc-highlight">1. 测试背景与目的</a></li><li><a href="#2-测试环境" class="table-of-contents__link toc-highlight">2. 测试环境</a><ul><li><a href="#服务器配置" class="table-of-contents__link toc-highlight">服务器配置</a></li><li><a href="#测试参数设置" class="table-of-contents__link toc-highlight">测试参数设置</a></li></ul></li><li><a href="#3-测试结果" class="table-of-contents__link toc-highlight">3. 测试结果</a><ul><li><a href="#性能指标数据" class="table-of-contents__link toc-highlight">性能指标数据</a></li><li><a href="#系统稳定性表现" class="table-of-contents__link toc-highlight">系统稳定性表现</a></li></ul></li><li><a href="#4-分析与结论" class="table-of-contents__link toc-highlight">4. 分析与结论</a><ul><li><a href="#性能分析" class="table-of-contents__link toc-highlight">性能分析</a></li><li><a href="#扩展性评估" class="table-of-contents__link toc-highlight">扩展性评估</a></li></ul></li><li><a href="#5-改进建议" class="table-of-contents__link toc-highlight">5. 改进建议</a></li><li><a href="#结论" class="table-of-contents__link toc-highlight">结论</a></li></ul></div></div></div></div></main></div></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="结论">结论<a href="#结论" class="hash-link" aria-label="Direct link to 结论" title="Direct link to 结论">​</a></h3>
+<p>测试表明，ThingsPanel架构具备优秀的并发处理能力和可扩展性。在中等硬件配置下，单集群可稳定支持万级设备接入，为未来支撑更大规模物联网应用奠定了基础。系统在设备数量倍增的情况下，仍保持线性的资源消耗增长，这验证了架构设计的合理性和效能。后续可通过优化资源配置和软件架构，进一步提升系统性能。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/introduction/test_report.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-05-12T00:16:22.000Z" itemprop="dateModified">May 12, 2025</time></b> by <b>zjhong</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/introduction/functions"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">功能介绍</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/introduction/demo"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">演示平台</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#thingspanel在raspberry-pi上的全面性能分析报告" class="table-of-contents__link toc-highlight">ThingsPanel在Raspberry Pi上的全面性能分析报告</a><ul><li><a href="#测试结论" class="table-of-contents__link toc-highlight">测试结论</a></li><li><a href="#测试方法" class="table-of-contents__link toc-highlight">测试方法</a></li><li><a href="#测试环境" class="table-of-contents__link toc-highlight">测试环境</a></li><li><a href="#资源使用总结" class="table-of-contents__link toc-highlight">资源使用总结</a></li><li><a href="#各组件资源占用分析" class="table-of-contents__link toc-highlight">各组件资源占用分析</a></li><li><a href="#磁盘io性能分析" class="table-of-contents__link toc-highlight">磁盘I/O性能分析</a></li><li><a href="#负载测试分析" class="table-of-contents__link toc-highlight">负载测试分析</a></li><li><a href="#关键性能瓶颈识别" class="table-of-contents__link toc-highlight">关键性能瓶颈识别</a></li><li><a href="#结论与建议" class="table-of-contents__link toc-highlight">结论与建议</a></li><li><a href="#总结" class="table-of-contents__link toc-highlight">总结</a></li></ul></li><li><a href="#云服务器测试报告" class="table-of-contents__link toc-highlight">云服务器测试报告</a><ul><li><a href="#核心结论" class="table-of-contents__link toc-highlight">核心结论</a></li><li><a href="#1-测试背景与目的" class="table-of-contents__link toc-highlight">1. 测试背景与目的</a></li><li><a href="#2-测试环境" class="table-of-contents__link toc-highlight">2. 测试环境</a></li><li><a href="#3-测试结果" class="table-of-contents__link toc-highlight">3. 测试结果</a></li><li><a href="#4-分析与结论" class="table-of-contents__link toc-highlight">4. 分析与结论</a></li><li><a href="#5-改进建议" class="table-of-contents__link toc-highlight">5. 改进建议</a></li><li><a href="#结论" class="table-of-contents__link toc-highlight">结论</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
