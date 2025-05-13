@@ -236,6 +236,8 @@ docker compose logs thingspanel-backend
 http://您的服务器IP:8080
 ```
 
+> Docker桌面版部署访问http://127.0.0.1:8080
+
 默认登录凭据：
 - **系统管理员**: super@super.cn / 123456
 - **租户管理员**: tenant@tenant.cn / 123456
