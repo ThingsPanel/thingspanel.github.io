@@ -146,7 +146,7 @@ services:
       - "GOTP_DB_REDIS_ADDR=redis:6379"
       - "GOTP_DB_REDIS_PASSWORD=redis"
       - "GOTP_MQTT_SERVER={MQTT_HOST}"
-      - "GOTP_MQTT_ACCESS_ADDRESS={MQTT_HOST}:1883"
+      - "GOTP_MQTT_ACCESS_ADDRESS=127.0.0.1:1883"
       - "GOTP_MQTT_BROKER=gmqtt:1883"
       - "GOTP_LOG_LEVEL=error"
     depends_on:
@@ -197,6 +197,12 @@ networks:
         - subnet: 172.20.0.0/16  # 定义网络的子网范围
           gateway: 172.20.0.1    # 定义网关地址
 ```
+
+:::info
+
+提示：Docker 部署时，请注意 backend 容器中的 GOTP_MQTT_ACCESS_ADDRESS 环境变量默认值为 127.0.0.1:1883。如果您在 Linux 服务器上部署，需要将此 IP 地址改为您的服务器ip地址或域名，否则设备详情页面中的"模拟上报数据"功能将无法正常工作（也可在发送时候手动修改发送框里的IP地址）。
+
+:::
 
 #### 第三步：启动 ThingsPanel 服务
 
