@@ -333,7 +333,7 @@ ThingsPanel 为 Windows 用户提供了一键式安装包，简化了部署过�
 
 ## 15秒接入接入一个设备并查看数据
 
-[原视频]
+<video controls src="/videos/15s_add_device.mp4" title="15秒添加设备并推送数据" width="1000"></video>
 
 ## 故障排除
 
