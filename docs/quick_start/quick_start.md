@@ -10,7 +10,7 @@ sidebar_position: 1
 
 ## 部署方法概览
 
-ThingsPanel 提供了两种简单快速的部署方法，以满足不同用户的需求：
+ThingsPanel 提供了两种简单快速的部署方法（部署用时大约需要10分钟），以满足不同用户的需求：
 
 1. **Docker Compose 部署（推荐）**：适用于所有操作系统，提供最一致、最简单的部署体验
 2. **Windows 独立安装包**：为 Windows 用户提供的一键式安装体验
@@ -288,6 +288,10 @@ docker compose down
 # 重新启动所有服务
 docker compose restart
 ```
+
+### 视频示例
+
+[如何快速部署ThingsPanel物联网平台-Docker桌面版](https://www.bilibili.com/video/BV1L8Ecz4E2v/?share_source=copy_web&vd_source=ffdc396f72a54b325037ada71bc99b05)
 
 ## 方法 2: Windows 独立安装包
 
