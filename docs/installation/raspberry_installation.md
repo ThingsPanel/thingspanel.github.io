@@ -3,238 +3,318 @@ sidebar_position: 4
 ---
 
 # 树莓派源码安装
+ # ThingsPanel 树莓派安装指南
 
-本文档的目的在于说明如何在树莓派 4 上通过源码安装 ThingsPanel。安装过程基本与在 x86 服务器安装过程一样。基本参考[源码安装](http://thingspanel.io/zh-Hans/docs/system-installation/source_code.installation)进行安装。
+本文档详细介绍了如何在树莓派上安装和配置 ThingsPanel 物联网平台。
 
+## 目录
 
-## 安装流程图
-```mermaid
+- [系统要求](#系统要求)
+- [快速安装](#快速安装)
+- [详细安装步骤](#详细安装步骤)
+- [安装选项](#安装选项)
+- [组件说明](#组件说明)
+- [故障排除](#故障排除)
+- [常见问题](#常见问题)
+- [更多资源](#更多资源)
 
-flowchart LR
-    classDef default fill:#f0f4f8,stroke:#d0d7de,stroke-width:2px,color:#24292f,rx:8,ry:8
-    classDef primary fill:#e8f0fe,stroke:#4a8af4,stroke-width:2px,color:#1a73e8,rx:8,ry:8
-    classDef optional fill:#fef1f1,stroke:#d73a49,stroke-width:2px,color:#cb2431,rx:8,ry:8
+## 系统要求
 
-    A[系统准备] --> B[Docker安装]
-    A --> C[Go 1.22.x安装]
-    B --> D[Redis安装]
-    B --> E[TimescaleDB安装]
-    
-    C & D & E --> F[GMQTT安装]
-    F --> G[后端安装]
-    G --> H[前端部署]
-    
-    H --> I[Nginx配置]
-    I --> J[完成安装]
-    
-    K[可选组件]
-    K -.-> L[Modbus插件]
-    
-    style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
-    style J fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
-    style K fill:#fef1f1,stroke:#d73a49,color:#cb2431
-    style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
+在安装 ThingsPanel 之前，请确保您的树莓派满足以下要求：
 
-```
-## ThingsPanel 在树莓派 4 上的内存占用
+- 树莓派 3B+ 或更高型号（推荐树莓派 4B 或更高型号）
+- 至少 2GB RAM（推荐 4GB 或更高）
+- 至少 16GB SD 卡（推荐 32GB 或更高）
+- 树莓派 OS（基于 Debian Bullseye 或更高版本）
+- 网络连接
 
-![](image/raspberry_memory_uasge.png)
+## 快速安装
 
-总计：386MB，其中 PostgreSQL 就占了 222MB
-
-其中 PostgreSQL 占用为：
+如果您想快速安装所有组件，可以使用以下命令：
 
 ```bash
-pi@raspberrypi:~ $ ps aux | grep postgres | awk 'BEGIN {sum=0} {sum += $6} END {print sum/1024 " MB"}'
-221.664 MB
+# 下载安装脚本
+wget -O install_thingspanel_rpi.sh https://raw.githubusercontent.com/ThingsPanel/thingspanel-rpi-docker/main/install_thingspanel_rpi.sh
+
+# 添加执行权限
+chmod +x install_thingspanel_rpi.sh
+
+# 完全自动模式安装（所有组件）
+./install_thingspanel_rpi.sh -a
 ```
 
-![](image/raspberry_memory_caclulate.png)
-
-:::tip
-
-Vue.js（或任何前端框架）开发的前端项目的内存占用不同于统计后端进程或服务的内存占用。前端项目运行在浏览器中，因此它的资源消耗应在浏览器环境中进行评估。树莓派上的内存占用实际上会涉及到您用来托管和提供前端资源的服务器（例如，如果您使用的是 Nginx 或 Apache）。
-
-:::
-
-**ThingsPanel 核心系统占用 30MB**
-
-## 整体安装流程步骤概览
-
-![](image/raspberry_overview.png)
-
-### 前置模块
-
-- docker： 部署依赖数据库，减少安装流程，提高效率；（[安装 docker 社区版](https://docs.docker.com/engine/install/)）
-- go： 启动后端程序和 gmqtt（[安装 Go](https://go.dev/doc/install)）
-- node.js + npm： 编译、部署前端程序（[安装 node.js](https://nodejs.org/zh-cn/download/)）
-- nginx： 启动 http 服务，转发前端静态文件（执行 sudo apt install nginx）
-
-## TimescaleDB 12 安装
-
-1.拉取 docker 镜像
-
-`docker pull timescale/timescaledb:latest-pg12`
-
-2.启动 docker 镜像
+安装完成后，通过浏览器访问树莓派的 IP 地址即可打开 ThingsPanel 平台：
 
 ```
-docker run --name timescaledb -p 5432:5432 \
--e TZ=Asia/Shanghai \
--e POSTGRES_DB=ThingsPanel \
--e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=ThingsPanel2023 \
--v /home/tp/data/dir:/var/lib/postgresql/data \
-timescale/timescaledb:latest-pg12
+http://树莓派IP地址
 ```
 
-3.启动成功：
+默认账号密码：
+- 系统管理员: super@super.cn / 123456
+- 租户管理员: tenant@tenant.cn / 123456
 
-![](image/raspberry_db_start.png)
+## 详细安装步骤
 
-## gmqtt 安装
+如果您希望了解更详细的安装过程或自定义安装选项，请按照以下步骤操作：
 
-1.github 下载源码：https://github.com/ThingsPanel/gmqtt
+### 1. 准备环境
 
-2.进入服务目录：
+首先，确保您的树莓派系统是最新的：
 
-`cd gmqtt/cmd/gmqttd`
-
-3.go 命令启动：
-
-`go run . start -c default_config.yml`
-
-4.启动成功：
-
-![](image/raspberry_gmqtt_start.png)
-
-## redis 安装
-
-1.指定目录拉取并启动 docker 镜像：
-
-```
-docker run --name tp-redis \
--v /home/tp/backend/redis/data:/data \
--v /home/tp/backend/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
--v /home/tp/backend/redis/logs:/logs \
--d -p 6379:6379 redis redis-server --requirepass redis2022
+```bash
+sudo apt update
+sudo apt upgrade -y
 ```
 
-![](image/raspberry_redis_start.png)
+### 2. 下载安装脚本
 
-## ThingsPanel-Go 安装
+下载 ThingsPanel 树莓派一键安装脚本：
 
-1.github 下载源码：https://github.com/ThingsPanel/ThingsPanel-Go
-
-`git clone https://github.com/ThingsPanel/ThingsPanel-Go.git`
-
-2.进入项目根目录
-
-`cd ThingsPanel-Go`
-
-3.启动：
-
-`go run . start`
-
-4.运行成功：
-
-![](image/raspberry_backend_start.png)
-
-## ThingsPanel-Backend-Vue 安装
-
-1.下载源码
-
-`git clone https://github.com/ThingsPanel/ThingsPanel-Backend-Vue.git`
-
-2.安装依赖
-
-`npm install`
-
-3.打包生成 dist 文件(打包前删除.env.dev 和.env.production 文件)
-
-`rm .env.dev&&rm .env.production`
-
-`npm run build`
-
-4.配置 nginx 路由文件： thingspanel.conf
-
-```
-server {
-    listen 8080;
-    #listen 9999;
-    # 修改这里的server_name为你本地的服务名
-    server_name dev.thingspanel.cn 39.98.176.26 ;
-    charset utf-8;
-
-    client_max_body_size 10m;
-
-    underscores_in_headers on;
-
-    root /home/dev/dist;
-
-    location /api{
-        proxy_pass  http://127.0.0.1:9999;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header X-real-ip $remote_addr;
-        proxy_set_header X-Forwarded-For $remote_addr;
-    }
-
-    location /files{
-    add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Credentials' 'true';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-
-        if ($request_method = 'OPTIONS') {
-            return 204;
-        }
-        proxy_pass  http://127.0.0.1:9999;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header X-real-ip $remote_addr;
-        proxy_set_header X-Forwarded-For $remote_addr;
-    }
-
-    location /visual {
-        alias /home/visual-editor/dist;
-        index index.html index.htm;
-        try_files $uri $uri/ /visual/index.html;
-    }
-
-
-    location / {
-        index       index.html index.htm;
-    }
-
-      gzip on;
-      gzip_min_length 1k;
-      gzip_comp_level 4;
-      gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
-      gzip_vary on;
-      gzip_disable "MSIE [1-6]\.";
-
-}
+```bash
+wget -O install_thingspanel_rpi.sh https://raw.githubusercontent.com/ThingsPanel/thingspanel-rpi-docker/main/install_thingspanel_rpi.sh
+chmod +x install_thingspanel_rpi.sh
 ```
 
-5.将刚才的文件 thingspanel.conf 放入 nginx 配置目录中，一般是/etc/nignx/conf.d/ ;
+### 3. 执行安装脚本
 
-6.重新启动 nginx
+根据您的需求，选择以下任一方式运行安装脚本：
 
-`sudo systemctl restart nginx`
+#### 交互式安装（推荐新用户）
 
-7.浏览器访问前端页面： x.x.x.x:8080
+```bash
+./install_thingspanel_rpi.sh
+```
 
-![](image/raspberry_login.png)
+此模式会在每一步都向您询问确认，适合希望了解整个安装过程的用户。
 
-8.输入:
+#### 自动确认安装
 
-账号：super@super.cn
+```bash
+./install_thingspanel_rpi.sh -y
+```
 
-密码：123456
+此模式会自动确认所有提示，但仍会显示安装进度。
 
-![](image/raspberry_home_page.png)
+#### 完全自动安装
 
+```bash
+./install_thingspanel_rpi.sh -a
+```
+
+此模式下，脚本会自动安装所有组件，无需任何交互。
+
+#### 自定义组件安装
+
+```bash
+# 只安装指定组件
+./install_thingspanel_rpi.sh -c redis,timescaledb,backend
+
+# 安装除了指定组件外的所有组件
+./install_thingspanel_rpi.sh -s frontend
+```
+
+### 4. 安装过程
+
+安装脚本会自动执行以下操作：
+
+1. 设置安装环境和目录
+2. 更新系统
+3. 安装必要工具和依赖
+4. 安装 Docker
+5. 检测 ARM 架构并设置环境
+6. 安装 Go 环境（如果需要）
+7. 安装 Redis 数据库
+8. 安装 TimescaleDB 数据库
+9. 安装 GMQTT 消息代理
+10. 安装 ThingsPanel 后端服务
+11. 安装 ThingsPanel 前端（包括 Nginx 配置）
+
+整个安装过程根据网络状况和树莓派性能可能需要 15-30 分钟。
+
+### 5. 验证安装
+
+安装完成后，脚本会显示访问信息：
+
+```
+ThingsPanel安装完成!
+访问地址: http://您的树莓派IP地址
+默认账号密码:
+- 系统管理员: super@super.cn / 123456
+- 租户管理员: tenant@tenant.cn / 123456
+```
+
+使用浏览器访问该地址，并使用默认账号登录系统。
+
+## 安装选项
+
+安装脚本支持以下命令行选项：
+
+| 选项 | 说明 |
+| --- | --- |
+| `-y, --yes` | 自动模式，所有提示默认选择 yes |
+| `-a, --auto` | 完全自动模式，不显示任何提示，自动安装所有组件 |
+| `-c, --components` | 指定要安装的组件，用逗号分隔 (redis,timescaledb,gmqtt,backend,frontend) |
+| `-s, --skip` | 指定要跳过的组件，用逗号分隔 (redis,timescaledb,gmqtt,backend,frontend) |
+| `-v, --verbose` | 详细模式，即使在自动模式下也显示所有输出 |
+| `-p, --prebuilt` | 使用预编译的二进制文件（默认选项） |
+| `-b, --build` | 从源码编译（不推荐在低性能设备上使用） |
+| `-h, --help` | 显示帮助信息 |
+
+## 组件说明
+
+ThingsPanel 树莓派版包含以下核心组件：
+
+### Redis
+
+用于缓存和消息队列，安装在 Docker 容器中。
+
+- 端口: 6379
+- 密码: redis
+- 数据目录: /home/pi/thingspanel/redis/data
+
+### TimescaleDB
+
+用于存储时序数据和系统配置，基于 PostgreSQL 的时序数据库，安装在 Docker 容器中。
+
+- 端口: 5432
+- 数据库名: ThingsPanel
+- 用户名: postgres
+- 密码: postgresThingsPanel
+- 数据目录: /home/pi/thingspanel/timescaledb/data
+
+### GMQTT
+
+MQTT 消息代理，用于设备通信，通过 PM2 管理的服务。
+
+- 端口: 1883
+- 超级用户名: root
+- 超级用户密码: root
+- 插件密码: plugin
+- 安装目录: /home/pi/thingspanel/thingspanel-gmqtt
+
+### 后端服务
+
+ThingsPanel 核心逻辑和 API 服务，通过 PM2 管理的服务。
+
+- 端口: 9999
+- 安装目录: /home/pi/thingspanel/thingspanel-backend-community
+- 日志目录: /home/pi/thingspanel/thingspanel-backend-community/files/logs
+
+### 前端服务
+
+ThingsPanel Web 界面，通过 Nginx 提供服务。
+
+- 端口: 80
+- 网站目录: /var/www/html/thingspanel
+- Nginx 配置: /etc/nginx/sites-available/thingspanel
+
+## 故障排除
+
+如果在安装或使用过程中遇到问题，请尝试以下解决方案：
+
+### 1. 服务无法启动
+
+检查各个服务的状态：
+
+```bash
+# 查看所有 Docker 容器
+docker ps -a
+
+# 查看 PM2 管理的进程
+pm2 list
+
+# 查看 Nginx 状态
+sudo systemctl status nginx
+```
+
+### 2. 网页显示 502 错误
+
+这通常意味着后端服务未正常运行，请尝试：
+
+```bash
+# 重启后端服务
+pm2 restart backend
+
+# 查看后端日志
+pm2 logs backend
+```
+
+### 3. 设备无法连接 MQTT 服务
+
+```bash
+# 检查 GMQTT 服务状态
+pm2 status gmqtt
+
+# 重启 GMQTT 服务
+pm2 restart gmqtt
+
+# 查看 GMQTT 日志
+pm2 logs gmqtt
+```
+
+### 4. 数据库连接问题
+
+```bash
+# 检查数据库容器状态
+docker ps | grep timescaledb
+
+# 查看数据库日志
+docker logs $(docker ps | grep timescaledb | awk '{print $1}')
+
+# 重启数据库容器
+docker restart $(docker ps | grep timescaledb | awk '{print $1}')
+```
+
+### 5. 重启所有服务
+
+如果系统功能异常，可以尝试重启所有服务：
+
+```bash
+# 重启所有 PM2 管理的服务
+pm2 restart all
+
+# 重启 Nginx
+sudo systemctl restart nginx
+
+# 重启 Docker 容器
+docker restart $(docker ps -q)
+```
+
+## 常见问题
+
+### Q: 安装过程中出现"端口已被占用"错误
+A: 这意味着系统中已有服务占用了需要使用的端口。您可以使用 `sudo lsof -i:端口号` 命令查找占用端口的进程，然后终止它或使用 `-s` 参数跳过相应组件的安装。
+
+### Q: 安装后无法访问 Web 界面
+A: 请检查以下几点：
+1. 确认 Nginx 服务已启动：`sudo systemctl status nginx`
+2. 确认后端服务已启动：`pm2 status backend`
+3. 检查防火墙配置：`sudo ufw status`（如果已启用，确保端口 80 已开放）
+4. 使用正确的 IP 地址：`hostname -I`
+
+### Q: 如何备份数据
+A: ThingsPanel 的主要数据存储在 TimescaleDB 中，您可以使用 PostgreSQL 的备份工具进行备份：
+
+```bash
+# 备份数据库
+docker exec $(docker ps | grep timescaledb | awk '{print $1}') pg_dump -U postgres -d ThingsPanel > thingspanel_backup.sql
+
+# 还原数据库
+cat thingspanel_backup.sql | docker exec -i $(docker ps | grep timescaledb | awk '{print $1}') psql -U postgres -d ThingsPanel
+```
+
+### Q: 如何更新 ThingsPanel
+A: 目前推荐的更新方法是重新运行安装脚本：
+
+```bash
+./install_thingspanel_rpi.sh -y
+```
+
+脚本会检测已安装的组件并提供更新选项。
+
+## 更多资源
+
+- [ThingsPanel 官方文档](https://thingspanel.io)
+- [ThingsPanel GitHub 仓库](https://github.com/ThingsPanel)
+
+如果您在使用过程中遇到任何问题，或有任何建议，欢迎在 GitHub 上提交 issue 或加入我们的社区讨论。
