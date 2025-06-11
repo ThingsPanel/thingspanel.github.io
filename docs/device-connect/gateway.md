@@ -16,7 +16,7 @@ sidebar_position: 2
 8. 开启设备
 9. 查看设备数据
 
-> [ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)
+> [网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)
 
 ## 2、操作
 
@@ -42,7 +42,7 @@ sidebar_position: 2
 
 ### 2.5、配置设备端
 
-- 根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据【腾讯文档】ThingsPanel_MQTT_网关设备接入规范[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)配置主题等。
+- 根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据[网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)配置主题等。
 - 设备端根据协议配置凭证信息和上报规则，然后进行数据上报。
 
 ### 2.6、开启设备
@@ -56,4 +56,4 @@ sidebar_position: 2
 
 ## 设备和平台数据交互规范
 
-[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)
+[网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)
