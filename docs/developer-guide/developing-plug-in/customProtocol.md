@@ -217,7 +217,7 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 插件需要订阅带有前缀的主题：
 
 - **订阅主题**：`plugin/{service_identifier}/#`
-- **主题说明**：`plugin/{service_identifier}/` 为注册插件时填写的订阅主题前缀，`#`部分遵循[MQTT设备接入规范](mqtt-device-rule.md)
+- **主题说明**：`plugin/{service_identifier}/` 为注册插件时填写的订阅主题前缀，`#`部分遵循[MQTT设备接入规范](../../device-connect/mqtt-device-rule.md)
 
 :::note 主题映射
 协议插件的订阅主题比平台下行规范多了主题前缀，其中`device_number`需要改为`device_id`
@@ -248,8 +248,8 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 ## 参考资源
 
 :::tip 开发资源
-- [MQTT网关设备接入规范](mqtt-gateway-rule.md)
-- [MQTT直连设备接入规范](mqtt-device-rule.md)
+- [MQTT网关设备接入规范](../../device-connect/mqtt-gateway-rule.md)
+- [MQTT直连设备接入规范](../../device-connect/mqtt-device-rule.md)
 - [Modbus插件示例](https://github.com/ThingsPanel/modbus-protocol-plugin)
 - [GB26875.3-2011协议插件示例](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
 :::
