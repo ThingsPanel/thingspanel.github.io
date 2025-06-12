@@ -23,7 +23,7 @@ flowchart LR
     I --> J[安装完成]
     
     K[可选组件 ]
-    K --> L[Modbus 协议插件]
+    K --> L[Modbus 设备接入服务]
     K --> N[大屏]
     
     style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
@@ -205,7 +205,7 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 
 ## 3. ThingsPanel-Backend-Community安装启动
 
-平台是前后端分离的架构，ThingsPanel-Backend-Community是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./configs/conf.yml，与安装数据库时候设置的用户名密码保持一致）。
+平台是前后端分离的架构，ThingsPanel-Backend-Community是平台的后端，给前端提供API服务（同时给设备接入服务提供API服务），需要连接GMQTT和数据库（注意修改./configs/conf.yml，与安装数据库时候设置的用户名密码保持一致）。
 
 1. 进入[ThingsPanel-Backend-Community仓库](https://github.com/ThingsPanel/thingspanel-backend-community)
 2. Star仓库(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
@@ -285,7 +285,7 @@ mqtt:
   # 以下主题都为默认主题
   telemetry: #遥测相关
     # devices/telemetry/control/{device_number}
-    # 如果发给协议插件，则是devices/telemetry/control/{device_id}
+    # 如果发给设备接入服务，则是devices/telemetry/control/{device_id}
     publish_topic: devices/telemetry/control/  #平台发布遥测主题
     subscribe_topic: devices/telemetry   #平台订阅遥测主题
     gateway_subscribe_topic: gateway/telemetry #平台订阅网关遥测主题
@@ -420,7 +420,7 @@ $ go run .
 ```
 ## 5. 可选：安装Modbus-protocol-plugin
 
-Modbus-protocol-plugin是平台的协议插件，MODBUS协议的设备对接协议插件，协议插件将数据转发到GMQTT进入平台。
+Modbus-protocol-plugin是平台的设备接入服务，MODBUS协议的设备对接设备接入服务，设备接入服务将数据转发到GMQTT进入平台。
 
 1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
 2. Star仓库
@@ -445,7 +445,7 @@ mqtt:
   topic_to_subscribe: plugin/modbus/# # 订阅主题
   subscribe_pool: 100 # 客户端订阅处理并发数量
 http_server:
-  address: 0.0.0.0:503 # 插件http服务地址
+  address: 0.0.0.0:503 # 设备接入服务http服务地址
 thingspanel:
   address: 127.0.0.1:9999 # ThingsPanel平台地址
 ```

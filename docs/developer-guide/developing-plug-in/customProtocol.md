@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# ThingsPanel服务插件开发指南
+# ThingsPanel设备接入服务开发指南
 
 ## 概述
 
@@ -15,15 +15,15 @@ sidebar_position: 4
 - **后果**：这种复杂性不仅使系统变得臃肿、效率低下，而且还难以扩展和维护，进而导致维护成本居高不下
 :::
 
-### 插件定义
+### 服务定义
 
-ThingsPanel插件是一个多功能中间件组件，作为设备与系统之间的桥梁，将设备接入ThingsPanel平台，实现设备与平台的交互。
+ThingsPanel设备接入服务是一个多功能中间件组件，作为设备与系统之间的桥梁，将设备接入ThingsPanel平台，实现设备与平台的交互。
 
-### 插件类别
+### 服务类别
 
 :::info 两大核心类别
-1. **协议接入**：支持各种物联网协议（如MODBUS、MQTT等），使ThingsPanel平台能够**直接**与使用这些协议的设备通信
-2. **服务接入**：连接ThingsPanel平台与各种第三方物联网平台，**间接**与设备通信，实现数据互通和设备管理
+1. **设备接入服务**：支持各种物联网协议（如MODBUS、MQTT等），使ThingsPanel平台能够**直接**与使用这些协议的设备通信
+2. **三方设备接入服务**：连接ThingsPanel平台与各种第三方物联网平台，**间接**与设备通信，实现数据互通和设备管理
 :::
 
 ### 主要功能
@@ -49,9 +49,9 @@ graph TB
         TP[第三方平台]
     end
     
-    subgraph "插件层"
-        CP[协议插件]
-        SP[服务插件]
+    subgraph "服务层"
+        CP[设备接入服务]
+        SP[三方设备接入服务]
     end
     
     subgraph "平台层"
@@ -71,13 +71,13 @@ graph TB
     SP <--> API
 ```
 
-## 服务接入交互流程
+## 设备接入服务交互流程
 
 ```mermaid
 sequenceDiagram
     participant 用户
     participant OurPlatform as 物联网平台
-    participant Plugin as 服务接入插件
+    participant Plugin as 三方设备接入服务
     participant ThirdParty as 第三方平台
 
     Plugin->>OurPlatform: 注册服务（或管理员注册）
@@ -107,7 +107,7 @@ sequenceDiagram
 
 ```mermaid
 mindmap
-  root((服务插件开发))
+  root((设备接入服务开发))
     1、准备工作
       开发环境搭建
       获取测试账号
@@ -133,7 +133,7 @@ mindmap
 
 ### 开发步骤
 
-#### 1. 下载插件模板
+#### 1. 下载设备接入服务模板
 
 ```bash
 git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
@@ -142,7 +142,7 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 #### 2. 理解核心概念
 
 :::info 四大核心数据类型
-理解ThingsPanel的四种数据模型对于插件开发至关重要：
+理解ThingsPanel的四种数据模型对于设备接入服务开发至关重要：
 
 - **🔄 遥测（Telemetry）** - 设备实时上报的数据，通常是随时间变化的测量值
 - **📋 属性（Attributes）** - 设备的静态或较少变化的特征信息
@@ -161,10 +161,10 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 - 判断是否需要配置表单
 - 修改 `http_service/service.go` 中的接口实现
 
-#### 4. 注册插件
+#### 4. 注册设备接入服务
 
-使用超管账户在平台注册插件：
-- **应用管理** → **插件管理** → **添加新服务**
+使用超管账户在平台注册设备接入服务：
+- **应用管理** → **设备接入服务管理** → **添加新服务**
 
 #### 5. 编写核心流程
 
@@ -177,19 +177,19 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 - 创建设备模板并选择协议
 - 创建设备并绑定模板
 - 填写设备凭证信息
-- 连接设备到插件进行测试
+- 连接设备到设备接入服务进行测试
 
 ## 技术规范
 
 参考接口文档：[ThingsPanel API文档](https://docs.thingspanel.io/zh/developer-guide/api-reference/index.html)
 
 目录：
-- ✨服务插件-平台提供
-- ✨服务插件-插件提供
+- ✨设备接入服务-平台提供
+- ✨设备接入服务-服务提供
 
 ## 数据交互规范
 
-### 插件推送数据到平台
+### 设备接入服务推送数据到平台
 
 #### 直连设备/子设备消息/网关设备消息
 
@@ -210,29 +210,29 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
   ```
   其中：0-离线，1-上线
 
-### 平台推送数据给插件
+### 平台推送数据给设备接入服务
 
 #### 订阅主题规范
 
-插件需要订阅带有前缀的主题：
+设备接入服务需要订阅带有前缀的主题：
 
 - **订阅主题**：`plugin/{service_identifier}/#`
-- **主题说明**：`plugin/{service_identifier}/` 为注册插件时填写的订阅主题前缀，`#`部分遵循[MQTT设备接入规范](../../device-connect/mqtt-device-rule.md)
+- **主题说明**：`plugin/{service_identifier}/` 为注册设备接入服务时填写的订阅主题前缀，`#`部分遵循[MQTT设备接入规范](../../device-connect/mqtt-device-rule.md)
 
 :::note 主题映射
-协议插件的订阅主题比平台下行规范多了主题前缀，其中`device_number`需要改为`device_id`
+设备接入服务的订阅主题比平台下行规范多了主题前缀，其中`device_number`需要改为`device_id`
 :::
 
-## 插件注册
+## 设备接入服务注册
 
 ### 注册参数
 
 | 参数 | 说明 |
 |------|------|
 | 服务名称 | 创建设备模板时，会显示在选择协议下拉框中 |
-| 服务标识符 | 系统中唯一标识这个插件，由字母和数字组成 |
+| 服务标识符 | 系统中唯一标识这个设备接入服务，由字母和数字组成 |
 | 类别 | 选择接入协议 |
-| HTTP服务地址 | 填写平台后端能够直接访问插件API的地址，格式如127.0.0.1:8151 |
+| HTTP服务地址 | 填写平台后端能够直接访问设备接入服务API的地址，格式如127.0.0.1:8151 |
 | 服务订阅主题前缀 | 格式如`service/{name}/` |
 | 设备接入地址 | 显示在设备凭证管理的下发，提示用户设备连接地址 |
 
@@ -241,7 +241,7 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 #### 平台注册
 
 1. 使用超管账号登录
-2. 进入 **应用管理** → **插件管理**
+2. 进入 **应用管理** → **设备接入服务管理**
 3. 点击 **添加新服务** 按钮
 4. 填写相关配置信息
 
@@ -250,8 +250,8 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 :::tip 开发资源
 - [MQTT网关设备接入规范](../../device-connect/mqtt-gateway-rule.md)
 - [MQTT直连设备接入规范](../../device-connect/mqtt-device-rule.md)
-- [Modbus插件示例](https://github.com/ThingsPanel/modbus-protocol-plugin)
-- [GB26875.3-2011协议插件示例](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
+- [Modbus设备接入服务示例](https://github.com/ThingsPanel/modbus-protocol-plugin)
+- [GB26875.3-2011设备接入服务示例](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
 :::
 
 ## 最佳实践
@@ -260,7 +260,7 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 1. **消息ID管理**：建议使用时间戳后7位，确保短期内不重复
 2. **设备唯一性**：确保设备编号在系统中全局唯一
 3. **错误处理**：实现完整的错误响应机制，便于问题诊断
-4. **性能优化**：推荐在协议插件内解析数据，避免使用脚本转换
+4. **性能优化**：推荐在设备接入服务内解析数据，避免使用脚本转换
 5. **表单验证**：上报前验证JSON格式的正确性
 6. **设备状态管理**：实现设备状态管理，包括在线、离线。
 :::

@@ -31,15 +31,15 @@ flowchart TB
     subgraph APP["ThingsPanel应用层"]
         subgraph TP1["应用节点1"]
             api1["后端API服务"]
-            tdengine1["时序数据库插件服务"]
+            tdengine1["时序数据库服务"]
         end
         subgraph TP2["应用节点2"]
             api2["后端API服务"]
-            tdengine2["时序数据库插件服务"]
+            tdengine2["时序数据库服务"]
         end
         subgraph TP3["应用节点N"]
             api3["后端API服务"]
-            tdengine3["时序数据库插件服务"]
+            tdengine3["时序数据库服务"]
         end
     end
 
@@ -141,7 +141,7 @@ ThingsPanel采用分层架构设计，从上到下分为负载均衡层、消息
   - 告警管理
   - 数据可视化
 
-- **时序数据库插件服务**
+- **时序数据库服务**
   - 设备数据高效存储
   - 数据清洗和转换
   - 数据分析处理

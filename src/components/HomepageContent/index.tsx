@@ -46,7 +46,7 @@ const FeatureList: FeatureItem[] = [
        <Translate
           id="application.one"
           description="副标题">
-          设备插件、协议插件，用积木的方式搭建系统。
+          设备插件、设备接入服务，用积木的方式搭建系统。
       </Translate>
       </>
         // 设备插件、大屏插件，用积木的方式搭建系统。
