@@ -64,7 +64,7 @@ mosquitto_pub：这是 Mosquitto 提供的一个命令行工具，用于向 MQTT
 ![数据推送结果](./image/mqtt_data_push_result.png)
 
 ## MQTT接入规范
-[ThingsPanel_MQTT_设备接入规范](https://docs.qq.com/doc/DZWtRdUpIVlVhQm5U)
+[直连设备MQTT数据交互规范](./mqtt-device-rule.md)
 
 ## 常见问题
 
