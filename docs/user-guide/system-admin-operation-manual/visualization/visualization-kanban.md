@@ -23,13 +23,13 @@ sidebar_position: 1
 
 - 选择要编辑的看板，点击编辑按钮，弹出编辑看板弹出框。
 
-![descript](./images/image29.jpg)
+![descript](./images/image29.png)
 
 ### 2.3、删除看板
 
 - 选择要删除的看板，点击删除即可。
 
-![descript](./images/image30.jpg)
+![descript](./images/image30.png)
 
 ### 2.4、编辑看板图
 

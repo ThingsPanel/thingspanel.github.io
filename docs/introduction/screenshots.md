@@ -3,22 +3,20 @@ sidebar_position: 6
 ---
 
 # 系统截图
-
+### 登录 
+![ThingsPanel登录页](../img/thinspanel1.1.8/login.png)  
 ### 系统首页  
-![ThingsPanel系统首页](../img/tp-1.0.0-homepage.png)  
-
+![ThingsPanel系统首页](../img/thinspanel1.1.8/homepage.png)   
 ### 设备接入
-![ThingsPanel设备接入与管理](../img/ThingsPanel-0.6.0-devicelist.png)  
-
-
+![ThingsPanel设备接入与管理](../img/thinspanel1.1.8/devicelist.png)
 ### 设备概览
-![ThingsPanel设备接入-设备详情](../img/ThingsPanel-0.6.0-devicedetails.png)  
+![ThingsPanel设备接入-设备详情](../img/thinspanel1.1.8/devicedetails.png)
 
 ### 设备数据时序图
-![ThingsPanel设备数据时序图](../img/ThingsPanel-0.6.0-telemetry.png) 
+![ThingsPanel设备数据时序图](../img/thinspanel1.1.8/telemetry.png) 
 
 ### 看板
-![ThingsPanel设备接入与管理](../img/ThingsPanel-0.6.0-kanban.png) 
+![ThingsPanel设备接入与管理](../img/thinspanel1.1.8/kanban.png) 
 
 ### 可视化-空气质量插件  
 ![ThingsPanel空气质量插件](/img/plugin-pm25.png)
