@@ -18,13 +18,13 @@ https://github.com/ThingsPanel/visual-editor
 ## GMQTT代码库
 https://github.com/ThingsPanel/gmqtt.git
 
-## HTTP协议插件库
+## HTTP设备接入服务库
 https://github.com/ThingsPanel/http-protocol-plugin.git
 
-## Modbus协议插件库
+## Modbus设备接入服务库
 https://github.com/ThingsPanel/modbus-protocol-plugin
 
-## TCP协议插件库
+## TCP设备接入服务库
 https://github.com/ThingsPanel/tcp-protocol-plugin
 
 ## 手机端代码库

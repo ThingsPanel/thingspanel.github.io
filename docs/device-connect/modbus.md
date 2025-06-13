@@ -6,9 +6,9 @@ sidebar_position: 4
 
 ## 前置条件
 
-安装Modbus协议插件，并在系统管理员注册插件
+安装Modbus设备接入服务，并在系统管理员注册设备接入服务
 
-[ThingsPanel1.0.0安装Modbus协议插件教程](https://github.com/ThingsPanel/modbus-protocol-plugin)
+[ThingsPanel1.0.0安装Modbus设备接入服务教程](https://github.com/ThingsPanel/modbus-protocol-plugin)
 
 ## 接入步骤
 

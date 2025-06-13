@@ -6,21 +6,21 @@ sidebar_position: 1
 
 本文主要介绍OneNet平台的设备快速接入ThingsPanel平台。
 
-## 服务插件介绍
+## 设备接入服务介绍
 
 OneNET平台提供了多种接入方式
 
-- service_plugin_onenet服务插件
-  - 该服务插件是通过OneNet平台的http推送服务进行数据接入
+- service_plugin_onenet设备接入服务
+  - 该设备接入服务是通过OneNet平台的http推送服务进行数据接入
 
 ## 对接流程
 
 ### 前提条件
 
 1. 注册OneNET账号
-2. 注册或者部署ThingsPanel平台，并部署OneNet服务插件
-3. OneNet服务插件已经注册到平台
-   ![插件管理](./img/image-11.png)
+2. 注册或者部署ThingsPanel平台，并部署OneNet设备接入服务
+3. OneNet设备接入服务已经注册到平台
+   ![设备接入服务管理](./img/image-11.png)
 
 ### 操作步骤
 
@@ -33,7 +33,7 @@ OneNET平台提供了多种接入方式
       ![添加设备](./img/image-2.png)
   - 设置流转
     - ![设置流转](./img/image-3.png)
-    - c.thingspanel.cn:8280是服务插件的地址和服务端口
+    - c.thingspanel.cn:8280是设备接入服务的地址和服务端口
   - 模拟设备推送数据
       ![模拟设备推送数据](./img/image-4.png)
   - 获取产品ID和ACCESS_KEY
@@ -53,4 +53,4 @@ OneNET平台提供了多种接入方式
 
 ## 其他
 
-ThingsPanel提供服务插件开发模板，其余接入方式可参考服务插件开发流程自行开发接入。
+ThingsPanel提供设备接入服务开发模板，其余接入方式可参考设备接入服务开发流程自行开发接入。

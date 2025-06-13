@@ -21,11 +21,11 @@ sidebar_position: 4
 ### 前提条件
 
 1. 从海康综合安防管理平台（iSecure Center）运管中心获取合作方Key和合作方Secret，也就是APPkey和APPsecret。![alt text](img-isc/image.png) 
-2. 部署ThingsPanel平台，并在ThingsPanel中注册iSecureCenter服务接入插件![alt text](img-isc/image1.png)
+2. 部署ThingsPanel平台，并在ThingsPanel中注册iSecureCenter三方设备接入服务![alt text](img-isc/image1.png)
 
 ### 操作步骤
 
-1. 首先需要创建一个设备模板，选择注册的iSecureCenter服务接入插件。![alt text](img-isc/image-0.png)
+1. 首先需要创建一个设备模板，选择注册的iSecureCenter三方设备接入服务。![alt text](img-isc/image-0.png)
 2. 在服务接入中选择注册的该服务。![alt text](img-isc/image-1.png)
 3. 新增一个接入点。![alt text](img-isc/image-2.png)
 4. 选择添加该接入点的设备。![alt text](img-isc/image-3.png)
@@ -33,4 +33,4 @@ sidebar_position: 4
 ![alt text](img-isc/image-4.png)
 ## 代码地址
 
-本插件为企业版本功能。
+本设备接入服务为企业版本功能。

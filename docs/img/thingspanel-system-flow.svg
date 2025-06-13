@@ -26,17 +26,17 @@
 <g id="clust3" class="cluster">
 <title>cluster_1</title>
 <path fill="rgba(0, 0, 0, 0)" stroke="#1874cd" d="M142,-536.2C142,-536.2 264,-536.2 264,-536.2 270,-536.2 276,-542.2 276,-548.2 276,-548.2 276,-698.8 276,-698.8 276,-704.8 270,-710.8 264,-710.8 264,-710.8 142,-710.8 142,-710.8 136,-710.8 130,-704.8 130,-698.8 130,-698.8 130,-548.2 130,-548.2 130,-542.2 136,-536.2 142,-536.2"/>
-<text text-anchor="middle" x="203" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">MQTT协议插件</text>
+<text text-anchor="middle" x="203" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">MQTT设备接入服务</text>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_2</title>
 <path fill="rgba(0, 0, 0, 0)" stroke="#1874cd" d="M296,-536.2C296,-536.2 418,-536.2 418,-536.2 424,-536.2 430,-542.2 430,-548.2 430,-548.2 430,-698.8 430,-698.8 430,-704.8 424,-710.8 418,-710.8 418,-710.8 296,-710.8 296,-710.8 290,-710.8 284,-704.8 284,-698.8 284,-698.8 284,-548.2 284,-548.2 284,-542.2 290,-536.2 296,-536.2"/>
-<text text-anchor="middle" x="357" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">Modbus协议插件</text>
+<text text-anchor="middle" x="357" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">Modbus设备接入服务</text>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_3</title>
 <path fill="rgba(0, 0, 0, 0)" stroke="#1874cd" d="M450,-536.2C450,-536.2 572,-536.2 572,-536.2 578,-536.2 584,-542.2 584,-548.2 584,-548.2 584,-698.8 584,-698.8 584,-704.8 578,-710.8 572,-710.8 572,-710.8 450,-710.8 450,-710.8 444,-710.8 438,-704.8 438,-698.8 438,-698.8 438,-548.2 438,-548.2 438,-542.2 444,-536.2 450,-536.2"/>
-<text text-anchor="middle" x="511" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">其它协议协议插件</text>
+<text text-anchor="middle" x="511" y="-694.2" font-family="Microsoft YaHei" font-size="14.00">其它协议设备接入服务</text>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_4</title>

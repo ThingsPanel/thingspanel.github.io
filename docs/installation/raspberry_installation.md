@@ -189,7 +189,7 @@ MQTT 消息代理，用于设备通信，通过 PM2 管理的服务。
 - 端口: 1883
 - 超级用户名: root
 - 超级用户密码: root
-- 插件密码: plugin
+- 设备接入服务密码: plugin
 - 安装目录: /home/pi/thingspanel/thingspanel-gmqtt
 
 ### 后端服务
