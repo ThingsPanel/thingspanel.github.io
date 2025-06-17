@@ -512,8 +512,8 @@ yum install nginx
 
 ```conf
 server {
-    listen 80;
-    server_name dev.thingspanel.cn 39.98.176.26 ;
+    listen 8080;
+    server_name 192.168.1.1 ; # 公网ip(局域网ip限于局域网内访问)或域名
     charset utf-8;
     client_max_body_size 10m;
     root /home/dev/dist;
