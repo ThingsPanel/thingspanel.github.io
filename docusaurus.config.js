@@ -7,8 +7,8 @@ const darkTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ThingsPanel开源物联网平台',
-  tagline: "物联网应用支撑平台",
+  title: 'ThingsPanel IoT Platform',  // 改为英文
+  tagline: "Open Source IoT Application Platform",  // 改为英文
   url: 'https://www.thingspanel.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -18,18 +18,10 @@ const config = {
   organizationName: 'ThingsPanel',
   projectName: 'thingspanel.io',
   deploymentBranch: "main",
-  // 添加 scripts 配置用于加载 AdSense
-  // scripts: [
-  //   {
-  //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3936883179210897',
-  //     async: true,
-  //     crossorigin: 'anonymous',
-  //   },
-  // ],
   
   i18n: {
     defaultLocale: 'en',
-    locales: [ 'en', 'zh-Hans'],
+    locales: ['en', 'zh-Hans'],
   },
 
   markdown: {
@@ -86,7 +78,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '首页',
+        title: 'Home',  // 改为英文
         logo: {
           alt: 'ThingsPanel',
           src: 'img/dark.svg',
@@ -97,9 +89,9 @@ const config = {
             type: 'doc',
             docId: 'overview',
             position: 'left',
-            label: '文档',
+            label: 'Docs',  // 改为英文
           },
-          { to: '/blog', label: '博客', position: 'left' },
+          { to: '/blog', label: 'Blog', position: 'left' },  // 改为英文
           {
             type: 'localeDropdown',
             position: 'right',
@@ -117,8 +109,6 @@ const config = {
         darkTheme: darkTheme,
       }
     }),
-
-
 };
 
 module.exports = config;
