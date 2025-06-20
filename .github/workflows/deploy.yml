@@ -37,20 +37,7 @@ jobs:
           user_name: hezhuozhuo
           user_email: 421045249@qq.com
 
-      - name: Deploy via SCP
-        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-        with:
-          host: ${{ secrets.DOCS_HOST }}
-          user: root
-          pass: ${{ secrets.DOCS_PASS }}
-          scp: './build.tar.gz => /srv/thingspanel.io'
-          last_ssh: |
-            echo "Starting deployment..."
-            cd /srv/thingspanel.io
-            rm -rf /srv/thingspanel.io/html/*
-            tar -xzf build.tar.gz -C /srv/thingspanel.io/html/
-            rm build.tar.gz
-            /usr/bin/podman restart thingspanel.io
+
 
       - name: Install GitHub CLI
         run: |
