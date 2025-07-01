@@ -207,6 +207,7 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 - **消息载荷**：
 0 - 设备离线
 1 - 设备上线
+  
 其中：0-离线，1-上线
 
 ### 平台推送数据给设备接入服务
