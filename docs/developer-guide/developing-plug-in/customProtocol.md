@@ -203,12 +203,11 @@ git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 
 #### 在线离线通知
 
-- **发布主题**：`device/status`
-- **报文格式**：
-  ```json
-  {"device_id":"device_id","values":1}
-  ```
-  其中：0-离线，1-上线
+- **发布主题**：`devices/status/{device_id}`
+- **消息载荷**：
+0 - 设备离线
+1 - 设备上线
+
 
 ### 平台推送数据给设备接入服务
 
