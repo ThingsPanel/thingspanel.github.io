@@ -34,7 +34,8 @@ sidebar_position: 4
 
 ```bash
 # 下载安装脚本
-wget -O install_thingspanel_rpi.sh https://raw.githubusercontent.com/ThingsPanel/thingspanel-rpi-docker/main/install_thingspanel_rpi.sh
+wget -O install_thingspanel_rpi.sh https://raw.githubusercontent.com/ThingsPanel/thingspanel-on-raspberrypi/main/scripts/install/install_thingspanel_rpi.sh
+
 
 # 添加执行权限
 chmod +x install_thingspanel_rpi.sh
