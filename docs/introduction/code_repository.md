@@ -12,8 +12,7 @@ https://github.com/ThingsPanel/thingspanel-backend-community
 ## 前端代码库
 https://github.com/ThingsPanel/thingspanel-frontend-community
 
-## 可视化编辑器代码库
-https://github.com/ThingsPanel/visual-editor
+
 
 ## GMQTT代码库
 https://github.com/ThingsPanel/gmqtt.git

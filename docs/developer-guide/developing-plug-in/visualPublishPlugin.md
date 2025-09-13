@@ -4,13 +4,15 @@ sidebar_position: 7
 
 # 可视化插件发布
 
+ [已失效，不兼容新版本]
+
 ThingsPanel的可视化编辑器支持用户自定义插件，用户在本地开发完插件后，可发布到官方插件市场供所有人使用。本文介绍了如何发布自定义插件到插件市场。
 
 #### 什么是可视化插件
 可视化插件由多个vue组件组成，最终发布时会自动打包成一个js文件存储到ThingsPanel插件市场中，此时所有登录插件市场的可视化用户都可以一键安装您发布的插件到本地服务器。
 
 ## 一、插件开发
-下载visual-editor项目: https://github.com/ThingsPanel/visual-editor  
+下载visual-editor项目: https://github.com/ThingsPanel/visual-editor  [已失效，不兼容新版本]
 
 点这里[开发自己的第一个插件](./visualPlugin.md)
 
