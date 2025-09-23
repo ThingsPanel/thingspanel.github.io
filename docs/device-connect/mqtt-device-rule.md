@@ -95,12 +95,37 @@ sidebar_position: 11
 
 **主题：** `devices/telemetry`
 
-```json title="遥测数据格式示例"
+#### 实时上报模式
+
+直接键值对格式，系统自动使用服务器接收时间作为时间戳。
+
+```json title="实时遥测数据格式示例"
 {
-  "temperature": 28.5,
+  "temperature": 25.5,
+  "humidity": 65.0,
   "switch": true
 }
 ```
+
+#### 历史上报模式
+
+时间序列数组格式，每条记录包含时间戳和对应的数据值。
+
+```json title="历史遥测数据格式示例"
+[
+  {"ts": 1609459200, "values": {"temperature": 22.5, "humidity": 60.0}},
+  {"ts": 1609462800, "values": {"temperature": 23.0, "humidity": 61.5}}
+]
+```
+
+:::info 格式识别规则
+- **实时模式**：根级别为键值对对象
+- **历史模式**：根级别为数组，数组元素包含 `ts` 和 `values` 字段
+
+**字段说明：**
+- `ts`：Unix时间戳（秒级），数据采集时间
+- `values`：该时间点的遥测数据键值对
+:::
 
 ### 📋 属性数据上报
 
@@ -108,9 +133,9 @@ sidebar_position: 11
 
 ```json title="属性数据格式示例"
 {
-  "ip": "127.0.0.1",
-  "mac": "xxxxxxxxxx",
-  "port": 1883
+  "ip": "192.168.1.100",
+  "mac": "00:11:22:33:44:55",
+  "version": "1.0.0"
 }
 ```
 
@@ -118,15 +143,52 @@ sidebar_position: 11
 
 **主题：** `devices/event/{message_id}`
 
-```json title="事件数据格式示例"
+#### 实时上报模式
+
+```json title="实时事件数据格式示例"
 {
-  "method": "FindAnimal",
+  "method": "AlarmTriggered",
   "params": {
-    "count": 2,
-    "animalType": "cat"
+    "level": "high",
+    "sensor": "temperature"
   }
 }
 ```
+
+#### 历史上报模式
+
+时间序列数组格式，每条记录包含时间戳和对应的事件信息。
+
+```json title="历史事件数据格式示例"
+[
+  {
+    "ts": 1609459200000,
+    "method": "AlarmTriggered",
+    "params": {
+      "level": "high",
+      "sensor": "temperature"
+    }
+  },
+  {
+    "ts": 1609462800000,
+    "method": "DeviceStarted",
+    "params": {
+      "version": "1.0.0",
+      "mode": "normal"
+    }
+  }
+]
+```
+
+:::info 格式识别规则
+- **实时模式**：根级别包含 `method` 字段且不包含 `ts` 字段
+- **历史模式**：根级别为数组，数组元素同时包含 `ts` 和 `method` 字段
+
+**字段说明：**
+- `ts`：Unix时间戳（毫秒级），事件发生时间
+- `method`：事件方法名，必填字段
+- `params`：事件参数，可选字段
+:::
 
 ### 📦 OTA升级进度上报
 
@@ -145,7 +207,7 @@ sidebar_position: 11
 ```json title="升级失败上报"
 {
   "step": "-1",
-  "desc": "OTA升级失败，请求不到升级包信息。",
+  "desc": "OTA升级失败，下载升级包失败",
   "module": "MCU"
 }
 ```
@@ -166,8 +228,8 @@ sidebar_position: 11
 
 ```json title="控制指令格式示例"
 {
-  "temperature": 28.5,
-  "light": 2000,
+  "temperature": 25.0,
+  "brightness": 80,
   "switch": true
 }
 ```
@@ -178,9 +240,9 @@ sidebar_position: 11
 
 ```json title="属性设置格式示例"
 {
-  "ip": "127.0.0.1",
-  "mac": "xxxxxxxxxx",
-  "port": 1883
+  "ip": "192.168.1.100",
+  "heartbeat": 30,
+  "report_interval": 60
 }
 ```
 
@@ -198,7 +260,7 @@ sidebar_position: 11
 **查询指定属性：**
 ```json title="查询指定属性"
 {
-  "keys": ["temp", "hum"]
+  "keys": ["temperature", "humidity"]
 }
 ```
 
@@ -208,10 +270,10 @@ sidebar_position: 11
 
 ```json title="命令执行格式示例"
 {
-  "method": "ReSet",
+  "method": "Restart",
   "params": {
-    "switch": 1,
-    "light": "close"
+    "delay": 5,
+    "mode": "safe"
   }
 }
 ```
@@ -236,18 +298,18 @@ sidebar_position: 11
 
 ```json title="OTA升级任务示例"
 {
-  "id": "123",
+  "id": "1001",
   "code": 200,
   "params": {
-    "version": "1.1",
-    "size": 432945,
-    "url": "http://dev.thingspane.cn/files/ota/s121jg3245gg.zip",
-    "signMethod": "Md5",
-    "sign": "a243fgh4b9v",
+    "version": "2.0.1",
+    "size": 1024000,
+    "url": "https://example.com/firmware/device_v2.0.1.bin",
+    "signMethod": "MD5",
+    "sign": "d41d8cd98f00b204e9800998ecf8427e",
     "module": "MCU",
     "extData": {
-      "key1": "value1",
-      "key2": "value2"
+      "description": "Fix temperature sensor bug",
+      "mandatory": true
     }
   }
 }
@@ -272,7 +334,7 @@ sidebar_position: 11
 {
   "result": 0,
   "message": "success",
-  "ts": 1609143039
+  "ts": 1609459200
 }
 ```
 
@@ -282,8 +344,8 @@ sidebar_position: 11
   "result": 1,
   "errcode": "INVALID_PARAM",
   "message": "Parameter validation failed",
-  "ts": 1609143039,
-  "method": "ReSet"
+  "ts": 1609459200,
+  "method": "Restart"
 }
 ```
 
@@ -292,8 +354,8 @@ sidebar_position: 11
 {
   "result": 0,
   "message": "Command executed successfully",
-  "ts": 1609143039,
-  "method": "ReSet"
+  "ts": 1609459200,
+  "method": "Restart"
 }
 ```
 

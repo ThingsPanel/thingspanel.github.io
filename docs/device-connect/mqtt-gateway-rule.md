@@ -82,25 +82,105 @@ sequenceDiagram
 
 **主题：** `gateway/telemetry`
 
-```json title="遥测数据格式示例"
+#### 实时上报模式
+
+直接键值对格式，系统自动使用服务器接收时间作为时间戳。
+
+```json title="实时遥测数据格式示例（单层网关）"
 {
     "gateway_data": {
-        "temperature": 28.5,
-        "version": "v0.1",
+        "temperature": 25.5,
+        "version": "1.0.0",
         "switch": true
     },
     "sub_device_data": {
-        "28da4985": {
-            "temperature": 28.5,
-            "version": "v0.1",
+        "sensor_001": {
+            "temperature": 24.0,
+            "humidity": 65.0,
             "switch": true
         },
-        "sub_device_address2": {
-            "temperature": 28.5,
-            "version": "v0.1",
-            "switch": true
+        "sensor_002": {
+            "temperature": 26.5,
+            "humidity": 60.0,
+            "switch": false
         }
     }
+}
+```
+
+```json title="实时遥测数据格式示例（多级网关）"
+{
+  "gateway_data": { 
+    "temperature": 26.0, 
+    "version": "2.0.0", 
+    "switch": true 
+  },
+  "sub_device_data": {
+    "device_001": { 
+      "temperature": 25.0, 
+      "humidity": 70.0 
+    }
+  },
+  "sub_gateway_data": {
+    "gateway_001": {
+      "gateway_data": { 
+        "temperature": 28.0, 
+        "version": "1.5.0", 
+        "switch": true 
+      },
+      "sub_device_data": {
+        "sensor_101": { 
+          "temperature": 27.5, 
+          "humidity": 55.0 
+        }
+      }
+    }
+  }
+}
+```
+
+#### 历史上报模式
+
+时间序列数组格式，每条记录包含时间戳和对应的数据值。
+
+```json title="历史遥测数据格式示例（单层网关）"
+{   
+    "gateway_data": [
+        {"ts": 1609459200, "values": {"temperature": 25.0, "humidity": 60.0}},
+        {"ts": 1609462800, "values": {"temperature": 26.0, "humidity": 62.0}}
+    ],
+    "sub_device_data": {
+        "sensor_001": [
+            {"ts": 1609459200, "values": {"temperature": 24.5, "humidity": 65.0}},
+            {"ts": 1609462800, "values": {"temperature": 25.5, "humidity": 63.0}}
+        ]
+    }
+}
+```
+
+```json title="历史遥测数据格式示例（多级网关）"
+{
+  "gateway_data": [
+    {"ts": 1609459200, "values": {"temperature": 26.0, "humidity": 70.0}},
+    {"ts": 1609462800, "values": {"temperature": 27.0, "humidity": 68.0}}
+  ],
+  "sub_device_data": {
+    "device_001": [
+      {"ts": 1609459200, "values": {"temperature": 25.0, "humidity": 72.0}}
+    ]
+  },
+  "sub_gateway_data": {
+    "gateway_001": {
+      "gateway_data": [
+        {"ts": 1609459200, "values": {"temperature": 28.0, "humidity": 55.0}}
+      ],
+      "sub_device_data": {
+        "sensor_101": [
+          {"ts": 1609462800, "values": {"temperature": 29.0, "humidity": 52.0}}
+        ]
+      }
+    }
+  }
 }
 ```
 
@@ -108,22 +188,62 @@ sequenceDiagram
 
 **主题：** `gateway/attributes/{message_id}`
 
-```json title="属性数据格式示例"
+#### 单层网关属性上报
+
+```json title="属性数据格式示例（单层网关）"
 {
     "gateway_data": {
-        "ip": "127.0.0.1",
-        "version": "v0.1"
+        "ip": "192.168.1.100",
+        "version": "1.0.0",
+        "mac": "00:11:22:33:44:55"
     },
     "sub_device_data": {
-        "sub_device_address1": {
-            "ip": "127.0.0.1",
-            "version": "v0.1"
+        "sensor_001": {
+            "ip": "192.168.1.101",
+            "version": "1.2.0",
+            "type": "temperature"
         },
-        "sub_device_address2": {
-            "ip": "127.0.0.1",
-            "version": "v0.1"
+        "sensor_002": {
+            "ip": "192.168.1.102",
+            "version": "1.1.0",
+            "type": "humidity"
         }
     }
+}
+```
+
+#### 多级网关属性上报
+
+```json title="属性数据格式示例（多级网关）"
+{
+  "gateway_data": { 
+    "ip": "192.168.1.100", 
+    "version": "2.0.0",
+    "mac": "00:11:22:33:44:55"
+  },
+  "sub_device_data": {
+    "device_001": { 
+      "ip": "192.168.1.101", 
+      "version": "1.5.0",
+      "type": "sensor"
+    }
+  },
+  "sub_gateway_data": {
+    "gateway_001": {
+      "gateway_data": { 
+        "ip": "192.168.1.200", 
+        "version": "1.8.0",
+        "mac": "00:AA:BB:CC:DD:EE"
+      },
+      "sub_device_data": {
+        "sensor_101": { 
+          "ip": "192.168.1.201", 
+          "version": "1.3.0",
+          "type": "actuator"
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -131,28 +251,130 @@ sequenceDiagram
 
 **主题：** `gateway/event/{message_id}`
 
-```json title="事件数据格式示例"
+#### 实时事件上报
+
+```json title="实时事件数据格式示例（单层网关）"
 {
     "gateway_data": {
-        "method": "FindAnimal",
+        "method": "SystemStarted",
         "params": {
-            "count": 2,
-            "animalType": "cat"
+            "version": "1.0.0",
+            "mode": "normal"
         }
     },
     "sub_device_data": {
-        "sub_device_address1": {
-            "method": "FindAnimal",
+        "sensor_001": {
+            "method": "AlarmTriggered",
             "params": {
-                "count": 2,
-                "animalType": "cat"
+                "level": "high",
+                "sensor": "temperature"
             }
         },
-        "sub_device_address2": {
-            "method": "FindAnimal",
+        "sensor_002": {
+            "method": "StatusChanged",
             "params": {
-                "count": 2,
-                "animalType": "cat"
+                "status": "online",
+                "timestamp": 1609459200
+            }
+        }
+    }
+}
+```
+
+```json title="实时事件数据格式示例（多级网关）"
+{
+    "gateway_data": {
+        "method": "SystemStarted",
+        "params": { 
+          "version": "2.0.0", 
+          "mode": "normal" 
+        }
+    },
+    "sub_device_data": {
+        "device_001": {
+            "method": "AlarmTriggered",
+            "params": { 
+              "level": "medium", 
+              "sensor": "humidity" 
+            }
+        }
+    },
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": {
+                "method": "ConfigChanged",
+                "params": { 
+                  "setting": "interval", 
+                  "value": 60 
+                }
+            },
+            "sub_device_data": {
+                "sensor_101": {
+                    "method": "StatusChanged",
+                    "params": { 
+                      "status": "offline", 
+                      "reason": "timeout" 
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+#### 历史事件上报
+
+```json title="历史事件数据格式示例（多级网关）"
+{
+    "gateway_data": [
+        {
+            "ts": 1609459200000,
+            "method": "SystemStarted",
+            "params": {
+                "version": "2.0.0",
+                "mode": "normal"
+            }
+        },
+        {
+            "ts": 1609462800000,
+            "method": "ConfigChanged",
+            "params": {
+                "setting": "report_interval",
+                "value": 30
+            }
+        }
+    ],
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": [
+                {
+                    "ts": 1609459200000,
+                    "method": "NetworkConnected",
+                    "params": {
+                        "ip": "192.168.1.200",
+                        "signal": "strong"
+                    }
+                }
+            ],
+            "sub_device_data": {
+                "sensor_101": [
+                    {
+                        "ts": 1609460800000,
+                        "method": "AlarmTriggered",
+                        "params": {
+                            "level": "high",
+                            "sensor": "temperature"
+                        }
+                    },
+                    {
+                        "ts": 1609464400000,
+                        "method": "StatusChanged",
+                        "params": {
+                            "status": "offline",
+                            "reason": "power_loss"
+                        }
+                    }
+                ]
             }
         }
     }
@@ -163,23 +385,50 @@ sequenceDiagram
 
 **主题：** `gateway/telemetry/control/{device_number}`
 
-```json title="控制指令格式示例"
+```json title="控制指令格式示例（单层网关）"
 {
     "gateway_data": {
-        "temperature": 28.5,
-        "version": "v0.1",
+        "temperature": 25.0,
+        "brightness": 80,
         "switch": true
     },
     "sub_device_data": {
-        "sub_device_address1": {
-            "temperature": 28.5,
-            "version": "v0.1",
-            "switch": true
+        "sensor_001": {
+            "temperature": 26.0,
+            "switch": false
         },
-        "sub_device_address2": {
-            "temperature": 28.5,
-            "version": "v0.1",
-            "switch": true
+        "sensor_002": {
+            "brightness": 60,
+            "mode": "auto"
+        }
+    }
+}
+```
+
+```json title="控制指令格式示例（多级网关）"
+{
+    "gateway_data": {
+        "temperature": 25.0,
+        "switch": true
+    },
+    "sub_device_data": {
+        "device_001": {
+            "brightness": 70,
+            "switch": false
+        }
+    },
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": {
+                "temperature": 24.0,
+                "mode": "eco"
+            },
+            "sub_device_data": {
+                "sensor_101": {
+                    "brightness": 50,
+                    "switch": true
+                }
+            }
         }
     }
 }
@@ -189,20 +438,51 @@ sequenceDiagram
 
 **主题：** `gateway/attributes/set/{device_number}/+`
 
-```json title="属性设置格式示例"
+```json title="属性设置格式示例（单层网关）"
 {
     "gateway_data": {
-        "ip": "127.0.0.1",
-        "version": "v0.1"
+        "ip": "192.168.1.100",
+        "heartbeat": 30,
+        "report_interval": 60
     },
     "sub_device_data": {
-        "sub_device_address1": {
-            "ip": "127.0.0.1",
-            "version": "v0.1"
+        "sensor_001": {
+            "ip": "192.168.1.101",
+            "sampling_rate": 10
         },
-        "sub_device_address2": {
-            "ip": "127.0.0.1",
-            "version": "v0.1"
+        "sensor_002": {
+            "ip": "192.168.1.102",
+            "threshold": 80
+        }
+    }
+}
+```
+
+```json title="属性设置格式示例（多级网关）"
+{
+    "gateway_data": {
+        "ip": "192.168.1.100",
+        "heartbeat": 30,
+        "encryption": true
+    },
+    "sub_device_data": {
+        "device_001": {
+            "ip": "192.168.1.101",
+            "sampling_rate": 15
+        }
+    },
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": {
+                "ip": "192.168.1.200",
+                "report_interval": 45
+            },
+            "sub_device_data": {
+                "sensor_101": {
+                    "ip": "192.168.1.201",
+                    "threshold": 75
+                }
+            }
         }
     }
 }
@@ -212,20 +492,38 @@ sequenceDiagram
 
 **主题：** `gateway/attributes/get/{device_number}`
 
-**请求所有属性：**
+**查询所有属性：**
 ```json title="查询所有属性"
 {
     "gateway_data": []
 }
 ```
 
-**请求指定属性：**
-```json title="查询指定属性"
+**查询指定属性（单层网关）：**
+```json title="查询指定属性（单层网关）"
 {
-    "gateway_data": [],
+    "gateway_data": ["ip", "version"],
     "sub_device_data": {
-        "sub_device_address1": ["temp", "hum"],
-        "sub_device_address2": ["temp", "hum"]
+        "sensor_001": ["temperature", "humidity"],
+        "sensor_002": ["brightness", "status"]
+    }
+}
+```
+
+**查询指定属性（多级网关）：**
+```json title="查询指定属性（多级网关）"
+{
+    "gateway_data": ["version", "mac"],
+    "sub_device_data": {
+        "device_001": ["temperature", "humidity"]
+    },
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": ["ip", "version"],
+            "sub_device_data": {
+                "sensor_101": ["brightness", "status"]
+            }
+        }
     }
 }
 ```
@@ -234,28 +532,69 @@ sequenceDiagram
 
 **主题：** `gateway/command/{device_number}/+`
 
-```json title="命令执行格式示例"
+```json title="命令执行格式示例（单层网关）"
 {
     "gateway_data": {
-        "method": "FindAnimal",
+        "method": "Restart",
         "params": {
-            "count": 2,
-            "animalType": "cat"
+            "delay": 5,
+            "mode": "safe"
         }
     },
     "sub_device_data": {
-        "sub_device_address1": {
-            "method": "FindAnimal",
+        "sensor_001": {
+            "method": "Calibrate",
             "params": {
-                "count": 2,
-                "animalType": "cat"
+                "sensor": "temperature",
+                "offset": 0.5
             }
         },
-        "sub_device_address2": {
-            "method": "FindAnimal",
+        "sensor_002": {
+            "method": "SetThreshold",
             "params": {
-                "count": 2,
-                "animalType": "cat"
+                "type": "humidity",
+                "value": 80
+            }
+        }
+    }
+}
+```
+
+```json title="命令执行格式示例（多级网关）"
+{
+    "gateway_data": {
+        "method": "UpdateConfig",
+        "params": {
+            "setting": "report_interval",
+            "value": 30
+        }
+    },
+    "sub_device_data": {
+        "device_001": {
+            "method": "Reset",
+            "params": {
+                "type": "factory",
+                "preserve_network": true
+            }
+        }
+    },
+    "sub_gateway_data": {
+        "gateway_001": {
+            "gateway_data": {
+                "method": "SyncTime",
+                "params": {
+                    "timezone": "UTC+8",
+                    "ntp_server": "pool.ntp.org"
+                }
+            },
+            "sub_device_data": {
+                "sensor_101": {
+                    "method": "Calibrate",
+                    "params": {
+                        "sensor": "pressure",
+                        "reference": 1013.25
+                    }
+                }
             }
         }
     }
@@ -281,7 +620,7 @@ sequenceDiagram
 {
   "result": 0,
   "message": "success",
-  "ts": 1609143039
+  "ts": 1609459200
 }
 ```
 
@@ -291,8 +630,8 @@ sequenceDiagram
   "result": 1,
   "errcode": "INVALID_PARAM",
   "message": "Invalid parameter value",
-  "ts": 1609143039,
-  "method": "ReSet"
+  "ts": 1609459200,
+  "method": "UpdateConfig"
 }
 ```
 
@@ -301,10 +640,43 @@ sequenceDiagram
 {
   "result": 0,
   "message": "Command executed successfully",
-  "ts": 1609143039,
-  "method": "ReSet"
+  "ts": 1609459200,
+  "method": "UpdateConfig"
 }
 ```
+
+## 格式识别规则
+
+### 遥测数据格式识别
+- **实时模式**：`gateway_data`、`sub_device_data` 或 `sub_gateway_data` 的值为键值对对象
+- **历史模式**：`gateway_data`、`sub_device_data` 或 `sub_gateway_data` 的值为数组，数组元素包含 `ts` 和 `values` 字段
+
+### 事件数据格式识别
+- **实时模式**：`gateway_data`、`sub_device_data` 或 `sub_gateway_data` 的值包含 `method` 字段且不包含 `ts` 字段
+- **历史模式**：`gateway_data`、`sub_device_data` 或 `sub_gateway_data` 的值为数组，数组元素同时包含 `ts` 和 `method` 字段
+
+### 字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `ts` | number | Unix时间戳，遥测数据为秒级，事件数据为毫秒级 |
+| `values` | object | 该时间点的遥测数据键值对 |
+| `method` | string | 事件方法名，必填字段 |
+| `params` | object | 事件参数，可选字段 |
+
+## 多级网关架构
+
+### 层级结构说明
+
+- **`gateway_data`**：当前网关自身的数据
+- **`sub_device_data`**：直接挂载的普通子设备数据
+- **`sub_gateway_data`**：子网关及其下属设备数据（可递归多层）
+
+### 架构说明
+
+- MQTT主题路径保持不变，支持单层和多级网关架构
+- 设备可根据实际需求选择使用单层或多级网关模式
+- 多级网关支持无限层级嵌套，适应复杂网络拓扑
 
 ## 脚本转换支持
 
