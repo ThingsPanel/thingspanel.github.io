@@ -18,4 +18,8 @@ http://demo.thingspanel.cn/
 全功能体验请安装到本地进行测试。
 :::
 
-## Android安卓客户端
+## App客户端
+
+- 安卓 [中文官网（扫码下载）](http://thingspanel.cn) 
+- 苹果iOS请到Appstore 搜索 ThingsPanel
+- 小程序或者H5需要自行下载代码发布 [仓库地址，代码使用Uniapp开发，可发布多种小程序](https://gitee.com/ThingsPanel/app) 
