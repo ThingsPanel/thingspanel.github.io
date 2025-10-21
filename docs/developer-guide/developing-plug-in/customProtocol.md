@@ -81,14 +81,14 @@ sequenceDiagram
     participant ThirdParty as 第三方平台
 
     Plugin->>OurPlatform: 注册服务（或管理员注册）
-    用户->>OurPlatform: 创建该服务的设备配置模板
+    用户->>OurPlatform: 创建该服务的设备模板
     用户->>OurPlatform: 点击页面选择服务
     用户->>OurPlatform: 输入服务的凭证(认证信息)
     OurPlatform->>Plugin: 根据凭证获取设备列表
     Plugin->>ThirdParty: 获取设备列表
     ThirdParty->>Plugin: 返回设备列表
     Plugin->>OurPlatform: 显示设备列表
-    用户->>OurPlatform: 选择需要的设备、绑定配置模板
+    用户->>OurPlatform: 选择需要的设备、绑定模板
     OurPlatform->>OurPlatform: 存储凭证、创建设备
     OurPlatform->>Plugin: 通知新增了服务接入（带凭证）
     Plugin->>ThirdParty: 根据凭证与三方平台建立连接

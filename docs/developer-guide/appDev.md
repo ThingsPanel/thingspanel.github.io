@@ -20,7 +20,7 @@ ThingsPanel提供了开源的App，使用Uniapp开发，可以直接导出成各
 
 https://github.com/ThingsPanel/app
 
-## 设备模型接口
+## 物模型接口
 
 
 

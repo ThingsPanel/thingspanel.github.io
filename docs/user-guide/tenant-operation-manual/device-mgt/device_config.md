@@ -30,7 +30,7 @@ sidebar_position: 3
 
 #### 2.4、属性与功能
 
-- 设置绑定的设备模型。
+- 设置绑定的物模型。
 
 ![descript](./images/image58.png)
 
