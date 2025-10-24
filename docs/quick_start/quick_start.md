@@ -50,7 +50,7 @@ version: "3.9"
 
 services:
   frontend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.9
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.10
     ports:
       - "8080:8080"
     environment:
@@ -132,7 +132,7 @@ services:
       - thingspanel_network
 
   backend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.9
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.10
     ports:
       - "9999:9999"
     environment:
@@ -145,7 +145,7 @@ services:
       - "GOTP_DB_PSQL_LOG_LEVEL=3"
       - "GOTP_DB_REDIS_ADDR=redis:6379"
       - "GOTP_DB_REDIS_PASSWORD=redis"
-      - "GOTP_MQTT_SERVER={MQTT_HOST}"
+      - "GOTP_MQTT_SERVER=gmqtt"
       - "GOTP_MQTT_ACCESS_ADDRESS=127.0.0.1:1883"
       - "GOTP_MQTT_BROKER=gmqtt:1883"
       - "GOTP_LOG_LEVEL=error"
