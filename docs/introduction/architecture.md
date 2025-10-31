@@ -158,7 +158,7 @@ sidebar_position: 7
 
 | 层次 | 核心职责 | 举例说明 |
 | :--- | :--- | :--- |
-| **Adapter (协议适配)** | 屏蔽协议差异，统一数据格式。 | 接收 **MQTT、Kafka** 数据，转为统一的 `DeviceMessage`。 |
+| **Adapter (协议适配)** | 屏蔽协议差异，统一数据格式。 | 消息队列适配，支持 **MQTT、Kafka** 。 |
 | **Uplink (上行处理)** | 路由、解码、分发上行数据。 | 调用 Processor 解码，将遥测数据发往 **Storage 和 Forwarder**。 |
 | **Processor (数据处理)** | 执行脚本，完成数据的编解码（原始 $\leftrightarrow$ 标准 JSON）。 | 运行 **Lua 脚本**将设备自定义格式数据转换为平台标准 JSON。 |
 | **Storage (存储)** | 优化写入数据库。 | **批量写入**遥测历史、更新最新值、存储属性/事件。 |
