@@ -50,7 +50,7 @@ version: "3.9"
 
 services:
   frontend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.10
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.11
     ports:
       - "8080:8080"
     environment:
@@ -89,7 +89,7 @@ services:
       - thingspanel_network
 
   gmqtt:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-gmqtt:v1.1.2
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-gmqtt:v1.1.5
     volumes:
       - gmqtt:/gmqttd
     ports:
@@ -132,7 +132,7 @@ services:
       - thingspanel_network
 
   backend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.10
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.11
     ports:
       - "9999:9999"
     environment:
@@ -164,7 +164,7 @@ services:
       - thingspanel_network
 
   modbus_service:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/modbus-protocol-plugin:v1.0.1
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/modbus-protocol-plugin:v1.0.5
     ports:
       - "502:502"
       - "503:503"
