@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-installation/cluster_deploy" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.8.1">
-<title data-rh="true">集群部署 | ThingsPanel IoT Platform</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://www.thingspanel.io/docs/installation/cluster_deploy"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="集群部署 | ThingsPanel IoT Platform"><meta data-rh="true" name="description" content="集群部署架构图"><meta data-rh="true" property="og:description" content="集群部署架构图"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.thingspanel.io/docs/installation/cluster_deploy"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/installation/cluster_deploy" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/zh-Hans/docs/installation/cluster_deploy" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/installation/cluster_deploy" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"系统安装","item":"https://www.thingspanel.io/docs/category/系统安装"},{"@type":"ListItem","position":2,"name":"集群部署","item":"https://www.thingspanel.io/docs/installation/cluster_deploy"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="ThingsPanel IoT Platform RSS Feed">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Cluster Deployment | ThingsPanel IoT Platform</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://www.thingspanel.io/docs/installation/cluster_deploy"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Cluster Deployment | ThingsPanel IoT Platform"><meta data-rh="true" name="description" content="Cluster Deployment Architecture"><meta data-rh="true" property="og:description" content="Cluster Deployment Architecture"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.thingspanel.io/docs/installation/cluster_deploy"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/installation/cluster_deploy" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/zh-Hans/docs/installation/cluster_deploy" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://www.thingspanel.io/docs/installation/cluster_deploy" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Installation","item":"https://www.thingspanel.io/docs/category/installation"},{"@type":"ListItem","position":2,"name":"Cluster Deployment","item":"https://www.thingspanel.io/docs/installation/cluster_deploy"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="ThingsPanel IoT Platform RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="ThingsPanel IoT Platform Atom Feed">
 
 
@@ -12,195 +12,195 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-18JL3B13JT"></script>
-<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-18JL3B13JT",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.3ece597f.css">
-<script src="/assets/js/runtime~main.f538e9c6.js" defer="defer"></script>
-<script src="/assets/js/main.8eb3e5d0.js" defer="defer"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-18JL3B13JT",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.c96d512e.css">
+<script src="/assets/js/runtime~main.a45cce47.js" defer="defer"></script>
+<script src="/assets/js/main.df42a1a1.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/dark.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">首页</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/overview">Docs</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link icon-link language navbar__item"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/docs/installation/cluster_deploy" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/zh-Hans/docs/installation/cluster_deploy" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://github.com/ThingsPanel" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview">Why ThingsPanel？</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/快速开始">快速开始</a><button aria-label="Expand sidebar category &#x27;快速开始&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/系统介绍">系统介绍</a><button aria-label="Expand sidebar category &#x27;系统介绍&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/docs/category/系统安装">系统安装</a><button aria-label="Collapse sidebar category &#x27;系统安装&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/environmental_requirement">环境要求</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/docker_installation">Docker方式安装</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/source-code-installation">源码安装</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/raspberry_installation">树莓派源码安装</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/package_installation">包安装</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/installation/cluster_deploy">集群部署</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/optimization">优化指南</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/system_upgrade">系统升级指南</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/category/其它数据库部署">其它数据库部署</a><button aria-label="Expand sidebar category &#x27;其它数据库部署&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/设备接入">设备接入</a><button aria-label="Expand sidebar category &#x27;设备接入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/使用指南">使用指南</a><button aria-label="Expand sidebar category &#x27;使用指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/开发指南">开发指南</a><button aria-label="Expand sidebar category &#x27;开发指南&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/常见问题">常见问题</a><button aria-label="Expand sidebar category &#x27;常见问题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/系统安装"><span>系统安装</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">集群部署</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>集群部署</h1></header>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="集群部署架构图">集群部署架构图<a href="#集群部署架构图" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/dark.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="ThingsPanel" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Home</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/overview">Docs</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link icon-link language navbar__item"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/docs/installation/cluster_deploy" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/zh-Hans/docs/installation/cluster_deploy" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="zh-Hans">简体中文</a></li></ul></div><a href="https://github.com/ThingsPanel" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z"><input placeholder="Search" aria-label="Search" class="navbar__search-input" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/overview"><span title="Why ThingsPanel？" class="linkLabel_WmDU">Why ThingsPanel？</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/quick-start"><span title="Quick Start" class="categoryLinkLabel_W154">Quick Start</span></a><button aria-label="Expand sidebar category &#x27;Quick Start&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/introduction"><span title="Introduction" class="categoryLinkLabel_W154">Introduction</span></a><button aria-label="Expand sidebar category &#x27;Introduction&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/category/installation"><span title="Installation" class="categoryLinkLabel_W154">Installation</span></a><button aria-label="Collapse sidebar category &#x27;Installation&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/environmental_requirement"><span title="System Requirements" class="linkLabel_WmDU">System Requirements</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/docker_installation"><span title="Docker Installation" class="linkLabel_WmDU">Docker Installation</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/category/other-database-deployment"><span title="Other Database Deployment" class="categoryLinkLabel_W154">Other Database Deployment</span></a><button aria-label="Expand sidebar category &#x27;Other Database Deployment&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/source-code-installation"><span title="Source Code Installation" class="linkLabel_WmDU">Source Code Installation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/raspberry_installation"><span title="Raspberry Pi Installation" class="linkLabel_WmDU">Raspberry Pi Installation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/package_installation"><span title="Package Installation" class="linkLabel_WmDU">Package Installation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/installation/cluster_deploy"><span title="Cluster Deployment" class="linkLabel_WmDU">Cluster Deployment</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/optimization"><span title="Optimization Guide" class="linkLabel_WmDU">Optimization Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/installation/system_upgrade"><span title="System Upgrade Guide" class="linkLabel_WmDU">System Upgrade Guide</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/device-connectivity"><span title="Device Connectivity" class="categoryLinkLabel_W154">Device Connectivity</span></a><button aria-label="Expand sidebar category &#x27;Device Connectivity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/user-guide"><span title="User Guide" class="categoryLinkLabel_W154">User Guide</span></a><button aria-label="Expand sidebar category &#x27;User Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/developer-guide"><span title="Developer Guide" class="categoryLinkLabel_W154">Developer Guide</span></a><button aria-label="Expand sidebar category &#x27;Developer Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/faq"><span title="FAQ" class="categoryLinkLabel_W154">FAQ</span></a><button aria-label="Expand sidebar category &#x27;FAQ&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/installation"><span>Installation</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Cluster Deployment</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Cluster Deployment</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cluster-deployment-architecture">Cluster Deployment Architecture<a href="#cluster-deployment-architecture" class="hash-link" aria-label="Direct link to Cluster Deployment Architecture" title="Direct link to Cluster Deployment Architecture" translate="no">​</a></h2>
 <!-- -->
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-整体架构">1. 整体架构<a href="#1-整体架构" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
-<p>ThingsPanel采用分层架构设计，从上到下分为负载均衡层、消息代理层、应用层、缓存层和数据库层。这种分层架构具有高可用性、可扩展性和可维护性的特点。</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-各层详细说明">2. 各层详细说明<a href="#2-各层详细说明" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="21-接入层">2.1 接入层<a href="#21-接入层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-overall-architecture">1. Overall Architecture<a href="#1-overall-architecture" class="hash-link" aria-label="Direct link to 1. Overall Architecture" title="Direct link to 1. Overall Architecture" translate="no">​</a></h2>
+<p>ThingsPanel adopts a layered architecture design, divided from top to bottom into Load Balancing Layer, Message Broker Layer, Application Layer, Cache Layer, and Database Layer. This layered architecture features high availability, scalability, and maintainability.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-detailed-layer-description">2. Detailed Layer Description<a href="#2-detailed-layer-description" class="hash-link" aria-label="Direct link to 2. Detailed Layer Description" title="Direct link to 2. Detailed Layer Description" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-access-layer">2.1 Access Layer<a href="#21-access-layer" class="hash-link" aria-label="Direct link to 2.1 Access Layer" title="Direct link to 2.1 Access Layer" translate="no">​</a></h3>
 <ul>
-<li>
-<p><strong>设备接入</strong></p>
+<li class="">
+<p><strong>Device Onboarding</strong></p>
 <ul>
-<li>支持多种协议：MQTT、HTTP、CoAP</li>
-<li>支持海量设备并发接入</li>
-<li>支持设备认证和安全机制</li>
+<li class="">Supports multiple protocols: MQTT, HTTP, CoAP</li>
+<li class="">Supports massive concurrent device connections</li>
+<li class="">Supports device authentication and security mechanisms</li>
 </ul>
 </li>
-<li>
-<p><strong>用户访问</strong></p>
+<li class="">
+<p><strong>User Access</strong></p>
 <ul>
-<li>支持Web界面访问</li>
-<li>提供标准REST API接口</li>
-<li>支持多种客户端应用接入</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="22-负载均衡层">2.2 负载均衡层<a href="#22-负载均衡层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
-<ul>
-<li><strong>组件</strong>：Nginx/HAProxy集群</li>
-<li><strong>功能</strong>：<!-- -->
-<ul>
-<li>实现设备连接的负载均衡</li>
-<li>提供高可用性保证</li>
-<li>支持横向扩展</li>
-<li>流量控制和安全防护</li>
+<li class="">Supports Web interface access</li>
+<li class="">Provides standard REST API interfaces</li>
+<li class="">Supports various client application integrations</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="23-消息代理层">2.3 消息代理层<a href="#23-消息代理层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-load-balancing-layer">2.2 Load Balancing Layer<a href="#22-load-balancing-layer" class="hash-link" aria-label="Direct link to 2.2 Load Balancing Layer" title="Direct link to 2.2 Load Balancing Layer" translate="no">​</a></h3>
 <ul>
-<li>
-<p><strong>MQTT代理节点（VerneMQ）</strong></p>
+<li class=""><strong>Components</strong>: Nginx/HAProxy Cluster</li>
+<li class=""><strong>Functions</strong>:<!-- -->
 <ul>
-<li>支持集群部署</li>
-<li>节点间数据同步</li>
-<li>设备消息的实时转发</li>
-<li>支持QoS服务质量保证</li>
-</ul>
-</li>
-<li>
-<p><strong>Webhook服务</strong></p>
-<ul>
-<li>与MQTT代理紧密集成</li>
-<li>提供消息预处理能力</li>
-<li>支持自定义消息处理逻辑</li>
+<li class="">Implements load balancing for connections</li>
+<li class="">Guarantees high availability</li>
+<li class="">Supports horizontal scaling</li>
+<li class="">Traffic control and security protection</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="24-thingspanel应用层">2.4 ThingsPanel应用层<a href="#24-thingspanel应用层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-message-broker-layer">2.3 Message Broker Layer<a href="#23-message-broker-layer" class="hash-link" aria-label="Direct link to 2.3 Message Broker Layer" title="Direct link to 2.3 Message Broker Layer" translate="no">​</a></h3>
 <ul>
-<li>
-<p><strong>后端API服务</strong></p>
+<li class="">
+<p><strong>MQTT Broker Nodes (VerneMQ)</strong></p>
 <ul>
-<li>设备管理</li>
-<li>用户权限管理</li>
-<li>业务规则引擎</li>
-<li>告警管理</li>
-<li>数据可视化</li>
+<li class="">Supports cluster deployment</li>
+<li class="">Data synchronization between nodes</li>
+<li class="">Real-time forwarding of device messages</li>
+<li class="">Supports QoS guarantees</li>
 </ul>
 </li>
-<li>
-<p><strong>时序数据库服务</strong></p>
+<li class="">
+<p><strong>Webhook Service</strong></p>
 <ul>
-<li>设备数据高效存储</li>
-<li>数据清洗和转换</li>
-<li>数据分析处理</li>
-<li>历史数据管理</li>
+<li class="">Tightly integrated with MQTT Broker</li>
+<li class="">Provides message pre-processing capabilities</li>
+<li class="">Supports custom message processing logic</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="25-缓存层">2.5 缓存层<a href="#25-缓存层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-application-layer">2.4 Application Layer<a href="#24-application-layer" class="hash-link" aria-label="Direct link to 2.4 Application Layer" title="Direct link to 2.4 Application Layer" translate="no">​</a></h3>
 <ul>
-<li><strong>Redis集群</strong>
+<li class="">
+<p><strong>Backend API Service</strong></p>
 <ul>
-<li>采用主从架构</li>
-<li>提供高速数据缓存</li>
-<li>支持会话管理</li>
-<li>提升系统响应速度</li>
+<li class="">Device Management</li>
+<li class="">User Permission Management</li>
+<li class="">Business Rule Engine</li>
+<li class="">Alert Management</li>
+<li class="">Data Visualization</li>
+</ul>
+</li>
+<li class="">
+<p><strong>TSDB Service</strong></p>
+<ul>
+<li class="">Efficient storage of device data</li>
+<li class="">Data cleaning and transformation</li>
+<li class="">Data analysis and processing</li>
+<li class="">Historical data management</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="26-数据库层">2.6 数据库层<a href="#26-数据库层" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-cache-layer">2.5 Cache Layer<a href="#25-cache-layer" class="hash-link" aria-label="Direct link to 2.5 Cache Layer" title="Direct link to 2.5 Cache Layer" translate="no">​</a></h3>
 <ul>
-<li>
-<p><strong>时序数据库（TDengine）</strong></p>
+<li class=""><strong>Redis Cluster</strong>
 <ul>
-<li>针对物联网数据特点优化</li>
-<li>高性能数据存储和查询</li>
-<li>支持数据压缩</li>
-<li>提供数据保留策略</li>
-</ul>
-</li>
-<li>
-<p><strong>元数据库（PostgreSQL/TimescaleDB）</strong></p>
-<ul>
-<li>存储业务元数据</li>
-<li>设备配置信息</li>
-<li>用户及权限数据</li>
-<li>支持复杂业务查询</li>
+<li class="">Uses Master-Slave architecture</li>
+<li class="">Provides high-speed data caching</li>
+<li class="">Supports session management</li>
+<li class="">Improves system response speed</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-系统特点">3. 系统特点<a href="#3-系统特点" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="31-高可用性">3.1 高可用性<a href="#31-高可用性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="26-database-layer">2.6 Database Layer<a href="#26-database-layer" class="hash-link" aria-label="Direct link to 2.6 Database Layer" title="Direct link to 2.6 Database Layer" translate="no">​</a></h3>
 <ul>
-<li>各层组件支持集群部署</li>
-<li>无单点故障设计</li>
-<li>服务自动容错和恢复</li>
-<li>数据多副本存储</li>
+<li class="">
+<p><strong>Time-Series Database (TDengine)</strong></p>
+<ul>
+<li class="">Optimized for IoT data characteristics</li>
+<li class="">High-performance data storage and query</li>
+<li class="">Supports data compression</li>
+<li class="">Provides data retention policies</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="32-可扩展性">3.2 可扩展性<a href="#32-可扩展性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+</li>
+<li class="">
+<p><strong>Meta Database (PostgreSQL/TimescaleDB)</strong></p>
 <ul>
-<li>支持水平扩展</li>
-<li>各层可独立扩容</li>
-<li>灵活的节点添加/删除</li>
-<li>动态负载均衡</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="33-安全性">3.3 安全性<a href="#33-安全性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
-<ul>
-<li>设备接入安全认证</li>
-<li>数据传输加密</li>
-<li>用户访问权限控制</li>
-<li>多层安全防护</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="34-可维护性">3.4 可维护性<a href="#34-可维护性" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
-<ul>
-<li>组件解耦设计</li>
-<li>便于问题定位</li>
-<li>支持在线升级</li>
-<li>完善的监控告警</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-部署建议">4. 部署建议<a href="#4-部署建议" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="41-小型部署设备数量1万">4.1 小型部署（设备数量<code>&lt;1万</code>）<a href="#41-小型部署设备数量1万" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
-<ul>
-<li>最小化组件部署</li>
-<li>单节点部署即可满足需求</li>
-<li>建议配置：<!-- -->
-<ul>
-<li>2核4G以上服务器</li>
-<li>100GB以上存储空间</li>
+<li class="">Stores business metadata</li>
+<li class="">Device configuration information</li>
+<li class="">User and permission data</li>
+<li class="">Supports complex business queries</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="42-中型部署设备数量1万-10万">4.2 中型部署（设备数量1万-10万）<a href="#42-中型部署设备数量1万-10万" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-system-characteristics">3. System Characteristics<a href="#3-system-characteristics" class="hash-link" aria-label="Direct link to 3. System Characteristics" title="Direct link to 3. System Characteristics" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-high-availability">3.1 High Availability<a href="#31-high-availability" class="hash-link" aria-label="Direct link to 3.1 High Availability" title="Direct link to 3.1 High Availability" translate="no">​</a></h3>
 <ul>
-<li>建议双节点集群部署</li>
-<li>关键组件冗余备份</li>
-<li>建议配置：<!-- -->
+<li class="">All layers support cluster deployment</li>
+<li class="">Designed with no single point of failure</li>
+<li class="">Service automatic fault tolerance and recovery</li>
+<li class="">Multi-replica data storage</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-scalability">3.2 Scalability<a href="#32-scalability" class="hash-link" aria-label="Direct link to 3.2 Scalability" title="Direct link to 3.2 Scalability" translate="no">​</a></h3>
 <ul>
-<li>4核8G以上服务器</li>
-<li>500GB以上存储空间</li>
+<li class="">Supports horizontal scaling</li>
+<li class="">Layers can be scaled independently</li>
+<li class="">Flexible node addition/removal</li>
+<li class="">Dynamic load balancing</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-security">3.3 Security<a href="#33-security" class="hash-link" aria-label="Direct link to 3.3 Security" title="Direct link to 3.3 Security" translate="no">​</a></h3>
+<ul>
+<li class="">Device onboarding security authentication</li>
+<li class="">Data transmission encryption</li>
+<li class="">User access permission control</li>
+<li class="">Multi-layer security protection</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="34-maintainability">3.4 Maintainability<a href="#34-maintainability" class="hash-link" aria-label="Direct link to 3.4 Maintainability" title="Direct link to 3.4 Maintainability" translate="no">​</a></h3>
+<ul>
+<li class="">Decoupled component design</li>
+<li class="">Easy issue localization</li>
+<li class="">Supports online upgrades</li>
+<li class="">Comprehensive monitoring and alerting</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-deployment-recommendations">4. Deployment Recommendations<a href="#4-deployment-recommendations" class="hash-link" aria-label="Direct link to 4. Deployment Recommendations" title="Direct link to 4. Deployment Recommendations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-small-scale-deployment-10k-devices">4.1 Small Scale Deployment (<code>&lt;10k</code> Devices)<a href="#41-small-scale-deployment-10k-devices" class="hash-link" aria-label="Direct link to 41-small-scale-deployment-10k-devices" title="Direct link to 41-small-scale-deployment-10k-devices" translate="no">​</a></h3>
+<ul>
+<li class="">Minimal component deployment</li>
+<li class="">Single node deployment is sufficient</li>
+<li class="">Recommended Config:<!-- -->
+<ul>
+<li class="">2 Core 4GB+ Server</li>
+<li class="">100GB+ Storage</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="43-大型部署设备数量10万">4.3 大型部署（设备数量<code>&gt;10万</code>）<a href="#43-大型部署设备数量10万" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-medium-scale-deployment-10k-100k-devices">4.2 Medium Scale Deployment (10k-100k Devices)<a href="#42-medium-scale-deployment-10k-100k-devices" class="hash-link" aria-label="Direct link to 4.2 Medium Scale Deployment (10k-100k Devices)" title="Direct link to 4.2 Medium Scale Deployment (10k-100k Devices)" translate="no">​</a></h3>
 <ul>
-<li>全组件集群部署</li>
-<li>跨机房容灾备份</li>
-<li>建议配置：<!-- -->
+<li class="">Recommended Dual-Node Cluster deployment</li>
+<li class="">Redundant backup for key components</li>
+<li class="">Recommended Config:<!-- -->
 <ul>
-<li>8核16G以上服务器</li>
-<li>1TB以上存储空间</li>
-<li>根据实际需求扩展节点</li>
+<li class="">4 Core 8GB+ Server</li>
+<li class="">500GB+ Storage</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-扩展性建议">5. 扩展性建议<a href="#5-扩展性建议" class="hash-link" aria-label="Direct link to heading" title="Direct link to heading">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-large-scale-deployment-100k-devices">4.3 Large Scale Deployment (<code>&gt;100k</code> Devices)<a href="#43-large-scale-deployment-100k-devices" class="hash-link" aria-label="Direct link to 43-large-scale-deployment-100k-devices" title="Direct link to 43-large-scale-deployment-100k-devices" translate="no">​</a></h3>
 <ul>
-<li>预留50%以上的性能余量</li>
-<li>分阶段扩容规划</li>
-<li>关注数据存储容量</li>
-<li>定期进行性能评估</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/installation/cluster_deploy.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-12-11T07:26:12.000Z" itemprop="dateModified">Dec 11, 2025</time></b> by <b>hezhuozhuo</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/installation/package_installation"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">包安装</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/installation/optimization"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">优化指南</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#集群部署架构图" class="table-of-contents__link toc-highlight">集群部署架构图</a></li><li><a href="#1-整体架构" class="table-of-contents__link toc-highlight">1. 整体架构</a></li><li><a href="#2-各层详细说明" class="table-of-contents__link toc-highlight">2. 各层详细说明</a><ul><li><a href="#21-接入层" class="table-of-contents__link toc-highlight">2.1 接入层</a></li><li><a href="#22-负载均衡层" class="table-of-contents__link toc-highlight">2.2 负载均衡层</a></li><li><a href="#23-消息代理层" class="table-of-contents__link toc-highlight">2.3 消息代理层</a></li><li><a href="#24-thingspanel应用层" class="table-of-contents__link toc-highlight">2.4 ThingsPanel应用层</a></li><li><a href="#25-缓存层" class="table-of-contents__link toc-highlight">2.5 缓存层</a></li><li><a href="#26-数据库层" class="table-of-contents__link toc-highlight">2.6 数据库层</a></li></ul></li><li><a href="#3-系统特点" class="table-of-contents__link toc-highlight">3. 系统特点</a><ul><li><a href="#31-高可用性" class="table-of-contents__link toc-highlight">3.1 高可用性</a></li><li><a href="#32-可扩展性" class="table-of-contents__link toc-highlight">3.2 可扩展性</a></li><li><a href="#33-安全性" class="table-of-contents__link toc-highlight">3.3 安全性</a></li><li><a href="#34-可维护性" class="table-of-contents__link toc-highlight">3.4 可维护性</a></li></ul></li><li><a href="#4-部署建议" class="table-of-contents__link toc-highlight">4. 部署建议</a><ul><li><a href="#41-小型部署设备数量1万" class="table-of-contents__link toc-highlight">4.1 小型部署（设备数量<code>&lt;1万</code>）</a></li><li><a href="#42-中型部署设备数量1万-10万" class="table-of-contents__link toc-highlight">4.2 中型部署（设备数量1万-10万）</a></li><li><a href="#43-大型部署设备数量10万" class="table-of-contents__link toc-highlight">4.3 大型部署（设备数量<code>&gt;10万</code>）</a></li></ul></li><li><a href="#5-扩展性建议" class="table-of-contents__link toc-highlight">5. 扩展性建议</a></li></ul></div></div></div></div></main></div></div></div></div>
+<li class="">Full Component Cluster deployment</li>
+<li class="">Cross-AZ Disaster Recovery</li>
+<li class="">Recommended Config:<!-- -->
+<ul>
+<li class="">8 Core 16GB+ Server</li>
+<li class="">1TB+ Storage</li>
+<li class="">Scale nodes based on actual demand</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-scalability-recommendations">5. Scalability Recommendations<a href="#5-scalability-recommendations" class="hash-link" aria-label="Direct link to 5. Scalability Recommendations" title="Direct link to 5. Scalability Recommendations" translate="no">​</a></h2>
+<ul>
+<li class="">Reserve over 50% performance margin</li>
+<li class="">Plan expansion in stages</li>
+<li class="">Monitor data storage capacity</li>
+<li class="">Perform regular performance assessments</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/installation/cluster_deploy.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-12-12T13:31:45.000Z" itemprop="dateModified">Dec 12, 2025</time></b> by <b>zjhong</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/installation/package_installation"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Package Installation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/installation/optimization"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Optimization Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#cluster-deployment-architecture" class="table-of-contents__link toc-highlight">Cluster Deployment Architecture</a></li><li><a href="#1-overall-architecture" class="table-of-contents__link toc-highlight">1. Overall Architecture</a></li><li><a href="#2-detailed-layer-description" class="table-of-contents__link toc-highlight">2. Detailed Layer Description</a><ul><li><a href="#21-access-layer" class="table-of-contents__link toc-highlight">2.1 Access Layer</a></li><li><a href="#22-load-balancing-layer" class="table-of-contents__link toc-highlight">2.2 Load Balancing Layer</a></li><li><a href="#23-message-broker-layer" class="table-of-contents__link toc-highlight">2.3 Message Broker Layer</a></li><li><a href="#24-application-layer" class="table-of-contents__link toc-highlight">2.4 Application Layer</a></li><li><a href="#25-cache-layer" class="table-of-contents__link toc-highlight">2.5 Cache Layer</a></li><li><a href="#26-database-layer" class="table-of-contents__link toc-highlight">2.6 Database Layer</a></li></ul></li><li><a href="#3-system-characteristics" class="table-of-contents__link toc-highlight">3. System Characteristics</a><ul><li><a href="#31-high-availability" class="table-of-contents__link toc-highlight">3.1 High Availability</a></li><li><a href="#32-scalability" class="table-of-contents__link toc-highlight">3.2 Scalability</a></li><li><a href="#33-security" class="table-of-contents__link toc-highlight">3.3 Security</a></li><li><a href="#34-maintainability" class="table-of-contents__link toc-highlight">3.4 Maintainability</a></li></ul></li><li><a href="#4-deployment-recommendations" class="table-of-contents__link toc-highlight">4. Deployment Recommendations</a><ul><li><a href="#41-small-scale-deployment-10k-devices" class="table-of-contents__link toc-highlight">4.1 Small Scale Deployment (<code>&lt;10k</code> Devices)</a></li><li><a href="#42-medium-scale-deployment-10k-100k-devices" class="table-of-contents__link toc-highlight">4.2 Medium Scale Deployment (10k-100k Devices)</a></li><li><a href="#43-large-scale-deployment-100k-devices" class="table-of-contents__link toc-highlight">4.3 Large Scale Deployment (<code>&gt;100k</code> Devices)</a></li></ul></li><li><a href="#5-scalability-recommendations" class="table-of-contents__link toc-highlight">5. Scalability Recommendations</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
