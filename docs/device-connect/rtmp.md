@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# RTMP Camera Access
+# RTMP Camera
 RTMP (Real-Time Messaging Protocol) cameras are camera devices that use the RTMP protocol for video transmission. RTMP is a real-time streaming media transmission protocol originally developed by Adobe for audio and video transmission and playback on the Internet.
 
 RTMP cameras encode video data into RTMP streams and transmit them to a server via the network to achieve real-time video transmission and live broadcasting. Such cameras usually contain a built-in encoder capable of compressing video data into RTMP format and sending it to a specified server over the network. The camera may also include a microphone and audio encoder to support simultaneous transmission of audio and video.

@@ -91,13 +91,13 @@
     "message": "其他数据库部署",
     "description": "The generated-index page description for category Other Database Deployment in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Third-Party Service Access": {
+  "sidebar.tutorialSidebar.category.Third-Party Services": {
     "message": "第三方服务接入",
-    "description": "The label for category Third-Party Service Access in sidebar tutorialSidebar"
+    "description": "The label for category Third-Party Services in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Third-Party Service Access.link.generated-index.description": {
+  "sidebar.tutorialSidebar.category.Third-Party Services.link.generated-index.description": {
     "message": "第三方服务接入",
-    "description": "The generated-index page description for category Third-Party Service Access in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category Third-Party Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Product Management": {
     "message": "产品管理",

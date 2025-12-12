@@ -2,7 +2,7 @@
 sidebar_position: 12
 ---
 
-# Custom Topic & Message Access
+# Custom Topic & Message
 
 ## I. Overview
 

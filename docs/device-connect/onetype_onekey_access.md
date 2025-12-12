@@ -2,7 +2,7 @@
 sidebar_position: 12
 ---
 
-# One Type One Secret Access
+# One Type One Secret
 
 ## Core Principle
 

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Modbus TCP Direct Access
+# Modbus TCP Direct
 
 ## 1. Functional Overview
 

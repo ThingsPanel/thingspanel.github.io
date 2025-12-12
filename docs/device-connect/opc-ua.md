@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# OPC-UA Access
+# OPC-UA
 
 ## What is OPC UA
 

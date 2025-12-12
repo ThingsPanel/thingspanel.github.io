@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# TCP Access
+# TCP
 
-There are two ways for TCP device access:
+There are two ways for TCP device connectivity:
 
 ## 1. Via Rule Engine
 

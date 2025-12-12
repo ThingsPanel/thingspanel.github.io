@@ -1,8 +1,8 @@
 {
-  "label": "Third-Party Service Access",
+  "label": "Third-Party Services",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Third-Party Service Access"
+    "description": "Third-Party Services"
   }
 }

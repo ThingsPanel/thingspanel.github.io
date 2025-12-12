@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 
 
-# Serial Port Access
+# Serial Port
 
 ## Via Rule Engine
 

@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# Ezviz Cloud Video Access
+# Ezviz Cloud Video
 
 ## 1. Create Standard Device
 ![](image/ezviz_00.png)

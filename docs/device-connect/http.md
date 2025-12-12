@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# HTTP Access
+# HTTP
 
 Currently, the code repository has an HTTP device connectivity service. After deployment and registration, HTTP protocol devices can be accessed.
 

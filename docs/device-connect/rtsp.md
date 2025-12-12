@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# RTSP Camera Access
+# RTSP Camera
 
 RTSP (Real Time Streaming Protocol) is a protocol used for real-time audio and video transmission, typically used in surveillance devices, video conferencing, and other scenarios.
 

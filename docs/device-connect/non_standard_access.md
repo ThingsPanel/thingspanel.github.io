@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Non-Standard MQTT Protocol Access
+# Non-Standard MQTT Protocol
 
 ## Problems
 

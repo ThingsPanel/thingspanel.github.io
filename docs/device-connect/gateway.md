@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# MQTT Gateway Access
+# MQTT Gateway
 
 ## 1. Access Steps
 

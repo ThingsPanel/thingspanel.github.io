@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 
 
-# UDP Access
+# UDP
 
 ## Via Rule Engine
 
