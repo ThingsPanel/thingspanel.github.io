@@ -275,5 +275,102 @@
   "theme.SearchPage.noResultsText": {
     "message": "没有找到任何文档",
     "description": "The paragraph for empty search result"
+  },
+  "general.one": {
+    "message": "设备上云与企业物联网+",
+    "description": "副标题"
+  },
+  "OpenSource.one": {
+    "message": "Apache2.0开源协议",
+    "description": "副标题"
+  },
+  "ConciseAndEasyToUse.one": {
+    "message": "优良设计,上手门槛低",
+    "description": "副标题"
+  },
+  "fast.one": {
+    "message": "模块化构建,让项目交付更快",
+    "description": "副标题"
+  },
+  "business.one": {
+    "message": "多项目、多分组、多接入协议、自定义脚本",
+    "description": "副标题"
+  },
+  "group.one": {
+    "message": "生成设备插件,快速定制个性化设备功能。",
+    "description": "副标题"
+  },
+  "application.one": {
+    "message": "设备插件、设备接入服务,用积木的方式搭建系统。",
+    "description": "副标题"
+  },
+  "automation.one": {
+    "message": "IFTTT模式,包括时间与设备两种触发模式,自动化告警和控制。",
+    "description": "副标题"
+  },
+  "visualization.one": {
+    "message": "基于插件提供的图表单元快速搭建可视化。",
+    "description": "副标题"
+  },
+  "ruleEngine.one": {
+    "message": "接入各类协议并转换数据,转发数据到外部系统。",
+    "description": "副标题"
+  },
+  "protocols.one": {
+    "message": "支持MQTT、TCP、Modbus、GB28181等,可自行扩展。",
+    "description": "副标题"
+  },
+  "home.visitMyBlog": {
+    "message": "ThingsPanel是一个轻量化、组件化的开源物联网应用平台",
+    "description": "dicte"
+  },
+  "home.viewDoc": {
+    "message": "文档",
+    "description": "Documentation button"
+  },
+  "home.viewDemo": {
+    "message": "演示",
+    "description": "Demo button"
+  },
+  "Function.Introduced": {
+    "message": "功能介绍",
+    "description": "serf"
+  },
+  "bottom.ofTheInformation": {
+    "message": "Copyright © 2022 北京极益科技有限公司 版权所有",
+    "description": "Footer copyright"
+  },
+  "Universal": {
+    "message": "通用"
+  },
+  "Open Source": {
+    "message": "开源"
+  },
+  "Simple and Easy": {
+    "message": "简洁易用"
+  },
+  "Fast": {
+    "message": "快速"
+  },
+  "Device Onboarding": {
+    "message": "设备接入"
+  },
+  "Plugin Generator": {
+    "message": "插件生成器"
+  },
+  "Application Management": {
+    "message": "应用管理"
+  },
+  "Automation": {
+    "message": "自动化"
+  },
+  "Visualization": {
+    "message": "可视化"
+  },
+  "Rule Engine": {
+    "message": "规则引擎"
+  },
+  "Multiple Access Protocols": {
+    "message": "多接入协议"
   }
 }

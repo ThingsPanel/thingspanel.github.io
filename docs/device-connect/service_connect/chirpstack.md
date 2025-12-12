@@ -2,40 +2,40 @@
 sidebar_position: 3
 ---
 
-# LoRaWAN网关ChirpStack接入
+# LoRaWAN Gateway ChirpStack Access
 
-ChirpStack是一个开源的LoRaWAN（R）网络服务器，可用于设置LoRaWAN网络。ChirpStack提供了一个用于管理网关、设备和租户的网络接口，以及与主要云提供商、数据库和通常用于处理设备数据的服务建立数据集成。ChirpStack提供了一个基于gRPC的API，可用于集成或扩展ChirpStack。
+ChirpStack is an open-source LoRaWAN(R) Network Server which can be used to set up LoRaWAN networks. ChirpStack provides a web-interface for the management of gateways, devices, and applications, as well as for the data-integration with major cloud providers, databases, and services commonly used for handling device data. ChirpStack provides a gRPC based API that can be used to integrate or extend ChirpStack.
 
-ThingsPanel已经实现了和ChirpStack的对接。
+ThingsPanel has realized the integration with ChirpStack.
 
-## 设备接入服务介绍
+## Device Connectivity Service Introduction
 
-ChirpStack接入设备接入服务，通过APIkey、IP地址、应用ID来实现设备的获取，并将设备数据接入到ThingsPanel中。
+For ChirpStack access via Device Connectivity Service, you can acquire devices and integrate device data into ThingsPanel by providing API Key, IP address, and Application ID.
 
-## 对接流程
+## Integration Process
 
-### 前提条件
+### Prerequisites
 
-1. 部署好ChirpStack并接入了LoRaWAN网关，如果没有设备，可以参考 从0搭建LoRaWAN服务器ChirpStack并模拟接入设备 http://thingspanel.cn/posts/89
-2. 部署ThingsPanel平台，并在ThingsPanel中注册ChirpStack设备接入服务
+1. ChirpStack is deployed and LoRaWAN gateways are connected. If you don't have devices, you can refer to [Build LoRaWAN Server ChirpStack from Scratch and Simulate Device Onboarding](http://thingspanel.cn/posts/89).
+2. ThingsPanel platform is deployed, and ChirpStack Device Connectivity Service is registered in ThingsPanel.
 
-### 注册设备接入服务步骤
+### Register Device Connectivity Service Steps
 
-参考设备接入服务代码库README.md https://github.com/ThingsPanel/service_plugin_chirpstack
+Refer to the README.md of the device connectivity service repository: https://github.com/ThingsPanel/service_plugin_chirpstack
 
-### 设备接入步骤
+### Access Steps
 
-1. 服务接入中选择ChirpStack设备接入服务
-   ![选择ChirpStack设备接入服务](./img/selecchirpstackplugin.png)
-2. 添加新增接入点
-   填写ChirpStack的APIkey、IP地址、应用ID   
-   ![新增ChirpStack接入点](./img/chirpstackendpoint.png)
-3. 配置设备列表，筛选需要接入的设备
-   ![筛选需要接入的设备](./img/selectchirpstackdevice.png)
-4. 完成接入，查看接入的设备
-   ![ChirpStack设备列表](./img/chirpstackdevicelist.png)
-   ![ChirpStack设备详情](./img/chirpstackdevicedetail.png)
+1. Select ChirpStack Device Connectivity Service in "Service Access".
+   ![Select ChirpStack Service](./img/selecchirpstackplugin.png)
+2. Add new Access Point.
+   Fill in ChirpStack API Key, IP Address, and Application ID.
+   ![Add ChirpStack Endpoint](./img/chirpstackendpoint.png)
+3. Configure device list, filter devices to be accessed.
+   ![Filter Devices](./img/selectchirpstackdevice.png)
+4. Complete access, view accessed devices.
+   ![ChirpStack Device List](./img/chirpstackdevicelist.png)
+   ![ChirpStack Device Detail](./img/chirpstackdevicedetail.png)
 
-## 代码地址
+## Code Repository
 
-ChirpStack设备接入服务代码地址：https://github.com/ThingsPanel/service_plugin_chirpstack
+ChirpStack Device Connectivity Service Code: https://github.com/ThingsPanel/service_plugin_chirpstack

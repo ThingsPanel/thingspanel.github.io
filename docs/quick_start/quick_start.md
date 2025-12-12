@@ -2,48 +2,48 @@
 sidebar_position: 1
 ---
 
-# 安装对接设备
+# Installation & Onboarding
 
-## 简介
+## Introduction
 
-本章节旨在提供最简单、最快速的方式帮助您部署 ThingsPanel，无论您使用的是 Windows、macOS 还是任何 Linux 版本。
+This chapter aims to provide the simplest and fastest way to help you deploy ThingsPanel, whether you are using Windows, macOS, or any Linux distribution.
 
-## 部署方法概览
+## Deployment Methods Overview
 
-ThingsPanel 提供了两种简单快速的部署方法（部署用时大约需要10分钟），以满足不同用户的需求：
+ThingsPanel provides two simple and fast deployment methods (approx. 10 minutes) to meet different user needs:
 
-1. **Docker Compose 部署（推荐）**：适用于所有操作系统，提供最一致、最简单的部署体验
-2. **Windows 独立安装包**：为 Windows 用户提供的一键式安装体验
+1. **Docker Compose Deployment (Recommended)**: Suitable for all operating systems, providing the most consistent and simple deployment experience.
+2. **Windows Standalone Installer**: A one-click installation experience for Windows users.
 
-## 方法 1: 使用 Docker Compose 进行部署（推荐）
+## Method 1: Docker Compose Deployment (Recommended)
 
-Docker Compose 是部署 ThingsPanel 最快速、最便捷的方式，能够确保在各种操作系统上拥有一致的运行环境。
+Docker Compose is the fastest and most convenient way to deploy ThingsPanel, ensuring a consistent runtime environment across various operating systems.
 
-### 先决条件
+### Prerequisites
 
-在开始部署之前，请确保您的系统已安装以下软件：
+Before starting deployment, please ensure your system has the following software installed:
 
 - **Docker**: https://docs.docker.com/engine/installation/
 - **Docker Compose**: https://docs.docker.com/compose/install/
 
 :::info
 
-提示：Windows 用户如遇到 Docker Desktop 下载困难，可通过我们的技术支持渠道获取安装包。请参考文档末尾的"技术支持"章节获取官方 QQ 技术支持群号，加入后可在群文件中下载所需安装程序。
+Tip: Windows users encountering difficulties downloading Docker Desktop can obtain the installation package through our technical support channels. Please refer to the "Support" section at the end of this document.
 
 :::
 
-### 部署步骤
+### Deployment Steps
 
-#### 第一步：创建部署目录
+#### Step 1: Create Deployment Directory
 
 ```bash
 mkdir thingspanel
 cd thingspanel
 ```
 
-#### 第二步：创建 docker-compose.yml 文件
+#### Step 2: Create docker-compose.yml File
 
-创建一个名为 docker-compose.yml 的文件，并将以下内容粘贴到文件中：
+Create a file named `docker-compose.yml` and paste the following content into it:
 
 ```yaml
 version: "3.9"
@@ -174,7 +174,7 @@ services:
       - "MODBUS_MQTT_QOS=0"
     networks:
       thingspanel_network:
-        ipv4_address: 172.20.0.10  # 指定固定IP地址
+        ipv4_address: 172.20.0.10  # Specify fixed IP address
     depends_on:
       - backend
       - gmqtt
@@ -194,175 +194,175 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.20.0.0/16  # 定义网络的子网范围
-          gateway: 172.20.0.1    # 定义网关地址
+        - subnet: 172.20.0.0/16  # Define subnet range
+          gateway: 172.20.0.1    # Define gateway address
 ```
 
 :::info
 
-提示：Docker 部署时，请注意 backend 容器中的 GOTP_MQTT_ACCESS_ADDRESS 环境变量默认值为 127.0.0.1:1883。如果您在 Linux 服务器上部署，需要将此 IP 地址改为您的服务器ip地址或域名，否则设备详情页面中的"模拟上报数据"功能将无法正常工作（也可在发送时候手动修改发送框里的IP地址）。
+Tip: When deploying with Docker, please note that the default value of the `GOTP_MQTT_ACCESS_ADDRESS` environment variable in the `backend` container is `127.0.0.1:1883`. If you are deploying on a Linux server, you need to change this IP address to your server's IP address or domain name, otherwise the "Simulate Data Reporting" function in the device details page will not work properly (you can also manually modify the IP address in the send box when sending).
 
 :::
 
-#### 第三步：启动 ThingsPanel 服务
+#### Step 3: Start ThingsPanel Services
 
-在终端或命令提示符中运行以下命令启动所有服务：
+Run the following command in your terminal or command prompt to start all services:
 
 ```bash
 docker compose -f docker-compose.yml up -d
 ```
 
-> 提示: -d 参数表示在后台运行所有服务，如需查看日志请去掉 -d 参数。
+> Tip: The `-d` flag runs all services in the background. Remove `-d` to view logs.
 
-#### 第四步：验证服务状态
+#### Step 4: Verify Service Status
 
-检查所有服务是否正常运行：
+Check if all services are running correctly:
 
 ```bash
 docker compose ps
 ```
 
-如果需要查看特定服务的日志，可以使用：
+If you need to view logs for a specific service:
 
 ```bash
 docker compose logs thingspanel-backend
 ```
 
-#### 第五步：访问 ThingsPanel 平台
+#### Step 5: Access ThingsPanel Platform
 
-打开浏览器，访问：
+Open your browser and visit:
 
 ```
-http://您的服务器IP:8080
+http://YOUR_SERVER_IP:8080
 ```
 
-> Docker桌面版部署访问http://127.0.0.1:8080
+> For Docker Desktop deployment, visit http://127.0.0.1:8080
 
-默认登录凭据：
-- **系统管理员**: super@super.cn / 123456
-- **租户管理员**: tenant@tenant.cn / 123456
+Default Credentials:
+- **System Admin**: super@super.cn / 123456
+- **Tenant Admin**: tenant@tenant.cn / 123456
 
-> **安全警告**: 请务必在首次登录后更改默认密码，以提高系统安全性。
+> **Security Warning**: Please change the default passwords immediately after the first login to ensure system security.
 
-### 配置技巧
+### Configuration Tips
 
-为了更好地管理您的配置，您可以创建一个 .env 文件来存储环境变量：
+To better manage your configuration, you can create a `.env` file to store environment variables:
 
 ```bash
-# 创建 .env 文件
+# Create .env file
 touch .env
 ```
 
-.env 文件示例：
+Example `.env` file:
 
 ```
-# 数据库配置
+# Database Config
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=your_secure_password
 DB_NAME=thingspanel
 
-# 其他配置
+# Other Config
 TP_ADMIN_EMAIL=admin@yourdomain.com
 ```
 
-然后在 docker-compose.yml 中引用这些变量：
+Then reference these variables in `docker-compose.yml`:
 
 ```yaml
 environment:
   TP_DB_HOST: ${DB_HOST}
   TP_DB_PORT: ${DB_PORT}
-  # 其他环境变量...
+  # Other env vars...
 ```
 
-### 管理 Docker Compose 部署
+### Managing Docker Compose Deployment
 
-常用命令：
+Common commands:
 
 ```bash
-# 停止所有服务
+# Stop all services
 docker compose stop
 
-# 停止并移除所有容器、网络
+# Stop and remove all containers and networks
 docker compose down
 
-# 重新启动所有服务
+# Restart all services
 docker compose restart
 ```
 
-### 视频示例
+### Video Tutorial
 
-[如何快速部署ThingsPanel物联网平台-Docker桌面版](https://www.bilibili.com/video/BV1L8Ecz4E2v/?share_source=copy_web&vd_source=ffdc396f72a54b325037ada71bc99b05)
+[How to Quickly Deploy ThingsPanel IoT Platform - Docker Desktop](https://www.bilibili.com/video/BV1L8Ecz4E2v/?share_source=copy_web&vd_source=ffdc396f72a54b325037ada71bc99b05)
 
-## 方法 2: Windows 独立安装包
+## Method 2: Windows Standalone Installer
 
-ThingsPanel 为 Windows 用户提供了一键式安装包，简化了部署过程。
+ThingsPanel provides a one-click installer for Windows users to simplify deployment.
 
-### 获取安装包
+### Get Installer
 
-请加入 QQ 群 371794256，在群文件中下载最新的 .exe 可执行安装版本。
+Please join our QQ Group 371794256 and download the latest `.exe` installer from the group files.
 
-### 安装步骤
+### Installation Steps
 
-1. 下载安装包后，双击运行安装程序
-2. 按照安装向导的提示完成安装
-3. 安装完成后，系统将自动打开浏览器并导航到 ThingsPanel 登录页面
+1. Download the installer and double-click to run.
+2. Follow the installation wizard prompts to complete installation.
+3. After installation, the system will automatically open the browser and navigate to the ThingsPanel login page.
 
-## 设备接入指南
+## Device Onboarding Guide
 
-成功部署 ThingsPanel 后，您可以按照以下步骤快速接入设备并查看数据：
+After successfully deploying ThingsPanel, follow these steps to quickly onboard a device and view data:
 
-### 第一步：添加设备
+### Step 1: Add Device
 
-1. 登录 ThingsPanel 平台
-2. 导航至「设备管理」页面
-3. 点击「添加设备」，填写设备信息
-4. 可选择是否需要绑定设备模板
+1. Login to ThingsPanel.
+2. Navigate to "Device Management".
+3. Click "Add Device" and fill in device information.
+4. Optionally bind a **Device Template**.
 
-### 第二步：获取设备连接信息
+### Step 2: Get Connection Info
 
-添加设备后，系统会生成设备的连接参数，包括：
-- MQTT 服务器地址和端口
-- 设备标识（ClientID）
-- 主题（Topic）
-- 用户名和密码（如适用）
+After adding a device, the system generates connection parameters, including:
+- MQTT Server Address and Port
+- ClientID
+- Topic
+- Username and Password (if applicable)
 
-### 第三步：推送数据
+### Step 3: Push Data
 
-使用 MQTT 客户端工具或您的设备，按照系统提供的参数推送数据。
+Use an MQTT client tool or your physical device to push data using the parameters provided by the system.
 
-推荐的 MQTT 客户端工具：
+Recommended MQTT Tools:
 - https://mqttx.app/downloads
 - https://mqttfx.jensd.de/index.php/download
 
-### 第四步：查看数据
+### Step 4: View Data
 
-在 ThingsPanel 平台中，您可以通过以下方式查看设备数据：
-1. 设备详情页面中的实时数据和历史数据视图
-2. 自定义看板中的可视化图表
-3. 数据分析工具中的数据趋势分析
+In ThingsPanel, you can view device data via:
+1. Real-time and Historical Data views in **Device Details**.
+2. Visualization Charts in custom **Dashboards**.
+3. Data Trend Analysis in Data Analysis tools.
 
-## 15秒接入接入一个设备并查看数据
+## Onboard a Device in 15 Seconds
 
-<video controls src="/videos/15s_add_device.mp4" title="15秒添加设备并推送数据" width="1000"></video>
+<video controls src="/videos/15s_add_device.mp4" title="15s Add Device" width="1000"></video>
 
-## 故障排除
+## Troubleshooting
 
-如果您在部署或使用过程中遇到问题，请尝试以下步骤：
-1. 检查服务状态：使用 `docker compose ps` 命令检查所有服务是否正常运行
-2. 查看日志：使用 `docker compose logs <服务名>` 查看特定服务的日志
-3. 网络检查：确保防火墙未阻止必要的端口（8080, 1883）
-4. 资源检查：确保系统有足够的 CPU、内存和磁盘空间
+If you encounter issues during deployment or usage, try the following:
 
-## 支持
+1. **Check Service Status**: Use `docker compose ps` to verify services are running.
+2. **View Logs**: Use `docker compose logs <service_name>` to debug.
+3. **Network Check**: Ensure firewalls are not blocking ports 8080 and 1883.
+4. **Resource Check**: Ensure sufficient CPU, Memory, and Disk space.
 
-- 社区支持：QQ群 371794256
+## Support
 
-## 最佳实践
+- Community Support: QQ Group 371794256
 
-1. 定期备份数据：特别是生产环境中的数据库和配置
-2. 安全加固：更改默认密码
-3. 监控系统资源：对 CPU、内存、磁盘使用进行监控
-4. 保持更新：定期更新到最新版本以获取新功能和安全修复
+## Best Practices
 
+1. **Regular Backups**: Especially database and config in production.
+2. **Security Hardening**: Change default passwords.
+3. **Resource Monitoring**: Monitor CPU, Memory, Disk usage.
+4. **Keep Updated**: Regularly update to the latest version for new features and security fixes.

@@ -2,10 +2,11 @@
 sidebar_position: 15
 ---
 
-# 增加非物联网的功能
-例如在ThingsPanel的基础上增加OA、网站、生产管理、电商平台、财务管理等其它非物联网的功能。
+# Adding Non-IoT Functions
 
-## 增加这些功能的前提
+For example, adding OA, websites, production management, e-commerce, financial management, and other non-IoT functions on top of ThingsPanel.
 
-熟练使用ThingsPanel技术栈
-熟悉ThingsPanel系统的设计机制
+## Prerequisites for Adding These Functions
+
+- Skilled in using the ThingsPanel tech stack.
+- Familiar with the design mechanism of the ThingsPanel system.

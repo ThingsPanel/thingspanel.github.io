@@ -2,176 +2,176 @@
 sidebar_position: 7
 ---
 
-# 优化指南
+# Optimization Guide
 
-## 1. 系统性能优化
+## 1. System Performance Optimization
 
-### 1.1 应用服务优化
+### 1.1 Application Service Optimization
 
-- **后端服务优化**
-  - 日志级别调整：生产环境建议设置为 WARNING 或 ERROR 级别
-  - 并发连接数优化：调整系统文件描述符限制
-  - API 服务缓存策略优化
-  - 数据批量处理机制优化
+- **Backend Service Optimization**
+  - Log Level Adjustment: Recommended to set to WARNING or ERROR in production.
+  - Concurrent Connection Optimization: Adjust system file descriptor limits.
+  - API Service Cache Strategy Optimization.
+  - Batch Data Processing Mechanism Optimization.
 
-- **消息代理优化**
-  - VerneMQ 并发连接数配置
-  - 消息队列大小调整
-  - 消息持久化策略优化
-  - 会话清理周期配置
+- **Message Broker Optimization**
+  - VerneMQ Concurrent Connection Configuration.
+  - Message Queue Size Adjustment.
+  - Message Persistence Strategy Optimization.
+  - Session Cleanup Cycle Configuration.
 
-### 1.2 系统资源优化
+### 1.2 System Resource Optimization
 
-- **操作系统层面**
+- **Operating System Level**
 
   ```bash
-  # 调整系统最大文件描述符数量
+  # Adjust system max file descriptors
   sysctl -w fs.file-max=1000000
   
-  # 调整系统最大连接数
+  # Adjust system max connections
   sysctl -w net.core.somaxconn=65535
   
-  # TCP 连接优化
+  # TCP Connection Optimization
   sysctl -w net.ipv4.tcp_max_syn_backlog=8192
   ```
 
-- **容器资源配置**
-  - 合理分配容器 CPU 限制
-  - 设置适当的内存限制
-  - 配置合适的 Docker 存储驱动
+- **Container Resource Configuration**
+  - Reasonably allocate container CPU limits.
+  - Set appropriate memory limits.
+  - Configure suitable Docker storage drivers.
 
-## 2. 数据库优化
+## 2. Database Optimization
 
-### 2.1 TDengine 优化
+### 2.1 TDengine Optimization
 
-- **系统配置**
+- **System Configuration**
 
   ```properties
-  # 调整写入缓存大小
+  # Adjust write cache size
   cache = 2048
   
-  # 优化查询缓存
+  # Optimize query cache
   queryBufferSize = 2048
   
-  # 压缩级别设置
+  # Compression level setting
   comp = 2
   ```
 
-- **数据存储优化**
-  - 合理设置数据保留策略
-  - 优化数据分区策略
-  - 配置数据压缩比例
+- **Data Storage Optimization**
+  - Set reasonable data retention policies.
+  - Optimize data partitioning strategies.
+  - Configure data compression ratios.
 
-### 2.2 PostgreSQL/TimescaleDB 优化
+### 2.2 PostgreSQL/TimescaleDB Optimization
 
-- **内存配置**
+- **Memory Configuration**
 
   ```properties
-  # 共享缓冲区
+  # Shared Buffers
   shared_buffers = RAM * 0.25
   
-  # 工作内存
+  # Working Memory
   work_mem = RAM * 0.025
   
-  # 维护工作内存
+  # Maintenance Working Memory
   maintenance_work_mem = RAM * 0.05
   ```
 
-- **连接配置**
+- **Connection Configuration**
 
   ```properties
-  # 最大连接数
+  # Max Connections
   max_connections = 200
   
-  # 连接池配置
+  # Prepared Transactions
   max_prepared_transactions = 100
   ```
 
-### 2.3 Redis 优化
+### 2.3 Redis Optimization
 
-- **内存管理**
+- **Memory Management**
 
   ```properties
-  # 最大内存限制
+  # Max Memory Limit
   maxmemory 2gb
   
-  # 内存策略
+  # Memory Policy
   maxmemory-policy allkeys-lru
   ```
 
-- **持久化配置**
+- **Persistence Configuration**
 
   ```properties
-  # RDB 配置
+  # RDB Config
   save 900 1
   save 300 10
   save 60 10000
   ```
 
-## 3. 网络优化
+## 3. Network Optimization
 
-### 3.1 负载均衡优化
+### 3.1 Load Balancing Optimization
 
-- **Nginx 配置**
+- **Nginx Configuration**
 
   ```nginx
-  # 工作进程数
+  # Worker Processes
   worker_processes auto;
   
-  # 每个工作进程的连接数
+  # Connections per Worker
   worker_connections 65535;
   
-  # 开启 gzip 压缩
+  # Enable Gzip Compression
   gzip on;
   gzip_min_length 1k;
   ```
 
-### 3.2 网络传输优化
+### 3.2 Network Transmission Optimization
 
-- 启用 Keep-Alive 连接
-- 配置合适的超时时间
-- 优化 TCP 参数
+- Enable Keep-Alive connections.
+- Configure appropriate timeout values.
+- Optimize TCP parameters.
 
-## 4. 监控与调优工具
+## 4. Monitoring & Tuning Tools
 
-### 4.1 系统监控
+### 4.1 System Monitoring
 
-- 使用 Prometheus + Grafana 监控系统指标
-- 配置关键指标告警
-- 定期检查系统性能报告
+- Use Prometheus + Grafana to monitor system metrics.
+- Configure alerts for key metrics.
+- Regularly check system performance reports.
 
-### 4.2 性能分析工具
+### 4.2 Performance Analysis Tools
 
-- CPU 分析：top, htop
-- 内存分析：free, vmstat
-- 磁盘 I/O：iostat
-- 网络性能：netstat, iftop
+- CPU Analysis: `top`, `htop`
+- Memory Analysis: `free`, `vmstat`
+- Disk I/O: `iostat`
+- Network Performance: `netstat`, `iftop`
 
-## 5. 优化建议流程
+## 5. Optimization Workflow
 
-1. **性能基准测试**
-   - 记录当前系统性能指标
-   - 确定性能瓶颈
+1. **Performance Benchmarking**
+   - Record current system performance metrics.
+   - Identify performance bottlenecks.
 
-2. **制定优化计划**
-   - 根据监控确定优先级
-   - 评估优化成本和收益
+2. **Formulate Optimization Plan**
+   - Prioritize based on monitoring data.
+   - Evaluate costs and benefits of optimization.
 
-3. **分步实施优化**
-   - 每次只调整一个参数
-   - 记录调整效果
+3. **Step-by-Step Implementation**
+   - Adjust one parameter at a time.
+   - Record the effects of adjustments.
 
-4. **效果验证**
-   - 对比优化前后的性能
-   - 持续监控系统稳定性
+4. **Verification**
+   - Compare performance before and after optimization.
+   - Continuously monitor system stability.
 
-## 6. 注意事项
+## 6. Precautions
 
-- 优化参数需要根据实际硬件配置调整
-- 重要参数调整前需要备份配置
-- 生产环境的调整需要在测试环境验证
-- 保持系统监控，及时发现问题
+- Optimization parameters should be adjusted based on actual hardware configuration.
+- Backup configurations before adjusting important parameters.
+- Production environment adjustments should be verified in a test environment first.
+- Maintain system monitoring to detect issues in time.
 
 :::tip
-以上配置参数仅供参考，实际部署时需要根据具体的硬件配置、业务场景和压力测试结果来调整。
+The above configuration parameters are for reference only. Please adjust according to specific hardware configuration, business scenarios, and stress test results during actual deployment.
 :::

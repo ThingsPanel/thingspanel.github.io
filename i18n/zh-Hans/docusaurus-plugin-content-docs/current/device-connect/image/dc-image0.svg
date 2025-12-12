@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="600" fill="#f7f9fc" />
+  
+  <!-- 标题 -->
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">物联网设备一型一密认证原理流程图</text>
+
+  <!-- 原理部分 -->
+  <rect x="100" y="70" width="800" height="100" fill="#e8f0fd" rx="10" ry="10" stroke="#aac1e8" stroke-width="2"/>
+  <text x="500" y="100" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c5aa0">一型一密认证原理</text>
+  <text x="500" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">同一类型设备共享相同的类型密钥，每个设备通过唯一标识+类型密钥获得专属连接凭证</text>
+  <text x="500" y="155" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">"一型"指设备类型，"一密"指每个设备最终拥有的唯一凭证</text>
+
+  <!-- 流程图主体 -->
+  <!-- 左侧：平台侧 -->
+  <rect x="50" y="190" width="400" height="390" fill="#f0f5ff" rx="10" ry="10" stroke="#aac1e8" stroke-width="2"/>
+  <text x="250" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2c5aa0">IoT平台</text>
+  
+  <!-- 右侧：设备侧 -->
+  <rect x="550" y="190" width="400" height="390" rx="10" ry="10" fill="#f0fff5" stroke="#aad1b9" stroke-width="2"/>
+  <text x="750" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f7a54">设备端</text>
+  
+  <!-- 云平台部分 -->
+  <!-- 1. 创建设备类型 -->
+  <rect x="100" y="250" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="285" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">创建设备类型，生成类型密钥</text>
+  
+  <!-- 2. 校验设备请求 -->
+  <rect x="100" y="360" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="385" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">验证设备类型密钥与唯一标识</text>
+  <text x="250" y="405" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">确认设备合法性</text>
+  
+  <!-- 3. 生成设备唯一凭证 -->
+  <rect x="100" y="470" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="495" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">为设备生成唯一连接凭证</text>
+  <text x="250" y="515" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（设备密钥/令牌）</text>
+  
+  <!-- 设备端部分 -->
+  <!-- 1. 预置类型密钥 -->
+  <rect x="600" y="250" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="275" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">生产阶段预置设备类型密钥</text>
+  <text x="750" y="295" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（同类设备共享相同密钥）</text>
+  
+  <!-- 2. 设备唯一标识 -->
+  <rect x="600" y="360" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="385" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">确定设备唯一标识</text>
+  <text x="750" y="405" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（芯片ID/MAC/IMEI等）</text>
+  
+  <!-- 3. 获取唯一凭证 -->
+  <rect x="600" y="470" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="495" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">保存设备专属连接凭证</text>
+  <text x="750" y="515" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">用于后续安全连接</text>
+  
+  <!-- 连接箭头 -->
+  <!-- 从平台到设备的类型密钥传递 -->
+  <line x1="400" y1="280" x2="600" y2="280" stroke="#f39c12" stroke-width="3" />
+  <polygon points="590,280 600,275 600,285" fill="#f39c12" />
+  
+  <!-- 从设备到平台的认证请求 -->
+  <line x1="600" y1="390" x2="400" y2="390" stroke="#f39c12" stroke-width="3" />
+  <polygon points="410,390 400,385 400,395" fill="#f39c12" />
+  <text x="500" y="380" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#e67e22">认证请求</text>
+  <text x="500" y="400" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#e67e22">(类型密钥+唯一标识)</text>
+  
+  <!-- 从平台到设备的唯一凭证下发 -->
+  <line x1="400" y1="500" x2="600" y2="500" stroke="#f39c12" stroke-width="3" />
+  <polygon points="590,500 600,495 600,505" fill="#f39c12" />
+  <text x="500" y="490" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#e67e22">下发唯一凭证</text>
+</svg>

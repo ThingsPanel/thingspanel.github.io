@@ -1,9 +1,8 @@
 {
-    "label": "产品管理",
-    "position": 5 ,
-    "link": {
-      "type": "generated-index",
-      "description": "产品管理"
-    }
+  "label": "Product Management",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Product Management"
   }
-  
+}

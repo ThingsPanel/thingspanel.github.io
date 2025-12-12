@@ -2,77 +2,76 @@
 sidebar_position: 3
 ---
 
-# 设备模板
-## 1、说明
-- 点击设备接入-设备模板进入设备模板管理页面，设备模板功能包括新建设备模板、编辑设备模板、以及设备模板。
+# Device Template
 
-## 2、操作
+## 1. Description
+- Click Device Onboarding - Device Template to enter the Device Template Management page. Functions include creating, editing, and managing device templates.
 
-### 2.1、创建设备模板
+## 2. Operations
 
-- 点击创建设备配置，即可创建配置，创建配置时，可选择：
+### 2.1 Create Device Template
 
-（1）输入设备配置名称：例如SGP30传感器
+- Click Create Device Template to create a configuration. You can choose:
 
-（2）绑定的设备模板
+1. Enter Device Template Name: e.g., SGP30 Sensor
+2. Bind Product Model (Thing Model)
+3. Device Onboarding Type: Selectable during creation, cannot be changed during editing.
 
-（3）设备接入类型，在编辑时，不可更改设备接入类型，创建时可选择
+![Create Template](./images/image56.png)
 
-![descript](./images/image56.png)
+### 2.2 Device Template Details
 
-### 2.2、设备配置详情
+#### 2.3 Associated Devices
 
-#### 2.3、关联设备
+- Add devices associated with the template. After configuration, the template configuration will be synchronized to the devices.
 
-- 添加设备模板关联的设备，配置后，关联模板的配置会同步到设备中。
+![Associated Devices](./images/image57.png)
 
-![descript](./images/image57.png)
+#### 2.4 Attributes and Functions
 
-#### 2.4、属性与功能
+- Set bound Product Model (Thing Model).
 
-- 设置绑定的物模型。
+![Attributes](./images/image58.png)
 
-![descript](./images/image58.png)
+#### 2.5 Protocol Configuration
 
-#### 2.5、协议配置
+- Configure the protocol called by this device template.
 
-- 配置这个设备配置调用的协议
+![Protocol Config](./images/image59.png)
 
-![descript](./images/image59.png)
+- If Modbus Meter is configured:
 
-- 如果配置了Modbus电表，则如下图：
+![Modbus](./images/image60.png)
 
-![descript](./images/image60.png)
+#### 2.6 Data Processing
 
-#### 2.6、数据处理
+- Configure pre-processing for data received by the device. Use custom parsing scripts to convert non-standard JSON formats into platform-understandable JSON formats, and debug on the page.
+- User reported data passes through the script before being stored in the database.
+- Example: If reported data is binary, it can be converted to JSON via script and then stored.
+- This script runs after MQTT broker and before database storage for real-time data processing.
 
-- 配置这个设备收到的数据后的预处理，通过自定义解析脚本，将接收到的非正规json的格式处理成平台能理解的json格式，并可在页面上进行调试。
-- 用户上报的数据先通过脚本，再存入数据库。
-- 例如：如果上报的数据是二进制，可以通过脚本来转换成JSON，存入数据库。
-- 这个脚本在MQTT broker之后，入库之前做数据实时数据处理。
+![Data Processing](./images/image61.png)
 
-![descript](./images/image61.png)
+#### 2.7 Automation
 
-#### 2.7、自动化
+- Automation calls the [Scene Linkage] form to create automation rules, using the global unified edit form.
 
-- 自动化调用【场景联动】表单来创建自动化规则，自动化规则使用全局统一的编辑表单。
+![Automation](./images/image62.png)
 
-![descript](./images/image62.png)
+#### 2.8 Alarm
 
-#### 2.8、告警
+- Alarm calls the [Scene Linkage] form to create alarm rules, using the global unified edit form.
 
-- 告警调用【场景联动】表单来创建告警规则，告警规则使用全局统一的编辑表单。
+![Alarm](./images/image63.png)
 
-![descript](./images/image63.png)
+#### 2.9 Extended Information
 
-#### 2.9、扩展信息
+- Extra fields for the device, such as device location, maintenance manual, etc.
 
-- 设备有哪些额外字段，例如设备的位置，设备的维护手册等
+![Extended Info](./images/image64.png)
 
-![descript](./images/image64.png)
+#### 2.10 Device Settings
 
-#### 2.10、设备设置
+- Configure auto-activation, online settings, delete device template.
 
-配置设备自动激活、设备在线设置、删除设备配置
-
-![descript](./images/image65.png)
+![Device Settings](./images/image65.png)

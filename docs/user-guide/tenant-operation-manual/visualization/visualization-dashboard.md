@@ -2,10 +2,11 @@
 sidebar_position: 2
 ---
 
-# 大屏
-## 1、说明
-- 点击可视化-大屏进入大屏管理页面,可以新建大屏、编辑大屏名称、可视化编辑大屏和删除大屏。
+# Big Screen
 
-## 2、操作
-如图所示
-![descript](./images/image72.png)
+## 1. Description
+- Click Visualization - Big Screen to enter the Big Screen Management page. You can create new big screens, edit big screen names, visually edit big screens, and delete big screens.
+
+## 2. Operations
+As shown below:
+![Big Screen](./images/image72.png)

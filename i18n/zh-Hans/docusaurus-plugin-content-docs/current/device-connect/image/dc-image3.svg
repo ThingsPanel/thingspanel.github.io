@@ -1,0 +1,76 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="600" fill="#f7f9fc" />
+  
+  <!-- 标题 -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#333">设备模板与产品的一型一密认证流程图</text>
+
+  <!-- 顶部对象框 -->
+  <rect x="70" y="80" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="150" y="110" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">设备</text>
+  
+  <rect x="370" y="80" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="450" y="110" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">平台认证服务</text>
+  
+  <rect x="670" y="80" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="750" y="110" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">平台连接服务</text>
+
+  <!-- 纵向生命线 -->
+  <line x1="150" y1="130" x2="150" y2="550" stroke="#5ecea6" stroke-width="2" />
+  <line x1="450" y1="130" x2="450" y2="550" stroke="#5ecea6" stroke-width="2" />
+  <line x1="750" y1="130" x2="750" y2="550" stroke="#5ecea6" stroke-width="2" />
+
+  <!-- 设备预置信息 -->
+  <rect x="70" y="150" width="160" height="50" fill="#fff6c4" rx="4" ry="4" stroke="#e6c000" stroke-width="1" />
+  <text x="150" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">设备预置模板密钥</text>
+  <text x="150" y="195" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">和ProductKey</text>
+  
+  <!-- 自环箭头：获取设备唯一标识 -->
+  <path d="M 150,220 C 200,220 200,260 150,260" stroke="#333" stroke-width="2" fill="none" />
+  <polygon points="155,260 150,270 145,260" fill="#333" />
+  <text x="225" y="245" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">获取设备唯一标识</text>
+
+  <!-- 发送认证请求 - 包含ProductKey -->
+  <line x1="150" y1="300" x2="450" y2="300" stroke="#333" stroke-width="2" />
+  <polygon points="440,295 450,300 440,305" fill="#333" />
+  <text x="300" y="290" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">请求认证(模板密钥+设备标识+ProductKey)</text>
+
+  <!-- 自环箭头：验证模板密钥 -->
+  <path d="M 450,330 C 500,330 500,370 450,370" stroke="#333" stroke-width="2" fill="none" />
+  <polygon points="455,370 450,380 445,370" fill="#333" />
+  <text x="540" y="345" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">验证模板密钥</text>
+  <text x="540" y="365" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">和设备唯一标识</text>
+
+  <!-- 自环箭头：验证ProductKey -->
+  <path d="M 450,390 C 500,390 500,430 450,430" stroke="#333" stroke-width="2" fill="none" />
+  <polygon points="455,430 450,440 445,430" fill="#333" />
+  <text x="540" y="415" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">验证ProductKey</text>
+
+  <!-- 自环箭头：创建设备与产品关联 -->
+  <path d="M 450,450 C 500,450 500,490 450,490" stroke="#333" stroke-width="2" fill="none" />
+  <polygon points="455,490 450,500 445,490" fill="#333" />
+  <text x="540" y="475" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">创建设备并关联到产品</text>
+
+  <!-- 返回设备凭证 -->
+  <line x1="450" y1="510" x2="150" y2="510" stroke="#333" stroke-width="2" />
+  <polygon points="160,505 150,510 160,515" fill="#333" />
+  <text x="300" y="500" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">返回唯一凭证(DeviceVoucher)</text>
+
+  <!-- 建立连接 -->
+  <line x1="150" y1="530" x2="750" y2="530" stroke="#333" stroke-width="2" />
+  <polygon points="740,525 750,530 740,535" fill="#333" />
+  <text x="450" y="520" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">建立安全连接</text>
+
+  <!-- 底部对象框 -->
+  <rect x="70" y="550" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="150" y="580" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">设备</text>
+  
+  <rect x="370" y="550" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="450" y="580" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">平台认证服务</text>
+  
+  <rect x="670" y="550" width="160" height="50" fill="#5ecea6" rx="4" ry="4" />
+  <text x="750" y="580" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#333">平台连接服务</text>
+
+  <!-- 可选路径文本说明 -->
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" font-style="italic">包含产品关联的认证流程</text>
+</svg>

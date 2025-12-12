@@ -2,43 +2,42 @@
 sidebar_position: 1
 ---
 
-# 设备接入概览
+# Device Connectivity Overview
 
-## 设备接入目标
+## Device Connectivity Goals
 
-设备接入是物联网平台的核心功能之一，ThingsPanel物联网平台支持多种设备接入方式，旨在帮助用户快速、便捷地将各类物联网设备连接到平台，实现数据采集与管理。重点实现：
-- **多协议支持**：支持主流物联网协议（如MQTT、CoAP、HTTP、Modbus等），满足不同设备的接入需求。
-- **全场景覆盖**：支持手动添加、批量导入、通过编号添加和通过三方平台接入等多种方式，适应不同规模和类型的设备接入场景。
-- **简化接入流程**：提供直观的用户界面和操作流程
-- **高效设备管理**：支持批量添加、自动添加、扫码添加，提升设备管理效率。
+Device connectivity is one of the core functions of the IoT platform. ThingsPanel supports multiple device onboarding methods, aiming to help users quickly and conveniently connect various IoT devices to the platform for data collection and management. Key achievements include:
+- **Multi-protocol Support**: Supports mainstream IoT protocols (e.g., MQTT, CoAP, HTTP, Modbus), meeting the access needs of different devices.
+- **Full Scenario Coverage**: Supports manual addition, batch import, addition by ID, and third-party platform access, adapting to different scales and types of device onboarding scenarios.
+- **Simplified Access Process**: Provides intuitive user interface and operation flow.
+- **Efficient Device Management**: Supports batch addition, automatic addition, and scan code addition, improving device management efficiency.
 
+## Four Ways to Connect Devices in ThingsPanel
 
-
-## ThingsPanel物联网平台设备接入四种方式
-|接入方式|操作流程|核心特点|适用场景|
+| Access Method | Operation Workflow | Core Features | Applicable Scenarios |
 | ---- | ---- | ---- | ---- |
-|手动添加|输入设备名称，选择设备模板（模板可匹配MQTT、Modbus等任意协议），完成设备添加|操作简单，无需复杂配置，协议适配性强|少量设备接入，单台设备快速部署|
-|批量添加|下载设备模板→填入设备数据→选择模板导入，实现批量创建设备|高效便捷，支持大规模设备批量创建|规模性设备接入，如单次添加数千至数万台设备|
-|通过编号添加|先在系统产品管理中完成设备预注册，后续通过设备编号接入（对应手机端扫码添加）|需提前预注册，接入流程规范，适配移动端操作|已完成预注册的设备接入，需移动端快速扫码绑定的场景|
-|通过三方添加|对接第三方平台/服务，一次性批量添加设备，同步获取设备遥测数据并支持下发控制|跨平台整合能力强，支持批量接入与数据交互|从外部平台整合设备，如移动OneNet、电信物联网平台、视频接入平台等第三方设备迁移整合|
+| Manual Add | Enter device name, select device template (template can match arbitrary protocols like MQTT, Modbus), complete device addition | Simple operation, no complex configuration, strong protocol adaptability | Small number of devices, rapid deployment of single devices |
+| Batch Add | Download device template → Fill in device data → Select template to import, realizing batch device creation | Efficient and convenient, supports large-scale device batch creation | Scale device onboarding, such as adding thousands to tens of thousands of devices at once |
+| Add via ID | Pre-register devices in system product management, then access via device ID (corresponds to mobile scan code addition) | Requires pre-registration, standardized access process, adapted for mobile operations | Access for pre-registered devices, scenarios requiring quick binding via mobile scan |
+| Add via Third-party | Connect to third-party platforms/services, batch add devices at once, synchronize device telemetry data and support downlink control | Strong cross-platform integration capability, supports batch access and data interaction | Integrating devices from external platforms, such as migration/integration of third-party devices like China Mobile OneNet, China Telecom IoT Platform, video access platforms |
 
-## 设备接入支持的协议
+## Supported Protocols
 
-| 类别         | 名称/协议                          | 适用设备类型                                                                 | 核心说明（功能、应用场景、行业特性）                                                                 |
-|--------------|-----------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| **协议组件** | MQTT                              | 传感器（温湿度、光照等）、智能终端、网关、低功耗设备（如NB-IoT模块）           | - 轻量级发布/订阅协议，带宽占用低、功耗小，支持QoS分级（0/1/2）；<br />- 适用于跨网络设备通信、海量终端数据上报，广泛应用于智能家居、工业物联网（IIoT）、环境监测等场景。 |
-|   **协议组件**           | Modbus TCP RTU                    | 工业传感器（压力、流量、液位）、PLC、变频器、智能仪表（电表、水表）             | - 工业领域标准协议，TCP适用于以太网通信，RTU适用于串口（RS485/232）设备；<br />- 支持寄存器读写、线圈控制，结构简单、兼容性强，核心用于工业自动化控制、设备状态监控。 |
-|  **协议组件**            | Modbus TCP直连                    | 局域网内PLC、工业控制器、智能仪表（如电力仪表、流量表）、工业传感器             | - 基于Modbus协议的以太网直连版本，省略串口转TCP环节，直接通过局域网进行数据交互；<br />- 通信延迟低、稳定性高，适用于工厂车间、机房等局域网环境下的设备点对点通信，如PLC与监控主机的实时数据交互、生产线设备联动控制。 |
-|  **协议组件**            | GB28181国标视频协议               | 网络摄像头（IPC）、NVR、视频编码器、视频平台设备                               | - 国内安防视频监控强制标准，支持设备注册、实时视频传输（RTP/RTSP）、录像回放、报警联动；<br />- 适用于城市安防、园区监控、交通卡口等场景，确保不同厂商设备互联互通。 |
-|  **协议组件**            | OPC-UA                            | 工业控制器、传感器、SCADA系统、MES系统、智能设备                               | - 工业物联网跨平台通信协议，支持跨操作系统、跨设备类型，提供安全加密（SSL/TLS）、数据建模、历史数据访问；<br />- 适用于工业数据集成、设备间协同控制，是工业4.0核心协议之一。 |
-|   **协议组件**           | 北斗2号/3号                       | 车载终端、船舶设备、户外监测设备（气象、地质）、移动终端（手持机、物联网模块） | - 中国北斗卫星导航系统协议，支持定位、测速、授时（PNT）、短报文通信（北斗3号增强）；<br />- 适用于户外作业、交通运输、应急救援、农业植保等需要高精度定位的场景。 |
-|  **协议组件**            | 水文SL651-2014                    | 水文监测设备（水位计、流速仪、雨量计）、水文遥测终端（RTU）、水文站设备       | - 水文行业标准协议，规定水文数据采集、传输、存储的格式和接口；<br />- 适用于水利部门、水文监测站的水量、水质数据上报，支持防洪抗旱、水资源调度决策。 |
-|  **协议组件**            | 水资源SL/T427—2021                | 水资源监测设备（流量计、水位传感器）、水资源计量终端、水利工程监控设备           | - 水资源管理行业推荐标准，规范水资源数据采集、传输、统计分析的要求；<br />- 适用于水资源总量控制、用水计量监管、水利工程运行监测等场景。 |
-| **协议组件**             | IEC104协议                        | 电力遥测终端、变电站设备、电力监控设备（RTU、DTU）、SCADA系统                   | - 电力行业标准远动通信协议，基于TCP/IP，支持遥测（模拟量）、遥信（开关量）、遥控（控制命令）；<br />- 适用于电力系统调度、变电站监控、配网自动化等场景，确保电力数据实时传输。 |
-|  **协议组件**            | GB26875.3-2011报警传输网络通信协议 | 报警终端（烟感、温感报警器）、安防报警主机、应急联动设备、监控平台               | - 国内报警系统通信标准，规定报警信息的格式、传输方式和联动逻辑；<br />- 适用于安防报警、应急救援、工业安全监控等场景，支持报警信息快速上报和多设备联动响应。 |
-| **三方接入** | 海康综合安防平台（iSecure Center） | 海康系摄像头、NVR、门禁设备、报警主机、智能分析设备（如人脸抓拍摄像机）         | - 海康威视推出的综合安防管理平台，支持视频监控、门禁考勤、报警联动、智能分析（AI识别）等功能；<br />- 适用于园区、楼宇、城市安防等场景，可接入海康及兼容GB28181的第三方设备，提供一体化安防解决方案。 |
-|  **三方接入**            | 中国移动OneNet                    | 物联网模块（NB-IoT、4G/5G）、传感器、智能终端、网关（Lora、WiFi）             | - 中国移动物联网开放平台，支持MQTT/CoAP/HTTP等协议接入，提供设备管理、数据存储、规则引擎、API调用等服务；<br />- 适用于智慧城市、智能家居、工业监控、消费电子等场景，支持海量设备接入和运营商级网络保障。 |
-| **三方接入**             | 中国电信CTWing                    | 电信物联网模块（NB-IoT、4G/5G）、智能终端、传感器、行业专用设备（如医疗、交通） | - 中国电信物联网平台，支持多协议接入、边缘计算、数据可视化，提供行业解决方案（如智慧医疗、智能交通）；<br />- 优势在于电信网络覆盖（尤其是NB-IoT），适用于对网络稳定性要求高的行业应用。 |
-| **三方接入**             | LoraWan网关接入ChirpStack         | Lora传感器、Lora终端（如温湿度、气体传感器）、Lora网关、低功耗物联网设备       | - ChirpStack是开源LoraWan网络服务器，支持Lora设备接入、数据解析、设备管理；<br />- 适用于低功耗、远距离、小数据量的场景（如农业物联网、园区环境监测），需配合Lora网关使用，部署灵活（私有/公有部署均可）。 |
+| Category | Name/Protocol | Applicable Device Types | Core Description (Features, Scenarios, Industry Characteristics) |
+|---|---|---|---|
+| **Protocol Component** | MQTT | Sensors (temp/humidity, light), smart terminals, gateways, low-power devices (NB-IoT modules) | - Lightweight pub/sub protocol, low bandwidth, low power, supports QoS levels (0/1/2);<br />- Suitable for cross-network device communication, massive terminal data reporting, widely used in smart home, IIoT, environmental monitoring. |
+| **Protocol Component** | Modbus TCP RTU | Industrial sensors (pressure, flow, level), PLCs, VFDs, smart meters (electric, water) | - Industrial standard protocol. TCP for Ethernet, RTU for serial (RS485/232);<br />- Supports register read/write, coil control. Simple structure, strong compatibility. Core for industrial automation control and status monitoring. |
+| **Protocol Component** | Modbus TCP Direct | LAN PLCs, industrial controllers, smart meters (power, flow), industrial sensors | - Ethernet direct connection version based on Modbus, omitting Serial-to-TCP conversion, direct data interaction via LAN;<br />- Low latency, high stability. Suitable for peer-to-peer communication in LAN environments like factories and monitoring rooms, e.g., real-time interaction between PLC and monitoring host, production line linkage control. |
+| **Protocol Component** | GB28181 National Video Protocol | Network Cameras (IPC), NVRs, Video Encoders, Video Platform Devices | - China's mandatory standard for security video monitoring. Supports device registration, real-time video transmission (RTP/RTSP), playback, alarm linkage;<br />- Suitable for urban security, park monitoring, traffic checkpoints, ensuring interoperability between different vendors. |
+| **Protocol Component** | OPC-UA | Industrial controllers, sensors, SCADA systems, MES systems, smart devices | - Industrial IoT cross-platform communication protocol. Cross-OS, cross-device type. Provides security (SSL/TLS), data modeling, historical data access;<br />- Suitable for industrial data integration, inter-device collaborative control. One of the core protocols of Industry 4.0. |
+| **Protocol Component** | Beidou 2/3 | Vehicle terminals, maritime devices, outdoor monitoring (weather, geological), mobile terminals | - China Beidou Satellite Navigation System protocol. Supports positioning, velocity, timing (PNT), short message communication (Beidou 3 enhanced);<br />- Suitable for outdoor operations, transportation, emergency rescue, agriculture, and other scenarios requiring high-precision positioning. |
+| **Protocol Component** | Hydrology SL651-2014 | Hydrological monitoring devices (water level gauge, flow meter, rain gauge), RTUs, Hydrology station devices | - Hydrology industry standard protocol. Specifies format and interface for hydrological data collection, transmission, and storage;<br />- Suitable for water conservancy departments, hydrology stations to report water volume and quality data. Supports flood control and water resource dispatch decisions. |
+| **Protocol Component** | Water Resources SL/T427—2021 | Water resource monitoring devices (flow meter, water level sensor), metering terminals, engineering monitoring devices | - Water resource management industry recommended standard. Standardizes requirements for water resource data collection, transmission, and statistical analysis;<br />- Suitable for total water resource control, water usage supervision, water conservancy engineering monitoring. |
+| **Protocol Component** | IEC104 Protocol | Power telemetry terminals, substation devices, power monitoring devices (RTU, DTU), SCADA systems | - Power industry standard telecontrol communication protocol based on TCP/IP. Supports telemetry (analog), telesignal (digital), telecontrol (commands);<br />- Suitable for power system scheduling, substation monitoring, distribution automation, ensuring real-time power data transmission. |
+| **Protocol Component** | GB26875.3-2011 Alarm Transmission | Alarm terminals (smoke, heat detectors), security alarm hosts, emergency linkage devices, monitoring platforms | - Domestic alarm system communication standard. Specifies alarm info format, transmission method, and linkage logic;<br />- Suitable for security alarms, emergency rescue, industrial safety monitoring. Supports rapid alarm reporting and multi-device linkage response. |
+| **Third-party Access** | Hikvision Integrated Security Platform (iSecure Center) | Hikvision cameras, NVRs, access control, alarm hosts, smart analysis devices | - Integrated security management platform by Hikvision. Supports video monitoring, access control, alarm linkage, AI analysis;<br />- Suitable for parks, buildings, urban security. Can access Hikvision and GB28181 compatible third-party devices, providing integrated security solutions. |
+| **Third-party Access** | China Mobile OneNet | IoT modules (NB-IoT, 4G/5G), sensors, smart terminals, gateways (LoRa, WiFi) | - China Mobile's open IoT platform. Supports MQTT/CoAP/HTTP access. Provides device management, data storage, rule engine, API services;<br />- Suitable for smart cities, smart homes, industrial monitoring, consumer electronics. Supports massive device onboarding and carrier-grade network assurance. |
+| **Third-party Access** | China Telecom CTWing | Telecom IoT modules (NB-IoT, 4G/5G), smart terminals, sensors, industry devices | - China Telecom IoT platform. Supports multi-protocol access, edge computing, data visualization. Provides industry solutions (smart healthcare, smart traffic);<br />- Advantages in telecom network coverage (especially NB-IoT), suitable for industry applications with high network stability requirements. |
+| **Third-party Access** | LoRaWAN Gateway (ChirpStack) | LoRa sensors, LoRa terminals, LoRa gateways, low-power IoT devices | - ChirpStack is an open-source LoRaWAN network server. Supports LoRa device access, data parsing, device management;<br />- Suitable for low-power, long-distance, small data volume scenarios (smart agriculture, park environment monitoring). Requires LoRa gateways. Flexible deployment (private/public). |
 
-**注：以上为列出的部分协议，根据ThingsPanel的设计，可支持各种连接形式的协议。以上协议和三方平台支持情况会随着ThingsPanel平台的持续更新而增加，具体支持的协议和平台请参考最新的官方文档。*
+**Note: The above are some of the listed protocols. According to ThingsPanel's design, it can support various forms of connection protocols. The supported protocols and third-party platforms will increase with the continuous update of the ThingsPanel platform. Please refer to the latest official documentation for specific supported protocols and platforms.*

@@ -2,43 +2,43 @@
 sidebar_position: 1
 ---
 
-# 设计理念
-大道至简、大音希声、大智若愚、大象无形、大巧若拙
+# Design Philosophy
 
-——出自《老子》
+"Great truths are always simple."
+—— *Laozi*
 
-## 设计目标
-- 简单
-  - 例如：添加设备时，只需要通过一个菜单，一个按钮，所有的添加设备都集中到了这里。
-- 快速
-  - 例如：通过抽象和封装的方法，形成设备模板，大大提高复用效率。
-## 设计宗旨
-- 消灭重复的动作
-- 减少生命的浪费
-- 增进人性化体验
+## Design Goals
+- **Simplicity**
+  - Example: Adding a device requires only one menu and one button; all device onboarding processes are centralized here.
+- **Speed**
+  - Example: Through abstraction and encapsulation, Device Templates are formed, greatly improving reuse efficiency.
 
-## 设计思路
+## Design Mission
+- Eliminate repetitive actions.
+- Reduce wasted time.
+- Enhance human-centric experience.
 
-- 用常识思维设计系统。
-- 用简单的办法解决复杂的问题。
-- 更高层次的抽象。
-- 用标准化组件简化系统。
+## Design Logic
+- Design the system using common sense.
+- Solve complex problems with simple methods.
+- Higher-level abstraction.
+- Simplify the system with standardized components.
 
-## 设计原则
-### 概念与命名
-- MECE穷尽和互斥原则。相互独立、完全穷尽，让结构划分更加逻辑清晰。 
+## Design Principles
 
-### 开放原则
-- 凡并列功能项都要开放，可扩展。（凡是有多个选项的，都需要满足）
-  
-### 最小化原则
+### Concepts & Naming
+- **MECE Principle** (Mutually Exclusive, Collectively Exhaustive). Independent and exhaustive, making structural divisions logically clear.
 
-- 用最少的鼠标点击实现业务。
-- 用最少的代码实现业务。
-- 动最少的脑子实现目的。
-- 如果可能，尽量删掉。
+### Openness Principle
+- All parallel functional items must be open and extensible. (Anywhere multiple options exist, this must be satisfied).
 
-### 一致性原则	
-- 功能向后兼容
-- 不改变用户的使用习惯
-- 一致的界面易用性风格
+### Minimalism Principle
+- Achieve business goals with the fewest mouse clicks.
+- Achieve business goals with the least amount of code.
+- Achieve objectives with minimal cognitive load.
+- If possible, delete it.
+
+### Consistency Principle
+- Backward compatibility for features.
+- Do not change user habits.
+- Consistent interface usability style.

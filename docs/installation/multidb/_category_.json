@@ -1,8 +1,8 @@
 {
-  "label": "其它数据库部署",
-  "position": 20,
+  "label": "Other Database Deployment",
+  "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "其它数据库部署"
+    "description": "Other Database Deployment"
   }
 }

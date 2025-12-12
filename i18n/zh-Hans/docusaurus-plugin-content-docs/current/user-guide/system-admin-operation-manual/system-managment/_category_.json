@@ -1,0 +1,9 @@
+{
+  "key": "system-admin-system-management",
+  "label": "系统管理",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "系统管理"
+  }
+}

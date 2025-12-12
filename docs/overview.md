@@ -2,97 +2,104 @@
 sidebar_position: 1
 ---
 
-# 为什么选择ThingsPanel 
+# Why ThingsPanel？
 
-ThingsPanel 1.0介绍
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113070550550521&bvid=BV1LSHHevEjd&cid=25712591978&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+**ThingsPanel** is a lightweight, easy-to-use, component-based open-source IoT application support platform. It aims to reduce development work and accelerate the construction of IoT projects through reusable components.
 
+The main plugin categories of ThingsPanel include:
 
-ThingsPanel是一款轻量易用、组件化的开源物联网应用支撑平台，旨在通过可复用的组件，减少开发工作，加速物联网项目构建。
+- **Device Models**: Integration of thing models and charts.
+- **Device Templates**: Integration of device models and access services.
+- **Protocol Components**: Enable direct device connectivity.
+- **Third-Party Components**: Integrate devices via third-party platforms.
+- **Dashboard Cards**: Extend dashboard display capabilities.
+- **Visualization Components**: Enhance big-screen visualization.
+- **Dependent Components**: Industry-specific solution building blocks.
 
+With the **reusability** of these components, development efficiency is significantly improved.
 
-ThingsPanel的插件主要有如下几类，分别是：
-- **物模型**：整合物模型与图表。
-- **设备模板**：整合物模型、设备接入服务。
-- **协议组件**：解决设备直接接入的问题。
-- **三方组件**：通过第三方平台接入设备。
-- **看板卡片**：扩展看板展示能力
-- **可视化组件**：扩展可视化大屏功能
-- **依赖型组件**：行业解决方案积木
+## Product Use Cases
 
-通过以上组件的**复用**，可以大大提高研发效率。
+- Unified device management
+- IoT middle platform
+- Backend for equipment vendors
 
-## 产品用途
+## Problems Solved
 
-- 设备统一管理
-- 物联网中台
-- 设备商设备管理后台
+- **Hobbyists**: Open architecture unleashes creative potential.
+- **Integrators**: One platform to deliver all intelligent projects.
+- **Solution Providers**: Save time and cost to quickly meet business needs.
+- **Device Manufacturers**: Focus only on making devices; no need to handle software.
+- **End Customers**: One platform for device integration and IoT data operations.
 
-## 解决问题
-- **爱好者**：开放的架构释放创造的乐趣。
-- **集成商**：一套平台交付所有智能化项目。
-- **方案商**：节省时间和成本快速实现业务目的。
-- **设备商**：实现目的只需要做好设备，不再需要关注软件。
-- **最终客户**：一套平台实现所有设备接入，实现物联网数据中台。
+## Unique Advantages
 
-## 独特优势
-- 易用性：简化了物联网，让物联网更容易理解。
-- 兼容性：兼容各类设备协议，降低系统扩展成本。
-- 组件化：开放架构，多种组件设计、快速搭建。
+- **Ease of Use**: Simplifies IoT, making it easier to understand.
+- **Compatibility**: Supports a variety of protocols, reducing expansion costs.
+- **Componentization**: Open architecture, diverse components, rapid assembly.
 
-## 用户价值
+## User Value
 
-1. **显著提升效率**
-- 通过可复用的插件组件，将开发效率提升2-10倍
-- 快速构建应用，将项目交付周期从月缩短至周
-- 标准化的模板系统，减少80%重复性工作
+1. **Significantly Increased Efficiency**
+   - Reusable plugin components boost development efficiency by 2–10×
+   - Rapid application construction shortens delivery from months to weeks
+   - Standardized templates eliminate 80% of repetitive work
 
-1. **大幅降低成本**
-- 减少50%以上的开发人力投入
-- 降低70%以上的运维支出
-- 通过插件复用，避免重复建设，节省基础设施成本
+2. **Substantially Lower Costs**
+   - Over 50% reduction in development manpower
+   - Over 70% reduction in maintenance expenses
+   - Plugin reuse avoids redundancy, saving infrastructure costs
 
+## Feature Overview
 
-## 功能概要
+- **Multi-Tenant Management**: Super admin, tenant account management, user-level device and data access
+- **Device Integration**: Project creation, grouped device management, push status monitoring, plugin access, gateway/sub-device support, Modbus RTU/TCP, TCP protocol, GB28181 cameras, custom device services
+- **Monitoring Dashboards**: Device monitoring charts, configurable as menus or homepage, support multiple dashboards
+- **Device Models**: Define data models, Web/App charts, export to JSON
+- **Device Templates**: Bind attributes/functions, protocol configs, automation, alerts, metadata, settings, device credentials
+- **Device Map**: Filter by project, group, or type
+- **Visualization**: Visual editor, open architecture, prebound charts, custom graphics, loosely coupled system; supports SCADA, big screens, 3D, Three.js
+- **Product Management**: Product creation, batch management, QR codes, manual activation, pre-registration
+- **Firmware Upgrade**: Add firmware, create upgrade tasks, upgrade reports
+- **Automation**: Scene linking, scene logs, scheduled triggers, device triggers, multiple trigger modes
+- **Alarm Information**: Filter alarms by project/group and time
+- **Notification System**: SMS, email, call, webhook support
+- **System Logs**: IP access logs, device operation logs
+- **App Management**: Plugin management, plugin generator, installation, app marketplace
+- **Protocol Access**: Define custom protocol configuration and access parameters
+- **Third-Party Integration**: Connect devices via third-party platforms
+- **User Management**: Casbin-based RBAC, page/project permissions, multiple roles
+- **Rule Engine**: Forward data, receive and transform device data, handle protocols, real-time data computation
+- **Data Gateway**: OpenAPI, system integration, IP/data range restrictions, read authorization
+- **System Settings**: Change logo, system title, theme styles
+- **IoT App**: Built with Uniapp; scan to add devices, view metrics, switch projects/groups, manual control, control strategy, logs, account management, SMS login
+- **Dependent Plugins**: Used for industry solutions; built on device plugins and other data/functions, visual invocation, iframe embedding, plugin reuse
 
-- **多租户功能**： 超级管理员管理、租户账户管理业务系统、租户用户管理设备查看数据
-- **设备接入**： 编辑创建项目、按照分组添加管理设备、查看设备推送状态、设备插件接入、网关与子设备接入、Modbus RTU/TCP协议接入、TCP协议接入、GB28181安防摄像头接入、自定义设备接入服务
-- **监控看板**： 设备添加后的监控图表、可设置看板为菜单或首页，创建多个看板。
-- **物模型**：设置物模型、Web和App图表，可导出JSON。 
-- **设备模板**：关联设备、属性与功能、协议配置、数据处理、自动化、告警、扩展信息、设备设置、一型一密设置
-- **设备地图**： 根据项目与分组筛选设备、设备类型筛选
-- **可视化**： 可视化编辑基本功能、开放式架构、预绑定数据图表、添加自己的图元、和系统松耦合，支持组态、大屏、3D、Three.js
-- **产品管理**： 创建产品、批量管理、二维码数据、手动激活、预注册管理
-- **固件升级**： 为产品添加固件、创建升级任务、固件升级报表
-- **自动化**： 场景联动、场景日志、定时触发、设备触发、多种触发
-- **告警信息**： 根据项目和分组显示告警、时间段筛选
-- **通知功能**：短信、邮件、电话、webhook多种通知方式
-- **系统日志**： IP访问路径、设备操作记录
-- **应用管理**： 设备插件管理、插件生成器、插件安装、应用市场
-- **协议接入**： 开发自定义协议配置、配置后的接入参数
-- **三方接入**： 通过第三方平台接入设备
-- **用户管理**： Casbin方案、页面权限控制、项目权限控制、多角色定义
-- **规则引擎**： 数据转发第三方、接收设备数据并转换、接入各种协议、实时数据计算
-- **数据网关**：OpenAPI，对接三方系统，限制IP与数据范围，授权读取
-- **系统设置**： 更换Logo、更换系统标题、更换主题风格
-- **物联网APP**： Uniapp开发、扫码添加设备、查看监测值、切换项目和设备分组、手动控制、设置控制策略、查看操作日志、个人账号管理、手机验证码登录
-- **依赖型插件**： 依赖型插件为行业解决方案、基于设备插件和其他功能与数据、可视化调用、iframe代码引入、插件复用
+## Tech Stack
 
-## 技术栈
+- **Golang**: Excellent concurrency performance, cost-effective, suitable for edge devices
+- **Vue.js (v3)**: Easy to learn and use
+- **Node.js (v16.13)**: Free, open-source, cross-platform
 
-* Golang：天生优异的并发性能，节省硬件成本，可适用于边缘设备。
-* Vue.js(3)：简单易上手
-* Node.js(16.13)：免费、开源、跨平台。 
-* 数据库
-  * PostgreSQL：广泛的社区与低成本。
-  * TimescaleDB ：时序数据库，PostgreSQL插件。
-  * TDengine ：   国产高性能时序数据库
-  * Cassandra：开源分布式Key-Value存储系统
-  * TDSQL-PostgreSQL：腾讯自主研发的分布式数据库系统
-  *  PloarDB-PostgreSQL：阿里云自主研发的高性能云原生分布式数据库
-  *  KingBase：人大金仓
-* Nginx：高性能Web服务器。
-* MQTT broker
-  * GMQTT：高性能消息队列处理。
-  * VerneMQ：高性能分布式MQTT消息代理
-* Redis：NoSQL缓存数据库
+### Databases
+
+- **PostgreSQL**: Large community, low cost
+- **TimescaleDB**: Time-series DB plugin for PostgreSQL
+- **TDengine**: High-performance time-series DB (China-made)
+- **Cassandra**: Distributed key-value storage
+- **TDSQL-PostgreSQL**: Tencent's distributed PostgreSQL DB
+- **PolarDB-PostgreSQL**: Alibaba Cloud's high-performance distributed DB
+- **KingBase**: KingbaseES from China
+
+### Web Server
+
+- **Nginx**: High-performance web server
+
+### MQTT Broker
+
+- **GMQTT**: High-performance message queue
+- **VerneMQ**: High-performance distributed MQTT broker
+
+### Cache
+
+- **Redis**: NoSQL cache database

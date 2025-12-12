@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="700" fill="#f7f9fc" />
+  
+  <!-- 标题 -->
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">设备模板与产品的一型一密认证流程图</text>
+
+  <!-- 左侧：平台侧 -->
+  <rect x="50" y="80" width="400" height="600" fill="#f0f5ff" rx="10" ry="10" stroke="#aac1e8" stroke-width="2"/>
+  <text x="250" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2c5aa0">IoT平台</text>
+  
+  <!-- 右侧：设备侧 -->
+  <rect x="550" y="80" width="400" height="600" rx="10" ry="10" fill="#f0fff5" stroke="#aad1b9" stroke-width="2"/>
+  <text x="750" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f7a54">设备端</text>
+  
+  <!-- 平台侧流程 -->
+  <!-- 1. 创建设备模板 -->
+  <rect x="100" y="140" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">创建设备模板并生成模板密钥</text>
+  
+  <!-- 2. 可选：创建产品 -->
+  <rect x="100" y="220" width="300" height="60" fill="#7baaf7" rx="5" ry="5" stroke-dasharray="5,3" stroke="#4a89dc" stroke-width="2" />
+  <text x="250" y="245" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">可选：创建产品</text>
+  <text x="250" y="265" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">引用设备模板并生成ProductKey</text>
+  
+  <!-- 3. 接收认证请求 -->
+  <rect x="100" y="300" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="325" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">接收设备认证请求</text>
+  <text x="250" y="345" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">验证模板密钥和设备唯一标识</text>
+  
+  <!-- 4. 判断请求类型 -->
+  <polygon points="250,380 190,430 250,480 310,430" fill="#4a89dc" />
+  <text x="250" y="420" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">请求中是否</text>
+  <text x="250" y="440" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">包含ProductKey</text>
+  
+  <!-- 5a. 仅模板关联 -->
+  <rect x="100" y="500" width="140" height="60" fill="#3a99d8" rx="5" ry="5" />
+  <text x="170" y="525" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">否：仅模板密钥</text>
+  <text x="170" y="545" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">生成设备关联模板</text>
+  
+  <!-- 5b. 产品关联 -->
+  <rect x="260" y="500" width="140" height="60" fill="#3a99d8" rx="5" ry="5" />
+  <text x="330" y="525" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">是：有ProductKey</text>
+  <text x="330" y="545" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">生成设备关联产品</text>
+  
+  <!-- 6. 生成设备唯一凭证 -->
+  <rect x="100" y="580" width="300" height="60" fill="#4a89dc" rx="5" ry="5" />
+  <text x="250" y="605" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">生成设备唯一凭证</text>
+  <text x="250" y="625" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（DeviceSecret/令牌）</text>
+  
+  <!-- 设备侧流程 -->
+  <!-- 1. 设备预置 -->
+  <rect x="600" y="140" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="175" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">设备预置模板密钥</text>
+  
+  <!-- 2. 产品关联选项 -->
+  <rect x="600" y="220" width="300" height="60" fill="#8bd3c1" rx="5" ry="5" stroke-dasharray="5,3" stroke="#37bc9b" stroke-width="2" />
+  <text x="750" y="245" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">可选：设备预置ProductKey</text>
+  <text x="750" y="265" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（如需关联到特定产品）</text>
+  
+  <!-- 3. 设备唯一标识 -->
+  <rect x="600" y="300" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="325" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">获取设备唯一标识</text>
+  <text x="750" y="345" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（芯片ID/MAC/IMEI等）</text>
+  
+  <!-- 4. 判断是否有ProductKey -->
+  <polygon points="750,380 690,430 750,480 810,430" fill="#37bc9b" />
+  <text x="750" y="420" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">设备是否预置</text>
+  <text x="750" y="440" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">ProductKey</text>
+  
+  <!-- 5a. 仅模板认证 -->
+  <rect x="600" y="500" width="140" height="60" fill="#2faa8f" rx="5" ry="5" />
+  <text x="670" y="525" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">否：仅发送</text>
+  <text x="670" y="545" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">模板密钥+设备标识</text>
+  
+  <!-- 5b. 产品认证 -->
+  <rect x="760" y="500" width="140" height="60" fill="#2faa8f" rx="5" ry="5" />
+  <text x="830" y="525" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">是：发送模板密钥+</text>
+  <text x="830" y="545" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">设备标识+ProductKey</text>
+  
+  <!-- 6. 接收设备凭证 -->
+  <rect x="600" y="580" width="300" height="60" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="605" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">接收设备唯一凭证并保存</text>
+  <text x="750" y="625" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">（DeviceSecret/令牌）</text>
+  
+  <!-- 7. 建立连接 -->
+  <rect x="600" y="660" width="300" height="40" fill="#37bc9b" rx="5" ry="5" />
+  <text x="750" y="685" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">使用唯一凭证与平台建立安全连接</text>
+  
+  <!-- 箭头和连接线 -->
+  <!-- 模块间的数据流 -->
+  <line x1="250" y1="200" x2="250" y2="220" stroke="#4a89dc" stroke-width="2" />
+  <polygon points="250,215 245,220 255,220" fill="#4a89dc" />
+  
+  <line x1="250" y1="280" x2="250" y2="300" stroke="#4a89dc" stroke-width="2" />
+  <polygon points="250,295 245,300 255,300" fill="#4a89dc" />
+  
+  <line x1="250" y1="360" x2="250" y2="380" stroke="#4a89dc" stroke-width="2" />
+  <polygon points="250,375 245,380 255,380" fill="#4a89dc" />
+  
+  <line x1="750" y1="200" x2="750" y2="220" stroke="#37bc9b" stroke-width="2" />
+  <polygon points="750,215 745,220 755,220" fill="#37bc9b" />
+  
+  <line x1="750" y1="280" x2="750" y2="300" stroke="#37bc9b" stroke-width="2" />
+  <polygon points="750,295 745,300 755,300" fill="#37bc9b" />
+  
+  <line x1="750" y1="360" x2="750" y2="380" stroke="#37bc9b" stroke-width="2" />
+  <polygon points="750,375 745,380 755,380" fill="#37bc9b" />
+  
+  <!-- 平台到设备的模板密钥 -->
+  <line x1="400" y1="170" x2="600" y2="170" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="590,170 600,165 600,175" fill="#f39c12" />
+  <text x="500" y="160" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e67e22">产线烧录</text>
+  
+  <!-- 平台到设备的ProductKey -->
+  <line x1="400" y1="250" x2="600" y2="250" stroke="#f39c12" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="590,250 600,245 600,255" fill="#f39c12" />
+  <text x="500" y="240" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e67e22">可选烧录</text>
+  
+  <!-- 设备认证请求 -->
+  <line x1="670" y1="560" x2="170" y2="430" stroke="#f39c12" stroke-width="2" />
+  <polygon points="177,434 170,430 173,424" fill="#f39c12" />
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e67e22">认证请求(仅模板)</text>
+  
+  <line x1="830" y1="560" x2="330" y2="430" stroke="#f39c12" stroke-width="2" />
+  <polygon points="337,434 330,430 333,424" fill="#f39c12" />
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e67e22">认证请求(模板+产品)</text>
+  
+  <!-- 菱形到分支线 -->
+  <line x1="220" y1="440" x2="170" y2="500" stroke="#4a89dc" stroke-width="2" />
+  <line x1="280" y1="440" x2="330" y2="500" stroke="#4a89dc" stroke-width="2" />
+  
+  <line x1="720" y1="440" x2="670" y2="500" stroke="#37bc9b" stroke-width="2" />
+  <line x1="780" y1="440" x2="830" y2="500" stroke="#37bc9b" stroke-width="2" />
+  
+  <!-- 分支到合并线 -->
+  <line x1="170" y1="560" x2="200" y2="580" stroke="#3a99d8" stroke-width="2" />
+  <line x1="330" y1="560" x2="300" y2="580" stroke="#3a99d8" stroke-width="2" />
+  
+  <line x1="670" y1="560" x2="700" y2="580" stroke="#2faa8f" stroke-width="2" />
+  <line x1="830" y1="560" x2="800" y2="580" stroke="#2faa8f" stroke-width="2" />
+  
+  <!-- 平台到设备的凭证下发 -->
+  <line x1="400" y1="610" x2="600" y2="610" stroke="#f39c12" stroke-width="2" />
+  <polygon points="590,610 600,605 600,615" fill="#f39c12" />
+  <text x="500" y="600" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e67e22">下发唯一凭证</text>
+  
+  <!-- 注释说明 -->
+  <rect x="150" y="50" width="700" height="20" fill="none" />
+  <text x="500" y="65" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#666">一型一密：同类设备共享类型密钥，每个设备获取专属连接凭证</text>
+</svg>

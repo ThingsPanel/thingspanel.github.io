@@ -2,89 +2,89 @@
 sidebar_position: 10
 ---
 
-# 三级等保
+# MLPS Level 3 Compliance
 
-## 背景与意义
+## Background & Significance
 
-根据《中华人民共和国网络安全法》要求，信息系统安全等级保护（简称等保）是国家网络安全保障的基本制度。作为物联网管理平台，ThingsPanel 满足三级等保要求，确保平台的安全性、可靠性和合规性。
+According to the *Cybersecurity Law of the People's Republic of China*, the Multi-Level Protection Scheme (MLPS) is the fundamental system for national cybersecurity assurance. As an IoT management platform, ThingsPanel meets the requirements of MLPS Level 3, ensuring platform security, reliability, and compliance.
 
-## 实施思路
+## Implementation Approach
 
-依据《信息安全技术-网络安全等级保护基本要求》（GB/T 22239-2019）中第三级安全要求，重点实现：
+Based on *Information Security Technology - Baseline for Classified Protection of Cybersecurity* (GB/T 22239-2019) Level 3 security requirements, we focus on:
 
-a) 用户身份标识和鉴别：确保身份标识唯一性，实施复杂度要求，定期更换鉴别信息；
+a) **User Identification and Authentication**: Ensure unique identity, enforce complexity requirements, and require periodic password updates.
 
-b) 登录安全控制：配置登录失败处理、会话管理、非法登录限制等安全措施；
+b) **Login Security Control**: Configure login failure handling, session management, and restrictions on illegal logins.
 
-c) 远程管理安全：采取必要的加密措施防止鉴别信息在网络传输过程中被窃听。
+c) **Remote Management Security**: Adopt necessary encryption measures to prevent authentication information from being eavesdropped during network transmission.
 
-## 具体安全要求
+## Specific Security Requirements
 
-1. 连续登录失败 5 次锁定账户 30 分钟，登录超时时长为 300-1800 秒
+1. **Account Lockout**: After 5 consecutive failed login attempts, the account is locked for 30 minutes. Login session timeout is set between 300-1800 seconds.
 
-2. 采用国家认可的密码技术保护重要业务数据和个人信息
+2. **Encryption**: Use state-approved cryptographic technologies to protect important business data and personal information.
 
-3. 平台密码复杂度至少包含三种字符，进行特殊字符过滤，最小 8 位且禁止使用常用密码
+3. **Password Complexity**: Passwords must contain at least three character types, filter special characters, be at least 8 characters long, and avoid common weak passwords.
 
-4. 密码不可明文传输，不可明文存储
+4. **Secure Transmission/Storage**: Passwords must not be transmitted or stored in plaintext.
 
-5. 实施 SQL 注入防护措施
+5. **SQL Injection Protection**: Implement measures to prevent SQL injection attacks.
 
-6. 严格禁止共享账户使用
+6. **No Shared Accounts**: Strictly prohibit the use of shared accounts.
 
-7. 用户登出时必须清除用户鉴别信息
+7. **Session Cleanup**: User authentication information must be cleared upon logout.
 
-8. 对具有上传功能的模块实施文件类型限制
+8. **File Upload Restrictions**: Implement file type restrictions on modules with upload functionality.
 
-## 开发措施
+## Development Measures
 
-### 实现强密码策略
+### Strong Password Policy
 
-- 最小长度：8位
-- 复杂度要求：至少包含三种字符类型（大小写字母、数字、特殊字符）
+- Minimum Length: 8 characters
+- Complexity: At least 3 character types (uppercase letters, lowercase letters, numbers, special characters)
 
-### 登录失败锁定
+### Login Failure Lockout
 
-- 记录登录失败次数
-- 设置阈值
-  - ![登录锁定配置](./img/1.png)
-- 超过阈值后，自动锁定账户 30 分钟
+- Record failed login attempts
+- Set threshold
+  - ![Login Lockout Config](./img/1.png)
+- Automatically lock account for 30 minutes after exceeding threshold
 
-### RSA前端密码加密
+### Frontend RSA Encryption
 
-- 实施全链路加密保护
-  - ![RSA加密开关](./img/2.png)
-- 前端密钥位置
-  - rsa_key目录
-- 后端密钥位置
-  - ![私钥](./img/3.png)
-- 密钥管理建议：
-  - 定期轮换密钥对
-  - 加强私钥保护
+- Implement end-to-end encryption protection
+  - ![RSA Encryption Toggle](./img/2.png)
+- Frontend Key Location
+  - `rsa_key` directory
+- Backend Key Location
+  - ![Private Key](./img/3.png)
+- Key Management Recommendations:
+  - Periodically rotate key pairs
+  - Strengthen private key protection
 
-### 防范安全漏洞
+### Vulnerability Prevention
 
-- CodeQL 定期代码安全扫描
-- DeepSource 提交时自动检测
-- 重点关注的漏洞类型：
-  - SQL注入
-  - 跨站脚本（XSS）
-  - 跨站请求伪造（CSRF）
-  - 不安全的反序列化
-  - 敏感数据泄露
+- CodeQL periodic security scanning
+- DeepSource automatic detection on commit
+- Focus on vulnerability types:
+  - SQL Injection
+  - Cross-Site Scripting (XSS)
+  - Cross-Site Request Forgery (CSRF)
+  - Insecure Deserialization
+  - Sensitive Data Exposure
 
-### 日志和监控
+### Logging and Monitoring
 
-- 记录关键安全事件：
-  - 用户认证操作
-  - 敏感数据访问
-  - 系统异常信息
+- Record critical security events:
+  - User authentication operations
+  - Sensitive data access
+  - System exception information
 
-### 持续改进
+### Continuous Improvement
 
-- 定期安全评估和渗透测试
-- 及时更新系统组件
-- 持续优化安全策略
-- 跟踪最新安全威胁
+- Periodic security assessments and penetration testing
+- Timely updates of system components
+- Continuous optimization of security policies
+- Tracking latest security threats
 
-通过以上措施，确保平台满足三级等保要求，为用户提供安全可靠的服务。我们将持续关注安全技术发展，不断提升平台的安全防护能力。
+By implementing these measures, we ensure the platform meets MLPS Level 3 requirements, providing users with secure and reliable services. We will continue to monitor security technology developments to constantly enhance platform security capabilities.

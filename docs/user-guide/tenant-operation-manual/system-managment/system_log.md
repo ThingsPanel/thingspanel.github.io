@@ -2,8 +2,8 @@
 sidebar_position: 1
 ---
 
-# 系统日志
+# System Logs
 
-- 查看特定时间、特定IP、特定用户的访问记录和对系统的操作，并可通过用户名和时间段进行搜索。
+- View access records and system operations for specific times, IP addresses, and users. Supports searching by username and time period.
 
-![descript](./images/image108.png)
+![System Logs](./images/image108.png)

@@ -2,101 +2,98 @@
 sidebar_position: 7
 ---
 
-# OPC-UA接入
+# OPC-UA Access
 
-## 什么是OPC UA
+## What is OPC UA
 
-OPC-UA（OPC Unified Architecture）作为工业自动化领域的新一代通信标准协议，正在逐步取代传统的OPC协议。它提供了一个安全、可靠、平台无关的工业通信解决方案。ThingsPanel平台通过集成OPC-UA设备接入服务，实现了与工业设备的无缝对接，为工业物联网应用提供了强大的支持。
+OPC-UA (OPC Unified Architecture) is a new generation communication standard protocol in industrial automation, gradually replacing traditional OPC protocols. It provides a secure, reliable, platform-independent industrial communication solution. ThingsPanel achieves seamless integration with industrial devices by integrating OPC-UA device connectivity services, providing strong support for industrial IoT applications.
 
-OPC-UA是一个面向工业自动化的机器对机器通信协议，具有以下特点：
+OPC-UA is a machine-to-machine communication protocol for industrial automation with the following features:
 
-1. 平台独立性：
-   - 支持跨平台部署
-   - 不依赖特定操作系统
-   - 支持多种编程语言实现
+1. Platform Independence:
+   - Cross-platform deployment
+   - Operating system independent
+   - Supports multiple programming languages
 
-2. 安全性：
-   - 内置加密机制
-   - 支持证书认证
-   - 数据传输安全保障
+2. Security:
+   - Built-in encryption
+   - Certificate authentication
+   - Data transmission security
 
-3. 可扩展性：
-   - 支持自定义数据模型
-   - 灵活的信息建模能力
-   - 支持复杂数据结构
+3. Scalability:
+   - Custom data models
+   - Flexible information modeling
+   - Complex data structures
 
+## OPC-UA Device Connectivity Service
 
-## OPC-UA设备接入服务
+This service is an Enterprise Edition feature. Please contact us if needed.
 
-此设备接入服务为企业版功能，如有需求，请联系我们。
+### Features
 
-### 功能特性
+- **Device Discovery**
+  - Auto scan devices and nodes in OPC-UA server
+  - Supports recursive traversal and filtering
+  - Real-time status updates
 
-- **设备发现**
-  - 自动扫描 OPC-UA 服务器中的设备和节点
-  - 支持递归遍历和过滤设备节点
-  - 实时更新设备状态和在线情况
+- **Data Collection**
+  - Multi-device concurrent collection
+  - Auto subscribe to data changes
+  - Data caching and batch reporting
+  - Built-in retry mechanism
 
-- **数据采集**
-  - 支持多设备并发数据采集
-  - 自动订阅设备数据变更
-  - 支持数据缓存和批量上报
-  - 内置数据采集重试机制
+- **Platform Integration**
+  - Seamless integration with ThingsPanel
+  - Device configuration management
+  - MQTT real-time messaging
+  - HTTP API support
 
-- **平台集成**
-  - 与 ThingsPanel 平台无缝集成
-  - 支持设备配置管理
-  - MQTT 消息实时传输
-  - HTTP API 接口支持
+- **Monitoring**
+  - Complete logging system
+  - Service status monitoring
+  - Auto recovery mechanism
+  - Performance metrics
 
-- **运行监控**
-  - 完整的日志记录系统
-  - 服务状态监控
-  - 异常自动恢复机制
-  - 性能指标收集
+### System Requirements
 
-### 系统要求
+- Go 1.22 or above
+- Windows/Linux/MacOS
+- OPC-UA Server supporting standard protocol
 
-- Go 1.22 或以上版本
-- 支持 Windows/Linux/MacOS 系统
-- OPC-UA 服务器需支持标准 OPC-UA 协议
-### 操作步骤
+### Steps
 
-#### 注册设备接入服务
-1. super用户登录-应用管理-设备接入服务管理-添加新设备接入服务
+#### Register Service
+1. Login as super user - App Management - Connectivity Service Management - Add New Service.
 
 ![](../device-connect/image/2024-11-14-16-12-04.png)
 
-2. 设备接入服务配置
+2. Configure Service.
    
 ![](../device-connect/image/2024-11-14-16-12-25.png)
 
+#### Use Service
 
-#### 使用设备接入服务
-
-1. 选择注册的设备接入服务
+1. Select registered service.
 
 ![](../device-connect/image/2024-11-14-16-13-07.png)
 
-2. 新增接入点，填入OPC-UA服务的地址等信息
+2. Add access point, fill in OPC-UA server address, etc.
 
 ![](../device-connect/image/2024-11-14-16-13-13.png)
 
-3. 选择要添加的设备（需要提前创建一个设备模板，协议配置里选择这个设备接入服务）
+3. Select device to add (Pre-create a device template, select this service in protocol config).
 
 ![](../device-connect/image/2024-11-14-16-13-18.png)
 
-
-
-4. 添加后可查看设备
+4. View device after adding.
 
 ![](../device-connect/image/2024-11-14-16-13-22.png)
 
-5. 数据变化上报
+5. Data change reporting.
 
 ![](../device-connect/image/2024-11-14-16-13-26.png)
 
-## 其它方法：通过规则引擎的方式
+## Other Methods: Via Rule Engine
 
-ThingsPanel对接opc-ua设备【通过规则引擎】  
+ThingsPanel connects to OPC-UA device [Via Rule Engine]  
 https://www.bilibili.com/video/BV1G14y1a7iN/?spm_id_from=333.999.0.0

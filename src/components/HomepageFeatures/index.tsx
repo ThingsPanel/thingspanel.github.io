@@ -1,7 +1,7 @@
 //import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -11,60 +11,60 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title:translate({message: "通用"}),
+    title: translate({ message: "Universal" }),
     Svg: require('@site/static/img/general.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="general.one"
           description="副标题">
-          设备上云与企业物联网+
-      </Translate>
+          Device Cloud Connection and Enterprise IoT+
+        </Translate>
       </>
     ),
   },
   {
-    title:translate({message: "开源"}),
+    title: translate({ message: "Open Source" }),
     Svg: require('@site/static/img/open_source.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="OpenSource.one"
           description="副标题">
-          Apache2.0开源协议
-      </Translate>
+          Apache 2.0 Open Source License
+        </Translate>
       </>
     ),
   },
   {
-    title:translate({message: "简洁易用"}),
+    title: translate({ message: "Simple and Easy" }),
     Svg: require('@site/static/img/easy_to_use.svg').default,
     description: (
       <>
-       <Translate
+        <Translate
           id="ConciseAndEasyToUse.one"
           description="副标题">
-          优良设计，上手门槛低
-      </Translate>
+          Excellent design, low learning curve
+        </Translate>
       </>
     ),
   },
   {
-    title:translate({message: "快速"}),
+    title: translate({ message: "Fast" }),
     Svg: require('@site/static/img/speediness.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="fast.one"
           description="副标题">
-        模块化构建，让项目交付更快
-      </Translate>
+          Modular architecture for faster project delivery
+        </Translate>
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

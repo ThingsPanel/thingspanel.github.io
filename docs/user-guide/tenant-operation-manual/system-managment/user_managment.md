@@ -2,9 +2,8 @@
 sidebar_position: 3
 ---
 
-# 用户管理
+# User Management
 
+- User management allows adding and editing users under the tenant, resetting passwords for users, entering user accounts (quick login) from the tenant account, and deleting users.
 
-- 用户管理可以新增和编辑租户下的用户，给用户重置密码，从租户账户进入用户账户（快捷登录），删除用户。
-![descript](./images/image111.png)
-
+![User Management](./images/image111.png)

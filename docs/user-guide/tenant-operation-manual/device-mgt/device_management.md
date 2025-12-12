@@ -2,91 +2,89 @@
 sidebar_position: 1
 ---
 
-# 设备管理
-## 1、说明
-- 可以对使用的设备进行添加、编辑、删除、搜索等功能，并配置设置的分组，标签等属性，同时可以对设备进行遥测、下发属性、事件上报、命令下发、自动化、告警等管理。
+# Device Management
 
+## 1. Description
+- Perform functions like adding, editing, deleting, and searching used devices. Configure attributes like groups and tags. Manage telemetry, attribute setting, event reporting, command sending, automation, and alarms for devices.
 
-## 2、操作
+## 2. Operations
 
-### 2.1、设备添加
+### 2.1 Add Device
 
-- 点击添加可以选择手动添加和按照编号添加
+- Click Add to choose between Manual Add and Add by Number (Batch/Provisioning).
 
-![descript](./images/image38.png)
+![Add Device](./images/image38.png)
 
-- 其中手动添加只需要输入设备名称配置等就可以添加完成。
+- Manual Add requires entering device name and configuration.
 
-![descript](./images/image39.png)
+![Manual Add](./images/image39.png)
 
-- 按照编号添加，可以通过输入设备编号添加设备，设备编号是在产品管理中生成的。
+- Add by Number allows adding devices via Device Number generated in Product Management.
 
-![descript](./images/image40.png)
+![Add by Number](./images/image40.png)
 
-### 2.2、遥测
+### 2.2 Telemetry
 
-- 设备上报的遥测数据在这里展示，同时支持模拟数据上报和下发控制功能，主要是以key，value方式和设备进行交互。
+- Telemetry data reported by devices is displayed here. Supports simulated data reporting and control command sending, interacting with devices via key-value pairs.
 
-![descript](./images/image41.png)
+![Telemetry](./images/image41.png)
 
-- 模拟数据上报功能支持上报自己定义的数据，进行功能检查使用。
+- Simulated data reporting supports reporting custom data for function checking.
 
-![descript](./images/image42.jpg)
+![Simulate Data](./images/image42.jpg)
 
-- 下发控制则可以下发不同的指令到设备，对设备数据进行控制，并可以查看下发指令的成功失败情况。
+- Command sending allows sending different instructions to control the device and viewing the success/failure status.
 
-![descript](./images/image43.png)
+![Command Sending](./images/image43.png)
 
-### 2.3、连接
+### 2.3 Connection
 
-- 可以查看设备连接的用户名、密码、clientId和数据上报的topic信息等。
+- View connection info like Username, Password, ClientID, and Topic for data reporting.
 
-![descript](./images/image44.png)
+![Connection](./images/image44.png)
 
-### 2.4、信息
+### 2.4 Information
 
-可以设备的地址位置信息。
+- View device address/location information.
 
-![descript](./images/image45.png)
+![Information](./images/image45.png)
 
-### 2.5、属性
+### 2.5 Attributes
 
-- 设备上报时一些字段不想存储到平台，可以通过配置属性的方式呈现，这里可以定义每个字段的含义，同时可以下发属性控制到设备上。
+- Some fields reported by devices that don't need to be stored as telemetry can be presented as properties. Define meanings for each field and send attribute control to devices.
 
-![descript](./images/image46.png)
+![Attributes](./images/image46.png)
 
-### 2.6、事件（上报）
+### 2.6 Events (Reporting)
 
-- 展示设备上报的事件，并可查看上报事件的状态和错误原因。
+- Display events reported by the device, and view event status and error reasons.
 
-![descript](./images/image47.png)
+![Events](./images/image47.png)
 
-### 2.7、命令（下发）
+### 2.7 Commands (Sending)
 
-- 以自定义的方式(http等)对设备发送命令进行控制，同时可以查看到下发命令的状态和错误原因。
+- Control devices by sending commands in custom ways (HTTP, etc.), and view command status and error reasons.
 
-![descript](./images/image48.png)
+![Commands](./images/image48.png)
 
-### 2.8、自动化
+### 2.8 Automation
 
-- 可以配置设备当触发某种情况时，可以进行告警，触发其他设备等操作，具体的场景联动配置见自动化-场景联动。
+- Configure operations like triggering alarms or controlling other devices when specific conditions are met. See Automation - Scene Linkage for details.
 
-- 当设备关联的模板中已经建立了某些场景联动时，设备中会自动带入，设备仍可以建立属于本设备的场景联动配置。
+- If the associated template has scene linkages, they are automatically inherited. Devices can also establish their own scene linkage configurations.
 
-![descript](./images/image49.png)
+![Automation](./images/image49.png)
 
-### 2.9、告警
+### 2.9 Alarm
 
-- 通过添加告警规则，当设备触发某些条件时，发送告警。可以设备单设备和同类设备的告警。
+- Add alarm rules to send alarms when device triggers conditions. Supports single device and same-type device alarms.
 
-- 当场景模板中配置时，会自动同步到设备中，设备也可以添加自由的告警配置。
+- Alarms configured in the template are automatically synchronized to the device. Devices can also add custom alarm configurations.
 
-![descript](./images/image50.png)
+![Alarm](./images/image50.png)
 
-### 2.10、设置
+### 2.10 Settings
 
-- 这里可以设置设备的设备模板、分组、上下线状态等信息。
+- Set device template, group, online/offline status, etc.
 
-![descript](./images/image51.png)
-
-
+![Settings](./images/image51.png)

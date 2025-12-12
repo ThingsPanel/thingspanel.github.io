@@ -2,56 +2,55 @@
 sidebar_position: 1
 ---
 
-# 场景联动
-## 1、说明
-- 同设备和设备模板中自动化的配置，可以添加各种场景联动的配置或告警。
-- 设备和设备模板自动化中添加的配置也会呈现在这里。 
+# Scene Linkage
 
-## 2、场景联动操作步骤
+## 1. Description
+- Similar to the automation configuration in devices and device templates, you can add various scene linkage configurations or alarms.
+- Configurations added in device and device template automation will also appear here.
 
-**前置条件**：已经对接好设备并给设备绑定了插件。
+## 2. Operation Steps
 
-### 2.1、新建场景联动
+**Prerequisites**: Devices are connected and plugins are bound.
 
-- 点击新建场景联动，可以新建一个场景联动。
-- 目前支持时间条件的场景联动和设备条件的场景联动。
- - **时间条件**：  
-        - 重复，包括：
-            1. 每小时每小时的第几分钟执行；
-            2. 每天每天的几点几分执行；
-            3. 每周每周几的几点几分（需要选择星期）；
-            4. 每月每月几号的几点几分；
-            5. 自定义cron
-        - 单次（执行后自动删除），时间格式为yyyy-MM-dd HH:mm:ss。
-        - 时间范围：必须与设备条件是'且'关系
-            |cron|描述|
-            |-|-|
-            |0/2 * * * *|每2分钟触发|
-            |0 0/2 * * *|每两小时触发|
-            |15 10 * * *|每天上午的10:15触发|
-            |0/5 14 * * *|在每天下午2点到下午2:55期间的每5分钟触发|
-            |0/5 14,18 * * *|在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发|
-            |15 10 ? * MON-FRI|周一至周五的上午10:15触发|
-            |15 10 15 * *|每月15日上午10:15触发|
-    ![descript](./images/image73.png)
+### 2.1 New Scene Linkage
 
- - **设备条件**：  
-        - 设备的属性、事件、上下线；
-        - 单个设备：仅该设备触发条件后执行
-        - 单类设备：使用某设备模板的设备触发条件后均执行
-    ![descript](./images/image74.png)
-   
+- Click "New Scene Linkage" to create a new one.
+- Currently supports Time Conditions and Device Conditions.
+  - **Time Conditions**:
+    - Repeat types:
+      1. Every hour at X minute;
+      2. Every day at HH:mm;
+      3. Every week on [Days] at HH:mm;
+      4. Every month on [Dates] at HH:mm;
+      5. Custom Cron.
+    - One-time (Deleted after execution), format: yyyy-MM-dd HH:mm:ss.
+    - Time Range: Must be used with Device Conditions (AND relationship).
+      | Cron | Description |
+      |---|---|
+      | 0/2 * * * * | Every 2 minutes |
+      | 0 0/2 * * * | Every 2 hours |
+      | 15 10 * * * | Every day at 10:15 AM |
+      | 0/5 14 * * * | Every 5 minutes starting at 2:00 PM and ending at 2:55 PM, every day |
+      | 0/5 14,18 * * * | Every 5 minutes starting at 2:00 PM and ending at 2:55 PM, AND starting at 6:00 PM and ending at 6:55 PM, every day |
+      | 15 10 ? * MON-FRI | At 10:15 AM, Monday through Friday |
+      | 15 10 15 * * | At 10:15 AM on the 15th day of every month |
+    ![Scene Linkage Time](./images/image73.png)
 
-### 2.2、编辑场景联动
-- 找到要编辑的场景联动，点击编辑即可更改其内容。
-![descript](./images/image75.jpg)
+  - **Device Conditions**:
+    - Device attributes, events, online/offline status.
+    - Single Device: Executed only when this specific device triggers the condition.
+    - Device Type: Executed when any device using the specified template triggers the condition.
+    ![Scene Linkage Device](./images/image74.png)
 
-### 2.3、查看场景联动的日志
-- 找到要查看日志的场景联动，点击日志按钮，可以查看触发后的日志。
-![descript](./images/image76.jpg)
+### 2.2 Edit Scene Linkage
+- Find the scene linkage to edit, click Edit to modify its content.
+![Edit Scene Linkage](./images/image75.jpg)
 
-![descript](./images/image77.png)
+### 2.3 View Logs
+- Click the Log button to view trigger logs for the scene linkage.
+![View Logs](./images/image76.jpg)
+![Log Detail](./images/image77.png)
 
-### 2.4、场景联动删除
-- 找到要删除的场景联动，点击删除即可删除该配置。
-![descript](./images/image78.jpg)
+### 2.4 Delete Scene Linkage
+- Click Delete to remove the configuration.
+![Delete Scene Linkage](./images/image78.jpg)

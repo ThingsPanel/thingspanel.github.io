@@ -2,118 +2,113 @@
 sidebar_position: 4
 ---
 
-# ModbusTCP直连接入
+# Modbus TCP Direct Access
 
-## 1. 功能概述
+## 1. Functional Overview
 
-ThingsPanel的Modbus TCP接入服务支持直接连接工业设备，自动采集数据并上报平台。主要特性：
+ThingsPanel's Modbus TCP access service supports direct connection to industrial devices, automatically collecting data and reporting to the platform. Key features:
 
-- **可视化配置**：Web界面配置设备参数和数据地址表
-- **智能轮询**：灵活的数据采集策略和周期配置
-- **设备控制**：支持线圈和寄存器的写入控制
-- **连接管理**：自动重连、连接池管理、状态监控
+- **Visual Configuration**: Web interface to configure device parameters and data address tables.
+- **Smart Polling**: Flexible data collection strategies and cycle configuration.
+- **Device Control**: Supports writing to coils and registers for control.
+- **Connection Management**: Automatic reconnection, connection pool management, status monitoring.
 
-## 2. 快速开始
+## 2. Quick Start
 
-前提：已部署ModbusTCP直连接入服务并注册到平台
+Prerequisite: Modbus TCP connectivity service is deployed and registered to the platform.
 
-### 2.1 准备设备信息
+### 2.1 Prepare Device Information
 
-配置前需要收集以下设备信息：
+Collect the following device information before configuration:
 
-| 参数 | 说明 | 示例 |
+| Parameter | Description | Example |
 |------|------|------|
-| IP地址 | 设备IP地址 | 192.168.1.100 |
-| 端口 | Modbus TCP端口 | 502 |
-| 从站ID | 设备SlaveID | 1 |
-| 数据地址 | 寄存器地址范围 | 40001-40010 |
+| IP Address | Device IP Address | 192.168.1.100 |
+| Port | Modbus TCP Port | 502 |
+| Slave ID | Device SlaveID | 1 |
+| Data Address | Register Address Range | 40001-40010 |
 
-### 2.2 创建设备模板
+### 2.2 Create Device Template
 
-![创建设备模板](modbus_image/modbus-tcp-01.png)
+![Create Device Template](modbus_image/modbus-tcp-01.png)
 
-1. 进入 设备接入-设备模板
-2. 选择设备接入类型：直连设备
-3. 选择Modbus TCP（直连），认证类型选择无认证
-4. 填写采集周期、是否启用地址合并优化
-5. 配置采集参数，参数说明如下
+1. Go to **Device Connectivity** - **Device Templates**.
+2. Select Access Type: Direct Device.
+3. Select Modbus TCP (Direct), set Authentication Type to None.
+4. Fill in Collection Interval, enable Address Merge Optimization if needed.
+5. Configure Collection Parameters as follows:
 
-| 配置项 | 说明 | 示例 |
+| Config Data | Description | Example |
 |--------|------|------|
-| 数据点名称 | 唯一标识 | temperature |
-| 功能码 | Modbus功能码 | 03（读保持寄存器） |
-| 起始地址 | 寄存器地址 | 40001 |
-| 数据类型 | 数据解析类型 | Float32 |
-| 字节序 | 大小端 | 大端 |
-| 缩放系数 | 可选，数值缩放 | 0.1 |
-| 单位 | 可选 | °C |
+| Data Point Name | Unique Identifier | temperature |
+| Function Code | Modbus Function Code | 03 (Read Holding Registers) |
+| Start Address | Register Address | 40001 |
+| Data Type | Data Parsing Type | Float32 |
+| Endianness | Big/Little Endian | Big Endian |
+| Scaling Factor | Optional, Value Scaling | 0.1 |
+| Unit | Optional | °C |
 
+### 2.3 Create Device
 
+![Create Device](modbus_image/modbus-tcp-02.png) 
 
-### 2.3 创建设备
-
-![创建设备](modbus_image/modbus-tcp-02.png) 
-
-1. 进入 设备接入 -**设备管理** → **添加设备**
-2. 填写设备名称，选择设备类型：上一步创建的设备模板
-3. 进入设备详情，选择接入页签，填写设备IP地址、设备端口、从设备ID 保存
-
+1. Go to **Device Connectivity** - **Device Management** → **Add Device**.
+2. Fill in device name, select device type: The device template created in the previous step.
+3. Enter Device Details, select the Connection tab, fill in Device IP, Port, Slave ID, and Save.
 
 ```
-设备IP：192.168.1.100
-端口：502
-从站ID：1
+Device IP: 192.168.1.100
+Port: 502
+Slave ID: 1
 ```
 
-## 3. 数据地址表配置
+## 3. Data Address Table Configuration
 
-### 3.1 添加数据点
+### 3.1 Add Data Points
 
-点击 **数据地址表** → **添加数据点**，配置采集参数：
+Click **Data Address Table** → **Add Data Point** to configure parameters:
 
-| 配置项 | 说明 | 示例 |
+| Config Item | Description | Example |
 |--------|------|------|
-| 数据点名称 | 唯一标识 | temperature |
-| 功能码 | Modbus功能码 | 03（读保持寄存器） |
-| 起始地址 | 寄存器地址 | 40001 |
-| 数据长度 | 寄存器数量 | 2 |
-| 数据类型 | 数据解析类型 | Float32 |
-| 字节序 | 大小端 | 大端 |
-| 缩放系数 | 数值缩放 | 0.1 |
+| Data Point Name | Unique Identifier | temperature |
+| Function Code | Modbus Function Code | 03 (Read Holding Register) |
+| Start Address | Register Address | 40001 |
+| Data Length | Register Quantity | 2 |
+| Data Type | Data Parsing Type | Float32 |
+| Endianness | Big/Little Endian | Big Endian |
+| Scaling Factor | Value Scaling | 0.1 |
 
-### 3.2 支持的功能码
+### 3.2 Supported Function Codes
 
-| 功能码 | 说明 | 地址范围 |
+| Function Code | Description | Address Range |
 |--------|------|----------|
-| 01/05 | 读/写线圈状态 | 00001-09999 |
-| 02 | 读写离散输入 | 10001-19999 |
-| 03/06 | 读/写保持寄存器 | 40001-49999 |
-| 04 | 读输入寄存器 | 30001-39999 |
+| 01/05 | Read/Write Coil Status | 00001-09999 |
+| 02 | Read Discrete Input | 10001-19999 |
+| 03/06 | Read/Write Holding Register | 40001-49999 |
+| 04 | Read Input Register | 30001-39999 |
 
-### 3.3 数据类型
+### 3.3 Data Types
 
-| 类型 | 占用寄存器 | 说明 |
+| Type | Registers Occupied | Description |
 |------|------------|------|
-| Bool | 1 | 布尔值 |
-| Int16 | 1 | 16位有符号整数 |
-| UInt16 | 1 | 16位无符号整数 |
-| Int32 | 2 | 32位有符号整数 |
-| UInt32 | 2 | 32位无符号整数 |
-| Float32 | 2 | 32位浮点数 |
-| Float64 | 4 | 64位浮点数 |
+| Bool | 1 | Boolean |
+| Int16 | 1 | 16-bit Signed Integer |
+| UInt16 | 1 | 16-bit Unsigned Integer |
+| Int32 | 2 | 32-bit Signed Integer |
+| UInt32 | 2 | 32-bit Unsigned Integer |
+| Float32 | 2 | 32-bit Float |
+| Float64 | 4 | 64-bit Float |
 
-## 4. 设备控制
+## 4. Device Control
 
-### 4.1 支持的控制类型
+### 4.1 Supported Control Types
 
-- **线圈控制**：功能码05（单个线圈）
-- **寄存器控制**：功能码06（单个寄存器）、16（多个寄存器）
+- **Coil Control**: Function Code 05 (Single Coil)
+- **Register Control**: Function Code 06 (Single Register), 16 (Multiple Registers)
 
+### 4.2 Control Operations
 
-
-### 4.2 控制操作
-
-从平台可以对设备进行实时控制，按照配置的数据点名称下发控制指令：
+Real-time control can be performed from the platform by sending control commands using the configured data point names:
 
 ```json
 {
@@ -123,46 +118,44 @@ ThingsPanel的Modbus TCP接入服务支持直接连接工业设备，自动采�
 }
 ```
 
-说明：
-- `temperature`：设置目标温度值
-- `switch`：控制开关状态（0=关，1=开）
+Explanation:
+- `temperature`: Set target temperature value
+- `switch`: Control switch state (0=OFF, 1=ON)
 
-## 5. 故障排除
+## 5. Troubleshooting
 
-### 5.1 常见问题
+### 5.1 Common Issues
 
-| 问题 | 可能原因 | 解决方案 |
+| Issue | Possible Cause | Solution |
 |------|----------|----------|
-| 设备无法连接 | 网络不通、IP地址错误 | 检查网络连接，确认设备IP |
-| 数据读取失败 | 地址配置错误、功能码不支持 | 检查寄存器地址和功能码 |
-| 数据异常 | 数据类型错误、字节序设置错误 | 确认数据类型和字节序设置 |
-| 控制失败 | 设备不支持写操作、权限不足 | 检查设备写权限和功能码支持 |
+| Device Disconnected | Network unreachable, IP error | Check network, confirm device IP |
+| Read Fail | Address error, unsupported function code | Check register address and function code |
+| Data Abnormal | Data type error, endianness error | Confirm data type and endianness |
+| Control Fail | Device read-only, permission denied | Check write permission and function code support |
 
-### 5.2 调试建议
+### 5.2 Debugging Suggestions
 
-1. **逐步配置**：先配置少量数据点，确认正常后再增加
-2. **使用工具**：可使用Modbus调试工具验证设备通信
-3. **查看日志**：检查系统日志获取详细错误信息
-4. **网络测试**：使用ping命令测试网络连通性
+1. **Step-by-step**: Configure a few data points first, then add more.
+2. **Tools**: Use Modbus tools to verify communication.
+3. **Logs**: Check system logs for detailed errors.
+4. **Network**: Use ping to test connectivity.
 
-## 6. 性能优化
+## 6. Performance Optimization
 
-### 6.1 地址合并优化
+### 6.1 Address Merge Optimization
 
-启用地址合并优化可以提高采集效率：
+Enable address merge optimization to improve efficiency:
+- **Continuous Addresses**: System automatically merges continuous register addresses.
+- **Reduce Requests**: Reduces Modbus request count, improving response speed.
+- **Suggestion**: Configure related data points in continuous address ranges.
 
-- **连续地址**：系统会自动合并连续的寄存器地址
-- **减少请求**：减少Modbus请求次数，提高响应速度
-- **建议**：将相关数据点配置在连续的地址范围内
+### 6.2 Collection Cycle Setting
 
-### 6.2 采集周期设置
+Set appropriate collection cycles:
+- **High Frequency**: Important parameters (1-5s).
+- **Normal**: General parameters (10-30s).
+- **Status**: Slowly changing parameters (60s+).
 
-根据实际需求设置合适的采集周期：
+## References
 
-- **高频数据**：重要参数可设置较短周期（1-5秒）
-- **普通数据**：一般参数设置中等周期（10-30秒）
-- **状态数据**：变化较少的参数可设置较长周期（60秒以上）
-
-## 参考实例
-
-[ThingsPanel物联网平台直连ModbusTCP设备【视频】](https://www.bilibili.com/video/BV1gJnAzfEk2/?spm_id_from=333.1387.homepage.video_card.click)
+[ThingsPanel Modbus TCP Direct Access [Video]](https://www.bilibili.com/video/BV1gJnAzfEk2/?spm_id_from=333.1387.homepage.video_card.click)

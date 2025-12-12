@@ -2,53 +2,48 @@
 sidebar_position: 4
 ---
 
-# 物模型
+# Product Model
 
-物模型的目的是复用物模型和图表。如下说明物模型功能如何使用。
+The purpose of the Product Model (Thing Model) is to reuse data definitions and charts.
 
-## 1、说明
-- 点击设备接入-物模型进入模板管理页面。
-- 物模型对应了现实世界的产品名，例如XX品牌的温湿度传感器中的"温湿度传感器"
-- 物模型的目的是定义物模型定义图表D
-- App端的图表等，设定预配置，方便高效的接入设备。
-- 物模型可以被物模型调用。
+## 1. Description
+- Click Device Onboarding - Product Model to enter the management page.
+- Product Model corresponds to real-world product names, e.g., "Temp & Hum Sensor" in "Brand X Temp & Hum Sensor".
+- Defines charts and data structures.
+- Charts for Apps can be pre-configured for efficient device onboarding.
+- Product Model can be called by Device Templates.
 
+## 2. Operations
 
-## 2、操作
+### 2.1 Create Product Model
 
-### 2.1、创建物模型
+- Click "Add Product Model" to create new.
+- Set Template Name, Tags, etc.
 
-- 点击"添加物模型"就可以新建。
+![Create Model](./images/image66.png)
 
-- 新建时需要设置模板名称，标签等信息。
+### 2.2 Configure Product Model
 
-![descript](./images/image66.png)
+- Configure mapping relations for Telemetry, Attributes, Events, Commands parameter data names and identifiers.
 
-### 2.2、配置物模型
+![Configure Model](./images/image67.png)
 
-- 可以在这里配置遥测、属性、事件、命令等对应的参数的数据名称-标识符的映射关系。
+### 2.3 Configure Charts
 
-![descript](./images/image67.png)
+- Select charts to display and data sources.
 
-### 2.3、配置图表
+![Configure Chart 1](./images/image68.png)
 
-- 并选择展示的图表和数据来源
+![Configure Chart 2](./images/image69.png)
 
-![descript](./images/image68.png)
+### 2.4 Configure App Charts
 
-![descript](./images/image69.png)
+- View App chart styles.
 
-### 2.4、配置App图表
+![App Chart](./images/image70.png)
 
-- 查看APP图表的样式：
+### 2.5 Complete Configuration
 
-![descript](./images/image70.png)
+- View template info and complete configuration.
 
-### 2.5、完成配置
-
-- 查看模板的信息，并完成配置。
-
-![descript](./images/image71.png)
-
-
-
+![Complete](./images/image71.png)

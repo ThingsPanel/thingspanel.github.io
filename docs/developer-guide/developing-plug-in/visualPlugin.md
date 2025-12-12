@@ -2,30 +2,32 @@
 sidebar_position: 5
 ---
 
-# 可视化插件开发
+# Visual Plugin Development
 
-## 立即上手 开发第一个插件
-以文本组件为例，我们为官方插件开发一个可以拖拽到画布上的文本组件，可以通过右侧属性面板调整文字的大小、颜色以及背景框。 通过数据面板设置文本显示的值。
-如下图所示：  
-![文本组件](images/text_example.png)  
+## Get Started: Develop Your First Plugin
 
-## 视频教程如下： 
+Using a text component as an example, we will develop a text component that can be dragged onto the canvas. Adjust text size, color, and background via the right property panel. Set text value via the data panel.
+As shown below:
+![Text Component](images/text_example.png)
+
+## Video Tutorial
 <iframe src="//player.bilibili.com/player.html?aid=956951149&bvid=BV1kp4y137kS&cid=1225254148&page=1" scrolling="no" border="0" width="800" height="400" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-## 文档教程如下：
-### 第一步：下载visual-editor项目
-https://github.com/ThingsPanel/visual-editor  
-用代码编辑器打开
+## Documentation Tutorial
 
-### 第二步：创建组件所需的文件
-官方插件所在的目录是src/plugins/tp-plugin文件夹。  
-我们要开发自己的插件的话，可以在plugins目录再新建一个文件夹，本例中我们新建一个名为test-plugin的文件夹作为插件目录。  
-一个插件可以包含多个组件，我们在test-plugin目录里创建`text`目录作为文本组件的目录，然后在text目录里创建以下几个文件：  
-index.ts、Main.vue、Data.vue、Attribute.vue 、default.ts、icon.svg  
-![目录结构](images/visual_plugin_1.png)  
+### Step 1: Download visual-editor project
+https://github.com/ThingsPanel/visual-editor
+Open with code editor.
 
-### 第三步：编写Main.vue
-```ts
+### Step 2: Create component files
+The official plugins directory is `src/plugins/tp-plugin`.
+To develop your own plugin, create a new folder in `plugins` directory. In this example, we create `test-plugin`.
+A plugin can contain multiple components. Create a `text` directory inside `test-plugin`, then create the following files:
+`index.ts`, `Main.vue`, `Data.vue`, `Attribute.vue`, `default.ts`, `icon.svg`.
+![Directory Structure](images/visual_plugin_1.png)
+
+### Step 3: Write Main.vue
+```vue
 // text/Main.vue
 <template>
     <div :style="myStyle" style="width:100%;height:100%">
@@ -39,7 +41,7 @@ export default {
   props: {
     value: {
       type: [String],
-      default: "文本"
+      default: "Text"
     }
   },
   data() {
@@ -65,23 +67,22 @@ export default {
 <style lang="scss" scoped></style>
 ```
 
-
-### 第四步：编写属性面板Attribute.vue
-```ts
+### Step 4: Write Attribute Panel Attribute.vue
+```vue
 // text/Attribute.vue  
 <template>
     <el-collapse v-model="activeNames">
-        <el-collapse-item title="样式" name="style">
+        <el-collapse-item title="Style" name="style">
             <el-form v-model="formData">
-                <el-form-item label="字体大小">
+                <el-form-item label="Font Size">
                     <el-input v-model="formData.fontSize"></el-input>
                 </el-form-item>
 
-                <el-form-item label="字体颜色">
+                <el-form-item label="Font Color">
                     <el-color-picker v-model="formData.color" />
                 </el-form-item>
 
-                <el-form-item label="背景颜色">
+                <el-form-item label="Background">
                     <el-color-picker v-model="formData.backgroundColor" />
                 </el-form-item>
             </el-form>
@@ -104,7 +105,7 @@ export default ({
     watch: {
         formData: {
             handler(val) {
-                // 当自定义属性改变时，传递给Main.vue的style属性
+                // Pass style to Main.vue on change
                 this.$emit("onChange", {
                     style: { ...val, fontSize: val.fontSize + 'px' }
                 });
@@ -118,10 +119,9 @@ export default ({
 <style lang="scss" scoped></style>
 ```
 
-当用户改变了右侧属性面板的值后，需要在画布上的节点反映出来。  
-如：修改了属性面板的文字大小或颜色之后，画布上的节点对应的样式也要做出改变。  
-使用vue的emit方法，传递onChange事件。
-```ts
+When user changes values in the property panel, the canvas node needs to reflect it.
+Use vue's emit to pass `onChange` event.
+```javascript
 this.$emit("onChange", {
     style: {
         fontSize： 20,
@@ -129,11 +129,11 @@ this.$emit("onChange", {
     }
 });
 ```
-之后，编辑器会自动将style传递到Main.vue中，Main组件的props属性就会接收到传过来的参数.  
-目前仅支持传递style和data.
+The editor will pass style to `Main.vue`, received in `props`.
+Currently supports passing `style` and `data`.
 
-### 第五步：编写数据面板：Data.vue
-```ts
+### Step 5: Write Data Panel Data.vue
+```vue
 // text/Data.vue
 <template>
   <div style="height:100%">
@@ -143,13 +143,13 @@ this.$emit("onChange", {
         </el-radio-group>
     </el-row>
     <el-row style="height:100%">
-        <!-- 静态数据 -->
+        <!-- Static Data -->
         <el-input v-if="formData.bindType==='static'" :rows="20" type="textarea" v-model="formData.static"></el-input>
-        <!-- 动态数据 -->
+        <!-- Dynamic Data -->
         <el-form-item v-else-if="formData.bindType==='dynamic'" style="width:100%">
           <el-input :rows="2" type="textarea" v-model="formData.dynamic"></el-input>
         </el-form-item>
-        <!-- 设备数据 -->
+        <!-- Device Data -->
         <div class="w-full" v-else-if="formData.bindType==='device'" >
           <slot></slot>
         </div>
@@ -170,12 +170,12 @@ export default {
     return {
       formData: {
         bindType: 'static',
-        static: "文本"
+        static: "Text"
       },
       bindOptions: [
-        { value: 'static', label: '静态数据' }, 
-        { value: 'dynamic', label: '动态数据'}, 
-        { value: 'device', label: '设备数据'}
+        { value: 'static', label: 'Static Data' }, 
+        { value: 'dynamic', label: 'Dynamic Data'}, 
+        { value: 'device', label: 'Device Data'}
       ]
     }
   },
@@ -206,32 +206,32 @@ export default {
 </style>
 ```
 
-### 第六步：导出组件
-接下来在text/index.ts中导出组件.  
-```ts
+### Step 6: Export Component
+Export in `text/index.ts`.
+```typescript
 import Text_Attribute from './Attribute.vue';
 import Text_Data from './Data.vue';
 import Text_Main from './Main.vue';
 export { Text_Attribute, Text_Data, Text_Main }
 ```
 
-### 第七步：配置
-在test-plugin/index.ts文件中进行配置
-```ts
+### Step 7: Configuration
+Configure in `test-plugin/index.ts`.
+```typescript
 import { Text_Attribute, Text_Data, Text_Main, Text_Icon } from "./text";
 
 export default {
     views: [
         {
-            name: "文本",      // 组件名称, 不可和其他组件重名
+            name: "Text",      // Component name, must be unique
             description: "",
-            group: "自定义组件",   // 左侧组件列表的分组名称
-            icon: Text_Icon,         // 左侧列表的组件图标，base64或在线图片地址
+            group: "Custom Components",   // Group name in left list
+            icon: Text_Icon,         // Icon (base64 or url)
             size: { width: 120, height: 60 },
-            type: "text",     // 组件类型 可选的值有 text | switch | dashboard | pie | histogram | curve | table | map | video | 3d
-            Main: Text_Main,    // 将要在画布上渲染的节点
-            Attribute: Text_Attribute,   // 点击节点后在右侧属性面板显示的表单
-            Data: Text_Data    // 点击节点后在右侧数据面板显示的表单
+            type: "text",     // Type: text | switch | dashboard | pie | histogram | curve | table | map | video | 3d
+            Main: Text_Main,    // Node to render
+            Attribute: Text_Attribute,   // Attribute panel form
+            Data: Text_Data    // Data panel form
         },
         {
             ...
@@ -239,26 +239,24 @@ export default {
     ]
 }
 ```
-### 第八步：导出插件
-最后，在src/plugins/index.ts导出该插件
-```ts
+
+### Step 8: Export Plugin
+Export in `src/plugins/index.ts`.
+```typescript
 import testPlugin from './test-plugin';
 export default { testPlugin } 
 ```
-至此，我们的第一个插件就开发完成了。
+Done.
 
-`pnpm run dev`  
-启动项目后，我们刚编写的文本组件就加载出来了。   
+Run `pnpm run dev`.
+The text component should appear.
 
-左侧组件列表  
-![组件列表](images/visual_plugin_7_1.png)   
+Left Component List:
+![Component List](images/visual_plugin_7_1.png)
 
-拖拽组件到画布上  
-![自定义组件](images/visual_plugin_7_2.png) 
+Drag to Canvas:
+![Custom Component](images/visual_plugin_7_2.png)
 
-### 第九步：发布插件  
-插件测试完成后，就可以发布到插件市场了。  
-[发布插件](./visualPublishPlugin.md)
-
-
-
+### Step 9: Publish Plugin
+After testing, publish to the plugin market.
+[Publish Plugin](./visualPublishPlugin.md)

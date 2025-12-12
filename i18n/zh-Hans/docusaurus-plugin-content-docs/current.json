@@ -3,6 +3,198 @@
     "message": "Next",
     "description": "The label for version current"
   },
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "快速开始",
+    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Quick Start.link.generated-index.description": {
+    "message": "指导快速使用ThingsPanel",
+    "description": "The generated-index page description for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "系统介绍",
+    "description": "The label for category Introduction in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "系统的目录简介",
+    "description": "The generated-index page description for category Introduction in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Installation": {
+    "message": "系统安装",
+    "description": "The label for category Installation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Installation.link.generated-index.description": {
+    "message": "系统的安装",
+    "description": "The generated-index page description for category Installation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Device Connectivity": {
+    "message": "设备接入",
+    "description": "The label for category Device Connectivity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Device Connectivity.link.generated-index.description": {
+    "message": "设备接入",
+    "description": "The generated-index page description for category Device Connectivity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Guide": {
+    "message": "操作手册",
+    "description": "The label for category User Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Guide.link.generated-index.description": {
+    "message": "操作手册",
+    "description": "The generated-index page description for category User Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Developer Guide": {
+    "message": "系统开发",
+    "description": "The label for category Developer Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Developer Guide.link.generated-index.description": {
+    "message": "系统开发",
+    "description": "The generated-index page description for category Developer Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.FAQ": {
+    "message": "常见问题",
+    "description": "The label for category FAQ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.FAQ.link.generated-index.description": {
+    "message": "常见问题",
+    "description": "The generated-index page description for category FAQ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System Administrator": {
+    "message": "系统管理员操作手册",
+    "description": "The label for category System Administrator in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System Administrator.link.generated-index.description": {
+    "message": "系统管理员操作手册",
+    "description": "The generated-index page description for category System Administrator in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tenant Administrator": {
+    "message": "租户管理员操作手册",
+    "description": "The label for category Tenant Administrator in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tenant Administrator.link.generated-index.description": {
+    "message": "租户管理员操作手册",
+    "description": "The generated-index page description for category Tenant Administrator in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Plugin/Service Development": {
+    "message": "插件/服务开发",
+    "description": "The label for category Plugin/Service Development in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Plugin/Service Development.link.generated-index.description": {
+    "message": "插件/服务开发",
+    "description": "The generated-index page description for category Plugin/Service Development in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Other Database Deployment": {
+    "message": "其他数据库部署",
+    "description": "The label for category Other Database Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Other Database Deployment.link.generated-index.description": {
+    "message": "其他数据库部署",
+    "description": "The generated-index page description for category Other Database Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Third-Party Service Access": {
+    "message": "第三方服务接入",
+    "description": "The label for category Third-Party Service Access in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Third-Party Service Access.link.generated-index.description": {
+    "message": "第三方服务接入",
+    "description": "The generated-index page description for category Third-Party Service Access in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Product Management": {
+    "message": "产品管理",
+    "description": "The label for category Product Management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Product Management.link.generated-index.description": {
+    "message": "产品管理",
+    "description": "The generated-index page description for category Product Management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Automation": {
+    "message": "自动化",
+    "description": "The label for category Automation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Automation.link.generated-index.description": {
+    "message": "自动化",
+    "description": "The generated-index page description for category Automation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Data Forwarding": {
+    "message": "数据转发",
+    "description": "The label for category Data Forwarding in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Data Forwarding.link.generated-index.description": {
+    "message": "数据转发",
+    "description": "The generated-index page description for category Data Forwarding in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Device Onboarding": {
+    "message": "设备接入",
+    "description": "The label for category Device Onboarding in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Device Onboarding.link.generated-index.description": {
+    "message": "设备接入",
+    "description": "The generated-index page description for category Device Onboarding in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System Management": {
+    "message": "系统管理",
+    "description": "The label for category System Management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System Management.link.generated-index.description": {
+    "message": "系统管理",
+    "description": "The generated-index page description for category System Management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.tenant-system-management": {
+    "message": "系统管理",
+    "description": "The label for category tenant-system-management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.tenant-system-management.link.generated-index.description": {
+    "message": "系统管理",
+    "description": "The generated-index page description for category tenant-system-management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system-admin-system-management": {
+    "message": "系统管理",
+    "description": "The label for category system-admin-system-management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system-admin-system-management.link.generated-index.description": {
+    "message": "系统管理",
+    "description": "The generated-index page description for category system-admin-system-management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Visualization": {
+    "message": "可视化",
+    "description": "The label for category Visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Visualization.link.generated-index.description": {
+    "message": "可视化",
+    "description": "The generated-index page description for category Visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.tenant-visualization": {
+    "message": "可视化",
+    "description": "The label for category tenant-visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.tenant-visualization.link.generated-index.description": {
+    "message": "可视化",
+    "description": "The generated-index page description for category tenant-visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system-admin-visualization": {
+    "message": "可视化",
+    "description": "The label for category system-admin-visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system-admin-visualization.link.generated-index.description": {
+    "message": "可视化",
+    "description": "The generated-index page description for category system-admin-visualization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Alarm": {
+    "message": "告警管理",
+    "description": "The label for category Alarm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Alarm.link.generated-index.description": {
+    "message": "告警管理",
+    "description": "The generated-index page description for category Alarm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.App Management": {
+    "message": "应用管理",
+    "description": "The label for category App Management in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.App Management.link.generated-index.description": {
+    "message": "应用管理",
+    "description": "The generated-index page description for category App Management in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.快速开始": {
     "message": "快速开始",
     "description": "The label for category 快速开始 in sidebar tutorialSidebar"

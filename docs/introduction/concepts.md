@@ -2,44 +2,42 @@
 sidebar_position: 2
 ---
 
-# 相关概念
+# Key Concepts
 
-## 系统结构相关
-### 物模型
+## System Structure
+### Device Models (Thing Models)
 
-- 同样的一个温湿度传感器，可能有上千个厂家，不同的规格型号，但是他们都是<b>温湿度传感器</b>。
-- 温湿度传感器的输入是温度、湿度、时间。输出是当前温度、当前湿度、温度曲线、湿度曲线等图表单元或者报表。这些输入和输出的数量和彼此关系都是确定的。
-- 因此，我们将温湿度传感器的软件部分也抽象成一个标准的温湿度传感器组件，这个组件包括了固定的数据输入和结果输出。并使之成为物联网大厦中的标准的砖块。
+- A temperature and humidity sensor might differ in manufacturer or specifications, but they are all **Temperature and Humidity Sensors**.
+- The inputs for a temperature and humidity sensor are temperature, humidity, and time. The outputs are current temperature, current humidity, temperature curves, humidity curves, etc. The relationship and quantity of these inputs and outputs are deterministic.
+- Therefore, we abstract the software part of the temperature and humidity sensor into a standard **Device Model** component. This component includes fixed data inputs and result outputs, serving as a standard building block in the IoT architecture.
 
-**在现实世界中，物模型对应了设备类型**，例如温湿度传感器。
+**In the real world, a Device Model corresponds to a specific Device Type**, such as a generic Temperature and Humidity Sensor.
 
-### 设备模板
+### Device Templates
 
-- 设备模板包括物模型、协议和配置参数等，是硬件设备对应的软件的总集合。
-- 在添加设备时，选择一个设备模板，就绑定了这个设备对应的所有的软件及配置。
-- **在现实世界中更多的对应的是产品的型号**，例如某某品牌的温湿传感器-S001。
+- A Device Template includes the Device Model, protocol settings, and configuration parameters. It represents the complete software collection corresponding to a hardware device.
+- When adding a device, selecting a Device Template binds all the corresponding software and configurations to that device.
+- **In the real world, this corresponds more to a specific Product Model**, such as "Brand X TemperatureSensor-S001".
 
-## 设备接入方式相关
+## Device Connectivity Methods
 
-ThingsPanel的设备接入服务和三方设备接入服务是其实现设备接入的重要工具，以下是简单描述：
+ThingsPanel's Device Connectivity Services and Third-Party Integration Services are key tools for device onboarding.
 
-### 设备接入服务
-- **功能**：主要解决各类协议接入的问题，让ThingsPanel能够与支持不同通信协议的设备进行连接和数据交互.
-- **举例**：比如MQTT设备接入服务，能使ThingsPanel与使用MQTT协议的设备顺利通信，接收设备发送的数据，并可向设备发送指令等；Modbus设备接入服务则可让平台接入遵循Modbus协议的工业设备，实现对这些设备数据的采集和控制.
-- **作用**：通过设备接入服务，ThingsPanel可以兼容多种设备协议，打破了设备之间的通信壁垒，将各种不同类型、不同协议的设备统一接入到平台中，实现设备的集中管理和数据的汇聚.
+### Device Connectivity Service (Protocol Plugins)
+- **Function**: Solves the problem of connecting devices via various protocols, enabling ThingsPanel to interact with devices using different communication standards.
+- **Example**: An MQTT Connectivity Service enables ThingsPanel to communicate with MQTT devices, receiving data and sending commands. A Modbus Connectivity Service allows the platform to connect with industrial devices following the Modbus protocol for data acquisition and control.
+- **Role**: Breaks down communication barriers between devices, allowing diverse device types and protocols to be unified into the platform for centralized management.
 
-### 三方设备接入服务
-- **功能**：是通过第三方平台接入设备的一种方式，可将第三方平台上的设备数据整合到ThingsPanel中.
-- **举例**：例如ThingsPanel的中移动OneNet三方设备接入服务，安装配置该设备接入服务后，就能把OneNet平台上的设备数据同步到ThingsPanel平台，实现在ThingsPanel上对OneNet设备的统一管理和监控.
-- **作用**：三方设备接入服务拓展了ThingsPanel的设备接入范围，使其能够与更多第三方系统集成，避免了数据孤岛，实现了不同平台设备数据的融合和共享，为用户提供了更全面、更便捷的设备管理体验.
- 
+### Third-Party Device Integration Service
+- **Function**: detailed way to connect devices via third-party platforms, synchronizing data from external platforms into ThingsPanel.
+- **Example**: The China Mobile OneNet Integration Service allows devices on the OneNet platform to sync data to ThingsPanel, enabling unified management and monitoring of OneNet devices within ThingsPanel.
+- **Role**: Expands ThingsPanel's reach, enabling integration with more third-party systems, avoiding data silos, and facilitating data fusion.
 
-## 设备数据定义相关
+## Device Data Definitions
 
-| 概念 | 描述 | 示例 |
+| Concept | Description | Example |
 |------|------|------|
-| 遥测（Telemetry） | 遥测数据是设备自动收集和发送的数据，通常用于监控设备的运行状态或环境条件。这些数据通常是只读的，并且频繁地发送。 | 温度传感器定期发送当前温度数据。 |
-| 属性（Property） | 属性代表设备的配置或状态，可以是只读的，也可以是可写的。用户或系统可以修改可写的属性，以改变设备的配置或行为。 | 空调的目标温度可以设置为22度，用户可以通过手机应用更改此设置。 |
-| 命令（Command） | 命令是向设备发送的指令，用于执行特定操作。这通常是一个单向的交互，从服务器到设备。 | 向打印机发送打印命令以开始打印文档。 |
-| 事件（Event） | 事件是设备在特定条件下产生的信号，通常用于通知系统某些特定的变化或异常。 | 烟雾报警器在检测到烟雾时发送警报事件。 |
-
+| **Telemetry** | Data automatically collected and sent by the device, usually to monitor status or environmental conditions. Typically read-only and sent frequently. | A temperature sensor periodically sending current temperature readings. |
+| **Property** (Attribute) | Represents the configuration or state of a device. Can be read-only or read-write. Users or systems can modify writable properties to change device behavior. | An AC unit's target temperature set to 22°C; user changes this via a mobile app. |
+| **Command** | Instructions sent to the device to execute specific operations. Usually a one-way interaction from server to device. | Sending a "Print" command to a printer. |
+| **Event** | Signals generated by the device under specific conditions, used to notify the system of changes or exceptions. | A smoke detector sending an alarm event when smoke is detected. |

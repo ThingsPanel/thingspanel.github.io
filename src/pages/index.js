@@ -18,7 +18,7 @@ function HomepageHeader() {
         <p className="hero__subtitle"><Translate
                   id="home.visitMyBlog"
                   description="dicte">
-                  ThingsPanel是一款轻量级、组件化的开源物联网应用支撑平台
+                  ThingsPanel is a lightweight, component-based open source IoT application platform
                 </Translate></p>
         <div className={styles.buttons}>
           <span>
@@ -27,7 +27,7 @@ function HomepageHeader() {
             to="/docs/overview">
             {/* Docusaurus Tutorial - 5min ⏱️ */}
             <Translate id="home.viewDoc">
-                  查看文档
+                  Documentation
                 </Translate>
           </Link>
           </span>
@@ -36,7 +36,7 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/introduction/demo">
             <Translate id="home.viewDemo">
-                  查看演示
+                  Demo
                 </Translate>
           </Link>
           </span>
@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description={translate({message: '物联网应用支撑平台'})}>
+      description={translate({message: 'IoT Application Platform'})}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
@@ -58,7 +58,7 @@ export default function Home() {
           <Translate
             id="Function.Introduced"
             description="serf">
-            功能介绍
+            Features
           </Translate>
         </h3>
         <HomepageContent />
@@ -73,7 +73,7 @@ export default function Home() {
               <a className="footer__link-item" href="https://discord.gg/KvM77UmZ">Discord</a>
             </div>
             <div>
-              <Translate id="bottom.ofTheInformation">Copyright © 2022 北京极益科技有限公司 版权所有.</Translate>
+              <Translate id="bottom.ofTheInformation">Copyright © 2022 Beijing Jiyi Technology Co., Ltd. All Rights Reserved.</Translate>
             </div>
           </div>
         </footer>

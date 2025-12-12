@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
 ---
-# Docker方式安装
+# Docker Installation
 
-## 部署流程
+## Deployment Flow
 
 ```mermaid
 flowchart LR
@@ -11,17 +11,17 @@ flowchart LR
     classDef primary fill:#e8f0fe,stroke:#4a8af4,stroke-width:2px,color:#1a73e8,rx:8,ry:8
     classDef optional fill:#fef1f1,stroke:#d73a49,stroke-width:2px,color:#cb2431,rx:8,ry:8
 
-    A[环境准备] --> B[安装Docker]
-    A --> C[安装Docker Compose]
-    A --> D[安装Git]
+    A[Environment Prep] --> B[Install Docker]
+    A --> C[Install Docker Compose]
+    A --> D[Install Git]
     
-    B & C & D --> E[拉取项目]
-    E --> F[运行项目]
-    F --> G[访问系统]
+    B & C & D --> E[Pull Project]
+    E --> F[Run Project]
+    F --> G[Access System]
     
-    H[系统端口]
-    H --> I[8080/前端服务]
-    H --> J[9999/后端API]
+    H[System Ports]
+    H --> I[8080/Frontend]
+    H --> J[9999/Backend]
     H --> K[1883/MQTT]
     H --> L[8883/MQTTS]
     H --> M[5432/PostgreSQL]
@@ -39,17 +39,17 @@ flowchart LR
 
 ```
 
-## 环境准备
+## Environment Preparation
 
 :::tip
 
-windows环境下请安装 `Docker Desktop`和 `git`。
+For Windows environments, please install `Docker Desktop` and `git`.
 
 :::
 
-### 安装Docker
+### Install Docker
 
-- **安装docker（centos）**
+- **Install Docker (CentOS)**
 
   ```bash
   dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -58,11 +58,11 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   systemctl enable docker.service
   ```
 
-- **安装docker-compose**
+- **Install Docker Compose**
 
 :::tip
-  如docker-compose的v2.9.0运行出错，可下载v2.10.0使用。
-  如要使用docker-compose较新版本，请自行修改项目里的docker-compose.yml文件
+  If Docker Compose v2.9.0 fails to run, you can download v2.10.0.
+  If you want to use a newer version of Docker Compose, please modify the `docker-compose.yml` file in the project accordingly.
 :::
 
   ```bash
@@ -70,65 +70,65 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   chmod +x /usr/local/bin/docker-compose
   ```
 
-  如果下载太慢可替换
+  Alternative download link if the above is slow:
 
   ```bash
   curl -L "https://get.daocloud.io/docker/compose/releases/download/v2.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   chmod +x /usr/local/bin/docker-compose
   ```
 
-- **如没有安装git**
+- **If Git is not installed**
 
   ```bash
   dnf install git -y
   ```
 
-### 镜像加速方式安装
+### Installation with Mirror Acceleration
 
-[Debian系统安装 Docker 操作手册](https://docs.qq.com/doc/DZVZtdXBPdFJxV05C)  
-[CentOS系统安装 Docker 操作手册](https://docs.qq.com/doc/DZUlaZG50dG1RdHB0)  
-[Ubuntu系统安装 Docker 操作手册](https://docs.qq.com/doc/DZW13a1FzeGxiQk5J)  
-[AlmaLinux系统安装 Docker 操作手册](https://docs.qq.com/doc/DZWNWZU9LZUxwTWVs)  
+[Debian System Installation Guide](https://docs.qq.com/doc/DZVZtdXBPdFJxV05C)  
+[CentOS System Installation Guide](https://docs.qq.com/doc/DZUlaZG50dG1RdHB0)  
+[Ubuntu System Installation Guide](https://docs.qq.com/doc/DZW13a1FzeGxiQk5J)  
+[AlmaLinux System Installation Guide](https://docs.qq.com/doc/DZWNWZU9LZUxwTWVs)  
 
-## 开始安装
+## Start Installation
 
-- **拉取项目**
+- **Pull Project**
 
   ```bash
-  # 拉取docker配置
+  # Pull docker configuration
   git clone https://github.com/ThingsPanel/thingspanel-docker.git
   cd thingspanel-docker
   ```
 
-- **运行项目**
+- **Run Project**
 
-  > 在 `thingspanel-docker`目录下(win需要打开 `cmd` 窗口)
+  > In the `thingspanel-docker` directory (Windows users need to open a `cmd` window)
   >
 
   ```bash
-  # 以日志显示前台方式启动项目(默认端口8080)
+  # Start project in foreground (default port 8080)
   docker-compose -f docker-compose.yml up
-  # 或者以隐藏日志显示的方式启动项目
+  # Or start in background
   docker-compose -f docker-compose.yml up -d
-  # 停止服务
+  # Stop services
   docker-compose -f docker-compose.yml down
   ```
 
-- **登录**
+- **Login**
 
-  - 打开浏览器，输入**服务器ip:8080**
-  - 系统管理员 super@super.cn / 123456
-  - 租户管理员 tenant@tenant.cn / 123456
+  - Open browser and enter **ServerIP:8080**
+  - System Admin: super@super.cn / 123456
+  - Tenant Admin: tenant@tenant.cn / 123456
 
-## 挂载说明
+## Volume Mapping
 
-- **配置文件、日志以及其他差分文件**
+- **Configuration, Logs, and other diff files**
 
   ```bash
   ./data
   ```
 
-- **docker数据卷名**
+- **Docker Volume Names**
 
   ```bash
   go
@@ -136,26 +136,26 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   nginx
   ```
 
-## 查看容器运行日志
+## View Container Logs
 
 ```bash
 docker logs -f containerID
 ```
 
-## 端口说明
+## Port Description
 
 ```bash
-8080（前端服务端口）
-9999（后端API端口）
-1883（mqtt端口）
-8883（mqtts端口）
-5432（postgresql端口）
-6379（redis端口）
+8080 (Frontend Service)
+9999 (Backend API)
+1883 (MQTT)
+8883 (MQTTS)
+5432 (PostgreSQL)
+6379 (Redis)
 ```
 
-:::tip 设备对接
+:::tip Device Connection
 
-设备接入请参考
-[`mqtt对接`](../device-connect/mqtt)
+For device connection instructions, please refer to:
+[`MQTT Connection`](../device-connect/mqtt)
 
 :::

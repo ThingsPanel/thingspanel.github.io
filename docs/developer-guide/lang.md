@@ -2,44 +2,45 @@
 sidebar_position: 4
 ---
 
-# 国际化
+# Internationalization
 
-## 一、概述
-通过 ThingsPanel 对国际化 (i18n) 的支持，你可以 轻松地实现对 ThingsPanel 平台的翻译工作 。
-目前支持两种语言，中文和英文。如果这两种语言不满足您的需求，可以定制其他语言。
+## I. Overview
+Through ThingsPanel's support for internationalization (i18n), you can easily translate the ThingsPanel platform.
+Currently, two languages are supported: Chinese and English. If these two languages do not meet your needs, you can customize other languages.
 
 
-## 二、开发步骤
+## II. Development Steps
 
-### 1、 新建语言文件
-语言文件在src\locales文件夹下
+### 1. Create New Language File
+Language files are located in the `src\locales` folder.
 
 ![img.png](images/locales1.1.png)
 
-ch.js是中文语言文件，en.js是英文语言文件，其他语种请自定义。  
-语言文件的格式如下：
-```aidl
+`ch.js` is the Chinese language file, `en.js` is the English language file. Please customize for other languages.
+The format of the language file is as follows:
+```typescript
 const local: App.I18n.Schema = {
   custom,
   default: '',
   title: 'ThingsPanel',
   system: {
     title: 'System Name: {name}',
-    screen: '可视化大屏'
+    screen: 'Visualization Dashboard'
   }
   
   }
 ```
 :::tip
-所有的key都是大写，多个单词用下划线隔开  
-长文本用TEXT1, TEXT2...  
-多次复用的组件的KEY可放在COMMON里  
+All keys should be uppercase, with multiple words separated by underscores.
+Use TEXT1, TEXT2... for long text.
+Keys for reused components can be placed in COMMON.
 :::
 
-### 2、使用语言文件
-如果只翻译中文和英文，可跳过这一节.  
-打开src\locales\locale.ts文件，将您定义的语言添加到languages中
-```aidl
+### 2. Use Language File
+If you only translate Chinese and English, you can skip this section.
+Open the `src\locales\locale.ts` file and add your defined language to `languages`.
+
+```typescript
 import zhCN from './langs/zh-cn'
 import enUS from './langs/en-us'
 
@@ -49,33 +50,32 @@ const locales: Record<App.I18n.LangType, App.I18n.Schema> = {
 }
 
 export default locales
-
 ```
-其中lang是文件名，name是项目中语言下拉列表的语种名称，flag是语种图标。  
-然后您就可以在页面中翻译文本了。
+Where `lang` is the filename, `name` is the language name displayed in the dropdown list in the project, and `flag` is the language icon.
+Then you can translate text on the page.
 
-### 3、翻译页面
-- Template  
+### 3. Translate Pages
+- Template
 ```  
-格式： {{ $t(名称)}}  ```
-  举例：
-```aidl
-// 插槽方式
+Format: {{ $t(NAME)}}  ```
+  Example:
+```html
+<!-- Slot Method -->
 <span class="font-weight-bolder text-dark">
   {{ $t("HOME.QUICK_GUIDE") }}
 </span>
 ```
 
-```aidl
-// 传值方式
+```html
+<!-- Prop Method -->
 <el-table-column :label="$t('COMMON.NO')" type="index" width="260"></el-table-column>
 ```
   
 
-- js  
-  格式： this.$t(名称);  
-  举例：
-```aidl
+- JS
+  Format: `this.$t(NAME);`
+  Example:
+```javascript
 // vue 2.0
 this.$t("PLUGIN.DEVICE_INFO");
 

@@ -2,36 +2,33 @@
 sidebar_position: 8
 ---
 
-# 代码库地址
+# Source Code Repositories
 
+**GitHub Organization:**
 https://github.com/ThingsPanel/
 
-## 后端代码库
+## Backend Repository
 https://github.com/ThingsPanel/thingspanel-backend-community
 
-## 前端代码库
+## Frontend Repository
 https://github.com/ThingsPanel/thingspanel-frontend-community
 
+## Core Components
 
-
-## GMQTT代码库
+### GMQTT Broker
 https://github.com/ThingsPanel/gmqtt.git
 
-## HTTP设备接入服务库
+### HTTP Protocol Plugin
 https://github.com/ThingsPanel/http-protocol-plugin.git
 
-## Modbus设备接入服务库
+### Modbus Protocol Plugin
 https://github.com/ThingsPanel/modbus-protocol-plugin
 
-## TCP设备接入服务库
+### TCP Protocol Plugin
 https://github.com/ThingsPanel/tcp-protocol-plugin
 
-## 手机端代码库
-
+## Mobile App
 https://github.com/ThingsPanel/app
 
-## 容器代码库
-
+## Docker Deployment
 https://github.com/ThingsPanel/thingspanel-docker.git
-
-

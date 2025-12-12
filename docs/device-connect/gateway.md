@@ -2,58 +2,58 @@
 sidebar_position: 3
 ---
 
-# MQTT网关设备接入
+# MQTT Gateway Access
 
-## 1、接入步骤
+## 1. Access Steps
 
-1. 创建物模型(可选)
-2. 创建MQTT网关设备模板
-3. 创建MQTT网关子设备模板
-4. 创建网关设备
-5. 创建网关子设备
-6. 在已创建的网关设备里，关联网关子设备并配置子设备地址
-7. 根据网关设备里的**连接**页信息配置网关设备的凭证信息
-8. 开启设备
-9. 查看设备数据
+1. Create Product Model (Optional)
+2. Create MQTT Gateway Device Template
+3. Create MQTT Gateway Sub-device Template
+4. Create Gateway Device
+5. Create Gateway Sub-device
+6. In the created Gateway Device, link the Sub-device and configure sub-device address
+7. Configure gateway device credentials based on the **Connection** tab info in the gateway device
+8. Turn on device
+9. View device data
 
-> [网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)
+> [Gateway Device MQTT Interaction Spec](./mqtt-gateway-rule.md)
 
-## 2、操作
+## 2. Operations
 
-### 2.1、创建物模型（可选）
+### 2.1 Create Product Model (Optional)
 
-- 进入ThinsPanel系统，点击设备辑入-物模型，创建物模型，并针对遥测、属性、事件、命令等配置名称和标识符的映射关系。
+- Enter ThingsPanel system, click Device Onboarding - Product Model, create product model, and configure mapping for telemetry, attributes, events, commands, etc.
 ![descript](./image/image19.png)
 
-### 2.2、创建MQTT网关设备的设备模板
+### 2.2 Create MQTT Gateway Device Template
 
-- 创建设备模板，选择刚才建立的物模型，并设备模板中的协议、数据处理、自动化、告警等配置。如果设备发送的是二进制等非json格式数据时，需要在数据处理中配置数据预处理脚本。
+- Create device template, select the product model created above, and configure protocol, data processing, automation, alarms, etc. If device sends binary or non-JSON data, configure data pre-processing script in Data Processing.
 ![descript](./image/image20.png)
 
-### 2.3、创建MQTT网关子设备模板
+### 2.3 Create MQTT Gateway Sub-device Template
 
-- 同创建网关的设备模板
+- Same as creating gateway device template.
 
-### 2.4、创建设备并关联
+### 2.4 Create Device and Associate
 
-- 在Thinspanel中创建网关设备和子网关设备，并设置设备的用户名和密码，选择设备的设备模板、自动化、告警等。
-- 在已创建的网关设备里，关联网关子设备并配置子设备地址
+- Create Gateway Device and Sub-gateway device in ThingsPanel, set username and password, select device template, automation, alarm, etc.
+- In the created gateway device, bind the sub-device and configure sub-device address.
 ![descript](./image/image21.png)
 
-### 2.5、配置设备端
+### 2.5 Configure Device Side
 
-- 根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据[网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)配置主题等。
-- 设备端根据协议配置凭证信息和上报规则，然后进行数据上报。
+- Configure gateway device credentials based on **Connection** tab info. Configure topics based on [Gateway Device MQTT Interaction Spec](./mqtt-gateway-rule.md).
+- Device configures credential info and reporting rules according to protocol, then reports data.
 
-### 2.6、开启设备
+### 2.6 Turn On Device
 
-- 开启设备
+- Turn on device.
 
-### 2.7、查看数据
+### 2.7 View Data
 
-- 通过设备-遥测查看设备数据，并可在平台上进行遥测数据下发，属性、命令下发等来控制设备。
+- View device data via Device - Telemetry. Can also issue telemetry data, attributes, commands from platform to control device.
 ![descript](./image/image22.png)
 
-## 设备和平台数据交互规范
+## Device and Platform Data Interaction Specification
 
-[网关设备MQTT数据交互规范](./mqtt-gateway-rule.md)
+[Gateway Device MQTT Interaction Spec](./mqtt-gateway-rule.md)

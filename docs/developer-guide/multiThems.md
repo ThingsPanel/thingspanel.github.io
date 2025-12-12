@@ -2,57 +2,57 @@
 sidebar_position: 4
 ---
 
-# 多主题开发
+# Multi-theme Development
 
-## 一、概述
-ThingsPanel系统主题的实现分为两个部分，一部分是组件库的主题配置，另一部分是 UnoCSS 的主题配置。为了统一两个部分的主题配置，在这之上维护了一些主题配置，通过这些主题配置分别控制组件库和 UnoCSS 的主题配置。
+## I. Overview
+The implementation of themes in ThingsPanel is divided into two parts: one is the theme configuration of the component library, and the other is the theme configuration of UnoCSS. In order to unify the theme configuration of these two parts, some theme configurations are maintained on top of this, controlling the theme configuration of the component library and UnoCSS respectively.
 
-## 二、原理
-1. 定义一些主题配置的变量，包括各种主题颜色，布局的参数配置等
-2. 通过这些配置产出符合组件库的主题变量
-3. 通过这些配置产出一些主题 tokens 并衍生出对应的 css 变量，再将这些 css 变量传递给 UnoCSS
+## II. Principle
+1. Define theme configuration variables, including various theme colors, layout parameter configurations, etc.
+2. Produce theme variables that conform to the component library through these configurations.
+3. Produce theme tokens and derived CSS variables through these configurations, and then pass these CSS variables to UnoCSS.
 
-## 三、主题配置
+## III. Theme Configuration
 
-### 1. 类型定义
-主题配置的类型定义见 `App.Theme.ThemeSetting`
+### 1. Type Definition
+See `App.Theme.ThemeSetting` for theme configuration type definitions.
 
-**代码位置**：`src/typings/app.d.ts`
+**Code Location**: `src/typings/app.d.ts`
 
-### 2. 初始化配置
+### 2. Initial Configuration
 ```typescript
 export const themeSettings: App.Theme.ThemeSetting = {
-  //默认配置
+  // default config
 };
 ```
 
-**代码位置**：`src/theme/settings.ts`
+**Code Location**: `src/theme/settings.ts`
 
-### 3. 配置覆盖更新
-当发布新的版本时，可以通过配置覆盖更新的方式，来更新主题配置
+### 3. Override Configuration via Update
+When releasing a new version, you can update the theme configuration by overriding it.
 
 ```typescript
 export const overrideThemeSettings: Partial<App.Theme.ThemeSetting> = {
-  //覆盖配置
+  // override config
 };
 ```
 
-**代码位置**：`src/theme/settings.ts`
+**Code Location**: `src/theme/settings.ts`
 
-### 4. 环境说明
+### 4. Environment Explanation
 
-#### 开发环境
-- 当项目处于开发模式时，主题配置不会被缓存
-- 可以通过更新 `src/theme/settings.ts` 中的 `themeSettings` 来更新主题配置
-- 开发阶段为了能够实时看到主题配置的变化，所以不会缓存主题配置
+#### Development Environment
+- Theme configuration is not cached in development mode.
+- Update `themeSettings` in `src/theme/settings.ts` to update theme configuration.
+- To see changes in real-time, caching is disabled during development.
 
-#### 生产环境
-- 当项目处于生产模式时，主题配置会被缓存到 localStorage 中
-- 每次发布新版本，可以通过更新 `src/theme/settings.ts` 中的 `overrideThemeSettings` 来覆盖更新主题配置
+#### Production Environment
+- In production mode, theme configuration is cached in localStorage.
+- For each new release, update `overrideThemeSettings` in `src/theme/settings.ts` to override and update the theme configuration.
 
-## 四、主题 Tokens
+## IV. Theme Tokens
 
-### 1. 类型定义
+### 1. Type Definition
 ```typescript
 type ThemeToken = {
   colors: ThemeTokenColor;
@@ -64,10 +64,10 @@ type ThemeToken = {
 };
 ```
 
-**代码位置**：`src/typings/app.d.ts`
+**Code Location**: `src/typings/app.d.ts`
 
-### 2. 基于 Tokens 的 CSS 变量
-初始化时会在 html 上生成一些 css 变量，这些 css 变量是基于主题 tokens 产出的
+### 2. CSS Variables Based on Tokens
+Some CSS variables are generated on html during initialization, based on theme tokens.
 
 ```typescript
 /** Theme vars */
@@ -88,9 +88,9 @@ export const themeVars: App.Theme.ThemeToken = {
 };
 ```
 
-**代码位置**：`src/theme/vars.ts`
+**Code Location**: `src/theme/vars.ts`
 
-### 3. Tokens 初始化
+### 3. Token Initialization
 ```typescript
 /**
  * Create theme token
@@ -135,12 +135,12 @@ export function createThemeToken(colors: App.Theme.ThemeColor) {
 }
 ```
 
-**代码位置**：`src/store/modules/theme/shared.ts`
+**Code Location**: `src/store/modules/theme/shared.ts`
 
-## 五、UnoCSS 主题
+## V. UnoCSS Theme
 
-### 1. 主题配置
-通过 Theme Tokens 注入到 UnoCSS 的主题配置中，借助于 UnoCSS 的能力，可以使用类似 `text-primary` `bg-primary` 等 class 名称进而统一了组件库和 UnoCSS 的主题颜色的应用。
+### 1. Theme Configuration
+Inject Theme Tokens into UnoCSS configuration. With UnoCSS capabilities, you can use classes like `text-primary` `bg-primary` to unify theme color application across the component library and UnoCSS.
 
 ```typescript
 import { themeVars } from './src/theme/vars';
@@ -152,10 +152,10 @@ export default defineConfig<Theme>({
 });
 ```
 
-**代码位置**：`./uno.config.ts`
+**Code Location**: `./uno.config.ts`
 
-### 2. 暗黑模式
-通过 UnoCSS 提供的预设暗黑模式方案，只要在 html 上添加 `class="dark"`，则项目中类似于 `dark:text-#000` `dark:bg-#333` 的 class 就会生效，从而达到暗黑模式的效果。
+### 2. Dark Mode
+Using UnoCSS's preset dark mode, adding `class="dark"` to html enables dark mode classes like `dark:text-#000` `dark:bg-#333`.
 
 ```typescript
 export default defineConfig<Theme>({
@@ -163,14 +163,14 @@ export default defineConfig<Theme>({
 });
 ```
 
-**代码位置**：`./uno.config.ts`
+**Code Location**: `./uno.config.ts`
 
-## 六、组件库主题
+## VI. Component Library Theme
 
-### 1. NaiveUI 主题配置
+### 1. NaiveUI Theme Configuration
 
-#### 主题变量生成
-根据主题颜色产出组件库的主题变量：
+#### Generating Theme Variables
+Generate component library theme variables based on theme colors:
 
 ```typescript
 /**
@@ -197,11 +197,11 @@ function getNaiveTheme(colors: App.Theme.ThemeColor) {
 const naiveTheme = computed(() => getNaiveTheme(themeColors.value));
 ```
 
-**代码位置**：
+**Code Location**:
 - `src/store/modules/theme/shared.ts`
 - `src/store/modules/theme/index.ts`
 
-#### 应用主题变量
+#### Applying Theme Variables
 ```vue
 <template>
   <NConfigProvider
@@ -218,12 +218,12 @@ const naiveTheme = computed(() => getNaiveTheme(themeColors.value));
 </template>
 ```
 
-**代码位置**：`src/App.vue`
+**Code Location**: `src/App.vue`
 
-### 2. AntDesignVue 主题配置
+### 2. AntDesignVue Theme Configuration
 
-#### 主题变量生成
-根据主题颜色产出组件库的主题变量：
+#### Generating Theme Variables
+Generate component library theme variables based on theme colors:
 
 ```typescript
 /**
@@ -260,11 +260,11 @@ function getAntdTheme(colors: App.Theme.ThemeColor, darkMode: boolean) {
 const antdTheme = computed(() => getAntdTheme(themeColors.value, darkMode.value));
 ```
 
-**代码位置**：
+**Code Location**:
 - `src/store/modules/theme/shared.ts`
 - `src/store/modules/theme/index.ts`
 
-#### 应用主题变量
+#### Applying Theme Variables
 ```vue
 <template>
   <ConfigProvider :theme="themeStore.antdTheme" :locale="antdLocale">
@@ -275,11 +275,11 @@ const antdTheme = computed(() => getAntdTheme(themeColors.value, darkMode.value)
 </template>
 ```
 
-## 七、系统 Logo 与加载样式
+## VII. System Logo and Loading Style
 
-### 1. 系统 Logo
+### 1. System Logo
 
-系统 Logo 由组件 `SystemLogo` 来实现，它是一个 SFC 组件，可以通过 props 来设置它的样式。
+The System Logo is implemented by the `SystemLogo` component (SFC), styled via props.
 
 ```vue
 <script lang="ts" setup>
@@ -293,24 +293,24 @@ defineOptions({ name: 'SystemLogo' });
 <style scoped></style>
 ```
 
-**代码位置**：`src/components/common/system-logo.vue`
+**Code Location**: `src/components/common/system-logo.vue`
 
-具体实现原理参考本地 Icon。
+Refer to local Icon implementation for details.
 
-### 2. 系统加载样式
+### 2. System Loading Style
 
-系统初始化时的加载样式通过 html 代码方式实现。
+Initialization loading style is implemented via HTML code.
 
-#### 组件位置
+#### Component Location
 `src/plugins/loading.ts`
 
-#### 渲染原理
-创建 `setupLoading` 函数，它的主要功能是设置页面加载时的动画效果。这个加载动画包括：
-- 系统 Logo
-- 旋转的点阵动画
-- 标题文字
+#### Rendering Principle
+Create `setupLoading` function to set page loading animation. Includes:
+- System Logo
+- Rotating dot animation
+- Title text
 
-所有元素的颜色均基于从本地存储获取的主题色 `themeColor` 动态生成。并且在 DOM 中查找 ID 为 app 的元素作为加载动画的挂载点，如果找到了这个元素，则将其内部 HTML 替换为刚刚构建的加载动画 HTML 结构。
+All element colors are dynamically generated based on `themeColor` from local storage. It finds the element with ID `app` and replaces its inner HTML with the loading animation structure.
 
 ```typescript
 export function setupLoading() {
@@ -319,33 +319,7 @@ export function setupLoading() {
   const { r, g, b } = getRgbOfColor(themeColor);
 
   const primaryColor = `--primary-color: ${r} ${g} ${b}`;
-
-  const loadingClasses = [
-    'left-0 top-0',
-    'left-0 bottom-0 animate-delay-500',
-    'right-0 top-0 animate-delay-1000',
-    'right-0 bottom-0 animate-delay-1500'
-  ];
-
-  const logoWithClass = systemLogo.replace('<svg', `<svg class="size-128px text-primary"`);
-
-  const dot = loadingClasses
-    .map(item => {
-      return `<div class="absolute w-16px h-16px bg-primary rounded-8px animate-pulse ${item}"></div>`;
-    })
-    .join('\n');
-
-  const loading = `
-<div class="fixed-center flex-col" style="${primaryColor}">
-  ${logoWithClass}
-  <div class="w-56px h-56px my-36px">
-    <div class="relative h-full animate-spin">
-      ${dot}
-    </div>
-  </div>
-  <h2 class="text-28px font-500 text-#646464">${$t('system.title')}</h2>
-</div>`;
-
+  // ... (code omitted for brevity)
   const app = document.getElementById('app');
 
   if (app) {
@@ -354,9 +328,9 @@ export function setupLoading() {
 }
 ```
 
-**代码位置**：`src/plugins/loading.ts`
+**Code Location**: `src/plugins/loading.ts`
 
-最后要将 `setupLoading` 函数注册到 `main.ts` 中：
+Register `setupLoading` in `main.ts`:
 
 ```typescript
 async function setupApp() {
@@ -364,4 +338,3 @@ async function setupApp() {
   app.mount('#app');
 }
 ```
-

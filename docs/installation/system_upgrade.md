@@ -2,150 +2,150 @@
 sidebar_position: 8
 ---
 
-# 系统升级指南
+# System Upgrade Guide
 
-## 版本兼容性说明
+## Version Compatibility
 
-:::caution 重要提示
-ThingsPanel 从 0.5.4 版本升级到 1.0.0 版本是不支持直接升级的，需要重新部署。
+:::caution Important
+Direct upgrade from ThingsPanel v0.5.4 to v1.0.0 is **NOT** supported. A fresh deployment is required.
 :::
 
-## Docker 部署版本升级指南
+## Docker Deployment Upgrade Guide
 
-### 升级前准备
+### Pre-upgrade Preparation
 
-1. **数据备份**
-   - 备份数据库
-   - 备份配置文件
-   - 备份自定义插件和扩展
+1.  **Data Backup**
+    *   Backup Database
+    *   Backup Configuration Files
+    *   Backup Custom Plugins and Extensions
 
-2. **环境检查**
-   - 确认系统资源充足
-   - 验证存储空间
-   - 检查现有服务状态
+2.  **Environment Check**
+    *   Confirm sufficient system resources
+    *   Verify storage space
+    *   Check status of existing services
 
-### 升级方式选择
+### Upgrade Methods
 
-您可以选择以下两种升级方式之一：
+You can choose one of the following two upgrade methods:
 
-- 部分容器升级（只更新特定服务）
-- 全系统升级（更新所有组件）
+*   **Partial Container Upgrade** (Update specific services only)
+*   **Full System Upgrade** (Update all components)
 
-### 部分容器升级流程
+### Partial Container Upgrade Process
 
-#### 1. 容器与卷的对应关系
-
-```bash
-前端服务: thingspanel-vue:nginx
-MQTT服务: thingspanel-gmqtt:gmqtt
-后端服务: thingspanel-go:go
-```
-
-#### 2. 升级步骤
-
-1. 更新源码
+#### 1. Container and Volume Mapping
 
 ```bash
-cd thingspanel-docker
-git pull
+Frontend Service: thingspanel-vue:nginx
+MQTT Service: thingspanel-gmqtt:gmqtt
+Backend Service: thingspanel-go:go
 ```
 
-2. 停止并清理目标容器
+#### 2. Upgrade Steps
 
-```bash
-# 停止容器
-docker stop <ContainerID>
+1.  Update Source Code
 
-# 删除容器
-docker rm <ContainerID>
+    ```bash
+    cd thingspanel-docker
+    git pull
+    ```
 
-# 删除镜像
-docker rmi <ImageID>
-```
+2.  Stop and Clean Target Containers
 
-3. 清理卷
+    ```bash
+    # Stop container
+    docker stop <ContainerID>
 
-```bash
-# 清理未使用的卷
-docker volume prune
+    # Remove container
+    docker rm <ContainerID>
 
-# 查看现有卷
-docker volume ls
+    # Remove image
+    docker rmi <ImageID>
+    ```
 
-# 删除特定卷（如需要）
-docker volume rm thingspanel-docker_nginx
-docker volume rm thingspanel-docker_gmqtt
-docker volume rm thingspanel-docker_go
-```
+3.  Clean Volumes
 
-4. 重新部署服务
+    ```bash
+    # Prune unused volumes
+    docker volume prune
 
-```bash
-docker-compose -f docker-compose.yml up
-```
+    # List existing volumes
+    docker volume ls
 
-:::tip 提示
-如果新版本使用相同的镜像标签，请确保删除本地镜像并重新拉取，以获取最新版本。
+    # Remove specific volumes (if needed)
+    docker volume rm thingspanel-docker_nginx
+    docker volume rm thingspanel-docker_gmqtt
+    docker volume rm thingspanel-docker_go
+    ```
+
+4.  Redeploy Services
+
+    ```bash
+    docker-compose -f docker-compose.yml up
+    ```
+
+:::tip
+If the new version uses the same image tag, ensure you delete the local image and pull again to get the latest build.
 :::
 
-### 全系统升级流程
+### Full System Upgrade Process
 
-1. **准备工作**
-   - 比对新旧版本的 docker-compose.yml 文件，确认需要更新的服务
-   - 更新源码到目标版本
+1.  **Preparation**
+    *   Compare the new and old `docker-compose.yml` files to confirm services needing updates.
+    *   Update source code to the target version.
 
-   ```bash
-   git pull
-   ```
+    ```bash
+    git pull
+    ```
 
-2. **停止现有服务**
+2.  **Stop Existing Services**
 
-   ```bash
-   docker-compose down
-   ```
+    ```bash
+    docker-compose down
+    ```
 
-3. **启动新版本**
+3.  **Start New Version**
 
-   ```bash
-   docker-compose -f docker-compose.yml up -d
-   ```
+    ```bash
+    docker-compose -f docker-compose.yml up -d
+    ```
 
-### 配置更新
+### Configuration Updates
 
-如需修改卷中的配置：
+To modify configurations in volumes:
 
-1. 查找卷位置
+1.  Find Volume Location
 
-```bash
-# 列出所有卷
-docker volume ls
+    ```bash
+    # List all volumes
+    docker volume ls
 
-# 查看特定卷的详细信息
-docker volume inspect <卷名>
-```
+    # Inspect specific volume
+    docker volume inspect <VolumeName>
+    ```
 
-2. 修改配置
-   - 直接编辑卷目录下的配置文件
-   - 注意：应用程序会优先使用环境变量中的配置
+2.  Modify Configuration
+    *   Directly edit the config files in the volume directory.
+    *   Note: Applications generally prioritize configurations from Environment Variables.
 
-:::info 注意事项
+:::info Precautions
 
-1. 升级前务必备份所有重要数据
-2. 建议在测试环境先进行升级测试
-3. 升级过程中注意保留自定义配置
-4. 如遇问题，可回退到备份版本
+1.  Always backup important data before upgrading.
+2.  It is recommended to test the upgrade in a staging environment first.
+3.  Preserve custom configurations during the upgrade.
+4.  Rollback to the backup version if issues occur.
 :::
 
-## 源码部署版本升级
+## Source Code Deployment Upgrade
 
-对于源码部署的环境：
+For source code deployment environments:
 
-1. 更新源码
+1.  Update Source Code
 
-```bash
-git pull origin <target-version>
-```
+    ```bash
+    git pull origin <target-version>
+    ```
 
-2. 重新编译
+2.  Recompile
 
-3. 重启服务
+3.  Restart Services

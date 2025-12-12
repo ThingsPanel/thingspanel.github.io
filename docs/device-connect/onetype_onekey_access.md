@@ -2,97 +2,97 @@
 sidebar_position: 12
 ---
 
-# 一型一密接入
+# One Type One Secret Access
 
-## 核心原理
+## Core Principle
 
-![descript](./image/dc-image0.svg)
+![Principle](./image/dc-image0.svg)
 
-"一型一密"认证原理的核心在于：
+The core principle of "One Type One Secret" authentication is:
 
-- **"一型"**：代表一类设备共享相同的类型密钥
-- **"一密"**：代表每个设备最终获得的专属唯一连接凭证
+- **"One Type"**: Represents a class of devices sharing the same Type Secret (Template Secret).
+- **"One Secret"**: Represents the exclusive unique connection credential (Voucher) eventually obtained by each device.
 
-这种机制巧妙平衡了生产便利性和安全性，避免了为每台设备单独预置唯一密钥的复杂性。
+This mechanism balances production convenience and security, avoiding the complexity of pre-setting unique secrets for every single device.
 
-### 认证流程三个关键环节
+### Three Key Stages
 
-#### 1. 类型密钥预置阶段
-- **平台侧**：创建设备类型，生成类型密钥
-- **设备侧**：在生产阶段预置类型密钥（同类设备共享相同密钥）
+#### 1. Type Secret Preset Stage
+- **Platform**: Create Device Template, generate Template Secret.
+- **Device**: Preset Template Secret during production (shared by same type devices).
 
-#### 2. 设备认证阶段
-- **设备侧**：确定自身唯一标识（如芯片ID、MAC地址、IMEI等）
-- **设备侧→平台侧**：发送认证请求，包含类型密钥和唯一标识
-- **平台侧**：验证设备类型密钥与唯一标识，确认设备合法性
+#### 2. Device Authentication Stage
+- **Device**: Determine own unique ID (e.g., Chip ID, MAC, IMEI).
+- **Device → Platform**: Send auth request containing Template Secret and Unique ID.
+- **Platform**: Validate Template Secret and Unique ID.
 
-#### 3. 凭证下发阶段
-- **平台侧**：为合法设备生成唯一连接凭证
-- **平台侧→设备侧**：下发设备专属连接凭证
-- **设备侧**：保存连接凭证，用于后续安全连接
+#### 3. Credential Issuance Stage
+- **Platform**: Generate unique connection credential for valid device.
+- **Platform → Device**: Send credential.
+- **Device**: Save credential for subsequent secure connections.
 
 :::info
 
-这种认证机制有效解决了物联网设备大规模部署时的安全与效率问题，适用于各种物联网平台和应用场景，不局限于特定厂商的实现。
+This mechanism effectively solves security and efficiency issues in large-scale IoT deployment, suitable for various platforms and scenarios.
 
 :::
 
-## ThingsPanel一型一密设计
+## ThingsPanel Design
 
-![descript](./image/dc-image1.svg)
+![Design](./image/dc-image1.svg)
 
-### 仅使用模板密钥的认证流程
-![descript](./image/dc-image2.svg)
+### Flow with Template Secret Only
+![Flow 1](./image/dc-image2.svg)
 
-### 使用模板密钥+ProductKey的认证流程
-![descript](./image/dc-image3.svg)
+### Flow with Template Secret + ProductKey
+![Flow 2](./image/dc-image3.svg)
 
-## API接口说明
+## API Specification
 
-### 设备动态认证接口
+### Dynamic Authentication Interface
 
-**接口地址：** `POST /api/v1/device/auth`
+**URL:** `POST /api/v1/device/auth`
 
-**接口描述：** 支持设备一型一密动态认证，包含两种认证流程
+**Description:** Supports One Type One Secret dynamic authentication.
 
-#### 请求参数
+#### Request Parameters
 
-| 参数名 | 类型 | 必填 | 说明 |
+| Param | Type | Required | Description |
 |--------|------|------|------|
-| `template_secret` | string | ✅ | 模板密钥 |
-| `device_number` | string | ✅ | 设备唯一标识（如MAC地址、IMEI等） |
-| `device_name` | string | ❌ | 设备名称 |
-| `product_key` | string | ❌ | 产品密钥，用于产品关联 |
-| `parent_device_number` | string | ❌ | 父设备编号（子设备时必填） |
-| `sub_device_addr` | string | ❌ | 子设备地址（子设备时必填） |
+| `template_secret` | string | ✅ | Template Secret |
+| `device_number` | string | ✅ | Device Unique ID (MAC, IMEI, etc.) |
+| `device_name` | string | ❌ | Device Name |
+| `product_key` | string | ❌ | Product Key (for association) |
+| `parent_device_number` | string | ❌ | Parent Device ID (Required for sub-device) |
+| `sub_device_addr` | string | ❌ | Sub-device Address (Required for sub-device) |
 
-#### 请求示例
+#### Request Example
 
 ```json
 {
   "template_secret": "your_template_secret",
   "device_number": "your_device_unique_id",
-  "device_name": "设备名称",
+  "device_name": "DeviceName",
   "product_key": "your_product_key"
 }
 ```
 
-#### 响应参数
+#### Response Parameters
 
-| 参数名 | 类型 | 说明 |
+| Param | Type | Description |
 |--------|------|------|
-| `code` | integer | 状态码，200表示成功 |
-| `message` | string | 响应消息 |
-| `data` | object | 响应数据 |
-| `└─ device_id` | string | 设备ID |
-| `└─ voucher` | string | 设备连接凭证 |
+| `code` | integer | Status code, 200 = Success |
+| `message` | string | Message |
+| `data` | object | Data |
+| `└─ device_id` | string | Device ID |
+| `└─ voucher` | string | Voucher |
 
-#### 响应示例
+#### Response Example
 
 ```json
 {
   "code": 200,
-  "message": "操作成功",
+  "message": "Success",
   "data": {
     "device_id": "4e7e16dc-b1e7-5eef-32a6-48a7d767c85f",
     "voucher": "{\"username\":\"6c2f1bdc-6fc2-b535-f0ba-f77fe9dc6db1\"}"
@@ -100,21 +100,21 @@ sidebar_position: 12
 }
 ```
 
-## 使用指南
+## User Guide
 
-### 🚀 准备工作
-- 在平台创建设备模板并获取模板密钥
-- 确定设备唯一标识（建议使用MAC地址、芯片ID等）
-- 如需关联产品，准备产品密钥
+### 🚀 Preparation
+- Create Device Template and get Template Secret.
+- Determine Device Unique ID.
+- Prepare Product Key if needed.
 
-### 📋 认证流程
-1. 设备启动时发送认证请求到 `/api/v1/device/auth`
-2. 平台验证模板密钥和设备标识
-3. 平台返回设备ID和连接凭证
-4. 设备保存凭证用于后续连接
+### 📋 Process
+1. Device sends auth request to `/api/v1/device/auth` on startup.
+2. Platform validates.
+3. Platform returns Device ID and Voucher.
+4. Device saves Voucher.
 
-### ⚠️ 注意事项
-- 模板密钥在同类设备中共享，需妥善保管
-- 设备唯一标识必须确保全局唯一
-- 连接凭证应安全存储，避免泄露
-- 建议在设备首次认证后本地缓存凭证
+### ⚠️ Notes
+- Template Secret is shared, keep it safe.
+- Device Unique ID must be globally unique.
+- Securely store the Voucher.
+- Cache Voucher locally after first auth.

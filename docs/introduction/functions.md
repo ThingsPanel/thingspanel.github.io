@@ -2,496 +2,289 @@
 sidebar_position: 3
 ---
 
-# 功能介绍
-
-## 一、系统架构与部署环境 
-
-1. 平台支持在Windows、Linux、中标麒麟、统信UOS、深度操作系统、银河麒麟、新支点等各种主流操作系统环境部署
-2. 支持386、AMD86、ARMv7、ARMv8、ARM64各种常用CPU架构
-3. 基于B/S架构体系，支持使用浏览器进行系统访问登录、信息查阅、设备控制、数据管理等
-4. 支持Windows安装包、一键脚本、Docker、K8s、源码等多种安装部署方式
-5. 支持各类虚拟化软件
-6. 支持在Android和iOS两种移动端系统下APP安装及应用，同时可发布为微信或者其他平台小程序
-7. 支持单机部署和集群部署两种方式，集群支持高可用与高并发
-8. 兼容PostgreSQL、TimescaleDB、TDengine、腾讯TDSQL、阿里PolarDB、人大金仓KingBase等各类国产及开源数据库环境
-9. 提供高性能消息中间件支持，包括EMQ、VerneMQ、GMQTT等MQTT Broker，Redis、NoSQL用于缓存数据库
-10. 支持从电视机顶盒1核心1G配置、树莓派、到大型服务器全系列硬件部署
-11. 安全功能支持三级等保
-12. 支持毫秒级高频和百万级数据点高并发写入
-
-## 二、总后台管理功能 
-
-1. **全局看板展示**：
-   - 实时监控CPU、内存、硬盘等系统资源使用情况
-   - 显示租户配置、设备总数、在线设备数、离线设备数、告警信息等综合数据
-
-2. **设备接入服务管理**：
-   - 支持设备接入服务和三方设备接入服务两种类型管理
-   - 用户可自行添加新设备接入服务，实现协议扩展和服务接入
-   - 支持自定义MQTT服务地址、服务订阅主题前缀
-   - 可自定义服务标识、版本号等信息
-   - 支持检测服务运行状态（暂停/运行）
-
-3. **可视化管理**：
-   - 支持为超级管理员设置默认看板
-   - 可设置自定义看板为首页
-
-4. **系统管理**：
-   - **租户配置**：支持多级租户管理能力
-     - 可设置租户资源限制（设备数量、每日消息数、数据留存天数等）
-   - **租户管理**：支持编辑租户信息、进入租户账户
-     - 提供租户密码重置功能
-     - 支持租户冻结/解冻操作
-     - 具备租户搜索功能（按邮箱、姓名、租户状态等）
-   - **系统设置**：支持编辑系统标题、首页logo、背景图片
-     - 提供数据清理设置，可配置全局数据清理策略
-     - 包括租户注册控制、验证码登录设置、前端加密设置等功能
-   - **菜单管理**：支持设置全局菜单顺序、路由、菜单名称
-     - 可控制菜单显示/隐藏状态
-     - 支持配置菜单权限（系统管理员/租户）
-   - **通知服务配置**：支持邮件、短信配置
-     - 提供推送消息管理功能
-
-## 三、租户管理功能 
-
-### 1. 功能结构 
-
-租户管理系统共包含功能：首页总览、设备接入、可视化、自动化、告警、产品管理、数据服务、系统管理。
-
-### 2. 注册登录
-
-1. **支持手机号、邮件等多种登录方式**
-2. 支持找回密码
-
-### 3. 设备管理
-
-1. **设备搜索与筛选**：
-   - 支持按分组、设备模板、在线状态、告警状态筛选
-   - 设备类型筛选（直连设备、网关、子设备）
-   - 按接入方式筛选（协议/服务）
-   - 支持按设备名称、设备标签搜索
-   - 支持通过设备地图查看设备和遥测数据
-
-2. **设备协议支持**：
-   - MQTT、Modbus RTU、Modbus TCP
-   - 中国移动OneNET、中国电信物联网平台
-   - GB28181国标视频安防协议
-   - 海康综合安防管理平台
-   - OPC UA协议
-   - 北斗卫星2号、3号接入
-   - 水文协议、水资源协议、REC104协议
-   - GB26875.3-2011报警传输网络通信协议
-
-3. **设备添加**：
-   - 支持手动添加、协议方式添加、编码添加和服务方式添加
-   - 支持第三方平台设备添加
-   - 支持设备管理的统一入口，全局设备均通过单一方式添加，包含直接协议接入、三方整合接入、网关、子设备、直连接入，设备类型不限于摄像头、温湿度传感器、GPS定位器等
-   - 支持新自定义协议类型设备无需改变底座，只需要开发新设备接入服务
-   - 支持顺次接入法和预配置方法多种心智模式
-
-4. **设备详情管理**，包含10个功能标签：
-   - **遥测**：
-     - 支持设备控制下发
-     - 支持日志记录用户所有操作
-     - 提供模拟上报数据功能
-     - 可通过列表和曲线多种方式显示遥测信息
-     - 支持多种时间范围选择（5分钟至1年）
-     - 支持JSON、二进制等多种数据类型类型上报
-     - 支持多种数据聚合方式（1分钟至1个月）
-     - 支持最大值、最小值、平均值、前后数据差、计数等多种聚合计算
-     - 支持数据导出
-     - 支持折线图、柱状图、散点图三种数据呈现方式
-   - **图表**：根据物模型配置呈现对应图表
-     - 支持设备组态功能
-   - **连接**：显示连接参数（服务器、端口、认证、主题等）
-   - **信息**：支持管理设备位置
-     - 可添加设备维护信息
-     - 支持自定义字段
-   - **属性**：查看设备上报属性
-     - 支持属性下发
-   - **事件**：支持设备告警信息、电池电量等特殊事件上报
-   - **命令**：支持远程控制设备
-     - 可新建多个常用指令
-     - 支持快速下发命令
-   - **期望消息**：支持遥测、属性、命令多种类型
-     - 支持设备离线时消息缓存功能
-     - 具备消息过期时间设置
-     - 显示创建时间、指令标签、指令内容、过期时间、状态等信息
-   - **自动化**：支持为单个设备创建自动化规则
-     - 可触发告警、定时计划、场景、设备操作等
-   - **用户**：支持添加/移除关联用户
-   - **设置**：支持修改设备模板
-     - 可手动调整设备在线状态
-     - 支持查看设备固件信息
-
-5. **设备分组**：
-   - 一个设备可属于多个分组
-   - 支持创建分组、搜索分组、查看删除分组
-   - 支持添加子分组
-   - 支持为分组添加设备
-   - 可编辑分组从属关系
-   - 分组可适配农业、环保、园区、矿山、电力等多种行业的设备从属关系
-
-### 4. 设备模板管理
-
-1. **创建设备模板**：
-   - 支持自定义名称
-   - 选择对应的物模型
-   - 支持直连设备、网关、子设备
-   - 支持所有协议类型和第三方接入方式
-
-2. **模板功能**，包含8个标签：
-   - **关联设备**：支持一次性添加多个设备
-     - 操作简洁
-     - 可移除已添加设备
-   - **属性与功能**：可直接操作设备模板绑定的物模型
-   - **协议配置**：选择设备模板对应的协议
-   - **数据处理**：支持遥测上报/下发预处理
-     - 属性上报与处理
-     - 支持Lua脚本
-     - 支持数据实时处理，例如：
-       - 小数点后保留1位
-       - 通过电压判断电池状态预测设备故障
-       - 通过计算电流电压、上报功率（聚合数据）
-   - **自动化**：可批量为使用同一模板的设备配置自动化功能
-   - **告警**：可批量为设备配置告警规则
-   - **扩展信息**：支持字符、布尔、数字三种类型
-     - 可定义默认值
-     - 自动生成表单供用户录入
-   - **设备设置**：一机一密/获取证书
-     - 设备在线配置策略（超时时间、心跳判断）
-     - 自动创建设备配置
-     - 复制设备密码
-     - 删除设备模板
-
-### 5. 物模型管理 
-
-1. **基本信息定义**：
-   - 支持设置名称、标签、作者、版本
-
-2. **字段定义**，包括遥测、属性、事件、命令：
-   - **遥测**：支持字符、数字、布尔、枚举多种类型
-     - 支持读写权限设置
-     - 支持单位编辑
-     - 支持自定义指令编辑
-   - **属性**：支持字符、数字、布尔、枚举四种类型
-     - 支持读写权限设置
-     - 支持单位设置
-   - **事件**：支持添加参数（字符、数字、布尔三种类型）
-     - 支持定义多个事件
-   - **命令**：支持字符、数字、布尔、枚举四种类型
-     - 支持定义常用命令
-     - 支持自定义命令内容及开启状态
-
-3. **图表配置**：
-   - 支持添加各种图表（曲线、数字指示器、数值数据下发、枚举、仪表盘、卡片状态、表格、文本、视频播放等）
-   - 支持配置手机端设备详情页面
-   - 可增加对应图表功能
-
-4. **导出功能**：
-   - 支持将配置导出为JSON文件
-
-### 6. 服务接入 
-
-- 支持第三方平台接入设备
-- 实现将外部设备数据整合到平台中
-
-## 四、可视化功能
-
-### 1. 大屏管理 
-
-1. **基本功能**：
-   - 支持新建大屏
-   - 提供编辑和预览功能
-   - 支持分组搜索
-   - 支持拖拽编辑
-
-2. **编辑功能**：
-   - 支持图层管理
-   - 提供层级顺序编辑
-
-3. **组件支持**：
-   - **基础组件**：
-     - 文本、数字、跑马灯、当前时间、倒计时
-     - 超链接、翻牌器、输入框、按钮、选择器
-     - 开关、时间日期、横线、竖线
-     - SVG线条、矩形、Canvas线条
-     - 图片播放器、外部链接、HTML
-     - 表格、轮播表、排名表
-     - 指标卡、K线图、桑基图
-     - 地图、飞线地图、主题切换器
-   - **图表支持**：
-     - 折线图、曲线图、迷你面积图
-     - 柱状图、圆角柱状图、堆叠面积图
-     - 渐变色面积图、饼图、玫瑰图
-     - 基础瀑布图、水波图、矩形水波图
-     - 液位仪表盘、进度条、进度环图
-     - 词云图、基础矩形树图、基础雷达图
-     - 风玫瑰雷达、漏斗图、桑基图、K线图
-   - **3D图表**：
-     - 基础3D柱状图
-     - 3D曲线图
-   - **边框与装饰**：
-     - 支持几十种边框美化界面
-     - 提供多种装饰图形
-   - **图库资源**：
-     - 支持自定义上传各种类型图片
-     - 提供本地图库（仪器仪表、传感器、传送带、农作物、冷却设备、加热设备、化学器具等）
-     - 包含工业工厂设施、废水处理、建筑、成品设备、指示灯等专业图标
-   - **组件管理**：
-     - 支持自定义组件
-     - 业务组件
-     - 系统组件
-
-4. **页面编辑功能**：
-   - 缩放、自适应、对齐、设计分工
-   - 历史操作、生成图片、预览、保存设置
-   - 支持编辑页面分辨率、大屏宽度高度
-   - 自适应模式、磁吸、主题、背景图设置
-   - 支持定时器设置
-   - 组件层级控制（置顶/置底）
-   - 组件锁定、生成图片、配置删除、批量删除等
-
-### 2. 看板功能 
-
-1. **基本管理**：
-   - 支持新增看板
-   - 提供看板搜索功能
-   - 支持设置看板为首页
-   - 支持编辑看板
-   - 提供默认看板功能
-   - 支持拖拽编辑
-
-2. **主题支持**：
-   - 极简白
-   - 科技蓝
-   - 苹果紫
-   - 微软风
-   - 酷炫黑
-
-3. **组件管理**：
-   - 支持四种类型组件：系统、设备、插件、图表
-   - 系统组件包括：设备总数、消息总数、离线数、在线数、设备在线趋势
-   - 支持选择系统中的设备
-   - 支持插件图表、外部插件图表
-   - 支持拖入图表并进行设备数据绑定
-   - 可删除编辑器中的图表
-   - 支持为每个图表设置属性
-   - 右键可编辑图表卡片对应的数据关系
-
-## 五、自动化功能
-
-### 1. 场景联动 
-
-1. **基本功能**：
-   - 支持新增场景联动
-   - 提供场景联动搜索功能
-
-2. **触发条件**：
-   - **设备条件**：
-     - 支持单个设备触发
-     - 支持单类设备触发
-     - 可通过搜索、分组检索设备
-     - 支持批量对某类设备进行设置
-   - **时间条件**：
-     - 支持单次触发
-     - 支持重复触发（每小时、每天、每周、每月）
-     - 支持时间范围设置（周一至周日，具体时间点）
-
-3. **执行器**：
-   - 操作设备
-   - 激活场景
-   - 触发告警
-
-### 2. 场景管理 
-
-1. **基本功能**：
-   - 支持新增场景
-   - 提供场景搜索功能
-   - 场景列表管理
-
-2. **操作功能**：
-   - 支持场景激活
-   - 提供场景编辑功能
-   - 支持查看场景执行日志
-   - 提供场景删除功能
-
-3. **编辑功能**：
-   - 支持一次操作多个设备
-   - 可选择单个设备和单类设备
-
-### 3. 通知管理 
-
-1. **通知记录**：
-   - 支持查看邮箱、短信、语音通知和外部账户通知
-   - 可查看通知发送时间、标题、内容、接收人、状态
-
-2. **通知组管理**：
-   - 支持新增通知组
-   - 可选择通知方式
-   - 支持通知组描述设置
-   - 可为不同人选择不同通知方式（邮件、语音、短信等）
-   - 支持设置邮箱和手机号（使用英文逗号隔开）
-   - 可设置通知组启用/禁用、编辑、删除
-
-## 六、告警功能 
-
-1. **告警信息管理**：
-   - 查看告警时间、名称、状态、内容、描述
-   - 支持查看具体告警详情
-   - 提供告警维护功能（处理结果录入）
-
-2. **告警配置**：
-   - 支持新增告警
-   - 可设置告警名称、描述、级别
-   - 支持选择通知组
-   - 可禁用/启用对应告警
-
-## 七、产品管理 
-
-1. **产品管理列表**：
-   - 支持新增产品（选择对应设备模板）
-   - 可录入产品基本信息
-   - 支持产品预注册
-   - 提供产品编辑、删除功能
-   - 可按产品类型、产品型号搜索
-   - 同时兼容一型一密和一机一密两种认证方式
-
-2. **预注册管理**：
-   - 支持创建批次
-   - 提供数据导出功能
-   - 创建批次时可自动生成和批量上传
-
-3. **OTA升级**：
-   - 支持添加升级包
-   - 升级包类型支持差分和整包升级
-   - 支持版本号管理
-   - 可选择对应设备配置
-   - 支持签名算法设置
-   - 可查看升级任务
-   - 支持创建多个升级任务
-   - 可查看任务详情（设备升级进度、更新时间、当前版本号、目标版本号）
-   - 支持按设备名称搜索
-   - 可查看升级包信息（包括签名）
-
-## 八、数据服务 
-
-1. **数据转发**：支持创建多个数据转发规则
-   - 提供规则操作功能（开启/停用、编辑、删除、配置）
-   - 支持对特定设备及消息类型（遥测、属性、事件、上/下线通知）设置数据源
-   - 支持使用脚本添加调用参数
-   - 提供脚本调试功能
-   - 支持通过MQTT和HTTP转出数据
-   - 可将多个设备数据转发到多个数据源
-   - 支持对接FUXA组态功能
-
-## 九、系统管理 
-
-1. **Open API**：
-   - 支持创建多个API Key
-   - 提供停用/启用、编辑功能
-
-2. **系统日志**：
-   - 记录用户操作时间、IP地址、请求路径、方法、耗时、用户名
-   - 记录设备详情
-   - 提供搜索功能
-
-3. **角色管理**：
-   - 支持新增角色
-   - 提供编辑、删除角色功能
-   - 支持多角色管理
-   - 可详细定义每个用户可访问的页面
-
-4. **用户管理**：
-   - 支持用户搜索
-   - 提供新增用户功能
-   - 可进入用户账号
-   - 支持密码重置
-   - 提供用户编辑功能
-   - 可为用户赋予多个角色
-   - 支持停用和冻结用户
-   - 可添加用户介绍和手机号
-
-## 十、移动端功能 
-
-1. **APP基本功能**：
-   - 设备列表管理
-   - 设备分组功能
-   - 支持通过分组查看设备
-   - 可查看设备详情
-   - 在设备详情中操控设备
-   - 设备详情通过平台端物模型编辑生成
-
-2. **场景功能**：
-   - 支持在手机端管理场景联动和场景管理
-   - 功能与在线平台一致
-
-3. **告警管理**：
-   - 支持查看告警信息
-
-4. **设备添加**：
-   - 支持通过扫码添加设备
-
-## 十一、系统技术特性 
-
-1. **协议支持**：
-   - MQTT
-   - TCP协议接入
-   - HTTP协议接入
-   - 直连和非直连（三方）接入
-   - Modbus RTU/TCP、GB28181国标视频协议
-   - OPC UA协议、北斗卫星2/3号接入
-   - 水文协议、水资源协议
-   - IEC104协议
-   - GB26875.3-2011报警传输网络通信协议
-   - 支持自定义协议接入
-
-2. **服务接入**：
-   - 海康综合安防平台
-   - 中国移动OneNET
-   - 中国电信CTWING
-   - ChirpStack Lora平台接入
-
-3. **系统优势**：
-   - **易用性**：简化物联网，使其更易理解
-   - **兼容性**：兼容各类协议，降低系统扩展成本
-   - **组件化**：开放架构，组件设计，实现快速搭建
-
-4. **技术架构**：
-   - **Golang**：天生优异的并发性能，节省硬件成本，可适用于边缘设备
-   - **Vue.js(3)**：简单易上手
-   - **Node.js(16.13)**：开源、跨平台
-   - **数据库**：
-     - PostgreSQL：广泛的社区与低成本
-     - TimescaleDB：时序数据库，PostgreSQL插件
-     - TDengine：国产高性能时序数据库
-     - Cassandra：开源分布式Key-Value存储系统
-     - TDSQL-PostgreSQL：腾讯自主研发的分布式数据库系统
-     - PloarDB-PostgreSQL：阿里云自主研发的高性能云原生分布式数据库
-     - KingBase：人大金仓
-   - **Nginx**：高性能Web服务器
-   - **MQTT broker**：
-     - GMQTT：高性能消息队列处理
-     - VerneMQ：高性能分布式MQTT消息代理
-     - Redis：NoSQL缓存数据库
-   - 支持prometheus集成，系统监控
-   - 代码静态分析工具deepsource扫描安全修复
-
-## 十二、系统性能指标 
-
-- 系统并发用户数支持量：100-10万
-- 设备接入规模：单机并发5000数据点，集群百万数据点
-- 数据处理能力：每秒可处理50万条消息
-- 日消息处理能力：大于1亿消息
-- 系统响应时间：页面加载时间小于1秒，数据查询响应小于1秒
-- 系统稳定性：年运行可用率99.99%以上
-- 数据存储容量及扩展能力：自动清理
-
-## 十三、二次开发
-
-- 提供在线开发文档
-- 提供开发接口
-- 提供OpenAPI文档
-- 提供协议与设备接入服务开发模板加快快速开发
-- 支持大模型上下问协议MCP，快速接入AI，与DeepSeek、Qwen、清华智谱大模型整合。使物联网平台具备思考能力
-- 支持小智ESP32设备接入，具备语音识别、语音合成、语音唤醒、语音对话等能力。使物联网平台具备人机交互能力
+# Features
+
+## I. System Architecture & Deployment Environment
+
+1. Supports deployment on major operating systems including Windows, Linux, NeoKylin, UOS, Deepin, Kylin, NewStart, etc.
+2. Supports various CPU architectures: x86, AMD64, ARMv7, ARMv8, ARM64.
+3. B/S Architecture: Supports browser-based access for login, information viewing, device control, and data management.
+4. Multiple installation methods: Windows Installer, One-click Script, Docker, K8s, Source Code.
+5. Supports virtualization software.
+6. Mobile App support for Android and iOS; can also be published as WeChat Mini Programs.
+7. Supports Single-node and Cluster deployment (Cluster supports High Availability & High Concurrency).
+8. Compatible with open-source and domestic databases: PostgreSQL, TimescaleDB, TDengine, Tencent TDSQL, Alibaba PolarDB, KingBase, etc.
+9. High-performance Middleware: MQTT Brokers (EMQ, VerneMQ, GMQTT), Redis/NoSQL for caching.
+10. Hardware agnostic: Deploys on everything from Set-top Boxes (1 Core 1G) and Raspberry Pis to large servers.
+11. **Security**: Compliant with **MLPS Level 3**.
+12. Performance: Supports millisecond-level high-frequency and million-point high-concurrency data writes.
+
+## II. Admin Management Functions
+
+1. **Global Dashboard**:
+   - Real-time monitoring of system resources (CPU, Memory, Disk).
+   - Display comprehensive data: Tenant config, Total devices, Online/Offline devices, Alerts.
+
+2. **Device Connectivity Service Management**:
+   - Manages **Device Connectivity Services** and **Third-party Integration Services**.
+   - Supports adding new custom services for protocol extension.
+   - Custom MQTT service addresses and subscription topic prefixes.
+   - Custom service identifiers and version numbers.
+   - Service status monitoring (Running/Paused).
+
+3. **Visualization Management**:
+   - Set default dashboard for Super Admin.
+   - Set custom dashboard as homepage.
+
+4. **System Management**:
+   - **Tenant Config**: Multi-level tenant management.
+     - Resource limits (Device count, Daily messages, Data retention days).
+   - **Tenant Management**: Edit tenant info, impersonate tenant account.
+     - Tenant password reset.
+     - Tenant Freeze/Unfreeze.
+     - Tenant Search (Email, Name, Status).
+   - **System Settings**: Edit System Title, Logo, Background.
+     - Data Cleanup Policies.
+     - Tenant Registration Control, Captcha Login, Frontend Encryption.
+   - **Menu Management**: Set global menu order, routing, names.
+     - Show/Hide menus.
+     - Menu permissions (System Admin / Tenant).
+   - **Notification Service**: Email and SMS configuration.
+     - Push message management.
+
+## III. Tenant Management Functions
+
+### 1. Functional Structure
+Includes: Dashboard Overview, Device Connectivity, Visualization, Automation, Alerts, Product Management, Data Services, System Management.
+
+### 2. Registration & Login
+1. **Login Methods**: Phone, Email, etc.
+2. Password Recovery.
+
+### 3. Device Management
+
+1. **Search & Filter**:
+   - Filter by Group, Device Template, Online Status, Alert Status.
+   - Filter by Device Type (Direct, Gateway, Sub-device).
+   - Filter by Access Method (Protocol/Service).
+   - Search by Name, Tag.
+   - **Device Map** view.
+
+2. **Protocol Support**:
+   - MQTT, Modbus RTU, Modbus TCP.
+   - China Mobile OneNET, China Telecom CTWing.
+   - GB28181 (National Standard Video Security).
+   - Hikvision Integrated Security Platform.
+   - OPC UA.
+   - Beidou Satellite 2/3.
+   - Hydrology protocols, Water Resource protocols, IEC104.
+   - GB26875.3-2011 Alarm Transmission Protocol.
+
+3. **Device Onboarding**:
+   - Manual, Protocol-based, Code-based, Service-based addition.
+   - Third-party platform device addition.
+   - **Unified Entry**: Global devices added via a single method, covering direct protocol, third-party integration, gateways, sub-devices. Supports cameras, sensors, GPS, etc.
+   - **New Protocols**: Add new protocols by developing a new Device Connectivity Service without changing the core platform.
+   - Supports Sequential Onboarding and Pre-configuration mental models.
+
+4. **Device Details Management** (10 Tabs):
+   - **Telemetry**:
+     - Command downlink.
+     - Operation logs.
+     - Data simulation.
+     - List/Curve display.
+     - Time ranges (5 mins to 1 year).
+     - JSON/Binary data reporting.
+     - Aggregation (1 min to 1 month): Max, Min, Avg, Diff, Count.
+     - Data Export.
+     - Line, Bar, Scatter charts.
+   - **Charts**: Render charts based on Device Model configuration.
+     - Supports Device SCADA/Topology.
+   - **Connection**: View parameters (Server, Port, Auth, Topics).
+   - **Info**: Manage device location, maintenance info, custom fields.
+   - **Properties**: View reported properties, set writable properties.
+   - **Events**: Alerts, Battery levels, special events.
+   - **Commands**: Remote control.
+     - Create common commands.
+     - Quick command execution.
+   - **Shadow/Desired Messages**: Telemetry, Property, Command types.
+     - Offline message caching.
+     - Expiration settings.
+     - Message status tracking.
+   - **Automation**: Create per-device rules (Alerts, Schedules, Scenes).
+   - **Users**: Add/Remove associated users.
+   - **Settings**: Change Device Template.
+     - Manually adjust online status.
+     - View firmware info.
+
+5. **Device Groups**:
+   - One device can belong to multiple groups.
+   - Create, Search, View, Delete groups.
+   - Sub-groups.
+   - Multi-industry hierarchy adaptation (Agriculture, Environmental, Industrial, etc.).
+
+### 4. Device Template Management
+
+1. **Create Template**:
+   - Custom Name.
+   - Select Device Model.
+   - Support Direct/Gateway/Sub-device.
+   - Support all protocols and third-party integrations.
+
+2. **Template Functions** (8 Tabs):
+   - **Associated Devices**: Batch add/remove.
+   - **Attributes & Functions**: Operate directly on bound Device Model.
+   - **Protocol Config**: Protocol selection.
+   - **Data Processing**: Telemetry Uplink/Downlink preprocessing.
+     - Lua Script support.
+     - Real-time processing (e.g., Rounding, Fault Prediction via Voltage, Power Calculation via V*I).
+   - **Automation**: Batch automation for devices using the template.
+   - **Alerts**: Batch alert rules.
+   - **Extensions**: Define custom fields (String/Bool/Number) with default values and auto-generated forms.
+   - **Device Settings**:
+     - **One Device One Secret** / Certificate fetching.
+     - Online Strategy (Timeout, Heartbeat).
+     - Auto-create device config.
+     - Copy Password.
+     - Delete Template.
+
+### 5. Device Model Management
+
+1. **Basic Info**: Name, Tags, Author, Version.
+
+2. **Field Definitions**:
+   - **Telemetry**: String, Number, Bool, Enum. R/W permissions, Units.
+   - **Properties**: String, Number, Bool, Enum. R/W permissions, Units.
+   - **Events**: Add parameters (String, Number, Bool). Multiple events.
+   - **Commands**: String, Number, Bool, Enum. Common commands.
+
+3. **Chart Configuration**:
+   - Add charts (Line, Digital Indicator, Value Downlink, Enum, Gauge, Card, Table, Text, Video).
+   - Configure Mobile App Device Details.
+
+4. **Export**: Export to JSON.
+
+### 6. Service Access
+- Connect third-party platforms.
+- Integrate external device data.
+
+## IV. Visualization Functions
+
+### 1. Visualization Screen (Big Screen) Management
+
+1. **Basic Functions**: New, Edit, Preview, Search, Grouping.
+2. **Editor**: Layer Management, Z-Index.
+3. **Components**:
+   - **Basic**: Text, Number, Marquee, Time, Countdown, Link, Flipper, Input, Button, Switch, Decorators.
+   - **Charts**: Line, Bar, Pie, Radar, Scatter, Funnel, Sankey, K-Line, Water Wave, Gauge.
+   - **3D**: 3D Bar, 3D Curve.
+   - **Visuals**: Video, Image, Icons (Industrial, Chemical, Agricultural, etc.).
+   - **Custom Components**: Business/System components.
+4. **Page Editor**: Zoom, Adaptive, Align, History, Snapshot, Resolution settings, Magnetism, Theme.
+
+### 2. Dashboard Functions
+
+1. **Basic Management**: New, Search, Set as Home, Edit, Drag & Drop.
+2. **Themes**: Minimal White, Tech Blue, Apple Purple, Microsoft Style, Cool Black.
+3. **Components**: System (Device counts, trends), Devices, Plugins, Charts.
+   - Data binding.
+   - Property settings.
+
+## V. Automation Functions
+
+### 1. Scene Linkage (Automation)
+
+1. **General**: Create, Search.
+2. **Triggers**:
+   - **Device**: Single Device, Device Category, Group.
+   - **Time**: One-time, Recurring (Hourly/Daily/Weekly/Monthly), Cron.
+3. **Actions**: Control Device, Activate Scene, Trigger Alert.
+
+### 2. Scene Management
+
+1. **General**: Create, Search, List.
+2. **Operations**: Activate, Edit, Logs, Delete.
+3. **Editing**: Batch control multiple devices.
+
+### 3. Notification Management
+
+1. **Logs**: View Email/SMS/Voice/External notifications. Status tracking.
+2. **Notification Groups**: Create groups, select methods (Email, Voice, SMS), Enable/Disable.
+
+## VI. Alert Functions
+
+1. **Alert Info**: Time, Name, Status, Content, Description. Handle alerts.
+2. **Alert Config**: Name, Level, Notification Group, Enable/Disable.
+
+## VII. Product Management
+
+1. **Product List**:
+   - Add Product (Select Template).
+   - Pre-registration.
+   - Supports **One Product One Secret** and **One Device One Secret**.
+
+2. **Pre-registration**: Batch creation, Export, Batch upload.
+
+3. **OTA Upgrade**:
+   - Firmware Packages (Diff/Full).
+   - Version Management.
+   - Tasks & Progress Monitoring.
+   - Signature Algorithms.
+
+## VIII. Data Services
+
+1. **Data Forwarding**:
+   - Create Rules (Enable/Edit/Delete).
+   - Sources: Telemetry, Property, Event, Online/Offline.
+   - Scripting with parameters & debugging.
+   - Targets: MQTT, HTTP.
+   - Multi-cast.
+   - Integration with FUXA SCADA.
+
+## IX. System Management
+
+1. **Open API**: API Key management.
+2. **System Logs**: Audit trails (User, IP, Path, Method, Time). Device Logs.
+3. **Role Management**: RBAC, Page-level permissions.
+4. **User Management**: Add, Edit, Reset Password, Roles, Freeze.
+
+## X. Mobile App Functions
+
+1. **Basic**: Device List, Groups, Details, Control, Generated UI.
+2. **Scenes**: Manage Automation.
+3. **Alerts**: View Alerts.
+4. **Onboarding**: Scan QR Code.
+
+## XI. Technical Characteristics
+
+1. **Protocols**: MQTT, TCP, HTTP, Modbus, GB28181, OPC UA, Beidou, Hydrology, IEC104, GB26875.3. Custom Protocols.
+2. **Integrations**: Hikvision, OneNET, CTWING, ChirpStack.
+3. **Advantages**: Ease of Use, Compatibility, Componentization.
+4. **Tech Stack**:
+   - **Golang**: High concurrency, low footprint.
+   - **Vue.js 3**.
+   - **Node.js**.
+   - **Databases**: PostgreSQL, TimescaleDB, TDengine, Cassandra, TDSQL, PolarDB, KingBase.
+   - **Nginx**.
+   - **Brokers**: GMQTT, VerneMQ.
+   - **Cache**: Redis.
+   - **Monitoring**: Prometheus.
+   - **Security**: DeepSource.
+
+## XII. Performance Metrics
+
+- **Concurrent Users**: 100 - 100,000.
+- **Device Scale**: Single node 5,000 pts/sec, Cluster 1M+ pts.
+- **Throughput**: 500k msg/sec.
+- **Daily Capacity**: > 100M messages.
+- **Latency**: < 1s (Page Load & Query).
+- **Availability**: > 99.99%.
+- **Retention**: Automatic cleanup.
+
+## XIII. Secondary Development
+
+- Online Documentation.
+- Open API Docs.
+- Development Templates.
+- **LLM/AI Integration**: Supports MCP protocol, integration with DeepSeek, Qwen, ChatGLM for "Thinking IoT".
+- **AIoT**: Supports ESP32 with voice capabilities (ASR/TTS/LLM) for Human-Machine Interaction.

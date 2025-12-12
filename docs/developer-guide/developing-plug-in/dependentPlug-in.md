@@ -2,77 +2,76 @@
 sidebar_position: 3
 ---
 
-# 依赖型插件
+# Dependent Plugins
 
-依赖型插件是一个可搭建各种行业方案的开发方案,或者**行业积木**。
+Dependent Plugins are development schemes for building various industry solutions, or **Industry Building Blocks**.
 
-依赖型插件的优点是：
-- **快速拼装解决方案**，效率比低代码更高。
-- **方案与底层平台分离**，将个性化层与标准通用层完全分离。
-- **并行开发解耦**，使大规模项目并行开发达到最高速度。
-- **跨项目复用**，不同的项目之间，可以直接复制安装并引用。
+Advantages of Dependent Plugins:
+- **Rapid Solution Assembly**, more efficient than low-code.
+- **Separation of Solution and Platform**, completely separating the personalization layer from the standard general layer.
+- **Decoupled Parallel Development**, maximizing speed for large-scale project parallel development.
+- **Cross-project Reuse**, can be directly copied, installed, and referenced between different projects.
 
-## 举例说明
+## Example
 
-一个消防机组依赖型插件，包含了发电机、储能电池、水泵等设备的监控与管理等功能与界面单元。
+A Firefighting Unit dependent plugin contains functions and interface units for monitoring and managing equipment such as generators, energy storage batteries, and water pumps.
 
-在任何需要消防机组的项目中，例如智慧楼宇，可以直接安装这个消防机组插件，就能将与这个机组管理相关的图表组件、报表、大屏都一次性加载并复用。因此大大节省了开发时间。
+In any project requiring firefighting units, such as smart buildings, this firefighting unit plugin can be directly installed. Chart components, reports, and dashboards related to this unit management will be loaded and reused at once. Therefore, it greatly saves development time.
 
+## Dependent Plugin Dependency Diagram
 
-## 依赖型插件依赖关系图
+![Dependency Diagram](dependentrelation.png)
 
-![依赖型插件依赖关系图](dependentrelation.png)
+## How to Develop Dependent Plugins
 
-## 如何开发依赖型插件
+Develop visual plugins according to ThingsPanel Visual Plugin Development Standards. Refer to: [Visual Plugin Development](./visualPlugin.md)
 
-按照ThingsPanel可视化插件开发规范**开发可视化插件**，具体参考：[可视化插件开发](./visualPlugin.md)
+As shown in the figure, this is a Tourism Big Data Analysis System plugin.
+Development Effect Example:
+![Effect Example](images/dependentPlug-in_1_1_0.png)
 
-如图所示，这是一个旅游大数据分析系统插件。  
-开发效果样例图:  
-![开发效果样例图](images/dependentPlug-in_1_1_0.png)
+A visual plugin view mainly consists of 3 parts:
+- Draggable icon view **icon.svg** in the left component list
+- Node view **Main.vue** displayed on canvas after dragging
+- Style view **Attribute.vue** and Data view **Data.vue** in the right panel
 
-可视化插件的视图主要由3部分组成
-- 左侧组件列表中可拖拽的图标视图**icon.svg**
-- 拖拽到画布上后显示的节点视图**Main.vue**
-- 右侧面板的样式视图**Attribute.vue**和数据视图**Data.vue**
-  
-![依赖型插件视图](images/dependentPlug-in_1_1_2.png)
+![Plugin View](images/dependentPlug-in_1_1_2.png)
 
-### 开发步骤：
-1. **在项目的src/plugins目录下新建一个travel-plugin文件夹作为旅游分析系统的插件主目录。**   
-2. **然后在trave-plugin目录下再新建一个travel文件夹。**  
-3. **在travel目录下创建Main.vue、Attribute.vue、Data.vue、index.ts。**  
-4. **将准备好的icon.svg文件放到插件的travel目录里。svg文件可以在这里 https://www.iconfont.cn/ 下载**  
+### Development Steps:
+1. **Create a `travel-plugin` folder in the project's `src/plugins` directory as the main directory for the tourism analysis system plugin.**
+2. **Create a `travel` folder under `travel-plugin`.**
+3. **Create `Main.vue`, `Attribute.vue`, `Data.vue`, `index.ts` under `travel`.**
+4. **Put the prepared `icon.svg` file into the `travel` directory. SVG files can be downloaded from https://www.iconfont.cn/**
 
-目录结构如下：  
-![依赖型插件目录结构](images/dependentPlug-in_1_1_1.png)
+Directory structure:
+![Directory Structure](images/dependentPlug-in_1_1_1.png)
 
-5. **在Main.vue中编写依赖型插件的主视图，参考开发效果样例图。**  
-6. **在Attribute.vue中编写依赖型插件的配置样式的面板，如图所示：**    
-![样式面板](images/dependentPlug-in_1_1_6.png)  
-Attribute.vue代码如下：  
-```
+5. **Write the main view of the plugin in `Main.vue`, refer to the effect example.**
+6. **Write the configuration style panel in `Attribute.vue`, as shown:**
+![Style Panel](images/dependentPlug-in_1_1_6.png)
+`Attribute.vue` code:
+```vue
 <template>
     <el-collapse v-model="activeNames">
-        <el-collapse-item title="样式" name="style">
+        <el-collapse-item title="Style" name="style">
             <el-form v-model="formData" label-width="80px" label-position="left">
-                <el-form-item label="字体大小">
+                <el-form-item label="Font Size">
                     <el-input type="number" v-model="formData.fontSize"></el-input>
                 </el-form-item>
 
-                <el-form-item label="字体颜色">
+                <el-form-item label="Font Color">
                     <tp-color-picker v-model="formData.color" />
                 </el-form-item>
 
-                <el-form-item label="背景颜色">
+                <el-form-item label="Background">
                     <tp-color-picker v-model="formData.backgroundColor" />
                 </el-form-item>
 
-                <el-form-item label="边框宽度">
+                <el-form-item label="Border Width">
                     <el-input type="number" v-model="formData.borderWidth"></el-input>
                 </el-form-item>
 
-                <el-form-item label="边框颜色">
+                <el-form-item label="Border Color">
                     <tp-color-picker v-model="formData.borderColor" />
                 </el-form-item>
             </el-form>
@@ -100,10 +99,11 @@ export default {
 </script>
 <style lang="scss" scoped></style>
 ```
-7. **在Data.vue中编写依赖型插件的数据绑定面板，如图所示：**  
-![数据面板](images/dependentPlug-in_1_1_7.png)  
-Data.vue代码如下：
-```
+
+7. **Write the data binding panel in `Data.vue`, as shown:**
+![Data Panel](images/dependentPlug-in_1_1_7.png)
+`Data.vue` code:
+```vue
 <template>
   <div style="height:100%">
     <el-row style="margin-bottom: 10px">
@@ -112,13 +112,13 @@ Data.vue代码如下：
         </el-radio-group>
     </el-row>
     <el-row style="height:100%">
-        <!-- 静态数据 -->
+        <!-- Static Data -->
         <el-input v-if="formData.bindType==='static'" :rows="20" type="textarea" v-model="formData.static"></el-input>
-        <!-- 动态数据 -->
+        <!-- Dynamic Data -->
         <el-form-item v-else-if="formData.bindType==='dynamic'" style="width:100%">
           <el-input :rows="2" type="textarea" v-model="formData.dynamic"></el-input>
         </el-form-item>
-        <!-- 设备数据 -->
+        <!-- Device Data -->
         <div class="w-full" v-else-if="formData.bindType==='device'" >
           <slot></slot>
         </div>
@@ -142,16 +142,17 @@ export default {
 <style lang="scss" scoped></style>
 ```
 
-8. **在travel/index.ts文件中导出组件，示例代码如下：**
-```
+8. **Export components in `travel/index.ts`:**
+```typescript
 import Travel_Attribute from './Attribute.vue';
 import Travel_Data from './Data.vue';
 import Travel_Main from './Main.vue';
 import Travel_Icon from './icon.svg';
 export { Travel_Attribute, Travel_Data, Travel_Main, Travel_Icon }
 ```
-9. **在travel-plugin/index.ts文件中导出并配置插件的名称、分组、宽高等属性，示例代码如下：**
-```
+
+9. **Export and configure plugin properties in `travel-plugin/index.ts`:**
+```typescript
 import { Travel_Attribute, Travel_Data, Travel_Icon, Travel_Main } from "./travel";
 
 export default {
@@ -159,7 +160,7 @@ export default {
         {
             name: "travel",
             description: "",
-            group: "旅游分析插件",
+            group: "Tourism Analysis Plugin",
             size: { width: 200, height: 100 },
             icon: Travel_Icon,
             Main: Travel_Main,
@@ -169,46 +170,42 @@ export default {
     ]
 }
 ```
-10. **在plugins/index.ts文件中导出插件，示例代码如下：**
-```
+
+10. **Export plugin in `plugins/index.ts`:**
+```typescript
 // ...
 import travelPlugin from './travel-plugin';
 export default {
     travelPlugin,
-    // 导出其他插件
+    // Export other plugins
 }
-
 ```
-11. 此时就可以启动项目查看效果了。  
-在项目根目录下输入命令`pnpm run dev`，启动成功后，在浏览器输入localhost:5173/editor打开编辑器。  
-在编辑器左侧组件列表的分组中找到旅游分析插件。  
-![左侧列表](images/dependentPlug-in_1_1_11.png)  
-把组件拖拽到中间的画布上，效果如图所示：
-![左侧列表](images/dependentPlug-in_1_1_12.png)  
 
-## 数据交互
+11. Now you can start the project to view the effect.
+Run `pnpm run dev` in the project root. Open `localhost:5173/editor` in browser.
+Find the Tourism Analysis Plugin in the left component list group.
+![Left List](images/dependentPlug-in_1_1_11.png)
+Drag the component to the canvas:
+![Canvas](images/dependentPlug-in_1_1_12.png)
 
-### 编辑时交互
-当用户在右侧样式面板和数据面板配置了样式或绑定了数据后，还需要和画布上的节点进行交互，比如在样式面板配置了背景颜色或文字大小，画布上的节点需要相应的做出改变。
-1. **样式交互**  
-**当Attribute.vue中的数据发生改变时，我们通过如下代码把改变后的样式数据传递出去。**
-```
+## Data Interaction
+
+### Interaction during Editing
+When user configures style or binds data in the right panel, it needs to interact with the node on canvas.
+1. **Style Interaction**
+**When data in `Attribute.vue` changes, emit the changed style data:**
+```javascript
 this.$emit("onChange", { style: { ...val }});
 ```
 
-Attribute.vue示例代码如下：
-```
+`Attribute.vue` example:
+```javascript
 data() {
-    return {
-        formData: {
-            // ...
-        }
-    }
+    // ...
 },
 watch: {
     formData: {
         handler(val) {
-            // 监听formData，当formData的值改变时，把改变后的数据传递出去
             this.$emit("onChange", {
                 style: { ...val }
             });
@@ -217,9 +214,8 @@ watch: {
     }
 }
 ```
-然后就可以在Main.vue中监听样式数据了。  
-Main.vue示例代码:
-```
+Then listen for style data in `Main.vue`:
+```javascript
 props: {
     style: {
         type: Object,
@@ -231,7 +227,7 @@ watch: {
         handler: function (val, oldVal) {
             if (JSON.stringify(val) === "{}") return;
             console.log(val);
-            // 获取改变后的样式数据后，要执行的代码
+            // Code to execute after style change
         },
         immediate: true,
         deep: true
@@ -239,26 +235,26 @@ watch: {
 }
 ```
 
-2. **数据绑定交互**  
-**Data.vue中的数据发生改变时，我们通过如下代码把改变后的数据传递出去,**
-```
+2. **Data Binding Interaction**
+**When data in `Data.vue` changes, emit the changed data:**
+```javascript
 this.$emit("onChange", { data: { bindType: this.bindType, ...val }});
 ```
 
-Data.vue示例代码如下：
-```
+`Data.vue` example:
+```javascript
 <script>
 export default {
   data() {
     return {
       formData: {
         bindType: 'static',
-        static: "文本"
+        static: "Text"
       },
       bindOptions: [
-        { value: 'static', label: '静态数据' },
-        { value: 'dynamic', label: '动态数据' },
-        { value: 'device', label: '设备数据' }
+        { value: 'static', label: 'Static Data' },
+        { value: 'dynamic', label: 'Dynamic Data' },
+        { value: 'device', label: 'Device Data' }
       ]
     }
   },
@@ -275,8 +271,8 @@ export default {
 }
 </script>
 ```
-在Main.vue中监听数据
-```
+Listen in `Main.vue`:
+```javascript
 <script>
 export default {
   props: {
@@ -290,7 +286,7 @@ export default {
       handler(val) {
         if (JSON.stringify(val) === "{}") return;
         console.log(val);
-        // 获取改变后的数据后，要执行的代码
+        // Code to execute after data change
       },
       deep: true,
       immediate: true
@@ -300,17 +296,18 @@ export default {
 </script>
 ```
 
-### 查看时交互
-当用户预览或查看可视化时，想要向编辑器传递数据。  
-比如我们在主视图Main.vue里加入了一个按钮，当点击了按钮时通知编辑器用户按下了按钮，让编辑器处理这个按钮的点击事件。通过如下代码实现：
+### Interaction during Viewing
+When user previews or views the visualization, sometimes you want to pass data to the editor (or player).
+For example, a button in `Main.vue`. When clicked, notify the editor.
+```javascript
+this.$emit('change', DATA_TO_PASS)
 ```
-this.$emit('change', 要传递的数据)
-```
-示例代码如下：
-```
+
+Example:
+```vue
 <template>
   <div style="width:100%;height:100%;">
-    <el-button @click="handleClick">按钮</el-button>
+    <el-button @click="handleClick">Button</el-button>
   </div>
 </template>
 
@@ -324,25 +321,25 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped></style>
+```
 
-```
-然后在src\display\components\DisplayComponent.tsx中的onChange方法接收。
-```
+Receive in `onChange` method in `src\display\components\DisplayComponent.tsx`:
+```javascript
 methods: {
     onChange(value: any, _callback: any) {
         console.log(value)
     }
 }
 ```
-点击预览按钮打开可视化预览界面，打开控制台，点击按钮  
-![数据交互](images/dependentPlug-in_view_interaction.png)  
 
-## 如何使用依赖型插件
+Click preview, open console, click button.
+![Interaction](images/dependentPlug-in_view_interaction.png)
 
-1. 创建依赖型插件所依赖的设备插件。
-2. 在应用管理中安装依赖型插件。
-3. 创建并接入设备，成功采集数据。
-4. 打开可视化、拖入依赖型插件所包含的大屏、图表组件。
-5. 点击大屏或者图表组件，绑定数据。
-6. 正常使用。
+## How to use Dependent Plugins
+
+1. Create the device plugins that dependent plugins rely on.
+2. Install the dependent plugin in App Management.
+3. Create and access devices to successfully collect data.
+4. Open Visualization, drag in the dashboard or chart components included in the dependent plugin.
+5. Click the component, bind data.
+6. Use normally.

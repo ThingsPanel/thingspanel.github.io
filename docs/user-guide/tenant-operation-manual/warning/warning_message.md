@@ -2,27 +2,30 @@
 sidebar_position: 3
 ---
 
-# 告警信息
-## 1、说明
-- 可以查看告警的日志，并新建通知规则。
+# Alarm Information
 
-## 2、操作
+## 1. Description
+- View alarm logs and create notification rules.
 
-### 2.1、告警日志查看
-- 点击告警日志的告警信息，可以查看到所有的告警日志，并可通过告警时间段和级别进行筛选。
+## 2. Operations
 
-![descript](./images/image86.png)
+### 2.1 View Alarm Logs
+- Click Alarm Information in Alarm Logs to view all alarm logs. Filter by alarm time period and level.
 
-### 2.2、新建告警规则
-- 点击告警配置-新建告警，可以新建一个告警配置。
-![descript](./images/image87.png)
+![Alarm Logs](./images/image86.png)
 
-### 2.3、编辑告警
-- 选择一个告警，点击编辑可以编辑告警的信息
-![descript](./images/image88.png)
+### 2.2 Create Alarm Rule
+- Click Alarm Config - New Alarm to create a new alarm configuration.
 
-### 2.4、启用/禁用告警
-- 点击启用/禁用可以禁用一个告警，禁用告警后，告警将不再生效。
+![New Alarm](./images/image87.png)
 
-### 2.5、删除告警
--点击删除可以删除一个告警。
+### 2.3 Edit Alarm
+- Select an alarm and click Edit to modify alarm info.
+
+![Edit Alarm](./images/image88.png)
+
+### 2.4 Enable/Disable Alarm
+- Click Enable/Disable to toggle alarm status. Disabled alarms will not be triggered.
+
+### 2.5 Delete Alarm
+- Click Delete to remove an alarm.

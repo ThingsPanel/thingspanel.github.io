@@ -2,30 +2,29 @@
 sidebar_position: 2
 ---
 
-# 场景管理
-## 1、说明
-- 设置某个场景，可以和场景联动关联起来，当触发某条件时，触发该场景。 
+# Scene Management
 
-## 2、操作
+## 1. Description
+- configure a scene, which can be associated with Scene Linkage. The scene is triggered when certain conditions are met.
 
-### 2.1、新增场景
+## 2. Operations
 
-- 点击新增场景，可以新建一个场景，设置对某个设备或某类设备的处理。
-![descript](./images/image79.png)
+### 2.1 Add Scene
 
+- Click Add Scene to create a new scene, setting actions for a specific device or a class of devices.
+![Add Scene](./images/image79.png)
 
-### 2.2、编辑场景
-- 选择要编辑的场景，点击编辑，可以更改场景的内容
-![descript](./images/image80.jpg)
+### 2.2 Edit Scene
+- Select the scene to edit, click Edit to modify content.
+![Edit Scene](./images/image80.jpg)
 
-### 2.3、激活场景
-- 点击激活可以触发一次场景的设置
-![descript](./images/image81.jpg)
+### 2.3 Activate Scene
+- Click Activate to trigger the scene settings once manually.
+![Activate Scene](./images/image81.jpg)
 
-### 2.4、查看场景日志
-- 点击日志，可以查看场景的的触发日志。
-![descript](./images/image82.png)
+### 2.4 View Scene Logs
+- Click Logs to view trigger logs.
+![Scene Logs](./images/image82.png)
 
-### 2.5、删除场景
-- 点击删除，可以删除该场景。
-
+### 2.5 Delete Scene
+- Click Delete to remove the scene.

@@ -1,9 +1,9 @@
 {
-    "label": "系统管理",
-    "position": 4,
-    "link": {
-      "type": "generated-index",
-      "description": "系统管理"
-    }
+  "key": "system-admin-system-management",
+  "label": "System Management",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "System Management"
   }
-  
+}

@@ -3,14 +3,12 @@ sidebar_position: 6
 ---
 
 
-# 串口接入
+# Serial Port Access
 
-## 通过规则引擎的方式
+## Via Rule Engine
 
-规则引擎默认功能在超管账户下，使用需要登录超管账户。
+The default function of the rule engine is under the Super Admin account. You need to log in as Super Admin to use it.
 
-## 使用设备接入服务接入
+## Via Device Connectivity Service
 
-* 自定义协议开发ThingsPanel设备接入服务，通过设备接入服务接入。
-
-
+* Develop a custom ThingsPanel Device Connectivity Service (plugin) to access via the service.

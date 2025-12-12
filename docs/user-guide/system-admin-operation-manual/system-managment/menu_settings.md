@@ -2,14 +2,11 @@
 sidebar_position: 3
 ---
 
-# 菜单管理
+# Menu Management
 
-## 1、说明
-- 配置系统左侧菜单树，可配置父子菜单结构，以及每个菜单的名称、图标、路由、菜单类型和权限等功能。可新增、编辑、搜索、删除，隐藏。
+## 1. Description
+- Configure the system's left menu tree. Supports configuring parent-child menu structure, as well as the name, icon, route, menu type, and permissions for each menu. Supports adding, editing, searching, deleting, and hiding menus.
 
-
-## 2、操作
-- 如下图所示
+## 2. Operations
+- As shown below:
 ![](./images/image36.png)
-
-

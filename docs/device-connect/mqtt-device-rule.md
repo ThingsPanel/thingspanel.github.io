@@ -2,104 +2,104 @@
 sidebar_position: 11
 ---
 
-# 直连设备MQTT数据交互规范
+# Direct Device MQTT Interaction Spec
 
-## 概述
+## Overview
 
-本规范描述直连设备通过MQTT协议连接到ThingsPanel平台的技术要求，定义了设备与平台之间的数据交互格式和通信协议。
+This specification describes the technical requirements for connecting direct devices to the ThingsPanel platform via the MQTT protocol, defining the data interaction format and communication protocol between the device and the platform.
 
-## 核心概念
+## Core Concepts
 
-:::info 四大核心数据类型
-在开始之前，了解四个核心概念对于理解本规范至关重要：
+:::info Four Core Data Types
+Before starting, understanding these four core concepts is crucial:
 
-- **🔄 遥测（Telemetry）** - 设备实时上报的数据，通常是随时间变化的测量值
-  - 例如：温度传感器定期上报的温度读数
-- **📋 属性（Attributes）** - 设备的静态或较少变化的特征信息
-  - 例如：设备的IP地址、MAC地址或固件版本
-- **🎯 事件（Events）** - 设备中发生的特定事件或状态变化
-  - 例如：检测到运动或设备启动完成
-- **⚡ 命令（Commands）** - 平台发送到设备的控制指令
-  - 例如：开关灯或重置设备
+- **🔄 Telemetry** - Real-time data reported by devices, usually measurements changing over time.
+  - Example: Temperature readings reported periodically.
+- **📋 Attributes** - Static or less frequently changing characteristics of devices.
+  - Example: Device IP, MAC address, or firmware version.
+- **🎯 Events** - Specific events or state changes occurring in devices.
+  - Example: Motion detected or device boot completed.
+- **⚡ Commands** - Control instructions sent from the platform to devices.
+  - Example: Turn on light or reboot device.
 :::
 
-## 关键参数说明
+## Key Parameters
 
-### 📍 message_id（消息标识符）
-- **作用**：消息唯一标识符，确保消息不重复,长度不限
-- **建议**：使用毫秒时间戳的后七位
-- **要求**：在短期内保持唯一性
+### 📍 message_id
+- **Function**: Unique message identifier to ensure no duplication. No length limit.
+- **Suggestion**: Use the last 7 digits of the timestamp (ms).
+- **Requirement**: Unique within a short period.
 
-### 🏷️ device_number（设备编号）
-- **作用**：设备在系统中的唯一标识
-- **要求**：全局唯一，不可重复
+### 🏷️ device_number (Device ID)
+- **Function**: Unique identifier of the device in the system.
+- **Requirement**: Globally unique, no duplicates.
 
-### 🎭 method（方法标识）
-- **定义**：用来标识特定命令或事件类型的字符串
-- **命令示例**：`"SetTemperature"`、`"TurnOnLight"`、`"RebootDevice"`
-- **事件示例**：`"TemperatureExceeded"`、`"MotionDetected"`、`"BatteryLow"`
+### 🎭 method
+- **Definition**: String identifying a specific command or event type.
+- **Command Examples**: `"SetTemperature"`, `"TurnOnLight"`, `"RebootDevice"`
+- **Event Examples**: `"TemperatureExceeded"`, `"MotionDetected"`, `"BatteryLow"`
 
-### ⚙️ params（参数对象）
-- **作用**：包含与method相关的详细信息或数据
-- **命令场景**：提供执行命令所需的具体参数
-- **事件场景**：包含描述事件的相关数据
+### ⚙️ params
+- **Function**: Contains detailed info or data related to the method.
+- **Command Scenario**: Provides specific parameters needed for command execution.
+- **Event Scenario**: Contains data describing the event.
 
-## MQTT认证规则
+## MQTT Authentication Rules
 
-:::warning 认证要求
-### 🔐 唯一性要求
-- **Username + Password** 组合必须全局唯一
-- **ClientID** 必须全局唯一
+:::warning Auth Requirements
+### 🔐 Uniqueness
+- **Username + Password** combination must be globally unique.
+- **ClientID** must be globally unique.
 
-### 🔄 一致性要求
-- 设备每次连接时必须使用相同的认证信息
-- 保持 ClientID、Username 和 Password 的一致性
+### 🔄 Consistency
+- Devices must use the same auth info for every connection.
+- Keep ClientID, Username, and Password consistent.
 :::
 
-## MQTT主题规范
+## MQTT Topic Specification
 
-:::tip 灵活实现
-**重要说明**：设备无需实现所有列出的MQTT主题。应根据设备的具体功能和应用场景，选择性地实现相关主题。开发者应仔细评估设备需求，只实现必要的主题，以优化设备性能和资源利用。
+:::tip Flexible Implementation
+**Important**: Devices do not need to implement all listed MQTT topics. Selectively implement relevant topics based on specific device functions and scenarios.
 :::
 
-### 设备上报主题
+### Device Publish Topics
 
-| 主题 | 说明 | 数据类型 | 是否必需 |
+| Topic | Description | Data Type | Required |
 |------|------|----------|----------|
-| `devices/telemetry` | 上报遥测数据 | 遥测 | 可选 |
-| `devices/attributes/{message_id}` | 上报属性状态 | 属性 | 可选 |
-| `devices/event/{message_id}` | 上报事件信息 | 事件 | 可选 |
-| `ota/devices/progress` | 上报OTA升级进度 | OTA | 可选 |
-| `devices/command/response/{message_id}` | 命令执行响应 | 响应 | 可选 |
-| `devices/attributes/set/response/{message_id}` | 属性设置响应 | 响应 | 可选 |
+| `devices/telemetry` | Report telemetry data | Telemetry | Optional |
+| `devices/attributes/{message_id}` | Report attributes | Attributes | Optional |
+| `devices/event/{message_id}` | Report events | Events | Optional |
+| `ota/devices/progress` | Report OTA progress | OTA | Optional |
+| `devices/command/response/{message_id}` | Command response | Response | Optional |
+| `devices/attributes/set/response/{message_id}` | Attribute set response | Response | Optional |
 
-### 设备订阅主题
+### Device Subscribe Topics
 
-:::note 主题说明
-**注意：** `+` 表示 `message_id` 占位符，`{device_number}` 为具体设备编号
+:::note Topic Note
+**Note:** `+` is a wildcard for `message_id`, `{device_number}` is the specific device ID.
 :::
 
-| 主题 | 说明 | 数据类型 | 是否必需 |
+| Topic | Description | Data Type | Required |
 |------|------|----------|----------|
-| `devices/telemetry/control/{device_number}` | 接收遥测控制指令 | 控制 | 可选 |
-| `devices/attributes/set/{device_number}/+` | 接收属性设置指令 | 属性设置 | 可选 |
-| `devices/attributes/get/{device_number}` | 接收属性查询请求 | 属性查询 | 可选 |
-| `devices/command/{device_number}/+` | 接收命令执行请求 | 命令 | 可选 |
-| `ota/devices/inform/{device_number}` | 接收OTA升级任务 | OTA | 可选 |
-| `devices/attributes/response/{device_number}/+` | 接收属性响应确认 | 响应确认 | 可选 |
-| `devices/event/response/{device_number}/+` | 接收事件响应确认 | 响应确认 | 可选 |
+| `devices/telemetry/control/{device_number}` | Receive control commands | Control | Optional |
+| `devices/attributes/set/{device_number}/+` | Receive attribute set commands | Attribute Set | Optional |
+| `devices/attributes/get/{device_number}` | Receive attribute get requests | Attribute Get | Optional |
+| `devices/command/{device_number}/+` | Receive command execution requests | Command | Optional |
+| `ota/devices/inform/{device_number}` | Receive OTA tasks | OTA | Optional |
+| `devices/attributes/response/{device_number}/+` | Receive attribute response ack | Response Ack | Optional |
+| `devices/event/response/{device_number}/+` | Receive event response ack | Response Ack | Optional |
 
-## 数据交互格式
+## Data Interaction Format
 
-### 🔄 遥测数据上报
+### 🔄 Telemetry Reporting
 
-**主题：** `devices/telemetry`
+**Topic:** `devices/telemetry`
 
-#### 实时上报模式
+#### Real-time Mode
 
-直接键值对格式，系统自动使用服务器接收时间作为时间戳。
+Direct key-value pairs. System uses server reception time as timestamp.
 
-```json title="实时遥测数据格式示例"
+```json title="Real-time Telemetry Example"
 {
   "temperature": 25.5,
   "humidity": 65.0,
@@ -107,31 +107,31 @@ sidebar_position: 11
 }
 ```
 
-#### 历史上报模式
+#### Historical Mode
 
-时间序列数组格式，每条记录包含时间戳和对应的数据值。
+Time-series array format. Each record contains timestamp and values.
 
-```json title="历史遥测数据格式示例"
+```json title="Historical Telemetry Example"
 [
   {"ts": 1609459200, "values": {"temperature": 22.5, "humidity": 60.0}},
   {"ts": 1609462800, "values": {"temperature": 23.0, "humidity": 61.5}}
 ]
 ```
 
-:::info 格式识别规则
-- **实时模式**：根级别为键值对对象
-- **历史模式**：根级别为数组，数组元素包含 `ts` 和 `values` 字段
+:::info Format Recognition
+- **Real-time**: Root level is key-value object.
+- **Historical**: Root level is array, elements contain `ts` and `values`.
 
-**字段说明：**
-- `ts`：Unix时间戳（秒级），数据采集时间
-- `values`：该时间点的遥测数据键值对
+**Field Description:**
+- `ts`: Unix timestamp (seconds).
+- `values`: Telemetry key-value pairs at that time.
 :::
 
-### 📋 属性数据上报
+### 📋 Attribute Reporting
 
-**主题：** `devices/attributes/{message_id}`
+**Topic:** `devices/attributes/{message_id}`
 
-```json title="属性数据格式示例"
+```json title="Attribute Example"
 {
   "ip": "192.168.1.100",
   "mac": "00:11:22:33:44:55",
@@ -139,13 +139,13 @@ sidebar_position: 11
 }
 ```
 
-### 🎯 事件数据上报
+### 🎯 Event Reporting
 
-**主题：** `devices/event/{message_id}`
+**Topic:** `devices/event/{message_id}`
 
-#### 实时上报模式
+#### Real-time Mode
 
-```json title="实时事件数据格式示例"
+```json title="Real-time Event Example"
 {
   "method": "AlarmTriggered",
   "params": {
@@ -155,11 +155,9 @@ sidebar_position: 11
 }
 ```
 
-#### 历史上报模式
+#### Historical Mode
 
-时间序列数组格式，每条记录包含时间戳和对应的事件信息。
-
-```json title="历史事件数据格式示例"
+```json title="Historical Event Example"
 [
   {
     "ts": 1609459200000,
@@ -180,53 +178,53 @@ sidebar_position: 11
 ]
 ```
 
-:::info 格式识别规则
-- **实时模式**：根级别包含 `method` 字段且不包含 `ts` 字段
-- **历史模式**：根级别为数组，数组元素同时包含 `ts` 和 `method` 字段
+:::info Format Recognition
+- **Real-time**: Root contains `method` and no `ts`.
+- **Historical**: Root is array, elements contain `ts` and `method`.
 
-**字段说明：**
-- `ts`：Unix时间戳（毫秒级），事件发生时间
-- `method`：事件方法名，必填字段
-- `params`：事件参数，可选字段
+**Field Description:**
+- `ts`: Unix timestamp (milliseconds).
+- `method`: Event name, required.
+- `params`: Event parameters, optional.
 :::
 
-### 📦 OTA升级进度上报
+### 📦 OTA Progress Reporting
 
-**主题：** `ota/devices/progress`
+**Topic:** `ota/devices/progress`
 
-**成功进度：**
-```json title="升级进度上报"
+**Success:**
+```json
 {
   "step": "100",
-  "desc": "升级进度100%",
+  "desc": "Upgrade 100%",
   "module": "MCU"
 }
 ```
 
-**失败示例：**
-```json title="升级失败上报"
+**Failure:**
+```json
 {
   "step": "-1",
-  "desc": "OTA升级失败，下载升级包失败",
+  "desc": "OTA Failed, download failed",
   "module": "MCU"
 }
 ```
 
-#### 升级步骤说明
+#### Step Description
 
-| 步骤值 | 说明 |
+| Step | Description |
 |--------|------|
-| `1-100` | 升级进度百分比 |
-| `-1` | 升级失败 |
-| `-2` | 下载失败 |
-| `-3` | 校验失败 |
-| `-4` | 烧写失败 |
+| `1-100` | Progress percentage |
+| `-1` | Upgrade failed |
+| `-2` | Download failed |
+| `-3` | Verification failed |
+| `-4` | Flash failed |
 
-### ⚡ 接收控制指令
+### ⚡ Receive Control Commands
 
-**主题：** `devices/telemetry/control/{device_number}`
+**Topic:** `devices/telemetry/control/{device_number}`
 
-```json title="控制指令格式示例"
+```json
 {
   "temperature": 25.0,
   "brightness": 80,
@@ -234,11 +232,11 @@ sidebar_position: 11
 }
 ```
 
-### 📋 接收属性设置
+### 📋 Receive Attribute Set
 
-**主题：** `devices/attributes/set/{device_number}/+`
+**Topic:** `devices/attributes/set/{device_number}/+`
 
-```json title="属性设置格式示例"
+```json
 {
   "ip": "192.168.1.100",
   "heartbeat": 30,
@@ -246,29 +244,29 @@ sidebar_position: 11
 }
 ```
 
-### 🔍 接收属性查询请求
+### 🔍 Receive Attribute Get
 
-**主题：** `devices/attributes/get/{device_number}`
+**Topic:** `devices/attributes/get/{device_number}`
 
-**查询所有属性：**
-```json title="查询所有属性"
+**Get All:**
+```json
 {
   "keys": []
 }
 ```
 
-**查询指定属性：**
-```json title="查询指定属性"
+**Get Specific:**
+```json
 {
   "keys": ["temperature", "humidity"]
 }
 ```
 
-### ⚡ 接收命令执行请求
+### ⚡ Receive Command Execution
 
-**主题：** `devices/command/{device_number}/+`
+**Topic:** `devices/command/{device_number}/+`
 
-```json title="命令执行格式示例"
+```json
 {
   "method": "Restart",
   "params": {
@@ -278,25 +276,25 @@ sidebar_position: 11
 }
 ```
 
-### 📦 接收OTA升级任务
+### 📦 Receive OTA Task
 
-**主题：** `ota/devices/inform/{device_number}`
+**Topic:** `ota/devices/inform/{device_number}`
 
-#### OTA任务参数说明
+#### OTA Task Params
 
-| 参数 | 类型 | 说明 |
+| Param | Type | Description |
 |------|------|------|
-| `id` | Long | 消息ID号，在当前设备中具有唯一性 |
-| `code` | String | 状态码 |
-| `version` | String | 设备升级包的版本信息 |
-| `size` | Long | 升级包文件大小，单位：字节 |
-| `url` | String | 升级包存储地址 |
-| `sign` | String | OTA升级包文件的签名 |
-| `signMethod` | String | 签名方法：SHA256、MD5 |
-| `module` | String | 升级包所属的模块名 |
-| `extData` | Object | 升级批次标签列表和自定义信息 |
+| `id` | Long | Message ID |
+| `code` | String | Status code |
+| `version` | String | Version info |
+| `size` | Long | Size in bytes |
+| `url` | String | Download URL |
+| `sign` | String | Signature |
+| `signMethod` | String | SHA256, MD5 |
+| `module` | String | Module name |
+| `extData` | Object | Extra info |
 
-```json title="OTA升级任务示例"
+```json
 {
   "id": "1001",
   "code": 200,
@@ -315,22 +313,22 @@ sidebar_position: 11
 }
 ```
 
-## 响应格式规范
+## Response Format
 
-### 响应参数说明
+### Response Params
 
-| 参数 | 是否必输 | 类型 | 说明 |
+| Param | Required | Type | Description |
 |------|----------|------|------|
-| `result` | ✅ | number | 执行结果：`0`-成功，`1`-失败 |
-| `errcode` | ❌ | string | 错误码（失败时提供） |
-| `message` | ✅ | string | 响应消息内容 |
-| `ts` | ❌ | number | 时间戳（秒） |
-| `method` | ❌ | string | 事件和命令的方法名 |
+| `result` | ✅ | number | Result: `0`-Success, `1`-Fail |
+| `errcode` | ❌ | string | Error code (if fail) |
+| `message` | ✅ | string | Message content |
+| `ts` | ❌ | number | Timestamp (s) |
+| `method` | ❌ | string | Method name |
 
-### 响应格式示例
+### Examples
 
-**成功响应：**
-```json title="操作成功"
+**Success:**
+```json
 {
   "result": 0,
   "message": "success",
@@ -338,8 +336,8 @@ sidebar_position: 11
 }
 ```
 
-**失败响应：**
-```json title="操作失败"
+**Failure:**
+```json
 {
   "result": 1,
   "errcode": "INVALID_PARAM",
@@ -349,35 +347,15 @@ sidebar_position: 11
 }
 ```
 
-**带方法的成功响应：**
-```json title="命令执行成功"
-{
-  "result": 0,
-  "message": "Command executed successfully",
-  "ts": 1609459200,
-  "method": "Restart"
-}
-```
+## Best Practices
 
-## 最佳实践
-
-:::tip 开发建议
-1. **消息ID管理** - 建议使用时间戳后7位，确保短期内消息ID不重复
-2. **选择性实现** - 根据设备功能需求选择实现的主题，避免不必要的资源消耗
-3. **认证信息** - 确保每次连接使用相同的认证信息，保持连接稳定性
-4. **错误处理** - 实现完整的错误响应机制，便于问题诊断
-5. **数据验证** - 上报前验证JSON格式的正确性
-6. **连接保持** - 实现MQTT心跳机制保持连接稳定
-7. **重连机制** - 网络异常时自动重连
-8. **OTA升级** - 实现升级进度上报，提升用户体验
-:::
-
-:::warning 注意事项
-- 确保设备编号在系统中全局唯一
-- 遥测数据建议定期上报，避免数据丢失
-- 命令执行后建议返回响应确认
-- 属性设置需要验证参数有效性
-- OTA升级过程中及时上报进度和状态
-- 保持认证信息的一致性，避免连接失败
-- 合理选择订阅主题，减少不必要的网络流量
+:::tip Development Tips
+1. **Message ID**: Suggest last 7 digits of timestamp.
+2. **Selective Implementation**: Only implement necessary topics.
+3. **Auth Info**: Keep consistent.
+4. **Error Handling**: Implement full error response.
+5. **Data Validation**: Validate JSON.
+6. **Keep Alive**: Implement MQTT heartbeat.
+7. **Reconnection**: Auto reconnect on network error.
+8. **OTA**: Report progress.
 :::

@@ -2,28 +2,28 @@
 sidebar_position: 4
 ---
 
-# API keys管理
+# API Keys Management
 
-![descript](./images/api_keys_1.png)
+![API Keys](./images/api_keys_1.png)
 
-API Keys 管理功能为第三方开发者提供了便捷的接口访问凭证管理方案。通过此功能，您可以创建和管理用于访问开放接口的 API Keys。
+API Keys Management provides a convenient interface access credential management solution for third-party developers. Through this function, you can create and manage API Keys for accessing open interfaces.
 
-## 使用方法
+## Usage
 
-1. **创建 API Key**：如图所示界面中，点击新增按钮生成新的 API Key
-2. **应用 API Key**：在第三方应用程序中，只需在 HTTP 请求头中添加以下参数即可完成认证：
+1. **Create API Key**: Click the Add button in the interface to generate a new API Key.
+2. **Apply API Key**: In third-party applications, simply add the following parameter to the HTTP request header to complete authentication:
    ```
-   x-api-key: 您的API密钥
+   x-api-key: YOUR_API_KEY
    ```
 
-3. **管理现有 Keys**：
-   - 编辑：修改 Key 的描述信息或访问权限
-   - 删除：撤销不再需要的 API Key，立即终止其访问权限
+3. **Manage Existing Keys**:
+   - Edit: Modify Key description or permissions.
+   - Delete: Revoke API Key to immediately terminate its access.
 
-## 开发者注意事项
+## Notes for Developers
 
-- API Key 应妥善保管，不要在公开场合或代码仓库中暴露
-- 每个应用建议使用独立的 API Key，便于单独管理和追踪使用情况
-- 系统会自动记录每个 Key 的使用情况，便于排查问题
+- API Keys should be kept safe and not exposed in public places or code repositories.
+- It is recommended to use independent API Keys for each application for separate management and tracking.
+- The system automatically records the usage of each Key for easier troubleshooting.
 
-通过此功能，第三方开发者可以轻松集成系统提供的开放接口，实现定制化开发和系统扩展。
+Through this function, third-party developers can easily integrate open interfaces provided by the system to achieve customized development and system expansion.

@@ -2,63 +2,63 @@
 sidebar_position: 1
 ---
 
-# 环境要求
+# System Requirements
 
-## 硬件设备要求
+## Hardware Requirements
 
-### 最低测试配置
+### Minimum Test Configuration
 
-ThingsPanel整体内存的占用约100M以下，安装必要服务后会达到几百M。最小可使用1G内存设备进行测试，适合设备数量较少的测试环境。
+ThingsPanel typically consumes less than 100MB of memory overall, but may reach several hundred MB after installing essential services. A device with 1GB memory is sufficient for testing in environments with a small number of devices.
 
-|项目|配置要求|
-|--|--|
-|CPU|1核心 2.0GHz+|
-|内存|1GB|
-|硬盘|20G|
+| Item | Requirement |
+| :--- | :--- |
+| CPU | 1 Core 2.0GHz+ |
+| Memory | 1GB |
+| Disk | 20GB |
 
-### 研发测试配置
+### R&D Test Configuration
 
-|项目|配置要求|
-|--|--|
-|CPU|2核+ 2.5GHz+|
-|内存|4GB+|
-|硬盘|40GB+|
+| Item | Requirement |
+| :--- | :--- |
+| CPU | 2 Core+ 2.5GHz+ |
+| Memory | 4GB+ |
+| Disk | 40GB+ |
 
-### 生产环境配置
+### Production Environment Configuration
 
-推荐采用集群部署模式，确保系统高可用性：
+We recommend **Cluster Deployment** to ensure high system availability:
 
-|项目|最小配置要求|建议配置|
-|--|--|--|
-|CPU|4核+ 2.5GHz+|8核+ 3.0GHz+|
-|内存|8GB+|16GB+|
-|硬盘|40GB+ SSD|100GB+ SSD|
-|服务器数量|2-3台|3-5台|
+| Item | Minimum Requirement | Recommended Configuration |
+| :--- | :--- | :--- |
+| CPU | 4 Core+ 2.5GHz+ | 8 Core+ 3.0GHz+ |
+| Memory | 8GB+ | 16GB+ |
+| Disk | 40GB+ SSD | 100GB+ SSD |
+| Server Count | 2-3 Nodes | 3-5 Nodes |
 
-#### CPU架构支持
+#### CPU Architecture Support
 
-- x86架构：支持Intel、AMD等主流服务器CPU
-- ARM架构：支持飞腾、鲲鹏等国产CPU
-- RISC-V：支持兆芯、海光等国产CPU
+- **x86**: Supports Intel, AMD, and other mainstream server CPUs.
+- **ARM**: Supports Phytium, Kunpeng, and other domestic CPUs.
+- **RISC-V**: Supports Zhaoxin, Hygon, and other domestic CPUs.
 
-#### 服务器架构要求
+#### Server Architecture Requirements
 
-- 支持主流服务器架构：塔式、机架式、刀片式
-- 推荐使用机架式服务器，便于集中管理和扩展
-- 建议配置冗余电源和硬盘阵列(RAID)
+- Supports mainstream server form factors: Tower, Rack, Blade.
+- **Rack-mounted servers** are recommended for easier management and expansion.
+- Redundant power supplies and RAID configurations are recommended.
 
-#### 国产化适配说明
+#### Localization (Domestic Adaptation) Support
 
-- 操作系统：
-  - 支持统信UOS、麒麟等国产操作系统
-  - 支持欧拉、OpenEuler等国产服务器操作系统
-- 数据库：
-  - 支持阿里云PolarDB,人大金仓等国产数据库
+- **Operating Systems**:
+  - Supports UnionTech UOS, Kylin, and other domestic operating systems.
+  - Supports openEuler, EulerOS, and other domestic server operating systems.
+- **Databases**:
+  - Supports Alibaba Cloud PolarDB, KingBase, and other domestic databases.
 
-### 补充建议
+### Recommendations
 
-- 业务配置推荐采用集群方式部署，确保高可用性
-- 基于对CPU和内存、硬盘的监控来动态扩容
-- 推荐使用SSD等高性能存储设备
-- 建议开启快照或备份功能保护数据
-- 建议配置独立的管理网络和业务网络
+- **Cluster Deployment** is recommended for production business configurations to ensure high availability.
+- Dynamically scale capacity based on CPU, memory, and disk monitoring.
+- Use **SSD** or other high-performance storage.
+- Enable snapshots or backups to protect data.
+- Configure separate Management and Business networks.

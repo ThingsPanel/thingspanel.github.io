@@ -2,15 +2,13 @@
 sidebar_position: 1
 ---
 
-# 租户管理
+# Tenant Management
 
-## 1、说明
-- 系统管理员可以创建租户和管理租户。
-- 不同的租户邮箱不能重复。
+## 1. Description
+- System administrators can create and manage tenants.
+- Different tenants cannot use duplicate email addresses.
 
-
-## 2、操作
-- 管理系统中的租户，支持新增、编辑、搜索、删除、重置密码和进入租户管理员页面，如下图所示
+## 2. Operations
+- Manage tenants in the system. Supports adding, editing, searching, deleting, resetting passwords, and entering the tenant administrator page, as shown below:
 
 ![](./images/image32.png)
-

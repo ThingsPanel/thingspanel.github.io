@@ -1,7 +1,7 @@
 //import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -11,106 +11,106 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title:translate({message: "设备接入"}),
+    title: translate({ message: "Device Onboarding" }),
     Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="business.one"
           description="副标题">
-          多项目、多分组、多接入协议、自定义脚本
-      </Translate>
+          Multi-project, multi-group, multi-protocol, custom scripts
+        </Translate>
       </>
-        // 一个系统可整合多个业务， 可拓展更多智慧场景。 
+      // 一个系统可整合多个业务， 可拓展更多智慧场景。 
     ),
   },
   {
-    title:translate({message: "插件生成器"}),
+    title: translate({ message: "Plugin Generator" }),
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
-       <Translate
+        <Translate
           id="group.one"
           description="副标题">
-          生成设备插件，快速定制个性化设备功能。
-      </Translate>
+          Generate device plugins to quickly customize device features.
+        </Translate>
       </>
       //可按照组织结构、资产机构等多种分组方式管理设备。
     ),
   },
   {
-    title:translate({message: "应用管理"}),
+    title: translate({ message: "Application Management" }),
     Svg: require('@site/static/img/use.svg').default,
     description: (
       <>
-       <Translate
+        <Translate
           id="application.one"
           description="副标题">
-          设备插件、设备接入服务，用积木的方式搭建系统。
-      </Translate>
+          Device plugins and device access services, build systems like building blocks.
+        </Translate>
       </>
-        // 设备插件、大屏插件，用积木的方式搭建系统。
+      // 设备插件、大屏插件，用积木的方式搭建系统。
     ),
   },
   {
-    title:translate({message: "自动化"}),
+    title: translate({ message: "Automation" }),
     Svg: require('@site/static/img/automation.svg').default,
     description: (
       <>
-       <Translate
+        <Translate
           id="automation.one"
           description="副标题">
-          IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制。
-      </Translate>     
+          IFTTT mode with time and device triggers for automated alerts and control.
+        </Translate>
       </>
       // IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制。
     ),
   },
   {
-    title:translate({message: "可视化"}),
+    title: translate({ message: "Visualization" }),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="visualization.one"
           description="副标题">
-          基于插件提供的图表单元快速搭建可视化。
-      </Translate>
+          Quickly build visualizations based on chart units provided by plugins.
+        </Translate>
       </>
       // 基于插件提供的图表单元快速搭建可视化。
     ),
   },
   {
-    title:translate({message: "规则引擎"}),
+    title: translate({ message: "Rule Engine" }),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="ruleEngine.one"
           description="副标题">
-          接入各类协议并转换数据，转发数据到外部系统。
-      </Translate>
+          Access various protocols, transform data, and forward to external systems.
+        </Translate>
       </>
-        // 接入各类协议并转换数据，转发数据到外部系统。
+      // 接入各类协议并转换数据，转发数据到外部系统。
     ),
   },
   {
-    title:translate({message: "多接入协议"}),
+    title: translate({ message: "Multiple Access Protocols" }),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-      <Translate
+        <Translate
           id="protocols.one"
           description="副标题">
-          支持MQTT、TCP、Modbus、GB28181等，可自行扩展。
-      </Translate>
+          Supports MQTT, TCP, Modbus, GB28181, etc., with extensibility.
+        </Translate>
       </>
-        // 接入各类协议并转换数据，转发数据到外部系统。
+      // 接入各类协议并转换数据，转发数据到外部系统。
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

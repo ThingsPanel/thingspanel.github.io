@@ -2,30 +2,28 @@
 sidebar_position: 1
 ---
 
-# 设备接入服务管理
-## 说明
-设备接入服务管理包含设备接入服务和三方设备接入服务，设备接入服务直接接入设备，三方设备接入服务通过第三方平台来接入设备。
+# Device Connectivity Service Manage
 
+## Description
+Device Connectivity Service Management includes Device Connectivity Service and Third-party Device Connectivity Service. Device Connectivity Service connects devices directly, while Third-party Service connects devices via third-party platforms.
 
+## Role of Device Connectivity Plugins
 
-## 设备接入插件的作用
+**Compatibility and Interoperability**: By supporting multiple communication protocols and platforms, the Device Connectivity Service ensures compatibility and interoperability between different devices, which is key to the success of the IoT ecosystem.
 
-**兼容性和互操作性**：通过支持多种通信协议和平台，设备接入服务确保了不同设备之间的兼容性和互操作性，这是物联网生态系统成功的关键。
+**Scalability**: As new technologies and standards emerge, IoT systems may need to support new communication protocols. Device Connectivity Plugins allow the system to easily extend its functionality by simply adding new plugins without redesigning the entire system.
 
-**扩展性**：随着新技术和标准的出现，物联网系统可能需要支持新的通信协议。设备接入插件允许系统通过简单地添加新的插件来轻松扩展其功能，而无需重新设计整个系统。
+**Modularity**: Device Connectivity Plugins provide a modular approach to handling communication tasks, making system maintenance and upgrades easier.
 
-**模块化**：设备接入插件提供了一种模块化的方法来处理通信任务，这使得系统维护和升级更加容易。
+**Customization**: Different applications may require different communication behaviors or optimizations. The Device Connectivity Service allows developers to customize or optimize specific communication protocols to meet specific application needs.
 
-**定制化**：不同的应用可能需要不同的通信行为或优化。设备接入服务允许开发者定制或优化特定的通信协议以满足特定的应用需求。
-## 操作步骤
-- 点击应用管理-插件管理，可以进入协议管理页面。
-  ![alt text](./images/plugin-list.png)
-- 设备接入服务需要系统管理员才可以添加，需要以系统管理员身份登录
-- 目前支持新建、编辑、删除一个协议。
-![](./images/image26.png)
+## Steps
+- Click App Management - Plugin Management to enter the protocol management page.
+  ![Plugin List](./images/plugin-list.png)
+- Device Connectivity Services can only be added by System Administrators. You need to log in as a System Administrator.
+- Currently supports creation, editing, and deletion of a protocol.
+![Operation](./images/image26.png)
 
-## 配置参考
-- 请参考代码库中各协议插的README来配置和理解设备接入服务
-[`代码库地址`](../../../introduction/code_repository)
-
-
+## Configuration Reference
+- Please refer to the README of each protocol plugin in the code repository to configure and understand the Device Connectivity Service.
+[`Code Respository`](../../../introduction/code_repository)

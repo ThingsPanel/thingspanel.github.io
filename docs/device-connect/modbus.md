@@ -2,58 +2,58 @@
 sidebar_position: 4
 ---
 
-# ModBus接入
+# Modbus Access
 
-## 前置条件
+## Prerequisites
 
-安装Modbus设备接入服务，并在系统管理员注册设备接入服务
+Install Modbus Device Connectivity Service and register the service as System Admin.
 
-[ThingsPanel1.0.0安装Modbus设备接入服务教程](https://github.com/ThingsPanel/modbus-protocol-plugin)
+[ThingsPanel 1.0.0 Modbus Service Installation Guide](https://github.com/ThingsPanel/modbus-protocol-plugin)
 
-## 接入步骤
+## Access Steps
 
-### 在平台创建Modbus网关设备
+### Create Modbus Gateway Device on Platform
 
-1. 创建网关设备模板
-   1. 创建设备模板  ![创建设备模板](modbus_image/image.png)
-   2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP  ![协议配置](modbus_image/image-1.png)
-2. 创建设备，绑定刚创建的网关类型的设备模板
-   1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建网关设备  ![添加设备](modbus_image/image-2.png)
-   2. 填入注册包信息（注意和网关或DTU配置中使用的注册包一致并且需要关闭设备的心跳包） ![alt text](modbus_image/image-3.png)
-   3. 此时对设备上电，就可看到设备在线
+1. Create Gateway Device Template
+   1. Create Device Template. ![Create Template](modbus_image/image.png)
+   2. In Protocol Configuration, select Modbus_RTU or Modbus_TCP. ![Protocol Config](modbus_image/image-1.png)
+2. Create Device, bind the Gateway Template created above.
+   1. Go to `Device Connectivity` -> `Device Management`, click `Add Device` to create gateway device. ![Add Device](modbus_image/image-2.png)
+   2. Fill in Registration Packet info (Ensure consistency with Gateway or DTU config, and disable device heartbeat packet). ![Reg Packet](modbus_image/image-3.png)
+   3. Power on the device, you should see it online.
 
-### 在平台创建Modbus网关设备的子设备
+### Create Sub-device for Modbus Gateway
 
-1. 创建子设备模板
-   1. 创建设备模板![创建设备模板](modbus_image/image-4.png)
-   2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP，会出现配置表单，根据提示，填写对应的配置信息  ![协议配置](modbus_image/image-5.png)
-2. 创建设备，绑定刚创建的子设备类型的设备模板
-   1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建子设备  ![alt text](modbus_image/image-6.png)
-   2. 设置心跳时间 ![心跳设置](modbus_image/image-9.png)
-3. 绑定子设备到网关
-   1. 进入`设备接入`->`设备管理`，选择子设备对应的网关设备，选择子设备页签，点击添加子设备按钮，选择要添加的子设备  ![绑定子设备](modbus_image/image-7.png)
-   2. 修改子设备地址（从机地址）  ![修改从机地址](modbus_image/image-8.png)
-   3. 查看子设备详情，如果配置表单填写正确，此时子设备就可以正常上报数据了
+1. Create Sub-device Template
+   1. Create Device Template. ![Create Template](modbus_image/image-4.png)
+   2. In Protocol Configuration, select Modbus_RTU or Modbus_TCP. A config form will appear. Fill in config info as prompted. ![Protocol Config](modbus_image/image-5.png)
+2. Create Device, bind the Sub-device Template.
+   1. Go to `Device Connectivity` -> `Device Management`, click `Add Device` to create sub-device. ![Add Sub-device](modbus_image/image-6.png)
+   2. Set Heartbeat Time. ![Heartbeat](modbus_image/image-9.png)
+3. Bind Sub-device to Gateway
+   1. Go to `Device Connectivity` -> `Device Management`, select the corresponding Gateway Device, choose Sub-device tab, click Add Sub-device, select the sub-device to add. ![Bind Sub-device](modbus_image/image-7.png)
+   2. Modify Sub-device Address (Slave Address). ![Modify Slave Address](modbus_image/image-8.png)
+   3. View Sub-device details. If configured correctly, the sub-device should report data normally.
 
-## 操作流程图
+## Operation Flowchart
 
 ```mermaid
 
 graph TD
-    A[创建子物模型（可选）] --> B[创建网关设备模板]
-    A --> C[创建子设备模设备模板]
-    B --> D[创建网关设备]
-    C --> E[创建子设备]
-    D --> F[添加子设备到网关并设置从机地址]
+    A[Create Sub-device Model (Optional)] --> B[Create Gateway Template]
+    A --> C[Create Sub-device Template]
+    B --> D[Create Gateway Device]
+    C --> E[Create Sub-device]
+    D --> F[Add Sub-device to Gateway & Set Slave Addr]
     E --> F
-    F --> G[配置设备端]
-    G --> H[在平台查看数据]
+    F --> G[Configure Device Side]
+    G --> H[View Data on Platform]
 ```
 
-## 接入结果
+## Access Result
 
-![ThingsPanel 获得数据](image/modbus_device-detials.png)
+![ThingsPanel Data](image/modbus_device-detials.png)
 
-## 参考实例
+## References
 
-[有人口红网关USR-DR154接智能电表接入ThingsPanel](http://thingspanel.cn/posts/54)
+[Connecting Smart Meter via USR-DR154 Gateway to ThingsPanel](http://thingspanel.cn/posts/54)

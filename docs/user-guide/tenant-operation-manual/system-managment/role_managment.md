@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# 角色管理
+# Role Management
 
-- 角色管理可添加用户、编辑用户、编辑权限、删除用户。
-![descript](./images/image109.png)
+- Role management allows adding users, editing users, editing permissions, and deleting users.
+![Role Management](./images/image109.png)
 
-## 编辑权限
-- 选择某个角色，点击编辑权限，可以编辑该角色可以看到的左侧树的权限。
-![descript](./images/image110.png)
+## Edit Permissions
+- Select a role and click Edit Permissions to edit the permissions for the left menu tree visible to that role.
+![Edit Permissions](./images/image110.png)

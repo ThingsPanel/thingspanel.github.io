@@ -2,13 +2,11 @@
 sidebar_position: 4
 ---
 
-# 通知管理
+# Notification Management
 
-## 1、说明
-- 设置接受通知的邮箱和短信配置
+## 1. Description
+- Configure email and SMS settings for receiving notifications.
 
-
-## 2、操作
-- 如下图所示
+## 2. Operations
+- As shown below:
 ![](./images/image37.png)
-

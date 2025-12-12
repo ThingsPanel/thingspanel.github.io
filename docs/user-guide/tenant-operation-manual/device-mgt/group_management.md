@@ -2,32 +2,33 @@
 sidebar_position: 2
 ---
 
-# 分组管理
-## 1、说明
-- 点击设备接入-分组管理进入分组管理页面，分组管理具有新建分组、编辑分组、搜索分组、删除分组、添加设备到分组等功能。
+# Group Management
 
-## 2、操作
+## 1. Description
+- Click Device Onboarding - Group Management to enter the page. Functions include creating, editing, searching, deleting groups, and adding devices to groups.
 
-### 2.1、新建分组
+## 2. Operations
 
-- 点击创建分组来新建一个分组，在弹出框中输入父分组和分组名称可以新建分组，默认分组，分组名称不能重复。
+### 2.1 Create Group
 
-![descript](./images/image52.png)
+- Click Create Group. Enter parent group and group name. Group names cannot be duplicates within the same level.
 
-### 2.2、编辑分组
+![Create Group](./images/image52.png)
 
-- 选择要编辑的分组，点击分组信息或者点击查看按钮进入分组详情页面，点击设置-详情，既展示编辑分组的弹出框，可以更改分组的名称，描述等信息。
+### 2.2 Edit Group
 
-![descript](./images/image53.jpg)
+- Select group, click Group Info or View button to enter details. Click Settings - Details to show edit popup. Change name, description, etc.
 
-### 2.3、添加子分组
+![Edit Group](./images/image53.jpg)
 
-- 选择要编辑的分组，点击分组信息或者点击查看按钮进入分组详情页面，点击"添加子分组"按钮来添加子分组。
+### 2.3 Add Sub-group
 
-![descript](./images/image54.jpg)
+- In Group Details, click "Add Sub-group" button.
 
-### 2.4、添加设备到分组
+![Add Sub-group](./images/image54.jpg)
 
-- 选择要编辑的分组，点击分组信息或者点击查看按钮进入分组详情页面，点击"添加设备到分组"按钮，弹出设备选择框，可以选择设备来添加到分组中。
+### 2.4 Add Device to Group
 
-![descript](./images/image55.jpg)
+- In Group Details, click "Add Device to Group" button. Select devices to add.
+
+![Add Device](./images/image55.jpg)

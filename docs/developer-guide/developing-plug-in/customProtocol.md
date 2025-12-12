@@ -2,62 +2,62 @@
 sidebar_position: 4
 ---
 
-# 设备接入服务开发指南
+# Device Connectivity Service Dev Guide
 
-## 概述
+## Overview
 
-### 背景与问题
+### Background & Issues
 
-在物联网领域，通信协议极为多样且复杂。常见的协议包括MQTT、TCP、HTTP、SOAP、Modbus、OPC-UA、Bacnet、KNX、LwM2M和SNMP等，还有数不清的其他协议以及各种各样的网关服务或三方服务。
+In the IoT field, communication protocols are extremely diverse and complex. Common protocols include MQTT, TCP, HTTP, SOAP, Modbus, OPC-UA, Bacnet, KNX, LwM2M, SNMP, etc., along with countless other protocols and various gateway or third-party services.
 
-:::warning 现状与挑战
-- **复杂性**：这些协议和服务在通信模式和报文规范上各不相同，导致在系统集成时面临巨大的复杂性
-- **后果**：这种复杂性不仅使系统变得臃肿、效率低下，而且还难以扩展和维护，进而导致维护成本居高不下
+:::warning Status Quo & Challenges
+- **Complexity**: These protocols and services differ in communication patterns and message specifications, leading to huge complexity in system integration.
+- **Consequences**: This complexity makes the system bloated and inefficient, and also difficult to extend and maintain, resulting in high maintenance costs.
 :::
 
-### 服务定义
+### Service Definition
 
-设备接入服务是一个多功能中间件组件，作为设备与系统之间的桥梁，将设备接入ThingsPanel平台，实现设备与平台的交互。
+The Device Connectivity Service is a multifunctional middleware component that acts as a bridge between devices and the system, connecting devices to the ThingsPanel platform and enabling interaction between devices and the platform.
 
-### 服务类别
+### Service Categories
 
-:::info 两大核心类别
-1. **设备接入服务**：支持各种物联网协议（如MODBUS、MQTT等），使ThingsPanel平台能够**直接**与使用这些协议的设备通信
-2. **三方设备接入服务**：连接ThingsPanel平台与各种第三方物联网平台，**间接**与设备通信，实现数据互通和设备管理
+:::info Two Core Categories
+1. **Device Connectivity Service**: Supports various IoT protocols (e.g., MODBUS, MQTT), enabling ThingsPanel to communicate **directly** with devices using these protocols.
+2. **Third-party Connectivity Service**: Connects ThingsPanel with various third-party IoT platforms, communicating with devices **indirectly** to achieve data interoperability and device management.
 :::
 
-### 主要功能
+### Key Features
 
-- 🔗 提供统一的接口规范，简化设备和第三方平台的接入流程
-- 🌐 支持多种协议和服务，增强ThingsPanel平台的兼容性和扩展性
-- ⚙️ 实现灵活的配置和凭证管理，方便用户快速接入不同的协议和第三方平台
-- 📊 实时数据同步和设备状态监控
-- 🔧 模块化设计，易于扩展支持新的协议和第三方平台
+- 🔗 Provides unified interface specifications, simplifying access for devices and third-party platforms.
+- 🌐 Supports multiple protocols and services, enhancing ThingsPanel's compatibility and extensibility.
+- ⚙️ Enables flexible configuration and credential management, facilitating quick access to different protocols and third-party platforms.
+- 📊 Real-time data synchronization and device status monitoring.
+- 🔧 Modular design, easy to extend to support new protocols and third-party platforms.
 
-### 交互结构图 
+### Interaction Structure Diagram
 
 ![](./images/image1.png)
 
-### 架构图
+### Architecture Diagram
 
 ```mermaid
 graph TB
-    subgraph "设备层"
-        D1[直连设备]
-        D2[网关设备]
-        D3[子设备]
-        TP[第三方平台]
+    subgraph "Device Layer"
+        D1[Direct Device]
+        D2[Gateway Device]
+        D3[Sub-device]
+        TP[Third-party Platform]
     end
     
-    subgraph "服务层"
-        CP[设备接入服务]
-        SP[三方设备接入服务]
+    subgraph "Service Layer"
+        CP[Device Connectivity Service]
+        SP[Third-party Connectivity Service]
     end
     
-    subgraph "平台层"
+    subgraph "Platform Layer"
         MQTT[MQTT Broker]
-        API[平台API]
-        TP_CORE[ThingsPanel核心]
+        API[Platform API]
+        TP_CORE[ThingsPanel Core]
     end
     
     D1 --> CP
@@ -71,208 +71,193 @@ graph TB
     SP <--> API
 ```
 
-## 设备接入服务交互流程
+## Device Connectivity Service Interaction Flow
 
 ```mermaid
 sequenceDiagram
-    participant 用户
-    participant OurPlatform as 物联网平台
-    participant Plugin as 三方设备接入服务
-    participant ThirdParty as 第三方平台
+    participant User
+    participant OurPlatform as IoT Platform
+    participant Plugin as Connectivity Service
+    participant ThirdParty as Third-party Platform
 
-    Plugin->>OurPlatform: 注册服务（或管理员注册）
-    用户->>OurPlatform: 创建该服务的设备模板
-    用户->>OurPlatform: 点击页面选择服务
-    用户->>OurPlatform: 输入服务的凭证(认证信息)
-    OurPlatform->>Plugin: 根据凭证获取设备列表
-    Plugin->>ThirdParty: 获取设备列表
-    ThirdParty->>Plugin: 返回设备列表
-    Plugin->>OurPlatform: 显示设备列表
-    用户->>OurPlatform: 选择需要的设备、绑定模板
-    OurPlatform->>OurPlatform: 存储凭证、创建设备
-    OurPlatform->>Plugin: 通知新增了服务接入（带凭证）
-    Plugin->>ThirdParty: 根据凭证与三方平台建立连接
+    Plugin->>OurPlatform: Register Service (or Admin register)
+    User->>OurPlatform: Create device template for this service
+    User->>OurPlatform: Click page to select service
+    User->>OurPlatform: Input service credentials (auth info)
+    OurPlatform->>Plugin: Get device list based on credentials
+    Plugin->>ThirdParty: Get device list
+    ThirdParty->>Plugin: Return device list
+    Plugin->>OurPlatform: Show device list
+    User->>OurPlatform: Select devices, bind template
+    OurPlatform->>OurPlatform: Store credentials, create devices
+    OurPlatform->>Plugin: Notify new service access (with credentials)
+    Plugin->>ThirdParty: Establish connection with 3rd-party platform
     
-    loop 设备数据交互
-        ThirdParty->>Plugin: 三方平台设备数据
-        Plugin->>OurPlatform: 上报设备数据（MQTT）
-        OurPlatform->>Plugin: 下发控制（MQTT）
-        Plugin->>ThirdParty: 转发到三方
+    loop Device Data Interaction
+        ThirdParty->>Plugin: 3rd-party device data
+        Plugin->>OurPlatform: Report device data (MQTT)
+        OurPlatform->>Plugin: Issue control (MQTT)
+        Plugin->>ThirdParty: Forward to 3rd-party
     end
 ```
 
-## 开发指南
+## Development Guide
 
-### 准备工作
+### Preparation
 
 ```mermaid
 mindmap
-  root((设备接入服务开发))
-    1、准备工作
-      开发环境搭建
-      获取测试账号
-      下载模板代码
-    2、协议理解
-      数据格式
-      通信流程
-      命令结构
-    3、代码实现
-      认证逻辑
-      数据解析
-      数据转发
-      命令处理
-    4、表单开发
-      设备凭证表单
-      服务凭证表单
-      配置表单
-    5、测试与部署
-      本地调试
-      环境部署
-      功能测试
+  root((Device Connectivity Service Dev))
+    1. Preparation
+      Dev Environment Setup
+      Get Test Account
+      Download Template Code
+    2. Protocol Understanding
+      Data Format
+      Communication Flow
+      Command Structure
+    3. Code Implementation
+      Auth Logic
+      Data Parsing
+      Data Forwarding
+      Command Processing
+    4. Form Development
+      Device Credential Form
+      Service Credential Form
+      Configuration Form
+    5. Test & Deploy
+      Local Debugging
+      Env Deployment
+      Functional Testing
 ```
 
-### 开发步骤
+### Development Steps
 
-#### 1. 下载设备接入服务模板
+#### 1. Download Service Template
 
 ```bash
 git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git
 ```
 
-#### 2. 理解核心概念
+#### 2. Understand Core Concepts
 
-:::info 四大核心数据类型
-理解ThingsPanel的四种数据模型对于设备接入服务开发至关重要：
+:::info Four Core Data Types
+Understanding ThingsPanel's four data models is crucial for plugin development:
 
-- **🔄 遥测（Telemetry）** - 设备实时上报的数据，通常是随时间变化的测量值
-- **📋 属性（Attributes）** - 设备的静态或较少变化的特征信息
-- **🎯 事件（Events）** - 设备中发生的特定事件或状态变化
-- **⚡ 命令（Commands）** - 平台发送到设备的控制指令
+- **🔄 Telemetry** - Real-time data reported by devices, usually measurements changing over time.
+- **📋 Attributes** - Static or less frequently changing characteristics of devices.
+- **🎯 Events** - Specific events or state changes occurring in devices.
+- **⚡ Commands** - Control instructions sent from the platform to devices.
 :::
 
-#### 3. 修改模板代码
+#### 3. Modify Template Code
 
-- 阅读模板源码的README-DEV.md
-- 更新SDK到最新版本：
+- Read `README-DEV.md` in the template source.
+- Update SDK to latest version:
   ```bash
   go get -u github.com/ThingsPanel/tp-protocol-sdk-go@latest
   ```
-- 根据协议文档修改凭证表单 `from_voucher.json`
-- 判断是否需要配置表单
-- 修改 `http_service/service.go` 中的接口实现
+- Modify credential form `from_voucher.json` based on protocol docs.
+- Determine if configuration form is needed.
+- Modify interface implementation in `http_service/service.go`.
 
-#### 4. 注册设备接入服务
+#### 4. Register Device Connectivity Service
 
-使用超管账户在平台注册设备接入服务：
-- **应用管理** → **设备接入服务管理** → **添加新服务**
+Register the service on the platform using a Super Admin account:
+- **App Management** → **Connectivity Service Management** → **Add New Service**
 
-#### 5. 编写核心流程
+#### 5. Write Core Logic
 
-- 处理设备消息的上下行报文
-- 使用AI工具辅助生成协议解析代码
-- 通过MQTT客户端与平台交互数据
+- Handle upstream/downstream device messages.
+- Use AI tools to assist in generating protocol parsing code.
+- Interact with the platform via MQTT client.
 
-#### 6. 集成测试
+#### 6. Integration Testing
 
-- 创建设备模板并选择协议
-- 创建设备并绑定模板
-- 填写设备凭证信息
-- 连接设备到设备接入服务进行测试
+- Create device template and select protocol.
+- Create device and bind template.
+- Fill in device credential info.
+- Connect device to the service and test.
 
-## 技术规范
+## Technical Specifications
 
-参考接口文档：[ThingsPanel API文档](https://docs.thingspanel.io/zh/developer-guide/api-reference/index.html)
+Reference API Docs: [ThingsPanel API Docs](https://docs.thingspanel.io/en/developer-guide/api-reference/index.html)
 
-目录：
-- ✨设备接入服务-平台提供
-- ✨设备接入服务-服务提供
+Table of Contents:
+- ✨ Device Connectivity Service - Platform Provided
+- ✨ Device Connectivity Service - Service Provided
 
-## 数据交互规范
+## Data Interaction Specifications
 
-### 设备接入服务推送数据到平台
+### Service Pushes Data to Platform
 
-#### 直连设备/子设备消息/网关设备消息
+#### Direct Device / Sub-device / Gateway Device Messages
 
-- **MQTT用户**：plugin
-- **发布主题**：`device/telemetry`
-- **报文格式**：
+- **MQTT User**: plugin
+- **Publish Topic**: `device/telemetry`
+- **MESSAGE Format**:
   ```json
   {"device_id":"device_id","values":{"key":"value"}}
   ```
 
+#### Online/Offline Notification
 
-#### 在线离线通知
+- **Publish Topic**: `devices/status/{device_id}`
+- **Payload**:
+  0 - Device Offline
+  1 - Device Online
 
-- **发布主题**：`devices/status/{device_id}`
-- **消息载荷**：
-0 - 设备离线
-1 - 设备上线
+### Platform Pushes Data to Service
 
+#### Subscribe Topic Spec
 
-### 平台推送数据给设备接入服务
+The service needs to subscribe to topics with a prefix:
 
-#### 订阅主题规范
+- **Subscribe Topic**: `plugin/{service_identifier}/#`
+- **Explanation**: `plugin/{service_identifier}/` is the prefix filled in during registration. The `#` part follows the [MQTT Device Onboarding Rules](../../device-connect/mqtt-device-rule.md).
 
-设备接入服务需要订阅带有前缀的主题：
-
-- **订阅主题**：`plugin/{service_identifier}/#`
-- **主题说明**：`plugin/{service_identifier}/` 为注册设备接入服务时填写的订阅主题前缀，`#`部分遵循[MQTT设备接入规范](../../device-connect/mqtt-device-rule.md)
-
-:::note 主题映射
-设备接入服务的订阅主题比平台下行规范多了主题前缀，其中`device_number`需要改为`device_id`
+:::note Topic Mapping
+The service's subscription topic adds a prefix compared to the platform downstream spec. Also `device_number` should be changed to `device_id`.
 :::
 
-## 设备接入服务注册
+## Service Registration
 
-### 注册参数
+### Registration Parameters
 
-| 参数 | 说明 |
+| Parameter | Description |
 |------|------|
-| 服务名称 | 创建设备模板时，会显示在选择协议下拉框中 |
-| 服务标识符 | 系统中唯一标识这个设备接入服务，由字母和数字组成 |
-| 类别 | 选择接入协议 |
-| HTTP服务地址 | 填写平台后端能够直接访问设备接入服务API的地址，格式如127.0.0.1:8151 |
-| 服务订阅主题前缀 | 格式如`service/{name}/` |
-| 设备接入地址 | 显示在设备凭证管理的下发，提示用户设备连接地址 |
+| Service Name | Displayed in protocol dropdown when creating device template |
+| Service Identifier | Unique ID in the system, alphanumeric |
+| Category | Select access protocol |
+| HTTP Service Address | Address for platform backend to access service API, e.g., 127.0.0.1:8151 |
+| Service Sub Prefix | Format like `service/{name}/` |
+| Device Onboarding Address | Displayed under device credential management, prompt for user device connection address |
 
-### 注册方式
+### Registration Method
 
-#### 平台注册
+#### Platform Registration
 
-1. 使用超管账号登录
-2. 进入 **应用管理** → **设备接入服务管理**
-3. 点击 **添加新服务** 按钮
-4. 填写相关配置信息
+1. Login as Super Admin.
+2. Go to **Integration Management** → **Connectivity Service Management**.
+3. Click **Add New Service**.
+4. Fill in configuration info.
 
-## 参考资源
+## Resources
 
-:::tip 开发资源
-- [MQTT网关设备接入规范](../../device-connect/mqtt-gateway-rule.md)
-- [MQTT直连设备接入规范](../../device-connect/mqtt-device-rule.md)
-- [Modbus设备接入服务示例](https://github.com/ThingsPanel/modbus-protocol-plugin)
-- [GB26875.3-2011设备接入服务示例](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
+:::tip Dev Resources
+- [MQTT Gateway Access Rules](../../device-connect/mqtt-gateway-rule.md)
+- [MQTT Direct Device Onboarding Rules](../../device-connect/mqtt-device-rule.md)
+- [Modbus Service Example](https://github.com/ThingsPanel/modbus-protocol-plugin)
+- [GB26875.3-2011 Service Example](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
 :::
 
-## 最佳实践
+## Best Practices
 
-:::warning 开发注意事项
-1. **消息ID管理**：建议使用时间戳后7位，确保短期内不重复
-2. **设备唯一性**：确保设备编号在系统中全局唯一
-3. **错误处理**：实现完整的错误响应机制，便于问题诊断
-4. **性能优化**：推荐在设备接入服务内解析数据，避免使用脚本转换
-5. **表单验证**：上报前验证JSON格式的正确性
-6. **设备状态管理**：实现设备状态管理，包括在线、离线。
+:::warning Dev Notes
+1. **Message ID Management**: Recommend using last 7 digits of timestamp to ensure uniqueness in short term.
+2. **Device Uniqueness**: Ensure device ID is globally unique in the system.
+3. **Error Handling**: Implement complete error response mechanism for diagnosis.
+4. **Performance**: Recommend parsing data within the service to avoid script conversion.
+5. **Form Validation**: Validate JSON format before reporting.
+6. **Device State Management**: Implement state management including online/offline.
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-

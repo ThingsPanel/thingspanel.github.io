@@ -2,21 +2,21 @@
 sidebar_position: 9
 ---
 
-# 萤石云视频接入
+# Ezviz Cloud Video Access
 
-## 1、创建标准设备
+## 1. Create Standard Device
 ![](image/ezviz_00.png)
-## 2、绑定插件
-创建设备后，绑定萤石云视频地址插件  
+## 2. Bind Plugin
+After creating the device, bind the Ezviz Cloud Video Address plugin.
 ![](image/ezviz_01.png)
 
-## 3、配置参数
-配置播放地址、appKey、secret  
+## 3. Configure Parameters
+Configure playback address, appKey, and secret.
 ![](image/ezviz_02.png)
 
-参数里的appKey和secret需要从萤石开放平台的应用信息获取
+The appKey and secret in the parameters need to be obtained from the application information on the Ezviz Open Platform.
 ![](image/ezviz_03.png)
 
-## 4、查看效果
-在设备监控查看效果  
-![](image/ezviz_04.png) 
+## 4. View Effect
+View the effect in Device Monitoring.
+![](image/ezviz_04.png)

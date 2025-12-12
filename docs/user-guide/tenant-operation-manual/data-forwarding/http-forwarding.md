@@ -2,35 +2,35 @@
 sidebar_position: 2
 ---
 
-# HTTP数据转发
+# HTTP Data Forwarding
 
-HTTP数据转发功能允许您将设备数据实时转发到指定的HTTP服务器，适用于与第三方系统集成、数据备份等场景。
+HTTP Data Forwarding allows you to forward device data to a specified HTTP server in real-time, suitable for integration with third-party systems, data backup, etc.
 
-## 功能特点
+## Features
 
-- 支持按照设备、分组、产品多种类型
-- 支持脚本
-- 支持多个转发目标
-- 实时数据转发
-- 支持加密传输
+- Support forwarding by Device, Group, or Product.
+- Support scripts.
+- Support multiple forwarding targets.
+- Real-time data forwarding.
+- Support encrypted transmission.
 
-## 配置步骤
+## Configuration Steps
 
-### 1. 添加转发地址
+### 1. Add Forwarding Address
 
-在ThingsPanel平台中添加HTTP转发配置：
+Add HTTP forwarding configuration in ThingsPanel:
 
-1. 进入"系统管理 > 数据转发 > HTTP转发"
-2. 点击"添加转发"按钮
-3. 填写转发配置信息：
-   - 名称：为该转发配置指定一个识别名称
-   - URL：目标服务器地址
+1. Go to "System Management > Data Forwarding > HTTP Forwarding".
+2. Click "Add Forwarding".
+3. Fill in configuration info:
+   - Name: Identifier name for this configuration.
+   - URL: Target server address.
 
-![添加HTTP转发配置](./images/add-http-forwarding.png)
+![Add HTTP Forwarding](./images/add-http-forwarding.png)
 
-### 2. 数据格式说明
+### 2. Data Format
 
-ThingsPanel转发的数据格式示例：
+Example of data forwarded by ThingsPanel:
 
 ```json
 {
@@ -47,6 +47,6 @@ ThingsPanel转发的数据格式示例：
 }
 ```
 
-## 查看收到的数据结果
+## View Received Data Results
 
-![alt text](./images/http-forwarding-result.png)
+![Result](./images/http-forwarding-result.png)

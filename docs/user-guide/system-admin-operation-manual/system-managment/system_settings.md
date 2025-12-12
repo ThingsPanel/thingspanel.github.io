@@ -2,27 +2,23 @@
 sidebar_position: 2
 ---
 
-# 系统设置
+# System Settings
 
-## 1、说明
-系统配置包包含了主题设置，清理数据设置和功能设置三部分。
+## 1. Description
+System configuration includes three parts: Theme Settings, Data Cleanup Settings, and Feature Settings.
 
+## 2. Operations
+### 2.1 Theme Settings
+You can set the system title, logos for home and backend, loading page logo, and background image. Click to apply changes immediately.
 
-## 2、操作
-### 2.1、主题设置
-可以设置系统标题，首页和后台log，加载页面log和背景图片，点击后即可生效。
+![Theme Settings](./images/image33.png)
 
-![descript](./images/image33.png)
+### 2.2 Data Cleanup Settings
+Mainly for setting whether to save operation logs and device data, and the retention period. Default is enabled with 15 days retention.
 
-### 2.2、清理数据设置
+![Data Cleanup](./images/image34.png)
 
-主要是操作日志和设备数据是否保存，以及保留时间的设置，默认启用并保留15天。
+### 2.3 Feature Settings
+Set whether to enable Captcha Login and System Registration functions. Default is disabled.
 
-![descript](./images/image34.png)
-
-### 2.3、功能设置
-
-设置是否开启验证码登陆和系统注册功能，默认不开启。
-
-![descript](./images/image35.png)
-
+![Feature Settings](./images/image35.png)

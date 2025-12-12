@@ -2,11 +2,11 @@
 sidebar_position: 3
 ---
 
-# 应用场景
-- 可支持各类数据采集与设备控制的应用场景，包括能源、电力、交通、矿山、社区、楼宇、园区、农业、气象、应急救灾等。
-- 可用于设备研发商做设备研发调试，作为设备管理后台。
-- 可用于软件外包公司用于物联网软件项目交付。
-- 作为物联网中台给数据中台提供设备数据。
-- 可用于集成公司物联网项目交付。
-- 可私有化部署。
-- 可云端部署，支持阿里云、华为云、常见云平台。
+# Use Cases
+- Supports diverse data acquisition and device control scenarios, including Energy, Power, Transportation, Mining, Smart Communities, Buildings, Industrial Parks, Agriculture, Meteorology, and Emergency Disaster Relief.
+- Serves as a **Device Management Backend** for hardware manufacturers during R&D and debugging.
+- Enables **IoT Software Delivery** for software outsourcing companies.
+- Functions as an **IoT Middleware**, providing device data to data middle platforms.
+- Supporting **IoT Project Delivery** for system integrators.
+- Supports **Private Deployment** (On-Premises).
+- Supports **Cloud Deployment**, compatible with Alibaba Cloud, Huawei Cloud, AWS, and other common cloud platforms.

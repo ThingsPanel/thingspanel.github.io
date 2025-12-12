@@ -2,25 +2,24 @@
 sidebar_position: 14
 ---
 
-# 开发移动应用
+# Mobile App Development
 
-ThingsPanel提供了开源的App，使用Uniapp开发，可以直接导出成各种小程序以及iOS、Android。
-# 移动端当前的功能包括
+ThingsPanel provides an open-source App developed using **Uniapp**, which can be directly exported to various Mini Programs, iOS, and Android apps.
 
-- 设置登录的IP地址或者服务器。
-- 项目和分组筛选设备列表
-- 显示设备列表以及在线信息。
-- 设备详情，查看当前值与曲线。
-- 扫码添加设备到分组。
-- 自动化控制。
-- 个人账户信息。
+# Current Mobile Features
+
+- Set login IP address or server.
+- Filter device lists by project and group.
+- Display device lists and online status.
+- Device details, view current values and curves.
+- Scan QR code to add devices to groups.
+- Automation control.
+- Personal account information.
   
-如果需要更多的功能，需要自行增加。
-## 代码库位置
+If more features are needed, you can add them yourself.
+
+## Repository Location
 
 https://github.com/ThingsPanel/app
 
-## 物模型接口
-
-
-
+## Thing Model Interface

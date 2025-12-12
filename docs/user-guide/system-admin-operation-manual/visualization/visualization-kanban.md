@@ -2,37 +2,37 @@
 sidebar_position: 1
 ---
 
-# 看板
+# Dashboard
 
-## 1. 说明
-- 点击可视化-看板进入看板管理页面。看板管理主要是配置展现的看板，具有新建看板、编辑看板、删除看板，并可选择是否该看板展示在首页等功能。
+## 1. Description
+- Click Visualization - Dashboard to enter the Dashboard Management page. Dashboard management is mainly for configuring the dashboards to be displayed, with functions to create, edit, delete dashboards, and select whether to display the dashboard on the home page.
 
-## 2. 操作
+## 2. Operations
 
-### 2.1、新建看板
+### 2.1 Create Dashboard
 
-- 点击"新建看板"打开新建看板弹出框，输入看板名称，是否展示在首页，描述等信息可以建立一个看板，目前只有一个看板可以展示在首页。
+- Click "New Dashboard" to open the popup. Enter dashboard name, whether to display on home page, description, etc. Currently, only one dashboard can be displayed on the home page.
 
-![descript](./images/image27.png)
+![New Dashboard](./images/image27.png)
 
-- 设置看板展示在首页后，在看板上面带"首"字标识，如下图所示。
+- After setting to display on home page, the dashboard will have a "Home" tag, as shown below.
 
-![descript](./images/image28.png)
+![Home Tag](./images/image28.png)
 
-### 2.2、编辑看板名称
+### 2.2 Edit Dashboard Name
 
-- 选择要编辑的看板，点击编辑按钮，弹出编辑看板弹出框。
+- Select the dashboard to edit, click the Edit button to open the edit popup.
 
-![descript](./images/image29.png)
+![Edit Dashboard](./images/image29.png)
 
-### 2.3、删除看板
+### 2.3 Delete Dashboard
 
-- 选择要删除的看板，点击删除即可。
+- Select the dashboard to delete, click Delete.
 
-![descript](./images/image30.png)
+![Delete Dashboard](./images/image30.png)
 
-### 2.4、编辑看板图
+### 2.4 Edit Dashboard Chart
 
-- 点击要编辑展示图的站看，进入后，点击编辑，即可编辑需要的展示图组件。
+- Click the dashboard to edit the display chart. After entering, click Edit to edit the required chart components.
 
-![descript](./images/image31.jpg)
+![Edit Chart](./images/image31.jpg)

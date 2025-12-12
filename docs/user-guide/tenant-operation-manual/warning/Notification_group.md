@@ -2,24 +2,24 @@
 sidebar_position: 2
 ---
 
-# 通知组
+# Notification Group
 
-## 1、说明
-- 可配置不同的通知组，目前支持成员通知、邮箱通知、短信通知、语音通知和webhook通知。
-- 新建立的通知组时时效状态，点击状态启用后才能使用。
+## 1. Description
+- Configure different notification groups. Currently supports member notification, email notification, SMS notification, voice notification, and webhook notification.
+- Newly created notification groups are in inactive status by default and need to be enabled before use.
 
-## 2、操作
+## 2. Operations
 
-### 2.1、创建通知组
-- 点击新增按钮，可以创建一个通知组。
-![descript](./images/image84.png)
+### 2.1 Create Notification Group
+- Click Add button to create a notification group.
+![Create Group](./images/image84.png)
 
-### 2.2、编辑通知组
-- 选择一个通知组，点击编辑可以编辑通知组的内容
-![descript](./images/image85.png)
+### 2.2 Edit Notification Group
+- Select a notification group and click Edit to modify its content.
+![Edit Group](./images/image85.png)
 
-### 2.3、启用/暂停通知组
-- 点击状态可以启用/暂停通知组
+### 2.3 Enable/Disable Notification Group
+- Click Status to enable/disable the notification group.
 
-### 2.4、删除通知组
-- 点击删除可以删除通知组。
+### 2.4 Delete Notification Group
+- Click Delete to remove the notification group.

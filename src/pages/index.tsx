@@ -6,39 +6,39 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import HomepageContent from '@site/src/components/HomepageContent';
 import styles from './index.module.css';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle"><Translate
-                  id="home.visitMyBlog"
-                  description="dicte">
-                  ThingsPanel是一款轻量级、组件化的开源物联网应用支撑平台
-                </Translate></p>
+          id="home.visitMyBlog"
+          description="dicte">
+          ThingsPanel is a lightweight, component-based open source IoT application platform
+        </Translate></p>
         <div className={styles.buttons}>
           <span>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/overview">
-            {/* Docusaurus Tutorial - 5min ⏱️ */}
-            <Translate id="home.viewDoc">
-                  查看文档
-                </Translate>
-          </Link>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/overview">
+              {/* Docusaurus Tutorial - 5min ⏱️ */}
+              <Translate id="home.viewDoc">
+                Documentation
+              </Translate>
+            </Link>
           </span>
           <span className={styles.mybuttonstyle}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/introduction/demo">
-            <Translate id="home.viewDemo">
-                  查看演示
-                </Translate>
-          </Link>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/introduction/demo">
+              <Translate id="home.viewDemo">
+                Demo
+              </Translate>
+            </Link>
           </span>
         </div>
       </div>
@@ -47,24 +47,24 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description={translate({message: '物联网应用支撑平台'})}>
+      description={translate({ message: 'IoT Application Platform' })}>
 
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          <h3 className={styles.function_Introduction}>
-            <Translate
-                  id="Function.Introduced"
-                  description="serf">
-                  功能介绍
-              </Translate></h3>
-          <HomepageContent />
-        
-{/* footer */}
+        <h3 className={styles.function_Introduction}>
+          <Translate
+            id="Function.Introduced"
+            description="serf">
+            Features
+          </Translate></h3>
+        <HomepageContent />
+
+        {/* footer */}
         <footer className="footer footer--dark">
           <div className="container container--fluid">
             <div className="footer__links">
@@ -79,14 +79,14 @@ export default function Home(): JSX.Element {
               <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
             <div>
-              <Translate id="bottom.ofTheInformation">Copyright © 2022 北京极益科技有限公司 版权所有.</Translate>
+              <Translate id="bottom.ofTheInformation">Copyright © 2022 Beijing Jiyi Technology Co., Ltd. All Rights Reserved.</Translate>
             </div>
-                {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
-                {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
+            {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
+            {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
 
           </div>
         </footer>
-{/* footer */}
+        {/* footer */}
       </main>
     </Layout>
   );

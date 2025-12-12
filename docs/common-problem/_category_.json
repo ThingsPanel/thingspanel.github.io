@@ -1,9 +1,8 @@
 {
-    "label": "常见问题",
-    "position": 26,
-    "link": {
-      "type": "generated-index",
-      "description": "常见问题"
-    }
+  "label": "FAQ",
+  "position": 26,
+  "link": {
+    "type": "generated-index",
+    "description": "FAQs"
   }
-  
+}
