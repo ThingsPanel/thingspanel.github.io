@@ -4,6 +4,73 @@ sidebar_position: 9
 
 # Release Notes
 
+
+## ThingsPanel-Ver1.1.11 Release Notes
+Release Date: 2025-11-24
+
+We officially released ThingsPanel v1.1.11! This update focuses on **Device Diagnostics**, **Topic Mapping**, **Modbus Gateway Capabilities**, and **GMQTT Performance**, bringing significant improvements to multi-protocol device access, troubleshooting, and system stability.
+
+### New Features
+
+- **Modbus Gateway Access Service**: Added support for BADC and CDAB byte order formats.
+- **GMQTT Web Management**: Added GMQTT management Web interface, supporting login auth, client/subscription management, and dashboard metrics.
+- **Topic Mapping**: Added Topic Mapping configuration page (Frontend) and API (Backend) to centrally maintain upstream/downstream Topic relationships.
+- **Device Diagnosis**: Added "Device Diagnosis" service and "Diagnosis" page to view upstream/downstream failure records and error tracking.
+- **Device Activity Record**: Added "Status History Tracking" and frontend display for device online/offline history.
+- **Frontend Tools**: Added text copy tool for one-click copying of key info like Device ID.
+- **Attribute Downlink**: Supported both "Select Defined Attribute" and "Custom Attribute" modes.
+- **Extended Info**: Refactored extended info cards to Key-Value style lightweight JSON editing and saving.
+
+### Optimizations and Fixes
+
+**Optimizations**
+- **Modbus**: Optimized Modbus exception response flow (support draining and retrying) and byte/word swap logic. Added authentication failure rate limiting.
+- **GMQTT**: Fully refactored topic mapping logic; Enabled **Retained Message**; Optimized message publishing (QoS 1 and async timeout); Increased concurrency queues and Inflight message limits.
+- **System Stability**: Unified logs to structured format; Enhanced log configuration and component caching; Improved cache invalidation logic.
+- **Device Management**: Enhanced robustness of device deletion; Optimized device group retrieval and device list pagination.
+- **Frontend**: Optimized multiple language texts ("New", "Device Template", "Thing Model").
+
+**Fixes**
+- **Modbus**: Fixed data misalignment in RTU mode; Fixed loop exit logic on connection error.
+- **Data Export**: Fixed error when exporting boolean type telemetry data.
+- **Error Handling**: Optimized exception returns for startup scripts, device activation, and HTTP services.
+- **Sub-devices**: Fixed sub-device address assignment logic.
+- **UX Fixes**: Removed redundant prompts on device connection page; Optimized login error handling and loading states; Fixed Device Map height issues; Fixed button display issue when adding sub-devices.
+- **Cleanup**: Removed debug logs and invalid logic from hotfix branches; Removed outdated documentation.
+
+## ThingsPanel-Ver1.1.10 Release Notes
+Release Date: 2025-10-27
+
+### New Features
+
+- **Multi-layer Gateway Device Support**:
+  - Supports "Gateway → Sub-gateway → Terminal Device" multi-layer structure communication.
+  - Supports upstream/downstream data forwarding and command penetration.
+  - Bindings, events, attributes, and telemetry are fully transmittable.
+- **User System Enhancements**:
+  - Phone numbers support international area code format queries.
+  - Added address management (CRUD) and profile completion (avatar + address).
+
+### Optimizations and Fixes
+
+**Optimizations**
+- **MQTT Message Architecture Refactoring**:
+  - Unified telemetry, events, commands, and status updates into a single message stream.
+  - Optimized message distribution logic to reduce duplicate subscriptions and blocking.
+  - Refactored MQTT adapter for better extensibility.
+  - Auto-reconnect restores subscriptions to solve message loss issues.
+- **WebSocket Optimization**: Used Redis Pub/Sub to replace MQTT for real-time device status push, enabling "second-level" response.
+- **Alerts & Notifications**: Richer Webhook push content; Optimized message structure; Unified standard UUIDs.
+- **Architecture**: Integrated Flow and MQTT modules; Optimized storage layer buffering; Unified log formats.
+
+**Fixes**
+- Fixed error when device template is empty.
+- Fixed bug where manual reconnection was required after modifying device number.
+- Fixed automation task startup failure and lock contention.
+- Fixed inability to login after modifying phone number.
+- Fixed conflicts in batch insertion of telemetry data and dashboard type issues.
+- Optimized SSE interface to prevent premature connection closure by Nginx.
+
 ## ThingsPanel-Ver1.1.9 Release Notes
 
 ### New Features
