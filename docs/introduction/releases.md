@@ -669,7 +669,7 @@ ThingsPanel 1.0.0 is a brand new version with improved usability and major updat
 - Role/Permission Management.
 - Docker Env Var support.
 - Huawei/Alibaba Cloud adaptation.
-- Rule Engine / Data Forwarding.
+- Data Forwarding.
 - Infinite Device Grouping.
 - Operation Logs.
 

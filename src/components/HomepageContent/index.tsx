@@ -21,21 +21,19 @@ const FeatureList: FeatureItem[] = [
           Multi-project, multi-group, multi-protocol, custom scripts
         </Translate>
       </>
-      // 一个系统可整合多个业务， 可拓展更多智慧场景。 
     ),
   },
   {
-    title: translate({ message: "Plugin Generator" }),
+    title: translate({ message: "AI Algorithm Center" }),
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
         <Translate
-          id="group.one"
-          description="副标题">
-          Generate device plugins to quickly customize device features.
+          id="feature.ai.desc"
+          description="AI Algorithm Center">
+          Integrated AI agents and models for predictive maintenance and energy optimization.
         </Translate>
       </>
-      //可按照组织结构、资产机构等多种分组方式管理设备。
     ),
   },
   {
@@ -49,7 +47,6 @@ const FeatureList: FeatureItem[] = [
           Device plugins and device access services, build systems like building blocks.
         </Translate>
       </>
-      // 设备插件、大屏插件，用积木的方式搭建系统。
     ),
   },
   {
@@ -63,7 +60,6 @@ const FeatureList: FeatureItem[] = [
           IFTTT mode with time and device triggers for automated alerts and control.
         </Translate>
       </>
-      // IFTTT模式，包括时间与设备两种触发模式，自动化告警和控制。
     ),
   },
   {
@@ -81,20 +77,6 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({ message: "Rule Engine" }),
-    Svg: require('@site/static/img/chartpie.svg').default,
-    description: (
-      <>
-        <Translate
-          id="ruleEngine.one"
-          description="副标题">
-          Access various protocols, transform data, and forward to external systems.
-        </Translate>
-      </>
-      // 接入各类协议并转换数据，转发数据到外部系统。
-    ),
-  },
-  {
     title: translate({ message: "Multiple Access Protocols" }),
     Svg: require('@site/static/img/chartpie.svg').default,
     description: (
@@ -105,7 +87,19 @@ const FeatureList: FeatureItem[] = [
           Supports MQTT, TCP, Modbus, GB28181, etc., with extensibility.
         </Translate>
       </>
-      // 接入各类协议并转换数据，转发数据到外部系统。
+    ),
+  },
+  {
+    title: translate({ message: "Mobile App" }),
+    Svg: require('@site/static/img/use.svg').default,
+    description: (
+      <>
+        <Translate
+          id="feature.app.desc"
+          description="Mobile App">
+          Control devices anywhere with native iOS/Android apps and WeChat Mini Programs.
+        </Translate>
+      </>
     ),
   },
 ];

@@ -6,12 +6,8 @@ sidebar_position: 5
 
 There are two ways for TCP device connectivity:
 
-## 1. Via Rule Engine
 
-ThingsPanel connects custom TCP device [Via Rule Engine]  
-https://www.bilibili.com/video/BV1Xe411K7Lk/?spm_id_from=333.999.0.0
-
-## 2. Via TCP Device Connectivity Service
+## 1. Via TCP Device Connectivity Service
 `TCP Device Connectivity Service` runs separately. Devices interact with platform through it. It can run on the same machine or a different machine accessible via network.
 
 ### Protocol Classification

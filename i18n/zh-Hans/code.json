@@ -367,10 +367,21 @@
   "Visualization": {
     "message": "可视化"
   },
-  "Rule Engine": {
-    "message": "规则引擎"
-  },
   "Multiple Access Protocols": {
     "message": "多接入协议"
+  },
+  "AI Algorithm Center": {
+    "message": "AI算法中心"
+  },
+  "Mobile App": {
+    "message": "移动端App"
+  },
+  "feature.ai.desc": {
+    "message": "集成AI智能体和模型，实现预测性维护和能源优化。",
+    "description": "AI Algorithm Center Description"
+  },
+  "feature.app.desc": {
+    "message": "原生iOS/Android App及微信小程序，随时随地掌控设备。",
+    "description": "Mobile App Description"
   }
 }

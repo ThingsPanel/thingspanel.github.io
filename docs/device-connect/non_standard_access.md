@@ -18,16 +18,6 @@ Repository: https://github.com/ThingsPanel/mqtt-converter.git
 
 Video Tutorial: https://www.bilibili.com/video/BV1Zh4y127Za/?spm_id_from=333.337.search-card.all.click&vd_source=3205f3f58f033fa90037cb65ee98074c
 
-## Use Rule Engine to Forward Device Data
-
-Commonly used to solve the first problem.
-
-1. Create a new access rule in Rule Engine.
-2. Drag `mqtt in` node, fill in device topic (Do NOT use platform MQTT service, use a private MQTT broker for conversion. Flow: Device -> Private MQTT Broker -> Rule Engine -> ThingsPanel MQTT Broker -> ThingsPanel Platform).
-3. Drag `mqtt out` node, connect to `mqtt in`.
-4. Add new mqtt-broker node in `mqtt out` config, fill topic and auth info according to platform rules (Username for AccessToken, Username/Password for Basic).
-5. Platform to device communication follows similar steps.
-6. Use other function nodes to convert message specs and process data values.
 
 ## Use `Data Processing Script` in Edit Parameters
 

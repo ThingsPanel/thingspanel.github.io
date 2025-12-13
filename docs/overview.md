@@ -69,7 +69,6 @@ With the **reusability** of these components, development efficiency is signific
 - **Protocol Access**: Define custom protocol configuration and access parameters
 - **Third-Party Integration**: Connect devices via third-party platforms
 - **User Management**: Casbin-based RBAC, page/project permissions, multiple roles
-- **Rule Engine**: Forward data, receive and transform device data, handle protocols, real-time data computation
 - **Data Gateway**: OpenAPI, system integration, IP/data range restrictions, read authorization
 - **System Settings**: Change logo, system title, theme styles
 - **IoT App**: Built with Uniapp; scan to add devices, view metrics, switch projects/groups, manual control, control strategy, logs, account management, SMS login

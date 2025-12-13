@@ -137,7 +137,6 @@ ThingsPanel adopts a layered architecture design, divided from top to bottom int
 - **Backend API Service**
   - Device Management
   - User Permission Management
-  - Business Rule Engine
   - Alert Management
   - Data Visualization
 

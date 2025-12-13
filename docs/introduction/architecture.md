@@ -57,7 +57,7 @@ The structure consists of three layers:
 | :--- | :--- | :--- |
 | **Adapter Layer** | Adapters (MQTT / Kafka / Others) | Connects various protocols and converts them to a unified bus format. |
 | **Message Bus Layer** | Unified Message Bus, Uplink/Downlink Streams | Carries bidirectional message flow, achieving decoupling and isolation. |
-| **Processing & Automation Layer** | Uplink Consumption, Stream Processing, Forwarding, Automation, Downlink Assembly | Implements data processing, rule engines, and control logic. |
+| **Processing & Automation Layer** | Uplink Consumption, Stream Processing, Forwarding, Automation, Downlink Assembly | Implements data processing and control logic. |
 
 ---
 
