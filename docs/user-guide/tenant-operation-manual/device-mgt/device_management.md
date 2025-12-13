@@ -88,3 +88,12 @@ sidebar_position: 1
 - Set device template, group, online/offline status, etc.
 
 ![Settings](./images/image51.png)
+
+### 2.11 Diagnosis
+
+- Device Connection Diagnosis provides visualized device communication health monitoring, allowing developers to know device status in real-time.
+
+- **Statistical Indicators**: Sustained monitoring of success rates for Uplink, Downlink, and Storage.
+- **Failure Record Tracking**: Automatically saves recent failure records including Time, Direction, Stage, and Error Description.
+
+![Device Diagnosis](/img/devices/diagnosis/diagnosis_panel.png)

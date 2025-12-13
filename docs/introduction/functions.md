@@ -116,6 +116,9 @@ Includes: Dashboard Overview, Device Connectivity, Visualization, Automation, Al
    - **Settings**: Change Device Template.
      - Manually adjust online status.
      - View firmware info.
+   - **Diagnosis**: Visualized device communication health monitoring.
+     - Statistical Indicators (Uplink/Downlink/Storage success rates).
+     - Failure Record Tracking.
 
 5. **Device Groups**:
    - One device can belong to multiple groups.
