@@ -13,11 +13,12 @@ sidebar_position: 3
 5. Supports virtualization software.
 6. Mobile App support for Android and iOS; can also be published as WeChat Mini Programs.
 7. Supports Single-node and Cluster deployment (Cluster supports High Availability & High Concurrency).
-8. Compatible with open-source and domestic databases: PostgreSQL, TimescaleDB, TDengine, Tencent TDSQL, Alibaba PolarDB, KingBase, etc.
+8. Compatible with open-source and domestic databases: PostgreSQL, TimescaleDB, TDengine, Tencent TDSQL, Alibaba PolarDB, KingBase, Dameng Database, etc.
 9. High-performance Middleware: MQTT Brokers (EMQ, VerneMQ, GMQTT), Redis/NoSQL for caching.
 10. Hardware agnostic: Deploys on everything from Set-top Boxes (1 Core 1G) and Raspberry Pis to large servers.
 11. **Security**: Compliant with **MLPS Level 3**.
 12. Performance: Supports millisecond-level high-frequency and million-point high-concurrency data writes.
+13. Supports AI Algorithm Center, integrating various algorithms, large models, and Agents for predictive maintenance, equipment failure prediction, energy optimization, etc.
 
 ## II. Admin Management Functions
 

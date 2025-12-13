@@ -13,11 +13,12 @@ sidebar_position: 3
 5. 支持各类虚拟化软件
 6. 支持在Android和iOS两种移动端系统下APP安装及应用，同时可发布为微信或者其他平台小程序
 7. 支持单机部署和集群部署两种方式，集群支持高可用与高并发
-8. 兼容PostgreSQL、TimescaleDB、TDengine、腾讯TDSQL、阿里PolarDB、人大金仓KingBase等各类国产及开源数据库环境
+8. 兼容PostgreSQL、TimescaleDB、TDengine、腾讯TDSQL、阿里PolarDB、人大金仓KingBase、达梦数据库等各类国产及开源数据库环境
 9. 提供高性能消息中间件支持，包括EMQ、VerneMQ、GMQTT等MQTT Broker，Redis、NoSQL用于缓存数据库
 10. 支持从电视机顶盒1核心1G配置、树莓派、到大型服务器全系列硬件部署
 11. 安全功能支持三级等保
 12. 支持毫秒级高频和百万级数据点高并发写入
+13. 支持AI算法中心，可整合各类算法、大模型、Agents，用于设备预测性维护，预测设备故障，设备能耗优化等
 
 ## 二、总后台管理功能 
 

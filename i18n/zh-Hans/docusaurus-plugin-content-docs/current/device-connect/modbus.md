@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# ModBus接入
+# ModBus RTU接入
 
 ## 前置条件
 

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# ModbusTCP直连接入
+# Modbus TCP直连接入
 
 ## 1. 功能概述
 

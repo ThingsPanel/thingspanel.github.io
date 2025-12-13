@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Modbus
+# Modbus RTU Onboarding
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Install Modbus Device Connectivity Service and register the service as System Ad
 
 [ThingsPanel 1.0.0 Modbus Service Installation Guide](https://github.com/ThingsPanel/modbus-protocol-plugin)
 
-## Access Steps
+## Onboarding Steps
 
 ### Create Modbus Gateway Device on Platform
 
