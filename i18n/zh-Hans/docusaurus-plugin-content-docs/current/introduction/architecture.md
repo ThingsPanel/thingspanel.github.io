@@ -42,8 +42,62 @@ sidebar_position: 7
 
 
 ## ThingsPanel物联网消息总线架构图 (IoT Message Bus Architecture)
-![物联网消息总线架构图 (IoT Message Bus Architecture)](./../img/ThingsPanel-IoT-Message-Bus-Architecture.png)
 
+```mermaid
+
+flowchart BT
+    %% 全局样式
+    classDef default fill:#F5F7FA,stroke:#AAB7C4,rx:8,ry:8;
+    %% --- 统一消息总线 cluster ---
+    subgraph cluster_bus["统一消息总线"]
+        bus["消息总线"]:::bus
+        uplink_bus["Uplink总线<br/>(上行消息流)"]:::uplink
+        downlink_bus["Downlink总线<br/>(下行消息流 / 控制)"]:::downlink
+
+        bus -->|上行主题 / topic| uplink_bus
+        bus -->|下行主题 / topic| downlink_bus
+    end
+    %% --- 消息总线适配层 cluster ---
+    subgraph cluster_adapters["消息总线适配层"]
+        adapters["适配器<br/>(MQTT Adapter / Kafka Adapter / 其它)"]:::adapter
+    end
+
+    %% --- 其他模块 ---
+    upstream_consume["上行规范消费<br/>(解析 → 校验 → 转换)"]
+    upstream_processing["流处理<br/>(规则 / 窗口 / 聚合)"]
+    forwarder["转发<br/>(下游系统 / 存储 / 告警)"]
+    automation["自动化 / 规则引擎<br/>(命令触发 / 工作流)"]
+
+    downstream_consume["下行规范消费<br/>(命令组装 → 下发策略)"]
+
+    note1["备注:<br/>- 单一逻辑总线，可选多种实现<br/>- 通过适配层屏蔽上层业务"]:::note
+
+    %% --- 连接关系 ---
+    adapters -->|读 / 写| bus
+
+    uplink_bus -->|消息推送| upstream_consume
+    upstream_consume --> upstream_processing
+    upstream_consume --> forwarder
+    upstream_consume --> automation
+
+    downlink_bus -->|下行命令| downstream_consume
+
+    note1 -.-> adapters
+
+    %% --- 样式定义 ---
+    classDef bus fill:#E8F0FF,stroke:#5B8FF9;
+    classDef uplink fill:#E8FFF0,stroke:#5AD8A6;
+    classDef downlink fill:#FFF0F0,stroke:#F4664A;
+    classDef adapter fill:#FFF6E8,stroke:#FAAD14;
+    classDef note fill:#F0FFF4,stroke:#73D13D,stroke-dasharray: 5 5;
+
+    class bus bus;
+    class uplink_bus uplink;
+    class downlink_bus downlink;
+    class adapters adapter;
+    class config_control,note1 note;
+
+```
 
 ---
 

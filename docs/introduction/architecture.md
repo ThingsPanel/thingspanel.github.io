@@ -43,7 +43,61 @@ See the architecture diagram and key components below.
 ---
 
 ## ThingsPanel IoT Message Bus Architecture
-![IoT Message Bus Architecture](./../img/ThingsPanel-IoT-Message-Bus-Architecture.png)
+```mermaid
+
+flowchart BT
+    %% Global Styles
+    classDef default fill:#F5F7FA,stroke:#AAB7C4,rx:8,ry:8;
+    %% --- Unified Message Bus Cluster ---
+    subgraph cluster_bus["Unified Message Bus"]
+        bus["Message Bus"]:::bus
+        uplink_bus["Uplink Bus<br/>(Uplink Msg Flow)"]:::uplink
+        downlink_bus["Downlink Bus<br/>(Downlink Msg Flow / Control)"]:::downlink
+
+        bus -->|Uplink Topic| uplink_bus
+        bus -->|Downlink Topic| downlink_bus
+    end
+    %% --- Message Bus Adapter Layer Cluster ---
+    subgraph cluster_adapters["Message Bus Adapter Layer"]
+        adapters["Adapters<br/>(MQTT Adapter / Kafka Adapter / Others)"]:::adapter
+    end
+
+    %% --- Other Modules ---
+    upstream_consume["Uplink Std Consumption<br/>(Parse → Validate → Convert)"]
+    upstream_processing["Stream Processing<br/>(Rules / Windowing / Aggregation)"]
+    forwarder["Forwarding<br/>(Downstream / Storage / Alerting)"]
+    automation["Automation / Rule Engine<br/>(Trigger / Workflow)"]
+
+    downstream_consume["Downlink Std Consumption<br/>(Cmd Assembly → Dispatch Strategy)"]
+
+    note1["Note:<br/>- Single logical bus, multiple implementations<br/>- Mask upper logic via adapter layer"]:::note
+
+    %% --- Connections ---
+    adapters -->|Read / Write| bus
+
+    uplink_bus -->|Msg Push| upstream_consume
+    upstream_consume --> upstream_processing
+    upstream_consume --> forwarder
+    upstream_consume --> automation
+
+    downlink_bus -->|Downlink Cmd| downstream_consume
+
+    note1 -.-> adapters
+
+    %% --- Style Definitions ---
+    classDef bus fill:#E8F0FF,stroke:#5B8FF9;
+    classDef uplink fill:#E8FFF0,stroke:#5AD8A6;
+    classDef downlink fill:#FFF0F0,stroke:#F4664A;
+    classDef adapter fill:#FFF6E8,stroke:#FAAD14;
+    classDef note fill:#F0FFF4,stroke:#73D13D,stroke-dasharray: 5 5;
+
+    class bus bus;
+    class uplink_bus uplink;
+    class downlink_bus downlink;
+    class adapters adapter;
+    class config_control,note1 note;
+
+```
 
 ---
 
