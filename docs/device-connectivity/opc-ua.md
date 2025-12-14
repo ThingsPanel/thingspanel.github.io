@@ -65,33 +65,33 @@ This service is an Enterprise Edition feature. Please contact us if needed.
 #### Register Service
 1. Login as super user - App Management - Connectivity Service Management - Add New Service.
 
-![](../device-connect/image/2024-11-14-16-12-04.png)
+![](image/2024-11-14-16-12-04.png)
 
 2. Configure Service.
    
-![](../device-connect/image/2024-11-14-16-12-25.png)
+![](image/2024-11-14-16-12-25.png)
 
 #### Use Service
 
 1. Select registered service.
 
-![](../device-connect/image/2024-11-14-16-13-07.png)
+![](image/2024-11-14-16-13-07.png)
 
 2. Add access point, fill in OPC-UA server address, etc.
 
-![](../device-connect/image/2024-11-14-16-13-13.png)
+![](image/2024-11-14-16-13-13.png)
 
 3. Select device to add (Pre-create a device template, select this service in protocol config).
 
-![](../device-connect/image/2024-11-14-16-13-18.png)
+![](image/2024-11-14-16-13-18.png)
 
 4. View device after adding.
 
-![](../device-connect/image/2024-11-14-16-13-22.png)
+![](image/2024-11-14-16-13-22.png)
 
 5. Data change reporting.
 
-![](../device-connect/image/2024-11-14-16-13-26.png)
+![](image/2024-11-14-16-13-26.png)
 
 ## Other Methods: Via Rule Engine
 

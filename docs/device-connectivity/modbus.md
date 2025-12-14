@@ -2,13 +2,28 @@
 sidebar_position: 4
 ---
 
-# Modbus RTU Onboarding
+# Modbus RTU
 
 ## Prerequisites
 
 Install Modbus Device Connectivity Service and register the service as System Admin.
 
 [ThingsPanel 1.0.0 Modbus Service Installation Guide](https://github.com/ThingsPanel/modbus-protocol-plugin)
+
+## Operation Flowchart
+
+```mermaid
+graph TD
+    A["Create Sub-device Model (Optional)"] --> B["Create Gateway Template"]
+    A --> C["Create Sub-device Template"]
+    B --> D["Create Gateway Device"]
+    C --> E["Create Sub-device"]
+    D --> F["Add Sub-device to Gateway & Set Slave Addr"]
+    E --> F
+    F --> G["Configure Device Side"]
+    G --> H["View Data on Platform"]
+```
+
 
 ## Onboarding Steps
 
@@ -35,22 +50,8 @@ Install Modbus Device Connectivity Service and register the service as System Ad
    2. Modify Sub-device Address (Slave Address). ![Modify Slave Address](modbus_image/image-8.png)
    3. View Sub-device details. If configured correctly, the sub-device should report data normally.
 
-## Operation Flowchart
 
-```mermaid
-
-graph TD
-    A[Create Sub-device Model (Optional)] --> B[Create Gateway Template]
-    A --> C[Create Sub-device Template]
-    B --> D[Create Gateway Device]
-    C --> E[Create Sub-device]
-    D --> F[Add Sub-device to Gateway & Set Slave Addr]
-    E --> F
-    F --> G[Configure Device Side]
-    G --> H[View Data on Platform]
-```
-
-## Access Result
+## Onboarding Result
 
 ![ThingsPanel Data](image/modbus_device-detials.png)
 

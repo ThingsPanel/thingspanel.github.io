@@ -156,6 +156,6 @@ docker logs -f containerID
 :::tip Device Connection
 
 For device connection instructions, please refer to:
-[`MQTT Connection`](../device-connect/mqtt)
+[`MQTT Connection`](../device-connectivity/mqtt)
 
 :::

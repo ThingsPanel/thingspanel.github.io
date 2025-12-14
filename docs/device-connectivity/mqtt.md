@@ -2,16 +2,16 @@
 sidebar_position: 2
 ---
 
-# MQTT Direct Device Onboarding
+# MQTT Direct Onboarding
 
-## Access Steps
+## Onboarding Steps
 1. Create Device
 2. Select Device Template (Optional)
 3. Get Device Configuration Parameters
 4. Configure Device
-5. Complete Access
+5. Complete Onboarding
 
-## Quick Access Video
+## Quick Onboarding Video
 
 <video controls src="/videos/15s_add_device.mp4" title="15s Add Device and Push Data" width="1000"></video>
 
@@ -47,7 +47,7 @@ Install Mosquitto MQTT client locally. The command is the same as the simulation
 ### Result
 ![Data Push Result](./image/mqtt_data_push_result.png)
 
-## MQTT Access Specification
+## MQTT Onboarding Specification
 [Direct Device MQTT Interaction Spec](./mqtt-device-rule.md)
 
 ## Common Issues

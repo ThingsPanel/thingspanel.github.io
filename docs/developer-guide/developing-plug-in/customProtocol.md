@@ -214,7 +214,7 @@ Table of Contents:
 The service needs to subscribe to topics with a prefix:
 
 - **Subscribe Topic**: `plugin/{service_identifier}/#`
-- **Explanation**: `plugin/{service_identifier}/` is the prefix filled in during registration. The `#` part follows the [MQTT Device Onboarding Rules](../../device-connect/mqtt-device-rule.md).
+- **Explanation**: `plugin/{service_identifier}/` is the prefix filled in during registration. The `#` part follows the [MQTT Device Onboarding Rules](../../device-connectivity/mqtt-device-rule.md).
 
 :::note Topic Mapping
 The service's subscription topic adds a prefix compared to the platform downstream spec. Also `device_number` should be changed to `device_id`.
@@ -245,8 +245,8 @@ The service's subscription topic adds a prefix compared to the platform downstre
 ## Resources
 
 :::tip Dev Resources
-- [MQTT Gateway Access Rules](../../device-connect/mqtt-gateway-rule.md)
-- [MQTT Direct Device Onboarding Rules](../../device-connect/mqtt-device-rule.md)
+- [MQTT Gateway Access Rules](../../device-connectivity/mqtt-gateway-rule.md)
+- [MQTT Direct Device Onboarding Rules](../../device-connectivity/mqtt-device-rule.md)
 - [Modbus Service Example](https://github.com/ThingsPanel/modbus-protocol-plugin)
 - [GB26875.3-2011 Service Example](https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter)
 :::
