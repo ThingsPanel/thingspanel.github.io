@@ -5,6 +5,38 @@ sidebar_position: 9
 # Release Notes
 
 
+## ThingsPanel-Ver1.1.12 Release Notes
+Release Date: 2025-12-26
+
+We officially released ThingsPanel v1.1.12! This update focuses on **Mobile Push Notifications**, **WebSocket Subscriptions**, **MQTT Upgrades**, etc., bringing significant improvements to device monitoring, user notifications, and system performance.
+
+### New Features
+
+- **Mobile Push Notification System**: Supports APP message push and member notification management.
+- **User Selector API**: Supports user list retrieval, fuzzy search, and pagination.
+- **WebSocket Subscription**: Real-time device online status subscription, supports batch subscription.
+- **Alert History Deletion**: Added API to delete alert history by ID.
+- **Notification Group APP and WeChat Options**: Frontend adds notification group configuration options.
+- **Chart Default Display Optimization**: Charts default to the first position in the device details Tab.
+- **Topic Mapping Feature Optimization**: Frontend topic mapping feature further optimized.
+
+### Optimizations and Fixes
+
+**Optimizations**
+- **Performance Optimization**: Device list query performance improved.
+- **MQTT Upgrade**: Supports shared subscriptions, switched to gmqtt server.
+- **Heartbeat Logic**: Fixed device heartbeat and online timeout judgment issues.
+- **Data Processing**: Improved upstream data non-JSON payload handling.
+- **Frontend Refactoring**: Updated notification group user retrieval interface, push service configuration interface and form fields; Updated "Alert" internationalization terms; Updated device online/offline push logic; Replaced device online/offline notification sounds.
+
+**Fixes**
+- Fixed device diagnosis negative number display issue.
+- Fixed device heartbeat timeout logic error.
+- Resolved page loading freeze preventing entry to homepage.
+- Fixed display issues with some buttons and table headers.
+
+
+
 ## ThingsPanel-Ver1.1.11 Release Notes
 Release Date: 2025-11-24
 
