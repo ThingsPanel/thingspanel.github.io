@@ -92,27 +92,7 @@ For Windows environments, please install `Docker Desktop` and `git`.
 
 ## Start Installation
 
-- **Pull Project**
-
-  ```bash
-  # Pull docker configuration
-  git clone https://github.com/ThingsPanel/thingspanel-docker.git
-  cd thingspanel-docker
-  ```
-
-- **Run Project**
-
-  > In the `thingspanel-docker` directory (Windows users need to open a `cmd` window)
-  >
-
-  ```bash
-  # Start project in foreground (default port 8080)
-  docker-compose -f docker-compose.yml up
-  # Or start in background
-  docker-compose -f docker-compose.yml up -d
-  # Stop services
-  docker-compose -f docker-compose.yml down
-  ```
+- **Install according to the Quick Start documentation[Quick Start](../quick_start/quick_start.md)**
 
 - **Login**
 
