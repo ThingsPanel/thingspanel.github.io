@@ -34,7 +34,6 @@ pnpm run dev
 在可视化编辑器的右上角点击插件市场，在弹出的登录界面填入插件市场的账号密码  
 ![](images\visual_publish_plugin_2_3_1.png)
 
-如果没有账号，在这里[注册](http://r.thingspanel.cn/login?register=true)
 
 
 ### 4、创建插件

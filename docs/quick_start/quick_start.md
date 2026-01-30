@@ -301,7 +301,7 @@ ThingsPanel provides a one-click installer for Windows users to simplify deploym
 
 ### Get Installer
 
-Please join our QQ Group 371794256 and download the latest `.exe` installer from the group files.
+Download the latest Windows installer from [GitHub Releases](https://github.com/ThingsPanel/thingspanel-backend-community/releases).
 
 ### Installation Steps
 

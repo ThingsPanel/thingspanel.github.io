@@ -301,7 +301,7 @@ ThingsPanel 为 Windows 用户提供了一键式安装包，简化了部署过�
 
 ### 获取安装包
 
-请加入 QQ 群 371794256，在群文件中下载最新的 .exe 可执行安装版本。
+请从 GitHub Releases 下载最新的 Windows 安装包： [GitHub Releases](https://github.com/ThingsPanel/thingspanel-backend-community/releases)
 
 ### 安装步骤
 

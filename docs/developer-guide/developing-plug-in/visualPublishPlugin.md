@@ -34,7 +34,7 @@ pnpm run dev
 Click "Plugin Market" in the top right corner of the visual editor. Enter your account and password.
 ![](images/visual_publish_plugin_2_3_1.png)
 
-If no account, [Register Here](http://r.thingspanel.cn/login?register=true)
+
 
 ### 4. Create Plugin
 - After login, click **Publish Plugin** -> **Create Plugin**, fill in info, get Secret.
