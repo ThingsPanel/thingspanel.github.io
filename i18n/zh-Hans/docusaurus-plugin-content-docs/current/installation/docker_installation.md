@@ -92,27 +92,7 @@ windows环境下请安装 `Docker Desktop`和 `git`。
 
 ## 开始安装
 
-- **拉取项目**
-
-  ```bash
-  # 拉取docker配置
-  git clone https://github.com/ThingsPanel/thingspanel-docker.git
-  cd thingspanel-docker
-  ```
-
-- **运行项目**
-
-  > 在 `thingspanel-docker`目录下(win需要打开 `cmd` 窗口)
-  >
-
-  ```bash
-  # 以日志显示前台方式启动项目(默认端口8080)
-  docker-compose -f docker-compose.yml up
-  # 或者以隐藏日志显示的方式启动项目
-  docker-compose -f docker-compose.yml up -d
-  # 停止服务
-  docker-compose -f docker-compose.yml down
-  ```
+- **根据快速开始文档[快速开始](../quick_start/quick_start.md)进行安装**
 
 - **登录**
 
