@@ -37,8 +37,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(49, 70, 148, 0.14), rgba(64, 91, 192, 0.08));
-  border: 1px solid rgba(49, 70, 148, 0.20);
+  background: linear-gradient(135deg, rgba(49, 70, 148, 0.18), rgba(64, 91, 192, 0.10));
+  border: 1px solid rgba(49, 70, 148, 0.24);
 }
 
 .featureSvg {

@@ -36,26 +36,32 @@
   border-color: var(--ifm-color-emphasis-300);
 }
 
+.cardHeader {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
 .iconWrap {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(49, 70, 148, 0.18), rgba(64, 91, 192, 0.10));
-  border: 1px solid rgba(49, 70, 148, 0.25);
-  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, rgba(49, 70, 148, 0.20), rgba(64, 91, 192, 0.10));
+  border: 1px solid rgba(49, 70, 148, 0.28);
 }
 
 .featureSvg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 .title {
   font-size: 1.05rem;
-  margin: 0 0 0.25rem;
+  margin: 0;
 }
 
 .desc {

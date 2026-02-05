@@ -56,13 +56,15 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={styles.card}>
-      <div className={styles.iconWrap}>
-        <Svg className={styles.featureSvg} role="img" />
+      <div className={styles.cardHeader}>
+        <span className={styles.iconWrap}>
+          <Svg className={styles.featureSvg} role="img" />
+        </span>
+        <h3 className={styles.title}>{title}</h3>
       </div>
-      <h3 className={styles.title}>{title}</h3>
       <p className={styles.desc}>{description}</p>
     </div>
   );
