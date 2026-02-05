@@ -10,36 +10,52 @@ import Translate, { translate } from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle"><Translate
-          id="home.visitMyBlog"
-          description="dicte">
-          ThingsPanel is a lightweight, component-based open source IoT application platform
-        </Translate></p>
-        <div className={styles.buttons}>
-          <span>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/overview">
-              {/* Docusaurus Tutorial - 5min ⏱️ */}
-              <Translate id="home.viewDoc">
-                Documentation
+        <div className={styles.heroInner}>
+          <div>
+            <div className={styles.badges}>
+              <span className={styles.badge}>
+                <Translate id="home.badge.oss">Apache 2.0</Translate>
+              </span>
+              <span className={styles.badge}>
+                <Translate id="home.badge.modular">Modular</Translate>
+              </span>
+              <span className={styles.badge}>
+                <Translate id="home.badge.edge">Edge-ready</Translate>
+              </span>
+            </div>
+
+            <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
+            <p className={styles.heroSubtitle}>
+              <Translate id="home.subtitle" description="Homepage subtitle">
+                Build production-grade IoT systems faster: device connectivity, data modeling, dashboards, automation, and extensibility — all in one open platform.
               </Translate>
-            </Link>
-          </span>
-          <span className={styles.mybuttonstyle}>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/introduction/demo">
-              <Translate id="home.viewDemo">
-                Demo
-              </Translate>
-            </Link>
-          </span>
+            </p>
+
+            <div className={styles.buttons}>
+              <Link className="button button--primary button--lg" to="/docs/overview">
+                <Translate id="home.cta.docs">Read the docs</Translate>
+              </Link>
+              <Link className={clsx('button button--lg', styles.secondaryBtn)} to="/docs/introduction/demo">
+                <Translate id="home.cta.demo">View demo</Translate>
+              </Link>
+              <Link className={clsx('button button--lg', styles.secondaryBtn)} to="https://github.com/ThingsPanel" target="_blank" rel="noreferrer">
+                <Translate id="home.cta.github">GitHub</Translate>
+              </Link>
+            </div>
+          </div>
+
+          <div className={styles.heroArt}>
+            <img
+              className={styles.heroImg}
+              src={require('@site/static/img/thingspanel-home.png').default}
+              alt={translate({message: 'ThingsPanel dashboard screenshot'})}
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </header>
@@ -56,37 +72,38 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <h3 className={styles.function_Introduction}>
-          <Translate
-            id="Function.Introduced"
-            description="serf">
-            Features
-          </Translate></h3>
+
+        <div className="container margin-top--lg">
+          <h2 className={styles.sectionTitle}>
+            <Translate id="home.section.features.title">Core capabilities</Translate>
+          </h2>
+          <p className={styles.sectionLead}>
+            <Translate id="home.section.features.lead">
+              Everything you need to connect devices, manage data, and ship IoT applications — with an extensible plugin architecture.
+            </Translate>
+          </p>
+        </div>
+
         <HomepageContent />
 
-        {/* footer */}
-        <footer className="footer footer--dark">
+        <footer className={clsx('footer footer--dark', styles.footer)}>
           <div className="container container--fluid">
             <div className="footer__links">
-              <a className="footer__link-item" href="https://github.com/ThingsPanel">Github</a>
+              <a className="footer__link-item" href="https://github.com/ThingsPanel">GitHub</a>
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="https://gitee.com/ThingsPanel">Gitee</a>
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="https://discord.gg/KvM77UmZ">Discord</a>
-              {/* <span className="footer__link-separator">&middot;</span>
-              <a className="footer__link-item" href="#url">Blog</a>
-              <span className="footer__link-separator">&middot;</span>
-              <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
             <div>
-              <Translate id="bottom.ofTheInformation">Copyright © 2022 Beijing Jiyi Technology Co., Ltd. All Rights Reserved.</Translate>
+              <Translate
+                id="bottom.ofTheInformation"
+                values={{year: new Date().getFullYear().toString()}}>
+                {'Copyright © {year} Beijing Jiyi Technology Co., Ltd. All Rights Reserved.'}
+              </Translate>
             </div>
-            {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
-            {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
-
           </div>
         </footer>
-        {/* footer */}
       </main>
     </Layout>
   );

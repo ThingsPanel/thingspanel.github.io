@@ -30,10 +30,7 @@
   /* --ifm-navbar-link-hover-color:#314694; */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-/* 图片自定义样式-banner下4组 */
-.col--4 {
-  --ifm-col-width: calc(4 / 16 * 100%);
-}
+/* Homepage uses custom grid cards; keep default Infima columns */
 
 /* footer底部的自定义颜色 */
 [data-theme='light'] .footer--dark {

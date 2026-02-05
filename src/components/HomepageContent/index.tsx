@@ -1,7 +1,5 @@
-//import React from 'react';
-import clsx from 'clsx';
 import styles from './styles.module.css';
-import Translate, { translate } from '@docusaurus/Translate';
+import Translate, {translate} from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
@@ -11,93 +9,67 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({ message: "Device Onboarding" }),
-    Svg: require('@site/static/img/business.svg').default,
+    title: translate({message: 'Device connectivity'}),
+    Svg: require('@site/static/img/general.svg').default,
     description: (
       <>
-        <Translate
-          id="business.one"
-          description="副标题">
-          Multi-project, multi-group, multi-protocol, custom scripts
+        <Translate id="home.cap.connectivity">
+          Connect devices and gateways with reliable identity, onboarding, and telemetry pipelines.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "AI Algorithm Center" }),
+    title: translate({message: 'Data model & digital twin'}),
     Svg: require('@site/static/img/property.svg').default,
     description: (
       <>
-        <Translate
-          id="feature.ai.desc"
-          description="AI Algorithm Center">
-          Integrated AI agents and models for predictive maintenance and energy optimization.
+        <Translate id="home.cap.model">
+          Standardize assets and signals with a scalable model that powers dashboards, rules, and APIs.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "Application Management" }),
-    Svg: require('@site/static/img/use.svg').default,
+    title: translate({message: 'Dashboards & visualization'}),
+    Svg: require('@site/static/img/chartpie.svg').default,
     description: (
       <>
-        <Translate
-          id="application.one"
-          description="副标题">
-          Device plugins and device access services, build systems like building blocks.
+        <Translate id="home.cap.dashboards">
+          Build operational dashboards quickly with reusable widgets and plugin-driven components.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "Automation" }),
+    title: translate({message: 'Rules & automation'}),
     Svg: require('@site/static/img/automation.svg').default,
     description: (
       <>
-        <Translate
-          id="automation.one"
-          description="副标题">
-          IFTTT mode with time and device triggers for automated alerts and control.
+        <Translate id="home.cap.automation">
+          Trigger alerts and control flows using time, device, and condition-based rules.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "Visualization" }),
-    Svg: require('@site/static/img/chartpie.svg').default,
+    title: translate({message: 'Protocol plugins'}),
+    Svg: require('@site/static/img/business.svg').default,
     description: (
       <>
-        <Translate
-          id="visualization.one"
-          description="副标题">
-          Quickly build visualizations based on chart units provided by plugins.
-        </Translate>
-      </>
-      // 基于插件提供的图表单元快速搭建可视化。
-    ),
-  },
-  {
-    title: translate({ message: "Multiple Access Protocols" }),
-    Svg: require('@site/static/img/chartpie.svg').default,
-    description: (
-      <>
-        <Translate
-          id="protocols.one"
-          description="副标题">
-          Supports MQTT, TCP, Modbus, GB28181, etc., with extensibility.
+        <Translate id="home.cap.plugins">
+          Extend the platform with custom protocol adapters, forms, and integrations.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "Mobile App" }),
+    title: translate({message: 'Multi-tenant & governance'}),
     Svg: require('@site/static/img/use.svg').default,
     description: (
       <>
-        <Translate
-          id="feature.app.desc"
-          description="Mobile App">
-          Control devices anywhere with native iOS/Android apps and WeChat Mini Programs.
+        <Translate id="home.cap.governance">
+          Projects, groups, and role-based access control for teams, customers, and deployments.
         </Translate>
       </>
     ),
@@ -106,14 +78,14 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+    <div className={styles.card}>
+      <div className={styles.cardHeader}>
+        <span className={styles.iconWrap}>
+          <Svg className={styles.featureSvg} role="img" />
+        </span>
+        <h3 className={styles.title}>{title}</h3>
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
+      <p className={styles.desc}>{description}</p>
     </div>
   );
 }
@@ -122,7 +94,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={styles.grid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

@@ -11,53 +11,45 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({ message: "Universal" }),
-    Svg: require('@site/static/img/general.svg').default,
-    description: (
-      <>
-        <Translate
-          id="general.one"
-          description="副标题">
-          Device Cloud Connection and Enterprise IoT+
-        </Translate>
-      </>
-    ),
-  },
-  {
-    title: translate({ message: "Open Source" }),
+    title: translate({message: 'Open source & extensible'}),
     Svg: require('@site/static/img/open_source.svg').default,
     description: (
       <>
-        <Translate
-          id="OpenSource.one"
-          description="副标题">
-          Apache 2.0 Open Source License
+        <Translate id="home.value.oss">
+          Apache 2.0 licensed. Build your own protocol plugins, dashboards, and applications.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: "Simple and Easy" }),
-    Svg: require('@site/static/img/easy_to_use.svg').default,
-    description: (
-      <>
-        <Translate
-          id="ConciseAndEasyToUse.one"
-          description="副标题">
-          Excellent design, low learning curve
-        </Translate>
-      </>
-    ),
-  },
-  {
-    title: translate({ message: "Fast" }),
+    title: translate({message: 'Production-ready architecture'}),
     Svg: require('@site/static/img/speediness.svg').default,
     description: (
       <>
-        <Translate
-          id="fast.one"
-          description="副标题">
-          Modular architecture for faster project delivery
+        <Translate id="home.value.arch">
+          Modular services, clear boundaries, and a clean integration surface to ship faster.
+        </Translate>
+      </>
+    ),
+  },
+  {
+    title: translate({message: 'Developer experience'}),
+    Svg: require('@site/static/img/easy_to_use.svg').default,
+    description: (
+      <>
+        <Translate id="home.value.dx">
+          Great defaults, consistent concepts, and docs-first onboarding for teams.
+        </Translate>
+      </>
+    ),
+  },
+  {
+    title: translate({message: 'Edge to cloud connectivity'}),
+    Svg: require('@site/static/img/general.svg').default,
+    description: (
+      <>
+        <Translate id="home.value.edgecloud">
+          Connect devices reliably and route data across gateways, networks, and environments.
         </Translate>
       </>
     ),
@@ -66,14 +58,12 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
+    <div className={styles.card}>
+      <div className={styles.iconWrap}>
         <Svg className={styles.featureSvg} role="img" />
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
+      <h3 className={styles.title}>{title}</h3>
+      <p className={styles.desc}>{description}</p>
     </div>
   );
 }
@@ -82,7 +72,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={styles.grid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
