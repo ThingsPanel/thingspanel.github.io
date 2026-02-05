@@ -337,8 +337,65 @@
     "description": "serf"
   },
   "bottom.ofTheInformation": {
-    "message": "Copyright © 2022 北京极益科技有限公司 版权所有",
+    "message": "Copyright © {year} 北京极益科技有限公司 版权所有",
     "description": "Footer copyright"
+  },
+  "home.badge.oss": {
+    "message": "Apache 2.0"
+  },
+  "home.badge.modular": {
+    "message": "模块化"
+  },
+  "home.badge.edge": {
+    "message": "边缘友好"
+  },
+  "home.subtitle": {
+    "message": "面向生产落地的开源物联网应用平台：设备接入、数据建模、可视化大屏、自动化规则与插件扩展，一体化交付。"
+  },
+  "home.cta.docs": {
+    "message": "查看文档"
+  },
+  "home.cta.demo": {
+    "message": "在线演示"
+  },
+  "home.cta.github": {
+    "message": "GitHub"
+  },
+  "home.section.features.title": {
+    "message": "核心能力"
+  },
+  "home.section.features.lead": {
+    "message": "从设备连接到应用交付，一套平台覆盖数据、可视化与自动化，并支持协议与业务插件化扩展。"
+  },
+  "home.value.oss": {
+    "message": "Apache 2.0 开源许可，可扩展协议插件、可视化组件与业务应用。"
+  },
+  "home.value.arch": {
+    "message": "模块化服务与清晰边界，稳定集成面让项目交付更快、更可维护。"
+  },
+  "home.value.dx": {
+    "message": "面向开发者的体验：一致的概念与良好默认值，文档优先，团队更易上手。"
+  },
+  "home.value.edgecloud": {
+    "message": "支持从边缘到云端的可靠连接，跨网关/网络/环境的数据路由与治理。"
+  },
+  "home.cap.connectivity": {
+    "message": "设备与网关接入：身份、批量入网、遥测上报与数据通道。"
+  },
+  "home.cap.model": {
+    "message": "数据模型与数字孪生：资产与信号标准化，驱动大屏、规则与 API。"
+  },
+  "home.cap.dashboards": {
+    "message": "可视化大屏：复用组件快速搭建运营看板，插件驱动的图表与部件。"
+  },
+  "home.cap.automation": {
+    "message": "规则与自动化：基于时间/设备/条件触发告警与控制联动。"
+  },
+  "home.cap.plugins": {
+    "message": "协议插件：自定义适配器、表单与集成能力，按需扩展。"
+  },
+  "home.cap.governance": {
+    "message": "多租户与治理：项目/分组/权限控制，适配团队与客户场景。"
   },
   "Universal": {
     "message": "通用"
