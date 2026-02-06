@@ -440,5 +440,17 @@
   "feature.app.desc": {
     "message": "原生iOS/Android App及微信小程序，随时随地掌控设备。",
     "description": "Mobile App Description"
+  },
+  "Open source & extensible": {
+    "message": "开源与可扩展"
+  },
+  "Production-ready architecture": {
+    "message": "生产级架构"
+  },
+  "Developer experience": {
+    "message": "开发者体验"
+  },
+  "Edge to cloud connectivity": {
+    "message": "边缘到云端连接"
   }
 }

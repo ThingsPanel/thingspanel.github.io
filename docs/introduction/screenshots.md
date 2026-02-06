@@ -35,7 +35,7 @@ sidebar_position: 6
 ![Electrical Wiring Diagram](../img/electric2-s.gif)
 
 ### Weather Station
-![Weather Station](../img/weatherstation-800.gif)
+![Weather Station](/img/screenshots/weatherstation-800.gif)
 
 ### Heat Exchange Station
 ![Heat Exchange Station](https://assets.thingspanel.cn/web/VBbrCOMc_V2S2Wvhm1usu_huanrezhan.gif)
