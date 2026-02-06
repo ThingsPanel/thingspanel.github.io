@@ -1,18 +1,19 @@
-//import React from 'react';
-import clsx from 'clsx';
 import styles from './styles.module.css';
 import Translate, { translate } from '@docusaurus/Translate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCodeBranch, faCubes, faCode, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: IconDefinition;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({message: 'Open source & extensible'}),
-    Svg: require('@site/static/img/open_source.svg').default,
+    title: translate({ message: 'Open source & extensible' }),
+    icon: faCodeBranch,
     description: (
       <>
         <Translate id="home.value.oss">
@@ -22,8 +23,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Production-ready architecture'}),
-    Svg: require('@site/static/img/speediness.svg').default,
+    title: translate({ message: 'Production-ready architecture' }),
+    icon: faCubes,
     description: (
       <>
         <Translate id="home.value.arch">
@@ -33,8 +34,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Developer experience'}),
-    Svg: require('@site/static/img/easy_to_use.svg').default,
+    title: translate({ message: 'Developer experience' }),
+    icon: faCode,
     description: (
       <>
         <Translate id="home.value.dx">
@@ -44,8 +45,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Edge to cloud connectivity'}),
-    Svg: require('@site/static/img/general.svg').default,
+    title: translate({ message: 'Edge to cloud connectivity' }),
+    icon: faCloud,
     description: (
       <>
         <Translate id="home.value.edgecloud">
@@ -56,12 +57,12 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, icon, description }: FeatureItem) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <span className={styles.iconWrap}>
-          <Svg className={styles.featureSvg} role="img" />
+          <FontAwesomeIcon icon={icon} className={styles.featureIcon} />
         </span>
         <h3 className={styles.title}>{title}</h3>
       </div>

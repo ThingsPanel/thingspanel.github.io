@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -9,8 +9,25 @@ import styles from './index.module.css';
 import Translate, { translate } from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
 
+const carouselImages = [
+  { src: require('@site/static/img/screenshots/kanban.png').default, alt: 'ThingsPanel Dashboard' },
+  { src: require('@site/static/img/screenshots/homepage.png').default, alt: 'ThingsPanel Home Page' },
+  { src: require('@site/static/img/screenshots/devicelist.png').default, alt: 'ThingsPanel Device List' },
+  { src: require('@site/static/img/screenshots/devicedetails.png').default, alt: 'ThingsPanel Device Details' },
+  { src: require('@site/static/img/screenshots/telemetry.png').default, alt: 'ThingsPanel Telemetry' },
+];
+
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
@@ -49,12 +66,29 @@ function HomepageHeader() {
           </div>
 
           <div className={styles.heroArt}>
-            <img
-              className={styles.heroImg}
-              src={require('@site/static/img/thingspanel-home.png').default}
-              alt={translate({message: 'ThingsPanel dashboard screenshot'})}
-              loading="eager"
-            />
+            <div className={styles.carousel}>
+              {carouselImages.map((img, index) => (
+                <img
+                  key={index}
+                  className={clsx(styles.heroImg, styles.carouselImg, {
+                    [styles.carouselActive]: index === currentIndex,
+                  })}
+                  src={img.src}
+                  alt={translate({ message: img.alt })}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              ))}
+            </div>
+            <div className={styles.carouselDots}>
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  className={clsx(styles.dot, { [styles.dotActive]: index === currentIndex })}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -98,7 +132,7 @@ export default function Home(): JSX.Element {
             <div>
               <Translate
                 id="bottom.ofTheInformation"
-                values={{year: new Date().getFullYear().toString()}}>
+                values={{ year: new Date().getFullYear().toString() }}>
                 {'Copyright © {year} Beijing Jiyi Technology Co., Ltd. All Rights Reserved.'}
               </Translate>
             </div>

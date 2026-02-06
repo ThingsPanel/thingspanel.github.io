@@ -1,16 +1,19 @@
 import styles from './styles.module.css';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlug, faCubes, faChartPie, faBolt, faPuzzlePiece, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: IconDefinition;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({message: 'Device connectivity'}),
-    Svg: require('@site/static/img/general.svg').default,
+    title: translate({ message: 'Device connectivity' }),
+    icon: faPlug,
     description: (
       <>
         <Translate id="home.cap.connectivity">
@@ -20,8 +23,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Data model & digital twin'}),
-    Svg: require('@site/static/img/property.svg').default,
+    title: translate({ message: 'Data model & digital twin' }),
+    icon: faCubes,
     description: (
       <>
         <Translate id="home.cap.model">
@@ -31,8 +34,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Dashboards & visualization'}),
-    Svg: require('@site/static/img/chartpie.svg').default,
+    title: translate({ message: 'Dashboards & visualization' }),
+    icon: faChartPie,
     description: (
       <>
         <Translate id="home.cap.dashboards">
@@ -42,8 +45,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Rules & automation'}),
-    Svg: require('@site/static/img/automation.svg').default,
+    title: translate({ message: 'Rules & automation' }),
+    icon: faBolt,
     description: (
       <>
         <Translate id="home.cap.automation">
@@ -53,8 +56,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Protocol plugins'}),
-    Svg: require('@site/static/img/business.svg').default,
+    title: translate({ message: 'Protocol plugins' }),
+    icon: faPuzzlePiece,
     description: (
       <>
         <Translate id="home.cap.plugins">
@@ -64,8 +67,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: translate({message: 'Multi-tenant & governance'}),
-    Svg: require('@site/static/img/use.svg').default,
+    title: translate({ message: 'Multi-tenant & governance' }),
+    icon: faUsers,
     description: (
       <>
         <Translate id="home.cap.governance">
@@ -76,12 +79,12 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, icon, description }: FeatureItem) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <span className={styles.iconWrap}>
-          <Svg className={styles.featureSvg} role="img" />
+          <FontAwesomeIcon icon={icon} className={styles.featureIcon} />
         </span>
         <h3 className={styles.title}>{title}</h3>
       </div>

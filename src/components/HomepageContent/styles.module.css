@@ -46,6 +46,12 @@
   height: 24px;
 }
 
+.featureIcon {
+  width: 22px;
+  height: 22px;
+  color: #405BC0;
+}
+
 .title {
   font-size: 1.05rem;
   margin: 0;
