@@ -10,11 +10,12 @@ import Translate, { translate } from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
 
 const carouselImages = [
-  { src: require('@site/static/img/screenshots/kanban.png').default, alt: 'ThingsPanel Dashboard' },
   { src: require('@site/static/img/screenshots/homepage.png').default, alt: 'ThingsPanel Home Page' },
-  { src: require('@site/static/img/screenshots/devicelist.png').default, alt: 'ThingsPanel Device List' },
   { src: require('@site/static/img/screenshots/devicedetails.png').default, alt: 'ThingsPanel Device Details' },
   { src: require('@site/static/img/screenshots/telemetry.png').default, alt: 'ThingsPanel Telemetry' },
+  { src: require('@site/docs/img/weatherstation-800.gif').default, alt: 'Weather Station' },
+  { src: 'https://assets.thingspanel.cn/web/dO_GYp9XJ-PKaWPncLluZ_electric2-s.gif', alt: 'Electrical Wiring Diagram' },
+  { src: 'https://assets.thingspanel.cn/web/26_xO8-GmQ_wLVkSUFf0h_huanrezhan.gif', alt: 'Heat Exchange Station' },
 ];
 
 function HomepageHeader() {
