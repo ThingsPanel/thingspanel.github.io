@@ -380,22 +380,22 @@
     "message": "支持从边缘到云端的可靠连接，跨网关/网络/环境的数据路由与治理。"
   },
   "home.cap.connectivity": {
-    "message": "设备与网关接入：身份、批量入网、遥测上报与数据通道。"
+    "message": "支持 MQTT、Modbus、HTTP 等主流协议，提供设备模板与批量注册，实现零代码硬件上云。"
   },
-  "home.cap.model": {
-    "message": "数据模型与数字孪生：资产与信号标准化，驱动大屏、规则与 API。"
+  "home.cap.lifecycle": {
+    "message": "监控状态与位置，支持远程控制、配置、OTA 升级与批量管理，降低运维成本。"
   },
   "home.cap.dashboards": {
-    "message": "可视化大屏：复用组件快速搭建运营看板，插件驱动的图表与部件。"
+    "message": "拖拽式看板与 3D 组态，自动绑定数据，实时展示趋势与报表，多端同步。"
   },
   "home.cap.automation": {
-    "message": "规则与自动化：基于时间/设备/条件触发告警与控制联动。"
+    "message": "基于状态与事件触发自动化场景，多渠道实时告警推送，实现无人值守闭环。"
   },
   "home.cap.plugins": {
-    "message": "协议插件：自定义适配器、表单与集成能力，按需扩展。"
+    "message": "插件化架构支持协议与功能扩展。提供完整 API，轻松对接第三方系统与 AI 能力。"
   },
   "home.cap.governance": {
-    "message": "多租户与治理：项目/分组/权限控制，适配团队与客户场景。"
+    "message": "三级租户隔离与细粒度权限控制，支持操作审计，满足 SaaS 多客户安全运营需求。"
   },
   "Universal": {
     "message": "通用"
@@ -452,5 +452,23 @@
   },
   "Edge to cloud connectivity": {
     "message": "边缘到云端连接"
+  },
+  "Multi-protocol Connectivity": {
+    "message": "多协议设备快速接入"
+  },
+  "Lifecycle Management": {
+    "message": "全生命周期设备运维"
+  },
+  "Zero-code Visualization": {
+    "message": "零代码数据可视化"
+  },
+  "Automation & Alerts": {
+    "message": "智能告警与自动化联动"
+  },
+  "Multi-tenant & Security": {
+    "message": "多租户与权限安全管控"
+  },
+  "Extensibility & Integration": {
+    "message": "开放扩展与系统集成"
   }
 }

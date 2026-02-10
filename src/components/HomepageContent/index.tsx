@@ -12,67 +12,67 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: translate({ message: 'Device connectivity' }),
+    title: translate({ message: 'Multi-protocol Connectivity' }),
     icon: faPlug,
     description: (
       <>
         <Translate id="home.cap.connectivity">
-          Connect devices and gateways with reliable identity, onboarding, and telemetry pipelines.
+          Support MQTT, Modbus, HTTP, and more. Zero-code onboarding with device templates and batch registration.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: 'Data model & digital twin' }),
+    title: translate({ message: 'Lifecycle Management' }),
     icon: faCubes,
     description: (
       <>
-        <Translate id="home.cap.model">
-          Standardize assets and signals with a scalable model that powers dashboards, rules, and APIs.
+        <Translate id="home.cap.lifecycle">
+          Monitor status and location. Support remote control, OTA updates, and batch management to reduce costs.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: 'Dashboards & visualization' }),
+    title: translate({ message: 'Zero-code Visualization' }),
     icon: faChartPie,
     description: (
       <>
         <Translate id="home.cap.dashboards">
-          Build operational dashboards quickly with reusable widgets and plugin-driven components.
+          Drag-and-drop dashboards and 3D scenes. Auto-bind data to visualize trends and reports across devices.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: 'Rules & automation' }),
+    title: translate({ message: 'Automation & Alerts' }),
     icon: faBolt,
     description: (
       <>
         <Translate id="home.cap.automation">
-          Trigger alerts and control flows using time, device, and condition-based rules.
+          Trigger actions based on state or events. Real-time alerts via SMS, Email, and Webhook for unattended operation.
         </Translate>
       </>
     ),
   },
   {
-    title: translate({ message: 'Protocol plugins' }),
-    icon: faPuzzlePiece,
-    description: (
-      <>
-        <Translate id="home.cap.plugins">
-          Extend the platform with custom protocol adapters, forms, and integrations.
-        </Translate>
-      </>
-    ),
-  },
-  {
-    title: translate({ message: 'Multi-tenant & governance' }),
+    title: translate({ message: 'Multi-tenant & Security' }),
     icon: faUsers,
     description: (
       <>
         <Translate id="home.cap.governance">
-          Projects, groups, and role-based access control for teams, customers, and deployments.
+          Three-level tenant isolation with fine-grained RBAC and audit logs for secure SaaS operations.
+        </Translate>
+      </>
+    ),
+  },
+  {
+    title: translate({ message: 'Extensibility & Integration' }),
+    icon: faPuzzlePiece,
+    description: (
+      <>
+        <Translate id="home.cap.plugins">
+          Plugin-based architecture for protocol/feature extensions. Full API support for easy 3rd-party and AI integration.
         </Translate>
       </>
     ),
