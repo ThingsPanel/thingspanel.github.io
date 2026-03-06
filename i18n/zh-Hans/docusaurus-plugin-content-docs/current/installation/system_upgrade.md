@@ -12,24 +12,38 @@ ThingsPanel 从 0.5.4 版本升级到 1.0.0 版本是不支持直接升级的，
 
 ## Docker 部署版本升级指南
 
+:::caution 重要提示
+也可选择使用云服务快照进行备份
+:::
+
 ### 升级前准备
 
 1. **数据备份**
-   - 备份数据库
-   - 备份配置文件
-   - 备份自定义插件和扩展
+
+```bash
+# 1. 创建备份目录
+BACKUP_DIR="/data/backups/thingspanel/20260305"
+mkdir -p "$BACKUP_DIR"
+
+# 2. 备份数据库（注意替换为实际容器名称）
+docker exec thingspanel-docker-postgres-1 \
+  pg_dump -U postgres -d ThingsPanel \
+  -F c -Z 6 \
+  --no-tablespaces \
+  > "$BACKUP_DIR/ThingsPanel.dump"
+
+# 验证备份结果：ls -lh "$BACKUP_DIR/ThingsPanel.dump" 确认文件大小非零即可
+
+# 3. 备份后端卷（configs 和 files）
+# 如果前端修改过配置文件，也需要一并备份
+docker cp thingspanel-docker-backend-1:/go/src/app/configs "$BACKUP_DIR/configs"
+docker cp thingspanel-docker-backend-1:/go/src/app/files   "$BACKUP_DIR/files"
+```
 
 2. **环境检查**
    - 确认系统资源充足
    - 验证存储空间
    - 检查现有服务状态
-
-### 升级方式选择
-
-您可以选择以下两种升级方式之一：
-
-- 部分容器升级（只更新特定服务）
-- 全系统升级（更新所有组件）
 
 ### 部分容器升级流程
 
@@ -43,72 +57,40 @@ MQTT服务: thingspanel-gmqtt:gmqtt
 
 #### 2. 升级步骤
 
-1. 更新源码
+由于应用使用 Docker Compose 部署，推荐直接使用 `docker-compose` 命令对特定服务进行独立升级，无需手动查找容器 ID 或镜像 ID。
+
+1. **修改docker-compose.yml文件**
+
+与 ThingsPanel 社区版最新镜像版本比对（主要参考 [ThingsPanel 快速开始文档](https://docs.thingspanel.cn/zh-Hans/docs/quick_start) 中的 `docker-compose.yml` 文件）
+
+2. **升级目标服务**（以 `backend` 后端服务为例）
 
 ```bash
-cd thingspanel-docker
-git pull
+# 1. 停止目标服务
+docker-compose stop backend
+
+# 2. 移除目标服务容器
+docker-compose rm -f backend
+
+# 3. 拉取该服务的最新镜像
+docker-compose pull backend
+
+# 4. 重新以守护态启动该服务
+docker-compose up -d backend
 ```
 
-2. 停止并清理目标容器
+3. **清理系统碎片**（可选）
 
 ```bash
-# 停止容器
-docker stop <ContainerID>
-
-# 删除容器
-docker rm <ContainerID>
-
-# 删除镜像
-docker rmi <ImageID>
-```
-
-3. 清理卷
-
-```bash
-# 清理未使用的卷
-docker volume prune
-
-# 查看现有卷
-docker volume ls
-
-# 删除特定卷（如需要）
-docker volume rm thingspanel-docker_nginx
-docker volume rm thingspanel-docker_gmqtt
-docker volume rm thingspanel-docker_go
-```
-
-4. 重新部署服务
-
-```bash
-docker-compose -f docker-compose.yml up
+# 清理未被任何容器使用的构建缓存、悬空镜像和数据卷
+docker system prune -f
+docker volume prune -f
 ```
 
 :::tip 提示
-如果新版本使用相同的镜像标签，请确保删除本地镜像并重新拉取，以获取最新版本。
+将上述命令中的 `backend` 替换为您需要单独升级的服务名称（如 `nginx`, `gmqtt`，请参考 `docker-compose.yml` 中的服务名称）。
+如果新版本使用相同的镜像标签（如 `:latest`），执行 `docker-compose pull <服务名>` 步即可拉取最新版本。
 :::
-
-### 全系统升级流程
-
-1. **准备工作**
-   - 比对新旧版本的 docker-compose.yml 文件，确认需要更新的服务
-   - 更新源码到目标版本
-
-   ```bash
-   git pull
-   ```
-
-2. **停止现有服务**
-
-   ```bash
-   docker-compose down
-   ```
-
-3. **启动新版本**
-
-   ```bash
-   docker-compose -f docker-compose.yml up -d
-   ```
 
 ### 配置更新
 
