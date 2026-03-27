@@ -56,7 +56,6 @@ docker cp thingspanel-docker-backend-1:/go/src/app/files   "$BACKUP_DIR/files"
 #### 3.1.2 Backup docker-compose.yml
 
 1. Go to the 1Panel dashboard -> **Containers** -> **Compose** -> Edit **thingspanel-docker** and copy the current configuration.
-![alt text](image.png)
 
 2. Save a backup of this file from the terminal:
    ```bash
