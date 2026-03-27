@@ -50,7 +50,7 @@ version: "3.9"
 
 services:
   frontend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.13.5
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-vue:v1.1.13.6
     ports:
       - "8080:8080"
     environment:
@@ -132,7 +132,7 @@ services:
       - thingspanel_network
 
   backend:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.13.5
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingspanel-go:v1.1.13.6
     ports:
       - "9999:9999"
     environment:
@@ -199,7 +199,7 @@ services:
       - backend
       - gmqtt
   thingsvis-server:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingsvis-server:v1.0.3.1
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingsvis-server:v1.0.4
     container_name: thingsvis-server
     restart: unless-stopped
     ports:
@@ -217,7 +217,7 @@ services:
       - thingspanel_network
 
   thingsvis-studio:
-    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingsvis-studio:v1.0.3.1
+    image: registry.cn-hangzhou.aliyuncs.com/thingspanel/thingsvis-studio:v1.0.4
     container_name: thingsvis-studio
     restart: unless-stopped
     ports:
@@ -247,6 +247,7 @@ networks:
       config:
         - subnet: 172.20.0.0/16  # Define subnet range
           gateway: 172.20.0.1    # Define gateway address
+
 
 ```
 
