@@ -57,6 +57,9 @@ function HomepageHeader() {
               <Link className="button button--primary button--lg" to="/docs/overview">
                 <Translate id="home.cta.docs">Read the docs</Translate>
               </Link>
+              <Link className={clsx('button button--lg', styles.secondaryBtn)} to="https://aichat.thingspanel.cn/" target="_blank" rel="noreferrer">
+                <Translate id="home.cta.ai">AI Chat</Translate>
+              </Link>
               <Link className={clsx('button button--lg', styles.secondaryBtn)} to="/docs/introduction/demo">
                 <Translate id="home.cta.demo">View demo</Translate>
               </Link>
@@ -143,4 +146,3 @@ export default function Home(): JSX.Element {
     </Layout>
   );
 }
-
