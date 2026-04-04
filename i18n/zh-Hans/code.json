@@ -355,6 +355,9 @@
   "home.cta.docs": {
     "message": "查看文档"
   },
+  "home.cta.ai": {
+    "message": "智能问答"
+  },
   "home.cta.demo": {
     "message": "在线演示"
   },

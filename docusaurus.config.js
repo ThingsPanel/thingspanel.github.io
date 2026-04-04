@@ -93,6 +93,11 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },  // 改为英文
           {
+            href: 'https://aichat.thingspanel.cn/',
+            label: 'AI Chat',
+            position: 'right',
+          },
+          {
             type: 'localeDropdown',
             position: 'right',
             className: 'icon-link language navbar__item',
