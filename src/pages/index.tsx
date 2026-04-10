@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import HomepageContent from '@site/src/components/HomepageContent';
+import HomepageQuickInstall from '@site/src/components/HomepageQuickInstall';
 import styles from './index.module.css';
 import Translate, { translate } from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
@@ -109,6 +110,7 @@ export default function Home(): JSX.Element {
 
       <HomepageHeader />
       <main>
+        <HomepageQuickInstall />
         <HomepageFeatures />
 
         <div className="container margin-top--lg">

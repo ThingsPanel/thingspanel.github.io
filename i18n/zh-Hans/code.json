@@ -370,6 +370,48 @@
   "home.section.features.lead": {
     "message": "从设备连接到应用交付，一套平台覆盖数据、可视化与自动化，并支持协议与业务插件化扩展。"
   },
+  "home.quick.title": {
+    "message": "快速安装"
+  },
+  "home.quick.lead": {
+    "message": "先走最快的安装路径，后续需要更细配置时，再进入完整文档继续操作。"
+  },
+  "home.quick.script.title": {
+    "message": "Linux / macOS"
+  },
+  "home.quick.script.description": {
+    "message": "适合 Linux 服务器或已准备好 Docker 的 macOS 机器，一条命令即可启动安装。"
+  },
+  "home.quick.script.detail": {
+    "message": "安装脚本会自动部署 ThingsPanel 并启动服务。完成后访问 localhost:8080。"
+  },
+  "home.quick.windows.title": {
+    "message": "Windows"
+  },
+  "home.quick.windows.description": {
+    "message": "可直接运行 PowerShell 引导安装，也可以下载打包好的安装程序，走图形界面流程。"
+  },
+  "home.quick.windows.detail": {
+    "message": "适合本地体验和桌面部署。最新 EXE 安装包会发布在 GitHub Releases。"
+  },
+  "home.quick.macos.title": {
+    "message": "macOS"
+  },
+  "home.quick.macos.description": {
+    "message": "可直接使用同一条安装命令，也可以下载打包好的安装程序，走原生 macOS 安装流程。"
+  },
+  "home.quick.macos.detail": {
+    "message": "支持 Apple Silicon 和 Intel，通过 Docker Desktop 运行。最新 PKG 安装包会发布在 GitHub Releases。"
+  },
+  "home.quick.action.installer": {
+    "message": "打开安装站"
+  },
+  "home.quick.action.guide": {
+    "message": "查看安装文档"
+  },
+  "home.quick.action.release": {
+    "message": "下载最新发布包"
+  },
   "home.value.oss": {
     "message": "Apache 2.0 开源许可，可扩展协议插件、可视化组件与业务应用。"
   },
