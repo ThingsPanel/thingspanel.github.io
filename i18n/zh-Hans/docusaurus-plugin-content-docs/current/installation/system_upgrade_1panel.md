@@ -56,7 +56,6 @@ docker cp thingspanel-docker-backend-1:/go/src/app/files   "$BACKUP_DIR/files"
 #### 3.1.2 备份 docker-compose.yml
 
 1. 进入 1Panel 面板 -> **容器** -> **编排** -> 编辑 **thingspanel-docker** 并复制当前配置。
-![alt text](image.png)
 
 2. 在终端内保存该文件备份：
    ```bash
