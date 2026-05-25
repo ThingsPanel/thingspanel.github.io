@@ -53,15 +53,15 @@ The Web chart step is configured through the embedded ThingsVis preview and edit
 
 Select a widget on the canvas, or switch to **Layers** and select the target widget by name. The selected widget's binding options are shown in the right property panel.
 
-For a trend chart, select a line chart widget, such as `chart/uplot-line`. In **Content**, configure the chart title and display options. In **Data**, set the dataset binding mode to **Field**, set **Data Range** to **Device Data**, set **Data Type** to **Historical Data**, and select a historical array field such as `temperature__history` or `humidity__history`. Configure the time range, aggregation function, aggregation window, smooth curve, and area fill as needed.
+For a trend chart, select a line chart widget, such as `chart/uplot`. In **Content**, configure the chart title and display options. In **Data**, set the dataset binding mode to **Field**, set **Data Range** to **Device Data**, set **Data Type** to **Historical Data**, and select a historical array field such as `temperature__history` or `humidity__history`. Configure the time range, aggregation function, aggregation window, smooth curve, and area fill as needed.
 
 ![Trend Chart Data Binding](./images/image70.png)
 
-For a value card, select `interaction/value-card-simple`. Set the card title, then set the value binding mode to **Field**. Use **Device Data** as the data range, **Thing Model Field** as the data type, and select a numeric field such as `humidity` or `temperature`. Configure the unit, whether to show the unit, the decimal places, and optional trend or icon display.
+For a value card, select `interaction/value-card`. Set the card title, then set the value binding mode to **Field**. Use **Device Data** as the data range, **Thing Model Field** as the data type, and select a numeric field such as `humidity` or `temperature`. Configure the unit, whether to show the unit, the decimal places, and optional trend or icon display.
 
 ![Value Card Data Binding](./images/image71.png)
 
-For a switch, select `interaction/basic-switch`. Set **Switch Status** to **Field**, use **Device Data** as the data range, select **Thing Model Field**, and bind it to a Boolean field such as `switch`. Configure the label text, label position, on/off text, size, colors, and behavior options such as disabled state or confirmation before switching.
+For a switch, select `interaction/switch`. Set **Switch Status** to **Field**, use **Device Data** as the data range, select **Thing Model Field**, and bind it to a Boolean field such as `switch`. Configure the label text, label position, on/off text, size, colors, and behavior options such as disabled state or confirmation before switching.
 
 ![Switch Data Binding](./images/image72.png)
 
