@@ -113,8 +113,8 @@ sidebar_position: 11
 
 ```json title="历史遥测数据格式示例"
 [
-  {"ts": 1609459200, "values": {"temperature": 22.5, "humidity": 60.0}},
-  {"ts": 1609462800, "values": {"temperature": 23.0, "humidity": 61.5}}
+  {"ts": 1754928146491, "values": {"temperature": 22.5, "humidity": 60.0}},
+  {"ts": 1754931746491, "values": {"temperature": 23.0, "humidity": 61.5}}
 ]
 ```
 
@@ -123,7 +123,7 @@ sidebar_position: 11
 - **历史模式**：根级别为数组，数组元素包含 `ts` 和 `values` 字段
 
 **字段说明：**
-- `ts`：Unix时间戳（秒级），数据采集时间
+- `ts`：Unix时间戳（毫秒级），数据采集时间
 - `values`：该时间点的遥测数据键值对
 :::
 

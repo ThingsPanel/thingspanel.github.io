@@ -113,8 +113,8 @@ Time-series array format. Each record contains timestamp and values.
 
 ```json title="Historical Telemetry Example"
 [
-  {"ts": 1609459200, "values": {"temperature": 22.5, "humidity": 60.0}},
-  {"ts": 1609462800, "values": {"temperature": 23.0, "humidity": 61.5}}
+  {"ts": 1754928146491, "values": {"temperature": 22.5, "humidity": 60.0}},
+  {"ts": 1754931746491, "values": {"temperature": 23.0, "humidity": 61.5}}
 ]
 ```
 
@@ -123,7 +123,7 @@ Time-series array format. Each record contains timestamp and values.
 - **Historical**: Root level is array, elements contain `ts` and `values`.
 
 **Field Description:**
-- `ts`: Unix timestamp (seconds).
+- `ts`: Unix timestamp (milliseconds).
 - `values`: Telemetry key-value pairs at that time.
 :::
 
