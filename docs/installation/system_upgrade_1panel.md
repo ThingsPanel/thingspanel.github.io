@@ -3,11 +3,11 @@ sidebar_position: 9
 ---
 
 
-## System Upgrade Guide (1Panel)
+# System Upgrade Guide (1Panel)
 
 Compare with the latest mirror version of the ThingsPanel community edition (mainly refer to the `docker-compose.yml` file in the [ThingsPanel Quick Start Guide](/docs/quick_start))
 
-### Version Compatibility Note
+## Version Compatibility Note
 **Main Reference:** [ThingsPanel System Upgrade Guide](/docs/installation/system_upgrade)
 
 :::caution IMPORTANT

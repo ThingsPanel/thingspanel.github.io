@@ -142,13 +142,13 @@ Array of time-series data.
 ```json title="Historical (Single Gateway)"
 {   
     "gateway_data": [
-        {"ts": 1609459200, "values": {"temperature": 25.0, "humidity": 60.0}},
-        {"ts": 1609462800, "values": {"temperature": 26.0, "humidity": 62.0}}
+        {"ts": 1754928146491, "values": {"temperature": 25.0, "humidity": 60.0}},
+        {"ts": 1754931746491, "values": {"temperature": 26.0, "humidity": 62.0}}
     ],
     "sub_device_data": {
         "sensor_001": [
-            {"ts": 1609459200, "values": {"temperature": 24.5, "humidity": 65.0}},
-            {"ts": 1609462800, "values": {"temperature": 25.5, "humidity": 63.0}}
+            {"ts": 1754928146491, "values": {"temperature": 24.5, "humidity": 65.0}},
+            {"ts": 1754931746491, "values": {"temperature": 25.5, "humidity": 63.0}}
         ]
     }
 }

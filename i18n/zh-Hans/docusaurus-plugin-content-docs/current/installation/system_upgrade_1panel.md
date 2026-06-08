@@ -3,11 +3,11 @@ sidebar_position: 9
 ---
 
 
-## 系统升级指南（1Panel）
+# 系统升级指南（1Panel）
 
 与 ThingsPanel 社区版最新镜像版本比对（主要参考 [ThingsPanel 快速开始文档](https://docs.thingspanel.cn/zh-Hans/docs/quick_start) 中的 `docker-compose.yml` 文件）
 
-### 版本兼容性说明
+## 版本兼容性说明
 **主要参考查阅：** [ThingsPanel 系统升级指南](https://docs.thingspanel.cn/zh-Hans/docs/installation/system_upgrade)
 
 :::caution 重要提示
