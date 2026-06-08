@@ -146,13 +146,13 @@ sequenceDiagram
 ```json title="历史遥测数据格式示例（单层网关）"
 {   
     "gateway_data": [
-        {"ts": 1609459200, "values": {"temperature": 25.0, "humidity": 60.0}},
-        {"ts": 1609462800, "values": {"temperature": 26.0, "humidity": 62.0}}
+        {"ts": 1754928146491, "values": {"temperature": 25.0, "humidity": 60.0}},
+        {"ts": 1754931746491, "values": {"temperature": 26.0, "humidity": 62.0}}
     ],
     "sub_device_data": {
         "sensor_001": [
-            {"ts": 1609459200, "values": {"temperature": 24.5, "humidity": 65.0}},
-            {"ts": 1609462800, "values": {"temperature": 25.5, "humidity": 63.0}}
+            {"ts": 1754928146491, "values": {"temperature": 24.5, "humidity": 65.0}},
+            {"ts": 1754931746491, "values": {"temperature": 25.5, "humidity": 63.0}}
         ]
     }
 }
@@ -161,22 +161,22 @@ sequenceDiagram
 ```json title="历史遥测数据格式示例（多级网关）"
 {
   "gateway_data": [
-    {"ts": 1609459200, "values": {"temperature": 26.0, "humidity": 70.0}},
-    {"ts": 1609462800, "values": {"temperature": 27.0, "humidity": 68.0}}
+    {"ts": 1754928146491, "values": {"temperature": 26.0, "humidity": 70.0}},
+    {"ts": 1754931746491, "values": {"temperature": 27.0, "humidity": 68.0}}
   ],
   "sub_device_data": {
     "device_001": [
-      {"ts": 1609459200, "values": {"temperature": 25.0, "humidity": 72.0}}
+      {"ts": 1754928146491, "values": {"temperature": 25.0, "humidity": 72.0}}
     ]
   },
   "sub_gateway_data": {
     "gateway_001": {
       "gateway_data": [
-        {"ts": 1609459200, "values": {"temperature": 28.0, "humidity": 55.0}}
+        {"ts": 1754928146491, "values": {"temperature": 28.0, "humidity": 55.0}}
       ],
       "sub_device_data": {
         "sensor_101": [
-          {"ts": 1609462800, "values": {"temperature": 29.0, "humidity": 52.0}}
+          {"ts": 1754931746491, "values": {"temperature": 29.0, "humidity": 52.0}}
         ]
       }
     }
@@ -659,7 +659,7 @@ sequenceDiagram
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `ts` | number | Unix时间戳，遥测数据为秒级，事件数据为毫秒级 |
+| `ts` | number | Unix时间戳（毫秒级） |
 | `values` | object | 该时间点的遥测数据键值对 |
 | `method` | string | 事件方法名，必填字段 |
 | `params` | object | 事件参数，可选字段 |
