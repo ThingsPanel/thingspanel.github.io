@@ -11,7 +11,11 @@ $ npm install
 ### Local Development
 
 ```
+默认英文启动方式
 $ npm run start
+
+中文启动方式
+npx docusaurus start --locale zh-Hans --port 3001
 ```
 
 
