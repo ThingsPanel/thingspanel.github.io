@@ -26,6 +26,8 @@ flowchart LR
     H --> L[8883/MQTTS]
     H --> M[5432/PostgreSQL]
     H --> N[6379/Redis]
+    H --> O[8000/ThingsVis API]
+    H --> P[3000/ThingsVis Studio]
     
     style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
     style G fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
@@ -36,6 +38,8 @@ flowchart LR
     style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
     style M fill:#fef1f1,stroke:#d73a49,color:#cb2431
     style N fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style O fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style P fill:#fef1f1,stroke:#d73a49,color:#cb2431
 
 ```
 
@@ -131,7 +135,15 @@ docker logs -f containerID
 8883 (MQTTS)
 5432 (PostgreSQL)
 6379 (Redis)
+8000 (ThingsVis API, thingsvis-server)
+3000 (ThingsVis Studio, thingsvis-studio)
 ```
+
+:::info ThingsVis Access
+
+Docker Compose includes `thingsvis-server` and `thingsvis-studio`. End users only need port **8080** — the frontend Nginx proxies `/main/` and `/thingsvis-api/` to ThingsVis. Ports 3000/8000 are for ops and debugging.
+
+:::
 
 :::tip Device Connection
 
