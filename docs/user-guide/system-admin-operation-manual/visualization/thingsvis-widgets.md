@@ -6,7 +6,11 @@ sidebar_position: 6
 
 ThingsVis provides widgets in the left component library. Drag onto the canvas and configure in the right **Properties** panel.
 
-**Text** widget documentation is available in the Chinese locale; other widgets coming soon.
+| Widget | Description | Doc |
+|--------|-------------|-----|
+| [Text](./thingsvis-widgets-text) | Titles, labels, dynamic text | Documented |
+| Rectangle | Background blocks | Coming soon |
+| Table | Structured lists | Coming soon |
 
 | Category | Examples |
 |----------|----------|

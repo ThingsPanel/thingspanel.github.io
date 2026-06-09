@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # 文本
 
-← [返回组件说明](./thingsvis-widgets.md)
+← [返回组件说明](./thingsvis-widgets)
 
 ## 组件概述
 
