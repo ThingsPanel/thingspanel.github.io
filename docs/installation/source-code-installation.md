@@ -25,7 +25,7 @@ flowchart LR
     
     K[Optional Components ]
     K --> L[Modbus Protocol Service]
-    K --> N[Visualization Editor]
+    K --> N[ThingsVis]
     
     style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
     style J fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
@@ -430,33 +430,60 @@ $ cd modbus-protocol-plugin
 $ go run . start
 ```
 
-## 6. Optional: Visual Editor Installation & Build (Community Edition)
+## 6. Optional: ThingsVis Installation
 
-### Install Pnpm
+ThingsPanel dashboards are powered by **ThingsVis**, which requires both **API Server** (default port 8000) and **Studio** (default port 3000).
 
-```
-npm i -g pnpm
-```
-
-### Build Visual Editor from Source
-
-1. Download Source Code
+### Option 1: Docker Compose (Recommended)
 
 ```bash
-git clone https://github.com/ThingsPanel/visual-editor.git
+git clone https://github.com/ThingsPanel/thingsvis.git
+cd thingsvis
+cp apps/server/.env.example .env
+# Edit .env: set AUTH_SECRET, DATABASE_URL, etc.
+docker compose up -d
 ```
 
-2. Install Dependencies
+After startup:
+- ThingsVis API: `http://localhost:8000`
+- ThingsVis Studio: `http://localhost:3000`
+
+### Option 2: Run from Source
+
+Prerequisites: Node.js `>= 20.10.0`, pnpm `>= 9.0.0`, PostgreSQL.
 
 ```bash
-npm install
+git clone https://github.com/ThingsPanel/thingsvis.git
+cd thingsvis
+pnpm install
+pnpm build:widgets
 ```
 
-3. Build Dist
+1. Copy `apps/server/.env.example` to `apps/server/.env` and set `DATABASE_URL`, `AUTH_SECRET`.
+2. Initialize the database:
 
 ```bash
-pnpm run build
+cd apps/server
+pnpm db:push
+pnpm seed
 ```
+
+3. Start the full stack (Server + Studio):
+
+```bash
+cd thingsvis
+pnpm dev:app
+```
+
+### ThingsPanel Frontend Environment Variables
+
+When building the ThingsPanel frontend, set in `.env.production`:
+
+```bash
+VITE_THINGSVIS_STUDIO_URL=/main/
+```
+
+In production, the ThingsVis API is typically proxied via Nginx at `/thingsvis-api/` on the same domain.
 
 ## 7. Optional: Install Rule Engine
 
@@ -470,9 +497,9 @@ yum install nginx
 
 ### Nginx Configuration
 
-After installation, create `tp.conf` in `/etc/nginx/conf.d`. Copy the content below. 
-Copy the **frontend dist files** to `/usr/share/nginx/html` (or modify the root path in config).
-Copy the **visual editor dist files** to `/usr/share/nginx/visual-editor/dist`.
+After installation, create `tp.conf` in `/etc/nginx/conf.d`. Copy the content below.
+Copy the **frontend dist files** to `/usr/share/nginx/html` (or modify the `root` path in config).
+ThingsVis is integrated via reverse proxy — ensure `thingsvis-server` (8000) and `thingsvis-studio` (3000) are running:
 
 **Note: Modify configuration to match your environment.**
 
@@ -522,13 +549,52 @@ server {
         add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
     }
   
-    # Visualization Editor
-    location /visual {
-        alias /home/visual-editor/dist;
-        index index.html index.htm;
-        try_files $uri $uri/ /visual/index.html;
+    # ThingsVis Studio
+    location /main/ {
+        proxy_pass http://127.0.0.1:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
-  
+
+    # ThingsVis API
+    location /thingsvis-api/ {
+        proxy_pass http://127.0.0.1:8000/api/v1/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection upgrade;
+        proxy_buffering off;
+    }
+
+    location = /registry.json {
+        proxy_pass http://127.0.0.1:3000/registry.json;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location /widgets/ {
+        proxy_pass http://127.0.0.1:3000/widgets/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location = /mf-manifest.json {
+        proxy_pass http://127.0.0.1:3000/mf-manifest.json;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location /static/ {
+        proxy_pass http://127.0.0.1:3000/static/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
     location / {
         index index.html index.htm;
         try_files $uri $uri/ /index.html;

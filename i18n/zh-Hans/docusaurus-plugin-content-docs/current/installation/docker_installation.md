@@ -26,6 +26,8 @@ flowchart LR
     H --> L[8883/MQTTS]
     H --> M[5432/PostgreSQL]
     H --> N[6379/Redis]
+    H --> O[8000/ThingsVis API]
+    H --> P[3000/ThingsVis Studio]
     
     style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
     style G fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
@@ -36,6 +38,8 @@ flowchart LR
     style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
     style M fill:#fef1f1,stroke:#d73a49,color:#cb2431
     style N fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style O fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style P fill:#fef1f1,stroke:#d73a49,color:#cb2431
 
 ```
 
@@ -131,7 +135,15 @@ docker logs -f containerID
 8883（mqtts端口）
 5432（postgresql端口）
 6379（redis端口）
+8000（ThingsVis API，thingsvis-server）
+3000（ThingsVis 编辑器，thingsvis-studio）
 ```
+
+:::info ThingsVis 访问说明
+
+Docker Compose 已内置 `thingsvis-server` 与 `thingsvis-studio`。日常使用浏览器访问 **8080** 即可，前端 Nginx 会将 `/main/`、`/thingsvis-api/` 代理到 ThingsVis 服务，无需对用户单独暴露 3000/8000 端口。运维调试时可直连上述端口。
+
+:::
 
 :::tip 设备对接
 

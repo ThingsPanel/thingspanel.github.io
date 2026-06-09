@@ -24,7 +24,7 @@ flowchart LR
     
     K[可选组件 ]
     K --> L[Modbus 设备接入服务]
-    K --> N[大屏]
+    K --> N[ThingsVis]
     
     style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
     style J fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
@@ -458,35 +458,60 @@ $ cd modbus-protocol-plugin
 $ go run . start
 ```
 
-## 6. 可选：Visual-editor可视化安装打包(社区版不支持)
+## 6. 可选：ThingsVis 安装部署
 
-### 安装Pnpm
+ThingsPanel 看板基于 **ThingsVis** 引擎，需同时运行 **API Server**（默认 8000）和 **Studio 编辑器**（默认 3000）。
 
-1. 在以上node.js安装好的前提下，执行命令安装pnpm
-
-```
-npm i -g pnpm
-```
-
-### 可视化源码打包
-
-1. 下载源码(未安装git，可直接下载仓库的zip包)
+### 方式一：Docker Compose（推荐）
 
 ```bash
-https://github.com/ThingsPanel/visual-editor.git
+git clone https://github.com/ThingsPanel/thingsvis.git
+cd thingsvis
+cp apps/server/.env.example .env
+# 编辑 .env，填写 AUTH_SECRET、DATABASE_URL 等
+docker compose up -d
 ```
 
-2. 安装依赖
+启动后：
+- ThingsVis API：`http://localhost:8000`
+- ThingsVis Studio：`http://localhost:3000`
+
+### 方式二：源码启动
+
+前置要求：Node.js `>= 20.10.0`、pnpm `>= 9.0.0`、PostgreSQL。
 
 ```bash
-npm install
+git clone https://github.com/ThingsPanel/thingsvis.git
+cd thingsvis
+pnpm install
+pnpm build:widgets
 ```
 
-3. 打包生成dist
+1. 复制 `apps/server/.env.example` 为 `apps/server/.env`，配置 `DATABASE_URL`、`AUTH_SECRET`。
+2. 初始化数据库：
 
 ```bash
-pnpm run build
+cd apps/server
+pnpm db:push
+pnpm seed
 ```
+
+3. 启动完整服务（Server + Studio）：
+
+```bash
+cd thingsvis
+pnpm dev:app
+```
+
+### ThingsPanel 前端环境变量
+
+打包 ThingsPanel 前端时，在 `.env.production` 中配置：
+
+```bash
+VITE_THINGSVIS_STUDIO_URL=/main/
+```
+
+生产环境 ThingsVis API 通常通过 Nginx 同域代理 `/thingsvis-api/`，无需额外配置 API 地址。
 
 
 
@@ -504,7 +529,7 @@ yum install nginx
 
 ### Nginx配置
 
-安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端**打包好的dist内的文件**复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
+安装完成后，进入 `/etc/nginx/conf.d` 目录下新建文件 `tp.conf`，将下面内容复制进去，然后将前端**打包好的 dist 内的文件**复制到 `/usr/share/nginx/html`（推荐把 `root` 路径换成实际 dist 目录）。ThingsVis 通过反向代理接入，需确保 `thingsvis-server`（8000）和 `thingsvis-studio`（3000）已启动：
 
 **注意如果访问有权限问题，修改nginx.conf配置**
 
@@ -563,13 +588,52 @@ server {
         add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
     }
   
-    # 可视化部分
-    location /visual {
-        alias /home/visual-editor/dist;
-        index index.html index.htm;
-        try_files $uri $uri/ /visual/index.html;
+    # ThingsVis Studio 编辑器
+    location /main/ {
+        proxy_pass http://127.0.0.1:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
-  
+
+    # ThingsVis API
+    location /thingsvis-api/ {
+        proxy_pass http://127.0.0.1:8000/api/v1/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection upgrade;
+        proxy_buffering off;
+    }
+
+    location = /registry.json {
+        proxy_pass http://127.0.0.1:3000/registry.json;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location /widgets/ {
+        proxy_pass http://127.0.0.1:3000/widgets/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location = /mf-manifest.json {
+        proxy_pass http://127.0.0.1:3000/mf-manifest.json;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location /static/ {
+        proxy_pass http://127.0.0.1:3000/static/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
     location / {
         index index.html index.htm;
 	try_files $uri $uri/ /index.html;
