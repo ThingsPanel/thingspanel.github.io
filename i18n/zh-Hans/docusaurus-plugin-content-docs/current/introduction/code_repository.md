@@ -18,7 +18,7 @@ https://github.com/ThingsPanel/thingspanel-frontend-community
 https://github.com/ThingsPanel/gmqtt.git
 
 ## HTTP设备接入服务库
-https://github.com/ThingsPanel/http-protocol-plugin.git
+https://github.com/ThingsPanel/thingspanel-adapter-http
 
 ## Modbus设备接入服务库
 https://github.com/ThingsPanel/modbus-protocol-plugin
