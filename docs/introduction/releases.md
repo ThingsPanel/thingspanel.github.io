@@ -5,6 +5,83 @@ sidebar_position: 9
 # Release Notes
 
 
+## ThingsPanel-Ver1.2.3 Release Notes
+Release Date: 2026-06-18
+
+We officially released ThingsPanel v1.2.3! This version is centered on **Backend v1.2.3**, with synchronized updates for **Frontend v1.2.3** and **ThingsVis v1.0.14**. Key upgrades include device group statistics, unified protocol plugin management, enhanced ThingsVis embedding, component card mode, and camera playback improvements.
+
+---
+
+### Backend v1.2.3
+
+#### New Features
+
+- **Device Group Statistics** — Group details now show total devices, online count, offline count, and alarm count for better operational visibility.
+- **Dynamic Configuration Forms** — Retrieve device configuration forms by protocol type and device type, simplifying multi-protocol configuration management.
+
+#### Optimizations
+
+- **Unified Protocol Plugin System** — All protocol extensions are now managed under the service plugin system, unifying registration, loading, and lifecycle management.
+- **Enhanced Protocol Adapter for Commands** — Optimized protocol plugin adaptation for attribute and command delivery, improving cross-protocol instruction compatibility.
+- **Architecture Documentation** — Streamlined system architecture documentation, aligning descriptions with the current implementation.
+
+---
+
+### Frontend v1.2.3
+
+#### New Features
+
+- **ThingsVis Embedding Save Enhancement** — Optimized host-side save integration for more reliable saving when ThingsVis is embedded.
+- **Initial Load Optimization** — Improved platform field data source restoration, reducing first-screen wait time for embedded pages.
+- **Camera Playback Command Enhancement** — Adapted playback control parameters for more stable playback request delivery.
+
+#### Bug Fixes
+
+- Fixed authentication key reading and log dependency issues in production deployments
+- Fixed host save payload type and test configuration issues when embedding ThingsVis
+- Fixed camera playback command parameter compatibility to prevent abnormal playback control
+
+#### Other
+
+- Enhanced deployment script with environment variable validation and database connectivity checks
+
+---
+
+### Visual Editor (ThingsVis) v1.0.14
+
+#### New Features
+
+- **Component Card Mode** — Unified card appearance, title, and basic style configuration with one-click toggle for dashboard visual consistency.
+- **Table Component Scrolling** — Added scrolling support and optimized layout configuration for long-list data display.
+- **Camera Component Redesign** — Improved playback interface layout, playback controls, operation panel, and command parameters.
+- **EZVIZ Player Enhancement** — Enhanced playback capabilities, event handling, and playback parameter configuration for broader device support.
+- **Non-blocking Data Source Activation** — Editor startup and data source restoration now async non-blocking for faster large project loading.
+- **Action Execution Enhancement** — Improved legacy command normalization and data source parsing for better backward compatibility.
+- **Switch Component Enhancement** — Extended color property handling with additional test coverage.
+- **Glass Panel Component** — Streamlined to standard glass texture with backward compatibility.
+- **Save Flow Optimization** — Dual optimization for auto-save and host save, improving embedded save stability.
+
+#### Bug Fixes
+
+- Fixed camera playback control parameters and playback interaction issues
+- Fixed camera component layout and display anomalies from legacy styles
+- Fixed EZVIZ player layout refresh logic issues
+- Fixed host save payload test configuration and type safety issues
+- Fixed card mode not being fully disableable after activation
+- Fixed residual mock text properties in text component
+
+---
+
+### Component Version Reference
+
+| Component | Version | Download |
+|-----------|---------|----------|
+| Backend | v1.2.3 | [GitHub Releases](https://github.com/ThingsPanel/thingspanel-backend-community/releases/tag/v1.2.3) |
+| Frontend | v1.2.3 | [GitHub Releases](https://github.com/ThingsPanel/thingspanel-frontend-community/releases/tag/v1.2.3) |
+| ThingsVis | v1.0.14 | [GitHub Releases](https://github.com/ThingsPanel/thingsvis/releases/tag/v1.0.14) |
+
+---
+
 ## ThingsPanel-Ver1.1.12 Release Notes
 Release Date: 2025-12-26
 
