@@ -4,83 +4,184 @@ sidebar_position: 9
 
 # Release Notes
 
-
 ## ThingsPanel-Ver1.2.3 Release Notes
 Release Date: 2026-06-18
 
-We officially released ThingsPanel v1.2.3! This version is centered on **Backend v1.2.3**, with synchronized updates for **Frontend v1.2.3** and **ThingsVis v1.0.14**. Key upgrades include device group statistics, unified protocol plugin management, enhanced ThingsVis embedding, component card mode, and camera playback improvements.
+We officially released ThingsPanel v1.2.3. This release sharpens device group statistics, protocol plugin management, and embedded visualization save flows for smoother delivery.
 
----
+### Highlights
+- Added device-group statistics so group details can show total, online, offline, and alert counts.
+- Added dynamic device-configuration form retrieval by protocol type and device type.
+- Unified protocol extensions under the service-plugin system for clearer downstream adaptation.
+- Enhanced host-side ThingsVis save integration for embedded pages.
 
-### Backend v1.2.3
+### Optimizations and Fixes
+- Improved platform field data-source recovery to reduce first-screen wait time.
+- Enhanced deployment scripts with environment loading, validation, and database connectivity checks.
+- Fixed camera playback parameters, host save payload typing, and card-mode shutdown issues.
 
-#### New Features
+## ThingsPanel-Ver1.2.2 Release Notes
+Release Date: 2026-06-08
 
-- **Device Group Statistics** — Group details now show total devices, online count, offline count, and alarm count for better operational visibility.
-- **Dynamic Configuration Forms** — Retrieve device configuration forms by protocol type and device type, simplifying multi-protocol configuration management.
+We officially released ThingsPanel v1.2.2. This release improves integration testing, automation conditions, and camera-oriented visualization workflows.
 
-#### Optimizations
+### Highlights
+- Added simulated device-data initialization and sending for MQTT telemetry, attributes, and events.
+- Automation rules can now match against event-parameter content.
+- Enhanced ThingsVis integration with dataSourceId, device prefetch, lookup by ID, and camera command bridging.
+- Added a monitoring camera widget and improved the EZVIZ player and 3D model widget.
 
-- **Unified Protocol Plugin System** — All protocol extensions are now managed under the service plugin system, unifying registration, loading, and lifecycle management.
-- **Enhanced Protocol Adapter for Commands** — Optimized protocol plugin adaptation for attribute and command delivery, improving cross-protocol instruction compatibility.
-- **Architecture Documentation** — Streamlined system architecture documentation, aligning descriptions with the current implementation.
+### Optimizations and Fixes
+- Improved multilingual labels in device-configuration and credential forms.
+- Default sorting for device configurations and templates now uses descending creation time.
+- Fixed automation save failures, event-condition echo issues, and camera command forwarding problems.
 
----
+## ThingsPanel-Ver1.2.1 Release Notes
+Release Date: 2026-05-25
 
-### Frontend v1.2.3
+We officially released ThingsPanel v1.2.1, focusing on a lighter, faster device-detail app experience and smoother embedded visualization behavior.
 
-#### New Features
+### Highlights
+- Refreshed the device-detail app layout and auto-calculated ThingsVis canvas height.
+- Improved page loading speed for the device-detail app.
+- Added a local icon picker with more industrial, energy, and network SVG resources.
+- Added onBeforePreviewRun support in the transformation editor for richer preview processing.
 
-- **ThingsVis Embedding Save Enhancement** — Optimized host-side save integration for more reliable saving when ThingsVis is embedded.
-- **Initial Load Optimization** — Improved platform field data source restoration, reducing first-screen wait time for embedded pages.
-- **Camera Playback Command Enhancement** — Adapted playback control parameters for more stable playback request delivery.
+### Optimizations and Fixes
+- Simplified embedded-editor URL parameter handling and save-strategy configuration.
+- Improved schemas, control panels, and rendering for icons, text, tables, and line charts.
+- Fixed host device ID loss in platform data-source scenarios.
 
-#### Bug Fixes
+## ThingsPanel-Ver1.2.0 Release Notes
+Release Date: 2026-05-15
 
-- Fixed authentication key reading and log dependency issues in production deployments
-- Fixed host save payload type and test configuration issues when embedding ThingsVis
-- Fixed camera playback command parameter compatibility to prevent abnormal playback control
+We officially released ThingsPanel v1.2.0, bringing stronger telemetry aggregation, device trend analytics, and first-install flow improvements.
 
-#### Other
+### Highlights
+- Added telemetry aggregation queries for avg, max, min, sum, diff, and other time-window calculations.
+- Added offline-device counts to overview statistics and time-range filters to device trends.
+- Added initialization-state queries and improved super-admin bootstrap after marketplace callbacks.
+- Expanded ThingsVis with a toggle widget, fullscreen/refresh/scale controls, and richer industrial visualization components.
 
-- Enhanced deployment script with environment variable validation and database connectivity checks
+### Optimizations and Fixes
+- Added exponential-backoff reconnect behavior for Redis Pub/Sub listeners.
+- Improved completeness of device-status history records.
+- Fixed thing-model pagination, device-type editing, alert color display, and password validation issues.
 
----
+## ThingsPanel-Ver1.1.15 Release Notes
+Release Date: 2026-05-09
 
-### Visual Editor (ThingsVis) v1.0.14
+We officially released ThingsPanel v1.1.15 with stronger device statistics, fullscreen embedded pages, and richer visualization building blocks.
 
-#### New Features
+### Highlights
+- Added offline-device fields to board statistics and broader time-range support for trend queries.
+- Added fullscreen, autoplay, and clipboard permissions for embedded ThingsVis pages.
+- Improved telemetry, message, alert, settings, and access modules in device-detail pages.
+- Added more foundational ThingsVis widgets such as cards, containers, icons, lists, badges, and rich-text blocks.
 
-- **Component Card Mode** — Unified card appearance, title, and basic style configuration with one-click toggle for dashboard visual consistency.
-- **Table Component Scrolling** — Added scrolling support and optimized layout configuration for long-list data display.
-- **Camera Component Redesign** — Improved playback interface layout, playback controls, operation panel, and command parameters.
-- **EZVIZ Player Enhancement** — Enhanced playback capabilities, event handling, and playback parameter configuration for broader device support.
-- **Non-blocking Data Source Activation** — Editor startup and data source restoration now async non-blocking for faster large project loading.
-- **Action Execution Enhancement** — Improved legacy command normalization and data source parsing for better backward compatibility.
-- **Switch Component Enhancement** — Extended color property handling with additional test coverage.
-- **Glass Panel Component** — Streamlined to standard glass texture with backward compatibility.
-- **Save Flow Optimization** — Dual optimization for auto-save and host save, improving embedded save stability.
+### Optimizations and Fixes
+- Improved Redis Pub/Sub recovery and reduced noisy error logging.
+- Optimized device-count and trend SQL paths for better query efficiency.
+- Fixed iframe fullscreen, repeated thumbnail requests, and field-binding issues.
 
-#### Bug Fixes
+## ThingsPanel-Ver1.1.14.3 Release Notes
+Release Date: 2026-05-01
 
-- Fixed camera playback control parameters and playback interaction issues
-- Fixed camera component layout and display anomalies from legacy styles
-- Fixed EZVIZ player layout refresh logic issues
-- Fixed host save payload test configuration and type safety issues
-- Fixed card mode not being fully disableable after activation
-- Fixed residual mock text properties in text component
+We officially released ThingsPanel v1.1.14.3, improving device status history completeness and service-plugin connectivity.
 
----
+### Highlights
+- Device status updates no longer depend on Redis online-state cache assumptions before writing history.
+- Enhanced user-query filtering and stricter device-template name validation.
+- Fixed HTTP and service-plugin address configuration for better container-network connectivity.
+- Continued improving ThingsVis embedded device-binding behavior.
 
-### Component Version Reference
+### Optimizations and Fixes
+- Added clearer field context to template-name validation errors.
+- Switched marketplace service access to HTTPS.
+- Improved status and version display behavior.
 
-| Component | Version | Download |
-|-----------|---------|----------|
-| Backend | v1.2.3 | [GitHub Releases](https://github.com/ThingsPanel/thingspanel-backend-community/releases/tag/v1.2.3) |
-| Frontend | v1.2.3 | [GitHub Releases](https://github.com/ThingsPanel/thingspanel-frontend-community/releases/tag/v1.2.3) |
-| ThingsVis | v1.0.14 | [GitHub Releases](https://github.com/ThingsPanel/thingsvis/releases/tag/v1.0.14) |
+## ThingsPanel-Ver1.1.14.2 Release Notes
+Release Date: 2026-04-24
 
----
+We officially released ThingsPanel v1.1.14.2 with more stable multi-architecture publishing and a smoother initialization flow.
+
+### Highlights
+- Stabilized multi-architecture image build and publishing workflows.
+- Corrected marketplace service base URL configuration.
+- Improved super-admin initialization after marketplace callbacks.
+
+### Optimizations and Fixes
+- Refined initialization error handling in registration and callback flows.
+- Improved release-process consistency for multi-platform deployment.
+
+## ThingsPanel-Ver1.1.14.1 Release Notes
+Release Date: 2026-04-20
+
+We officially released ThingsPanel v1.1.14.1, refining marketplace registration, email validation, and authentication flow handling.
+
+### Highlights
+- Added a dedicated error code when a user email does not exist.
+- Integrated marketplace authentication handling and account-service proxying in frontend flows.
+- Simplified super-admin registration and token handling.
+
+### Optimizations and Fixes
+- Removed redundant registration error prompts.
+- Improved the overall registration and login experience.
+
+## ThingsPanel-Ver1.1.14 Release Notes
+Release Date: 2026-04-10
+
+We officially released ThingsPanel v1.1.14, continuing to refine installation telemetry and baseline configuration handling.
+
+### Highlights
+- Improved installation telemetry lifecycle behavior.
+- Cleaned up local configuration and baseline environment management.
+
+### Optimizations and Fixes
+- Reduced noise in baseline environment handling and deployment preparation.
+
+## ThingsPanel-Ver1.1.13.7 Release Notes
+Release Date: 2026-04-07
+
+We officially released ThingsPanel v1.1.13.7, improving chart binding, template payload consistency, and publish-related flows.
+
+### Highlights
+- Improved thing-model chart binding behavior.
+- Enhanced DeviceConfig and TemplateDefinition payload consistency.
+- Continued optimizing telemetry aggregation filters for null values and abnormal large numbers.
+
+### Optimizations and Fixes
+- Reduced edge-case issues in configuration and publish flows.
+
+## ThingsPanel-Ver1.1.13.6 Release Notes
+Release Date: 2026-03-27
+
+We officially released ThingsPanel v1.1.13.6, further strengthening device-template fields and ThingsVis integration readiness.
+
+### Highlights
+- Added richer template fields including type, brand, and model information.
+- Enabled automatic binding of devices to the default root group.
+- Cleaned up ThingsVis initialization SQL and integration preparation content.
+- Improved SSO role mapping and homepage feed/time display handling in the frontend.
+
+### Optimizations and Fixes
+- Removed unused initialization examples and simplified preparation steps for ThingsVis integration.
+
+## ThingsPanel-Ver1.1.13.5 Release Notes
+Release Date: 2026-03-21
+
+We officially released ThingsPanel v1.1.13.5, bringing a new visualization editor, dashboard management, and embedded communication capabilities.
+
+### Highlights
+- Introduced a full visualization editor, dashboard management views, and menu integration.
+- Added ThingsVisAppFrame with platform API integration, WebSocket telemetry subscription, and iframe two-way communication.
+- Advanced panel V2, dual-renderer architecture, multiple themes, and richer chart components.
+- Added tenant dashboard binding and dashboard ownership validation in the backend.
+
+### Optimizations and Fixes
+- Improved platform request handling, field-ID normalization, and menu fallback behavior.
+- Enhanced viewer initialization, historical-data normalization, and embedded message serialization.
+- Improved component styling, theming, and runtime state management.
 
 ## ThingsPanel-Ver1.1.12 Release Notes
 Release Date: 2025-12-26
