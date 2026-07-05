@@ -4,6 +4,22 @@ sidebar_position: 9
 
 # Release Notes
 
+## ThingsPanel-Ver1.2.4 Release Notes
+Release Date: 2026-07-03
+
+We officially released ThingsPanel v1.2.4. This release improves responsive embedded visualizations and chart configuration, giving embedded dashboards more accurate height, smoother scrolling, and clearer data presentation.
+
+### Highlights
+- Added content-height reporting for ThingsVis Grid embeds so iframes can expand with their content.
+- Added embed sizing parameters to viewer and editor URLs, with automatic height enabled for homepage embeds.
+- Added configurable font sizes for axes, legends, labels, ticks, titles, and values across major chart widgets.
+- Added SD-card and cloud-storage playback modes to the EZVIZ player with improved playback URL handling.
+
+### Optimizations and Fixes
+- Aligned height updates with browser rendering and improved wheel forwarding, spacing, overflow, and container alignment.
+- Refined ThingsVis categories, property panels, editor layout, toolbar behavior, and local icon loading.
+- Fixed inaccurate Grid embed heights, clipped content, dynamic layout shifts, and chart font configuration type checks.
+
 ## ThingsPanel-Ver1.2.3 Release Notes
 Release Date: 2026-06-18
 
