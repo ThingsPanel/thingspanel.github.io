@@ -4,6 +4,25 @@ sidebar_position: 9
 
 # Release Notes
 
+## ThingsPanel-Ver1.2.5 Release Notes
+Release Date: 2026-07-10
+
+We officially released ThingsPanel v1.2.5. This release strengthens the visualization app entry flow, embedded rendering consistency, and simulation-oriented integration workflows.
+
+### Highlights
+- Added a dedicated visualization-app entry, dashboard list view, and preview flow for app scenarios.
+- Synchronized WebView and native navigation state to make embedded mobile navigation more predictable.
+- Added embed-auth helpers and unified the login bootstrap flow for device-detail and visualization apps.
+- Added backend APIs for simulated telemetry initialization and sending, and expanded automation conditions to support event `Params`.
+- Added `contentStyle` support to `ScaleScreen`, while GridCanvas background height now adapts to content size.
+
+### Optimizations and Fixes
+- Standardized embedded page background styles to reduce layout drift across host pages.
+- Added a default value for `previewAlignY` and fixed incomplete full-height rendering for fixed-canvas home embeds.
+- Improved editor embed visibility, component management, device-template handling, and line-chart grid-mode behavior.
+- Device configurations and templates are now sorted by creation time, and multilingual labels are more complete for credential-related fields.
+- Fixed default card radius and padding values, glass-panel issues, and several embedded-style conflicts, with broader test coverage added.
+
 ## ThingsPanel-Ver1.2.4 Release Notes
 Release Date: 2026-07-03
 
