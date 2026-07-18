@@ -4,6 +4,20 @@ sidebar_position: 9
 
 # Release Notes
 
+## ThingsVis-Ver1.0.16.1 Release Notes
+Release Date: 2026-07-16
+
+We officially released ThingsVis v1.0.16.1. This update focuses on selection stability by fixing an interface request loop that could occur when a visualization selected a device without a bound thing model.
+
+### Fix
+
+- Fixed the interface request loop triggered when selecting a device without a bound thing model in visualization flows.
+
+### Impact
+
+- Reduced unnecessary API calls and related page instability.
+- Improved reliability for device selection, page configuration, and demo workflows.
+
 ## ThingsPanel-Ver1.2.5 Release Notes
 Release Date: 2026-07-10
 
