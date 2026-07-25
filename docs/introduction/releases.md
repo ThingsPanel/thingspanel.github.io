@@ -4,6 +4,42 @@ sidebar_position: 9
 
 # Release Notes
 
+## ThingsVis-Ver1.0.17 Release Notes
+Release Date: 2026-07-24
+
+ThingsVis v1.0.17 introduces a real-time historical curve component, improves historical data queries and chart defaults, and strengthens sharing and device-selection stability.
+
+### Features
+
+- Added a real-time historical curve component for exploring historical trends.
+- Improved historical data queries and line/time-series chart presentation.
+- Refined timeline, time-series, and axis defaults.
+
+### Fixes and Improvements
+
+- Fixed dashboard sharing links and device selection group defaults.
+- Cleared the default iframe source.
+- Refined card spacing, line-chart layout, component categories, and Chinese translations.
+
+## ThingsPanel-Ver1.2.6 Release Notes
+Release Date: 2026-07-24
+
+ThingsPanel v1.2.6 adds marketplace template loading and installation, extends dashboard canvas configuration, and improves mobile navigation, status-bar adaptation, anonymous sharing, and device WebSocket management.
+
+### Features
+
+- Added marketplace template loading and installation.
+- Initialized application chart configuration when saving.
+- Added canvas configuration support to the dashboard schema.
+- Improved ThingsVis device WebSocket management.
+- Unified application and dashboard navigation in the mobile app with dynamic status-bar height support.
+- Added anonymous ThingsVis sharing previews.
+
+### Improvements and Fixes
+
+- Refined telemetry card styling and embedded application navigation spacing.
+- Fixed carousel control alignment on dashboards.
+
 ## ThingsVis-Ver1.0.16.1 Release Notes
 Release Date: 2026-07-16
 
