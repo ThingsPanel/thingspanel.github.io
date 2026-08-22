@@ -4,6 +4,130 @@ sidebar_position: 9
 
 # Release Notes
 
+## ThingsVis-Ver1.0.21 Release Notes
+Release date: 2026-08-21
+
+We officially released ThingsVis v1.0.21. Dashboard duplication and tenant overview.
+
+### Features and improvements
+
+- Added dashboard duplication, template actions, and a tenant analytics overview for super admins.
+
+### Fixes
+
+- Fixed device-model context synchronization and unified template layouts and wording.
+
+## ThingsVis-Ver1.0.20 Release Notes
+Release date: 2026-08-16
+
+We officially released ThingsVis v1.0.20. Smoother editor canvas workflows.
+
+### Features and improvements
+
+- Improved embedded canvas controls, editor settings, component library, and compact grid placement.
+
+### Fixes
+
+- Fixed unstable preview scaling.
+
+## ThingsVis-Ver1.0.19 Release Notes
+Release date: 2026-08-04
+
+We officially released ThingsVis v1.0.19. Portable dashboard templates.
+
+### Features and improvements
+
+- Added import/export with dependency analysis and device rebinding.
+- Expanded actions and nested-field expression support.
+
+### Fixes
+
+- Fixed migrated data sources, device references, and trend bindings.
+
+## ThingsVis-Ver1.0.18 Release Notes
+Release date: 2026-08-01
+
+We officially released ThingsVis v1.0.18. Configurable switch labels.
+
+### Features and improvements
+
+- Added configurable label font size to the basic switch widget.
+
+### Fixes
+
+- Improved readability across dashboard sizes.
+
+## ThingsPanel-Ver1.2.10 Release Notes
+Release date: 2026-08-21
+
+We officially released ThingsPanel v1.2.10. Admin dashboard and web component improvements.
+
+### Features and improvements
+
+- Upgraded the super-admin Dashboard configuration to v2.
+- Added home shortcuts and improved device-model selection.
+- Enhanced web component embedding.
+
+### Fixes
+
+- Fixed alarm data mapping, SSO tenant-home configuration, and default home indexing.
+
+## ThingsPanel-Ver1.2.9 Release Notes
+Release date: 2026-08-14
+
+We officially released ThingsPanel v1.2.9. More reliable template resources and sessions.
+
+### Features and improvements
+
+- Added automatic Resource Center token renewal.
+- Improved template cover publishing, installation, compatibility, and usage reporting.
+- Restored os.time() compatibility for legacy Lua scripts.
+
+### Fixes
+
+- Fixed missing covers, stale cached configuration, and expired sessions.
+
+## ThingsPanel-Ver1.2.8.1 Release Notes
+Release date: 2026-08-05
+
+We officially released ThingsPanel v1.2.8.1. Resource Center maintenance update.
+
+### Features and improvements
+
+- Retained the Resource Center and reusable template capabilities introduced in v1.2.8.
+
+### Fixes
+
+- Corrected issues in the Resource Center and template workflow.
+
+## ThingsPanel-Ver1.2.8 Release Notes
+Release date: 2026-08-04
+
+We officially released ThingsPanel v1.2.8. Resource Center and reusable templates.
+
+### Features and improvements
+
+- Added the Resource Center for device and dashboard templates.
+- Added browsing, publishing, installation, dependency analysis, and device rebinding.
+- Improved super-admin initialization with password confirmation.
+
+### Fixes
+
+- Fixed template binding, data-source recognition, authorization, and publishing feedback.
+
+## ThingsPanel-Ver1.2.7 Release Notes
+Release date: 2026-07-31
+
+We officially released ThingsPanel v1.2.7. Clearer dashboard publishing guidance.
+
+### Features and improvements
+
+- Clarified publishing behavior for dashboards without external dependencies.
+
+### Fixes
+
+- Reduced ambiguity in dependency checks before publishing.
+
 ## ThingsVis-Ver1.0.17 Release Notes
 Release Date: 2026-07-24
 
