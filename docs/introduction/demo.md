@@ -10,6 +10,9 @@ sidebar_position: 5
 
 The web and mobile apps share the same account credentials.
 **(The following is a Tenant User account)**
+
+The demo platform is used to preview Enterprise Edition tenant-user and device-scope authorization. The Community Edition is single-tenant and does not provide tenant-level user management.
+
 - **Username**: test@test.cn
 - **Password**: 123456
 

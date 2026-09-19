@@ -52,7 +52,7 @@ With the **reusability** of these components, development efficiency is signific
 
 ## Feature Overview
 
-- **Multi-Tenant Management**: Super admin, tenant account management, user-level device and data access
+- **Multi-Tenant Management (Enterprise Edition)**: Super admin, tenant account management, user-level device and data access; roles control page and feature permissions, while device-detail bindings control each user's accessible device scope
 - **Device Integration**: Project creation, grouped device management, push status monitoring, plugin access, gateway/sub-device support, Modbus RTU/TCP, TCP protocol, GB28181 cameras, custom device services
 - **Monitoring Dashboards**: Device monitoring charts, configurable as menus or homepage, support multiple dashboards
 - **Device Models**: Define data models, Web/App charts, export to JSON
@@ -68,7 +68,7 @@ With the **reusability** of these components, development efficiency is signific
 - **App Management**: Plugin management, plugin generator, installation, app marketplace
 - **Protocol Access**: Define custom protocol configuration and access parameters
 - **Third-Party Integration**: Connect devices via third-party platforms
-- **User Management**: Casbin-based RBAC, page/project permissions, multiple roles
+- **User Management (Enterprise Edition)**: Casbin-based RBAC, page and feature permissions, multiple roles, and per-device user data scope
 - **Data Gateway**: OpenAPI, system integration, IP/data range restrictions, read authorization
 - **System Settings**: Change logo, system title, theme styles
 - **IoT App**: Built with Uniapp; scan to add devices, view metrics, switch projects/groups, manual control, control strategy, logs, account management, SMS login

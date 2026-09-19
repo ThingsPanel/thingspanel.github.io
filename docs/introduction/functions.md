@@ -249,8 +249,8 @@ Includes: Dashboard Overview, Device Connectivity, Visualization, Automation, Al
 
 1. **Open API**: API Key management.
 2. **System Logs**: Audit trails (User, IP, Path, Method, Time). Device Logs.
-3. **Role Management**: RBAC, Page-level permissions.
-4. **User Management**: Add, Edit, Reset Password, Roles, Freeze.
+3. **Role Management (Enterprise Edition)**: RBAC, page and feature permissions; device data scope is configured separately.
+4. **User Management (Enterprise Edition)**: Add, Edit, Reset Password, Roles, Freeze, and per-device user authorization. The Community Edition is single-tenant and does not provide tenant-level multi-user capability.
 
 ## X. Mobile App Functions
 

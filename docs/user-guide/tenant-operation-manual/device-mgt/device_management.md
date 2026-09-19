@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Device Management
 
+:::info Permission scope
+The Community Edition is single-tenant and does not provide tenant-level user management or per-user device assignment. In the Enterprise Edition, roles control page and feature permissions, while user bindings on device details control device data scope. Both layers must allow the operation.
+:::
+
 ## 1. Description
 - Perform functions like adding, editing, deleting, and searching used devices. Configure attributes like groups and tags. Manage telemetry, attribute setting, event reporting, command sending, automation, and alarms for devices.
 
@@ -97,3 +101,15 @@ sidebar_position: 1
 - **Failure Record Tracking**: Automatically saves recent failure records including Time, Direction, Stage, and Error Description.
 
 ![Device Diagnosis](/img/devices/diagnosis/diagnosis_panel.png)
+
+### 2.12 User Authorization in Device Details
+
+In the Enterprise Edition, go to **Device Management → Device Details → Users** to associate users and set device permissions.
+
+1. Associate a user with the target device.
+2. Set the device permission to **Manage (including read)** so the user can read and manage the device.
+3. If the user is not associated with other devices, those devices do not appear in Device Management.
+
+Role permissions determine whether the user can access a page or feature. The user binding on device details determines which devices the user can see and operate.
+
+![User authorization in device details](./images/device-detail-management-isolation-20260919.png)

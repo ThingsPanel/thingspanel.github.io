@@ -26,6 +26,12 @@ See the [demo and mobile application guide](../introduction/demo).
 
 Yes. The ThingsPanel Community Edition can be used in commercial projects at no license cost. Its core code is released under the Apache 2.0 license. You must comply with the license requirements, including copyright and license notices; third-party components and services included in a project remain subject to their own licenses and terms.
 
+## How do user and device permissions differ between the Community and Enterprise Editions?
+
+The Community Edition is single-tenant. It does not provide tenant-level user management, roles, or per-user device assignment. Use the Enterprise Edition when multiple users need to manage their own devices with mutual isolation.
+
+In the Enterprise Edition, roles control page and feature permissions, while user bindings on device details control device data scope. After a user is associated with a device and given **Manage (including read)**, the user can read and manage that device. The user sees only associated devices; other users' devices remain hidden.
+
 ## Which operating systems and deployment methods are supported?
 
 ThingsPanel supports common operating systems such as Linux, Windows, and macOS. It can be deployed with Docker, the one-click installation script, or from source code. Projects that require high availability or high concurrency can use a cluster deployment.
