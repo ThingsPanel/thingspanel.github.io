@@ -50,8 +50,8 @@ sidebar_position: 3
    - **Menu Management**: Set global menu order, routing, names.
      - Show/Hide menus.
      - Menu permissions (System Admin / Tenant).
-   - **Notification Service**: Email and SMS configuration.
-     - Push message management.
+   - **Notification Services**: Manage notification plugins and provider service accounts for tenant use.
+     - Account credentials remain under system administrator control; password-reset email keeps its existing synchronous flow.
 
 ## III. Tenant Management Functions
 
@@ -212,13 +212,16 @@ Includes: Dashboard Overview, Device Connectivity, Visualization, Automation, Al
 
 ### 3. Notification Management
 
-1. **Logs**: View Email/SMS/Voice/External notifications. Status tracking.
-2. **Notification Groups**: Create groups, select methods (Email, Voice, SMS), Enable/Disable.
+1. **Notification strategies**: Tenants select an administrator-assigned service, set recipients and content, and choose the strategy in an alert rule.
+2. **Notification records**: Review new delivery records separately from retained legacy history. Provider acceptance does not mean recipient delivery.
+3. **Plugin integrations**: Providers implement the versioned notification plugin contract; availability depends on administrator configuration and the capabilities of each plugin.
+
+See the [system administrator notification guide](../user-guide/system-admin-operation-manual/system-managment/notice_settings.md), [tenant notification strategy guide](../user-guide/tenant-operation-manual/warning/Notification_group.md), and [plugin development guide](../developer-guide/notification-plugin.md).
 
 ## VI. Alert Functions
 
 1. **Alert Info**: Time, Name, Status, Content, Description. Handle alerts.
-2. **Alert Config**: Name, Level, Notification Group, Enable/Disable.
+2. **Alert Config**: Name, Level, Notification Strategy, Enable/Disable.
 
 ## VII. Product Management
 
