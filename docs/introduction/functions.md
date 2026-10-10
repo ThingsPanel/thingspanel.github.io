@@ -51,7 +51,7 @@ sidebar_position: 3
      - Show/Hide menus.
      - Menu permissions (System Admin / Tenant).
    - **Notification Services**: Manage notification plugins and provider service accounts for tenant use.
-     - Account credentials remain under system administrator control; password-reset email keeps its existing synchronous flow.
+     - Administrators manage provider accounts and secrets; tenants use the services assigned to them.
 
 ## III. Tenant Management Functions
 
@@ -212,8 +212,8 @@ Includes: Dashboard Overview, Device Connectivity, Visualization, Automation, Al
 
 ### 3. Notification Management
 
-1. **Notification strategies**: Tenants select an administrator-assigned service, set recipients and content, and choose the strategy in an alert rule.
-2. **Notification records**: Review new delivery records separately from retained legacy history. Provider acceptance does not mean recipient delivery.
+1. **Notification strategies**: Tenants select an assigned service, set recipients and content, and configure one tenant default. Alerts without a specific selection inherit the default; a specific selection takes precedence.
+2. **Notification records**: Review each target’s queued, accepted, failed or unknown result and retained history. Provider acceptance does not mean recipient delivery.
 3. **Plugin integrations**: Providers implement the versioned notification plugin contract; availability depends on administrator configuration and the capabilities of each plugin.
 
 See the [system administrator notification guide](../user-guide/system-admin-operation-manual/system-managment/notice_settings.md), [tenant notification strategy guide](../user-guide/tenant-operation-manual/warning/Notification_group.md), and [plugin development guide](../developer-guide/notification-plugin.md).

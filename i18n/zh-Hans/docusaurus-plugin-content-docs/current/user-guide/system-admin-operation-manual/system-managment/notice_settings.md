@@ -32,11 +32,11 @@ flowchart LR
 
 *开发环境截图。图中的 SMTP 实例已停用；图片仅展示按租户配置账号的界面，不代表该账号当前可发送，也不显示密钥。*
 
-本版部署包含 SMTP 组件，但仍需系统超管为租户配置服务商账号。系统不会自动创建或授权账号。
+通知服务部署包默认包含 SMTP。安装通知服务后，超管仍需为指定租户分配服务并配置邮件账号；系统不会自动创建授权或账号。安装方式见 [SMTP 部署说明](https://github.com/ThingsPanel/thingspanel-notification-smtp#run-the-container-locally)。
 
-## 3. 区分账号邮件与告警通知
+## 3. 系统邮件与告警邮件
 
-旧系统邮件配置继续服务于现有账号流程。密码重置邮件保持原有同步发送语义，不能因为告警改为排队发送而改变。
+密码重置等系统邮件在对应的账号操作中发送。告警邮件使用租户的通知策略。请分别配置并检查两种用途，避免误以为设置告警邮件就完成了所有系统邮件配置。
 
 ## 4. 正确理解发送结果
 
@@ -48,6 +48,6 @@ flowchart LR
 2. 选择测试租户，配置服务账号并保存、校验，确认没有发送消息。
 3. 确认获授权租户能看到安全的服务信息，其他租户看不到也不能调用。
 4. 切换到租户会话，只有明确核对目标和内容后才发送测试；分别检查服务商受理结果与回执。
-5. 通过现有账号流程测试密码重置邮件，确认仍为同步发送且独立于告警通知。
+5. 通过现有账号流程测试密码重置邮件，确认账号邮件能够正常收到。
 
-插件源码与打包方式见[插件开发指南](../../../developer-guide/notification-plugin.md)及其中公开的仓库：[SDK/模板](https://github.com/ThingsPanel/thingspanel-notification-plugin-sdk)、[SMTP](https://github.com/ThingsPanel/thingspanel-notification-smtp)、[钉钉](https://github.com/ThingsPanel/thingspanel-notification-dingtalk)、[阿里云短信](https://github.com/ThingsPanel/thingspanel-notification-aliyun-sms)和[旧签名 Webhook](https://github.com/ThingsPanel/thingspanel-notification-legacy-webhook)。公开仓库只是源码，不会自动将插件安装或登记到你的平台。
+插件源码与打包方式见[插件开发指南](../../../developer-guide/notification-plugin.md)及其中公开的仓库：[SDK/模板](https://github.com/ThingsPanel/thingspanel-notification-plugin-sdk)、[SMTP](https://github.com/ThingsPanel/thingspanel-notification-smtp)、[钉钉](https://github.com/ThingsPanel/thingspanel-notification-dingtalk)、[阿里云短信](https://github.com/ThingsPanel/thingspanel-notification-aliyun-sms)和[签名 Webhook](https://github.com/ThingsPanel/thingspanel-notification-legacy-webhook)。公开仓库只是源码，不会自动将插件安装或登记到你的平台。

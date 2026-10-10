@@ -4,53 +4,72 @@ sidebar_position: 2
 
 # Notification strategies
 
-Use a notification strategy to choose an administrator-configured service, its recipients, and the content used for an alert. The page keeps the existing route `/alarm/notification-group`, while the user-facing label is **Notification Strategy**.
+A strategy says which service to use, whom to notify, and what to send when an alert occurs. The administrator prepares service accounts; the tenant configures strategies and can set one tenant-wide default.
 
 ```mermaid
-flowchart LR
-  Admin[System administrator assigns a service] --> Tenant[Tenant views available services]
-  Tenant --> Strategy[Select service, recipients, and content]
-  Strategy --> Alarm[Choose the strategy in an alert rule]
-  Alarm --> Record[Review new delivery or legacy history]
+flowchart TD
+  Service[Administrator prepares services] --> Policy[Tenant chooses recipients and content]
+  Policy --> Default[Set a tenant default strategy]
+  Default --> Alarm[Device triggers an alert]
+  Alarm --> Choice{Does this alert select a strategy?}
+  Choice -->|Yes| Explicit[Use its selected strategy]
+  Choice -->|No| Inherit[Use the tenant default]
+  Explicit --> Save[Record the alert and pending notification]
+  Inherit --> Save
+  Save --> Send[Send according to the strategy and record results]
+  Send --> Result[Review notification records]
 ```
 
 ## 1. Create a strategy
 
-1. Open **Alerts → Notification Strategy**.
-2. Review the services available to your tenant. Only services configured and assigned by a system administrator appear. Provider credentials are not available in the tenant interface.
+1. Open **Alerts → Notification Strategy** and review available services. Tenants can inspect service details but cannot view or change provider secrets.
 
 ![Tenant view of available notification services](/img/notification/tenant-services-readonly.jpg)
 
-*Development-environment screenshot. The shown SMTP instance is disabled; this image illustrates the read-only service list and does not show a sendable account.*
+*Page example. The pictured account is disabled; check that your service is available before using it.*
 
-3. Select **Create Notification Strategy** and enter the strategy details, target, and message content supported by the selected service.
-4. Save and reopen the strategy to confirm its values. Saving or validating a strategy does not send a message.
-5. Open the alert rule and select the strategy that should handle that alert.
+2. Select **Create Notification Strategy**, choose a service, and enter the recipients and message.
+3. Save and reopen it to confirm the values. Saving or validating does not send a message.
+4. Select **Enable strategy** to make it available for alerts. Resolve any reported error; a saved strategy is not necessarily ready for use.
 
-A strategy is used when an alert rule selects it. Do not assume that creating a strategy automatically applies it to every alert or creates a platform-wide inherited default.
+## 2. Set the tenant default
 
-## 2. Test only when needed
+1. Find **Tenant default notification strategy** on the strategy page.
+2. Select a strategy available for alerts, save it, and refresh to confirm it persisted.
+3. In alert rules, choose **Use tenant default strategy**. Alerts without a separately selected strategy use the current tenant default when triggered.
 
-Sending a test is an actual provider submission. Check the recipient, message, and any charge before confirming. A save or configuration check does not send anything.
+![Tenant default notification policy](/img/notification/tenant-default-policy.png)
 
-| Status | Meaning |
-|---|---|
-| Queued | The notification intent has been durably queued. |
-| Accepted | The provider accepted the request; delivery is not confirmed. |
-| Delivered / Failed | A trusted provider receipt reported this final status. |
-| Unknown | The provider outcome could not be confirmed. Do not blindly send again. |
-| Accepted without receipt | The provider accepted the request, but this channel does not provide a delivery receipt. |
+*Actual page screenshot using a demonstration strategy name. Saving a default policy does not send a notification.*
 
-## 3. Review notification records
+For example, set an operations email strategy once for ordinary alerts. Select a different strategy in the rule for an important device that needs different recipients.
 
-Open **Alerts → Notification Records**. New deliveries and legacy history are shown as separate record sets. Legacy `SUCCESS` or `FAILURE` values describe the old system's status and are not proof of recipient delivery.
+- An explicitly selected strategy takes precedence.
+- Without a default, the alert is recorded but no notification is sent.
+- An unavailable or disabled strategy stops sending and records a reason; it does not silently switch to another strategy.
+- Changing the default affects future alerts, not already queued notifications.
+- If another save changed the configuration, refresh and review it before saving again.
 
-## 4. Legacy notification groups
+## 3. Set an exception for an alert
 
-The legacy group maintenance tab has been removed. Creating, editing, or deleting a legacy notification group is no longer supported. Existing group lists/details remain available for read-only compatibility, and the underlying historical records are retained. Do not use an old group's former edit flow to configure a new strategy.
+Edit the alert rule, select a specific strategy, and save. To return to the tenant default, select **Use tenant default strategy** and save.
 
-## 5. Tenant access
+![Use tenant default policy in an alert rule](/img/notification/alarm-rule-default-policy-option.png)
 
-Community Edition does not provide a tenant sub-user or tenant role-administration workflow for notification strategies. Your available services and records are determined by the current tenant session. Contact a system administrator if a required service is missing; do not enter provider secrets in a tenant form.
+*Actual alert-rule form. Select Use tenant default policy to inherit the default when the alert triggers. The strategy name is demonstration data.*
 
-For provider integration source code and the plugin contract, see the [plugin developer guide](../../../developer-guide/notification-plugin.md).
+## 4. Test and review results
+
+Use **Send test** only after checking the recipient and content. It submits a real message and may incur charges. Verify the actual receiving endpoint as well as the provider result.
+
+Open **Alerts → Notification Records**. **Accepted** means the provider accepted the request, not that the recipient received it. SMTP usually provides no final delivery receipt; check both the inbox and spam folder.
+
+Recording the alert and its pending notification lets processing continue after an outage or restart. Sending according to the strategy and recording results makes each target's outcome visible.
+
+## 5. Access and extensions
+
+Administrators own service accounts and provider secrets. Tenants configure their strategies and default settings. Community Edition has no tenant sub-user administration workflow. Contact the administrator for missing services.
+
+See the [plugin developer guide](../../../developer-guide/notification-plugin.md) to add services.
+
+Recording the alert and pending notification keeps the event and message safe so processing can continue after a network outage or service restart. Sending according to the strategy and recording the result lets you inspect the result for each target.

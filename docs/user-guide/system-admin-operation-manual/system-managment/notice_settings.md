@@ -32,11 +32,11 @@ flowchart LR
 
 *Development-environment screenshot. The shown SMTP instance is disabled; the screenshot illustrates tenant-scoped account configuration and does not show a sendable account or secret values.*
 
-This release includes the SMTP component, but a system administrator must still configure its provider account for a tenant. The account is not created or assigned automatically.
+The notification-service deployment bundle includes SMTP by default. After installing the notification service, the system administrator must assign the service and configure a provider account for the intended tenant. Grants and provider accounts are not created automatically. Installation details are in the [SMTP deployment guide](https://github.com/ThingsPanel/thingspanel-notification-smtp#run-the-container-locally).
 
-## 3. Keep account mail and alert delivery separate
+## 3. System email and alert email
 
-The legacy system email settings remain available for the existing account flows. Password-reset email continues to use its original synchronous behavior. Notification-alert queuing must not change that flow.
+Password-reset messages are sent as part of account operations. Alert email uses the tenant's notification strategy. Configure and check both purposes separately. Configuring alert email does not configure every system email.
 
 ## 4. Interpret results correctly
 
@@ -48,6 +48,6 @@ The legacy system email settings remain available for the existing account flows
 2. Select a test tenant, configure a service account, save and validate it, and confirm that no send occurred.
 3. Confirm that the assigned tenant sees safe service details while another tenant cannot see or use the service.
 4. In the tenant session, send a test only after explicitly checking the destination and content. Verify the provider result and receipt separately.
-5. Test password reset through the existing account flow and confirm that it remains synchronous and independent from alert delivery.
+5. Test password reset through the existing account flow and confirm that the account email is received.
 
-For source code and plugin packaging, see the [plugin developer guide](../../../developer-guide/notification-plugin.md) and its published repositories: [SDK/template](https://github.com/ThingsPanel/thingspanel-notification-plugin-sdk), [SMTP](https://github.com/ThingsPanel/thingspanel-notification-smtp), [DingTalk](https://github.com/ThingsPanel/thingspanel-notification-dingtalk), [Alibaba Cloud SMS](https://github.com/ThingsPanel/thingspanel-notification-aliyun-sms), and [legacy webhook](https://github.com/ThingsPanel/thingspanel-notification-legacy-webhook). A public repository is source material; it does not install or register a plugin in your platform.
+For source code and plugin packaging, see the [plugin developer guide](../../../developer-guide/notification-plugin.md) and its published repositories: [SDK/template](https://github.com/ThingsPanel/thingspanel-notification-plugin-sdk), [SMTP](https://github.com/ThingsPanel/thingspanel-notification-smtp), [DingTalk](https://github.com/ThingsPanel/thingspanel-notification-dingtalk), [Alibaba Cloud SMS](https://github.com/ThingsPanel/thingspanel-notification-aliyun-sms), and [signed webhook](https://github.com/ThingsPanel/thingspanel-notification-legacy-webhook). A public repository is source material; it does not install or register a plugin in your platform.
