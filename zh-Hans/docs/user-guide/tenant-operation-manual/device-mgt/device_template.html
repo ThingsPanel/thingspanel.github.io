@@ -16,8 +16,8 @@
 
 
 <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3936883179210897" async crossorigin="anonymous"></script><link rel="stylesheet" href="/zh-Hans/assets/css/styles.0df3a90b.css">
-<script src="/zh-Hans/assets/js/runtime~main.a3de6170.js" defer="defer"></script>
-<script src="/zh-Hans/assets/js/main.201a1098.js" defer="defer"></script>
+<script src="/zh-Hans/assets/js/runtime~main.d3385473.js" defer="defer"></script>
+<script src="/zh-Hans/assets/js/main.8a2e3b77.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -30,6 +30,7 @@
 <li class="">进入 <strong>设备接入</strong> &gt; <strong>物模型</strong>，打开物模型管理页面。</li>
 <li class="">物模型通常对应现实世界中的设备类型，例如温湿度传感器。</li>
 <li class="">模型定义包含遥测、属性、事件和命令，这些字段可作为图表配置的数据源。</li>
+<li class="">物模型还可以定义自定义按钮，将常用控制内容保存为快捷操作。配置后，按钮会出现在关联设备详情的对应栏目：遥测自定义控制显示在 <strong>遥 测</strong> 中，自定义命令显示在 <strong>命令（下发）</strong> 中。</li>
 <li class="">Web 图表配置和 App 图表配置均通过 ThingsVis 编辑器创建，并支持保存后预览。</li>
 <li class="">保存后的图表配置会应用到使用该物模型的设备详情页。</li>
 </ul>
@@ -47,11 +48,48 @@
 <li class="">保存模型定义后，再进入图表配置步骤。</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="定义物模型" src="/zh-Hans/assets/images/image67-f8f372720e1b662189b242d9719e0fc6.png" width="2678" height="978" class="img_ev3q"></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="custom-buttons">配置自定义按钮<a href="#custom-buttons" class="hash-link" aria-label="标题的直接链接" title="标题的直接链接" translate="no">​</a></h4>
+<p>自定义按钮适合“打开设备”“关闭设备”“设置为节能模式”等内容固定、需要重复执行的操作。管理员在物模型中配置一次后，使用该物模型的设备可以复用这些操作，用户在设备详情中点击按钮即可向当前设备下发预设内容。</p>
+<table><thead><tr><th>配置位置（模型定义）</th><th>设备详情中的使用位置</th><th>适用场景</th></tr></thead><tbody><tr><td>遥测 → 自定义控制</td><td>遥测</td><td>将常用的遥测控制内容保存为快捷操作</td></tr><tr><td>命令 → 添加自定义命令</td><td>命令（下发）</td><td>将命令标识符及固定参数保存为快捷操作</td></tr></tbody></table>
+<p>部分版本的入口名称为“新增自定义命令”，设备详情中的命令栏目名称为“指令下发”，对应同一操作位置。</p>
+<p>这些按钮由模型定义生成，无需先在 Web 图表编辑器中添加按钮组件。Web 图表中的控制组件属于另一种配置入口。</p>
+<p><strong>配置遥测自定义控制</strong></p>
+<ol>
+<li class="">进入 <strong>设备接入 → 物模型</strong>，打开需要配置的物模型，进入 <strong>模型定义 → 遥测</strong>。</li>
+<li class="">在 <strong>自定义控制</strong> 区域点击 <strong>添加自定义命令</strong>。</li>
+<li class="">按下表填写配置，打开 <strong>启用状态</strong>，点击 <strong>确认</strong> 保存。</li>
+</ol>
+<table><thead><tr><th>配置项</th><th>填写说明</th></tr></thead><tbody><tr><td>按钮名称</td><td>设备详情中展示的名称，建议明确表达动作，例如“打开开关”</td></tr><tr><td>指令内容</td><td>点击按钮时下发的内容，必须是合法 JSON；字段标识符和取值类型应符合设备及接入协议的要求</td></tr><tr><td>启用状态</td><td>开启后，按钮才会展示在设备详情的遥测栏目中；新增时默认关闭</td></tr><tr><td>描述</td><td>说明用途、参数含义或适用条件，便于后续维护</td></tr></tbody></table>
+<p>例如，设备已支持布尔类型的 <code>switch</code> 控制字段时，可以创建“打开开关”按钮，指令内容填写：</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{&quot;switch&quot;: true}</span><br></span></code></pre></div></div>
+<p>再创建“关闭开关”按钮，内容填写 <code>{&quot;switch&quot;: false}</code>。示例仅用于说明配置方法，请按实际设备协议替换字段和值；创建按钮本身不会让设备自动具备对应的控制能力。</p>
+<p>下图展示“打开开关”的配置：填写按钮名称和 JSON 指令，并开启启用状态。保存后，按钮会出现在关联设备详情的 <strong>遥测</strong> 栏目。</p>
+<p><img decoding="async" loading="lazy" alt="遥测自定义按钮：名称、JSON 指令和启用状态" src="/zh-Hans/assets/images/custom-telemetry-config-c57529610449fcbd3f4bf201772f1ccd.jpg" width="1112" height="1244" class="img_ev3q"></p>
+<p><strong>配置自定义命令</strong></p>
+<ol>
+<li class="">在 <strong>模型定义 → 命令</strong> 中点击 <strong>添加自定义命令</strong>。</li>
+<li class="">填写 <strong>按钮名称</strong>、<strong>命令标识符</strong>、<strong>命令内容</strong> 和 <strong>命令描述</strong>。</li>
+<li class="">将 <strong>状态</strong> 设置为启用，点击 <strong>确认</strong> 保存。</li>
+</ol>
+<p>命令标识符用于指定执行哪个命令，应与设备支持的命令一致；命令内容用于填写该命令的参数，格式以接入协议或插件要求为准。不要将按钮名称当作命令标识符。</p>
+<p>例如，设备支持 命令 <code>set_mode</code>，且参数约定为 <code>{&quot;mode&quot;:&quot;eco&quot;}</code> 时，可将按钮名称设为“切换节能模式”，命令标识符填写 <code>set_mode</code>，命令内容填写 <code>{&quot;mode&quot;:&quot;eco&quot;}</code>。实际使用时请替换为设备支持的命令和参数。</p>
+<p>下图展示自定义命令的配置：按钮名称用于显示，命令标识符指定执行的命令，命令内容填写参数。保存并启用后，在关联设备详情的 <strong>命令（下发）/ 指令下发</strong> 栏目使用该按钮。</p>
+<p><img decoding="async" loading="lazy" alt="自定义命令按钮：名称、命令标识符、命令内容和状态" src="/zh-Hans/assets/images/custom-command-config-8ca02886bcc3c3d2c016be27f6a89c80.jpg" width="1112" height="1244" class="img_ev3q"></p>
+<p><strong>在设备详情中使用并验证</strong></p>
+<ol>
+<li class="">确认目标设备使用的 <strong>设备模板</strong> 已关联该物模型；关联方法见 <a class="" href="/zh-Hans/docs/user-guide/tenant-operation-manual/device-mgt/device_config">设备模板</a>。</li>
+<li class="">进入 <strong>设备管理</strong>，打开目标设备详情；若页面已经打开，重新进入对应栏目以加载配置。</li>
+<li class="">遥测控制按钮在 <strong>遥测</strong> 栏目中使用；自定义命令按钮在 <strong>命令（下发）</strong> 栏目中使用。</li>
+<li class="">点击按钮，平台会向当前设备下发预设内容。命令下发后可在该栏目查看状态和错误信息，并结合设备返回或实际状态确认是否执行成功。</li>
+</ol>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>使用提示</div><div class="admonitionContent_BuS1"><p>点击自定义按钮会直接触发下发操作，操作前请确认目标设备与按钮含义。平台发送成功与设备执行成功是不同的结果，应以设备返回或实际状态为准。</p></div></div>
+<p><strong>常见问题</strong></p>
+<table><thead><tr><th>现象</th><th>检查方法</th></tr></thead><tbody><tr><td>在设备详情中找不到按钮</td><td>检查设备模板关联的物模型是否正确、按钮是否保存，并进入与配置类型对应的栏目；重新打开设备详情加载最新配置</td></tr><tr><td>遥测按钮不显示</td><td>检查该自定义控制的启用状态，未启用的遥测按钮不展示</td></tr><tr><td>命令按钮显示但不可点击</td><td>检查自定义命令的状态，禁用的命令按钮不可点击</td></tr><tr><td>遥测控制配置无法保存</td><td>检查指令内容是否为合法 JSON，例如键名和字符串需使用双引号</td></tr><tr><td>点击按钮后设备未按预期动作</td><td>检查设备连接、协议或插件配置，以及字段标识符、命令标识符、参数格式和类型；命令下发可结合状态和错误信息排查</td></tr></tbody></table>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23配置-web-图表">2.3、配置 Web 图表<a href="#23配置-web-图表" class="hash-link" aria-label="标题的直接链接" title="标题的直接链接" translate="no">​</a></h3>
 <p>当前 Web 图表通过内嵌的 ThingsVis 预览和编辑器完成配置。下图以 <strong>物模型配置 DEMO</strong> 为例说明当前流程。</p>
 <ul>
 <li class="">在编辑弹窗中进入第 <strong>3 步 Web 图表配置</strong>。</li>
-<li class="">在卡片顶部  选择刷新频率。DEMO 中当前设置为 <strong>5 秒</strong>。</li>
+<li class="">在卡片顶部选择刷新频率。DEMO 中当前设置为 <strong>5 秒</strong>。</li>
 <li class="">中间区域会以内嵌 ThingsVis 的方式预览当前 Web 图表页面。DEMO 中包含温度趋势、湿度趋势、设备开关、温度设置、当前温度和当前湿度等组件。</li>
 <li class="">点击 <strong>编辑配置</strong> 打开 ThingsVis 编辑器。</li>
 </ul>
@@ -85,6 +123,6 @@
 <ul>
 <li class="">检查物模型基本信息、模型定义、Web 图表配置和 App 图表配置。</li>
 <li class="">确认无误后发布物模型。</li>
-</ul></div><div class="container_j0NC" aria-label="Advertisement"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3936883179210897" data-ad-slot="9166877410" data-ad-format="auto" data-full-width-responsive="true"></ins></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/user-guide/tenant-operation-manual/device-mgt/device_template.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>zjhong</b> <!-- -->于 <b><time datetime="2026-10-10T00:20:10.000Z" itemprop="dateModified">2026年10月10日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文档分页导航"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh-Hans/docs/user-guide/tenant-operation-manual/device-mgt/device_config"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">设备模板</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh-Hans/docs/category/visualization-1"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Visualization</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1说明" class="table-of-contents__link toc-highlight">1、说明</a></li><li><a href="#2操作" class="table-of-contents__link toc-highlight">2、操作</a><ul><li><a href="#21创建物模型" class="table-of-contents__link toc-highlight">2.1、创建物模型</a></li><li><a href="#22定义物模型" class="table-of-contents__link toc-highlight">2.2、定义物模型</a></li><li><a href="#23配置-web-图表" class="table-of-contents__link toc-highlight">2.3、配置 Web 图表</a></li><li><a href="#24配置-app-图表" class="table-of-contents__link toc-highlight">2.4、配置 App 图表</a></li><li><a href="#25完成并发布" class="table-of-contents__link toc-highlight">2.5、完成并发布</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
+</ul></div><div class="container_j0NC" aria-label="Advertisement"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3936883179210897" data-ad-slot="9166877410" data-ad-format="auto" data-full-width-responsive="true"></ins></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/ThingsPanel/thingspanel.github.io/tree/source/docs/user-guide/tenant-operation-manual/device-mgt/device_template.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>wood911010</b> <!-- -->于 <b><time datetime="2026-10-19T08:44:26.000Z" itemprop="dateModified">2026年10月19日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文档分页导航"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh-Hans/docs/user-guide/tenant-operation-manual/device-mgt/device_config"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">设备模板</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh-Hans/docs/category/visualization-1"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Visualization</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1说明" class="table-of-contents__link toc-highlight">1、说明</a></li><li><a href="#2操作" class="table-of-contents__link toc-highlight">2、操作</a><ul><li><a href="#21创建物模型" class="table-of-contents__link toc-highlight">2.1、创建物模型</a></li><li><a href="#22定义物模型" class="table-of-contents__link toc-highlight">2.2、定义物模型</a></li><li><a href="#23配置-web-图表" class="table-of-contents__link toc-highlight">2.3、配置 Web 图表</a></li><li><a href="#24配置-app-图表" class="table-of-contents__link toc-highlight">2.4、配置 App 图表</a></li><li><a href="#25完成并发布" class="table-of-contents__link toc-highlight">2.5、完成并发布</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
 </html>
