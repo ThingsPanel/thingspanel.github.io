@@ -63,7 +63,7 @@ flowchart LR
 
 安装器先验证 catalog 签名，再核对 Agent/镜像归档摘要、目标机器架构和镜像 ID；只有校验通过才加载镜像、启动受管 Agent。租户/超管在网页点击按钮不会直接传输或执行这些文件。已有主机也要先运行包含该安装器改动的受支持安装/升级流程；仅打开新网页链接不会替旧主机更新 Agent。
 
-**当前已核实：**公开安装/升级链路可下载固定摘要辅助脚本和架构对应的签名 catalog，并校验选中的 Agent 与镜像归档。双架构制品均从公网 URL 分发并与签名 catalog 摘要一致；使用公网 arm64 bundle 的隔离运行 smoke 已通过 Agent catalog、prepare、grant、activate、health、renew 和 revoke 调用。完整干净主机安装/升级及平台 UI 验收仍待完成，不能从该 smoke 推断通过。
+**当前已核实：**公开安装/升级链路可下载固定摘要辅助脚本和架构对应的签名 catalog，并校验选中的 Agent 与镜像归档。双架构制品均从公网 URL 分发并与签名 catalog 摘要一致；使用公网 arm64 bundle 的隔离运行 smoke 已通过 Agent catalog、prepare、grant、activate、health、renew 和 revoke 调用。随后完成了单独的隔离平台 UI 验收：从资源中心页面进入目标平台，并通过 UI 安装公开 arm64 `1.0.0` 插件；安装记录变为 `enabled`，健康状态为 `ok`。这不是干净主机验收：UI 操作前，已有隔离环境需要人工恢复 PostgreSQL、Agent 和代理，并恢复/加载公开签名 Agent 与镜像。详细操作记录保存在本次验收证据中。干净主机安装和升级验收仍未完成。
 
 ### 3.4 平台系统超级管理员、租户和资源中心维护者
 
@@ -97,10 +97,10 @@ https://<用户可访问的 ThingsPanel 主机>/apply/plugin?tab=install&plugin=
 
 ## 6. 当前 Home Assistant 发布状态
 
-[Home Assistant 资源中心页面](https://r.thingspanel.cn/marketplace/plugins/homeassistant)是 ThingsPanel 三方服务插件的公开介绍和安装跳转页，不是 Home Assistant 应用，也不会在访问者电脑上运行安装器。当前页面文案已准确说明：用户填写自己的 ThingsPanel 平台地址，并以该平台超级管理员身份登录。
+[Home Assistant 资源中心页面](https://r.thingspanel.cn/marketplace/plugins/homeassistant)是 ThingsPanel 三方服务插件的公开介绍和安装入口。更新后的页面支持填写 ThingsPanel 地址、选择记住地址，并打开目标平台的安装页。它不是 Home Assistant 应用，也不会在访问者电脑上运行安装器；目标平台仍要求登录和平台超级管理员权限。
 
 **公开分发已可用：**插件版本 `1.0.0` 已发布为插件专用 GitHub Release [`plugin-ha-v1.0.0`](https://github.com/ThingsPanel/thingspanel-installer/releases/tag/plugin-ha-v1.0.0)，提供 Linux amd64 和 arm64 的签名 catalog 与匹配制品。公网 catalog 签名、辅助脚本固定摘要、制品摘要、公网下载暂存以及隔离 arm64 runtime 生命周期 smoke 均已验证。
 
-**仍待验收：**尚未完成全新的 ThingsPanel 干净安装；没有实际操作线上资源中心跳转到真实平台的完整安装流程；没有连接生产平台后端或 Home Assistant 端点。设备遥测、命令和租户 HA 连通性不属于已完成 smoke 的范围。不能把这些场景说成已验证，也无需把它们设为启动本轮手工安装验收的前置条件。
+**UI 验收已通过，但有环境前提：**从公开资源中心入口进入隔离 ThingsPanel 平台后，平台超级管理员通过 UI 安装了公开 arm64 `1.0.0` catalog 条目；插件状态为 `enabled`，健康状态为 `ok`，镜像 ID 见验收报告。测试前已有隔离环境需要人工恢复数据库、Agent/代理，并加载公开签名制品。因此，本次证明的是修复后的隔离环境中“资源中心到平台 UI 安装”路径可用；不能证明全新主机安装或未准备主机升级已通过。详细操作记录保存在本次验收证据中。
 
-手工测试时分别记录 ThingsPanel revision、安装器/Agent 版本、主机架构、干净安装或升级、平台超级管理员安装结果、插件健康状态、租户接入点结果。截图和日志不得包含租户 HA 凭据。插件健康不等于租户连接成功。
+此次验收到平台插件安装和健康状态即结束。测试记录聚焦平台 revision、安装器/Agent 版本、主机架构、必要的环境准备、UI 安装结果和健康状态；本次不配置租户 HA 接入点，也不测试设备流量。
