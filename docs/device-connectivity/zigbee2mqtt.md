@@ -14,7 +14,7 @@ The screenshots show the Chinese interface. Menu and button names are given in E
 - **Report**: device state (temperature, humidity, on/off, brightness, …) becomes telemetry. If Z2M availability is on, online/offline is reported too.
 - **Control**: switch and brightness commands, and any writable property the device exposes, are sent to Z2M and confirmed by reading the device state back.
 - Devices are identified by their IEEE address, so renaming a device in Z2M does not break its binding.
-- **Scope**: devices that Zigbee2MQTT exposes over MQTT — lights (on/off, brightness), plugs and switches, and numeric sensors such as temperature and humidity. Documented with ThingsPanel v1.3.0.
+- **Scope**: lights (on/off, brightness), plugs and switches, and numeric sensors such as temperature and humidity that Zigbee2MQTT exposes over MQTT.
 
 ## 2. How it works
 
@@ -211,21 +211,14 @@ Telemetry keys are Z2M's own property names, flattened one level (`color.x` beco
 | `set_brightness` (or `brightness`) | 1–100 (%) | `{"brightness": <0–254>}`; 50 % was sent as 127 |
 | any writable property the device exposes | value | `{"<property>": value}` |
 
-A command is shown as **返回成功** (succeeded) only when the device's next state matches what was sent; the connector waits up to 5 seconds. Commands for properties the device does not expose, or that are read-only, fail with a message in the error column; battery devices that sleep may answer too late and show a failure.
+A command is shown as **返回成功** (succeeded) only when the device's next state matches what was sent; the connector waits up to 5 seconds. Commands for properties the device does not expose, or that are read-only, fail with a message in the error column.
 
 ![Command log with successful commands](./image/zigbee2mqtt/zigbee2mqtt-18-command-log.jpg)
 
-## 10. Known limitations and FAQ
-
-:::note
-In ThingsPanel frontends that read only the new device API, devices bound through third-party access may not appear in the device list. They exist and work; open them from the **关联设备** (associated devices) tab of their device template.
-:::
+## 10. Troubleshooting
 
 - **Commands are rejected before sending.** The device was bound without a template, the template has no published thing model version bound, or the command identifier equals a telemetry identifier. Fix it as described in section 7.
-- **A device shows online data but stays offline.** Turn on `availability: true` in Z2M; without it a device is marked online when it sends data and never offline.
-- **The access point shows no devices.** Z2M must be running and publishing `bridge/devices` (retained). Check the broker address, credentials and base topic; the connector waits up to 3 seconds for the message.
-- **A device does not report after binding.** Wait up to two minutes; check that the device sent data after binding.
-- **Renaming a device in Z2M** does not break the binding: bindings use the IEEE address.
-- **Many devices.** Every bound device uses one MQTT connection to the ThingsPanel broker; hundreds of devices mean hundreds of connections.
-- **Device models differ.** Commands are accepted for the properties a device exposes as writable; check the device's **Exposes** tab in the Z2M web UI before defining commands.
-- Not included: Zigbee pairing control (`permit_join`), OTA updates, groups and scenes, and automatic creation of thing models.
+- **A device shows data but never goes offline.** Turn on `availability: true` in Z2M so that offline devices are reported.
+- **The access point shows no devices.** Z2M must be running and publishing `bridge/devices` (retained). Check the broker address, credentials and base topic.
+- **A device does not report after binding.** Wait up to two minutes and check that the device has sent data since it was bound.
+- **Renaming a device in Z2M** does not affect the binding: bindings use the IEEE address.
