@@ -6,10 +6,6 @@ sidebar_position: 14
 
 The Matter connector lets ThingsPanel discover, bind, monitor and control **Matter** lights (On/Off and dimmable) that are on your local IP network. It is a *Third-party Access* connector: you install it once, create an access point, and import the devices you want.
 
-:::caution Status: candidate
-The connector has been tested end to end against the connectedhomeip lighting **simulator** only (install, discovery, binding, telemetry, commands, tenant isolation). It has **not** been verified with real Matter hardware, Thread devices, real-LAN multicast, power-loss recovery or long-running stability. Use it for evaluation, not production.
-:::
-
 The screenshots show the Chinese interface. Menu and button names are given in English with the Chinese label in parentheses.
 
 ## 1. Overview
@@ -214,7 +210,7 @@ You can also send commands through the platform API (`POST /api/v1/command/datas
 
 **The device stays offline after binding.** Wait up to two minutes for the connector's status refresh. The platform's broker device scope must include the new device; ask your administrator to refresh it if it does not.
 
-**A brightness change shows up late.** The simulator reported level changes up to about 40 seconds later in our tests; check the real latency with your device.
+**A brightness change shows up late.** Telemetry follows the device's own state report, so a brightness change can arrive some seconds after the command, depending on the device and your network.
 
 **Unbinding a device does not remove it from the Matter fabric.** Use `matterctl remove` on the gateway host.
 
