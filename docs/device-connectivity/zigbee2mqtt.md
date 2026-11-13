@@ -4,25 +4,37 @@ sidebar_position: 13
 
 # Zigbee2MQTT
 
-The Zigbee2MQTT connector lets ThingsPanel discover, bind, monitor and control Zigbee devices that are managed by [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (Z2M). It talks to Z2M directly over MQTT, so no Z2M plugin and no Home Assistant integration is needed.
+The Zigbee2MQTT connector brings Zigbee devices managed by [Zigbee2MQTT](https://www.zigbee2mqtt.io/) (Z2M) into ThingsPanel. After reading this guide you can install the connector, discover the devices Z2M has paired, bind them in bulk, watch their telemetry and send commands such as on/off and brightness.
+
+The screenshots show the Chinese interface. Menu and button names are given in English with the Chinese label in parentheses. Steps are marked **Administrator** (platform administrator) or **Tenant user**.
 
 ## 1. Overview
 
 - **Discover**: the connector reads Z2M's retained `bridge/devices` list and shows the paired devices in ThingsPanel for bulk binding.
-- **Report**: device state (temperature, humidity, on/off, brightness, …) becomes telemetry; Z2M availability becomes online/offline.
+- **Report**: device state (temperature, humidity, on/off, brightness, …) becomes telemetry. If Z2M availability is on, online/offline is reported too.
 - **Control**: switch and brightness commands, and any writable property the device exposes, are sent to Z2M and confirmed by reading the device state back.
 - Devices are identified by their IEEE address, so renaming a device in Z2M does not break its binding.
+- **Scope**: lights (on/off, brightness), plugs and switches, and numeric sensors such as temperature and humidity that Zigbee2MQTT exposes over MQTT.
 
-## 2. Prerequisites
+## 2. How it works
 
-- A ThingsPanel platform that supports plugin installation with a managed runtime identity.
-- A Zigbee coordinator (USB dongle) connected to the machine that runs Z2M.
-- An MQTT broker reachable by both Z2M and the connector.
-- Z2M's Home Assistant integration should stay **off**.
+```
+Zigbee devices ── Zigbee2MQTT ── MQTT broker ◀── Zigbee2MQTT connector ──▶ ThingsPanel
+   (radio)        (you run it)    (you run it)    (plugin, run by the platform)
+```
 
-## 3. Deploy Zigbee2MQTT
+You run Zigbee2MQTT and its MQTT broker. The connector is a plugin that the platform administrator installs; it connects to your Z2M broker using the address you enter in an access point, so no Zigbee2MQTT plugin and no Home Assistant integration is needed.
 
-The following `docker-compose.yml` runs Mosquitto and Zigbee2MQTT. Adjust the device path of your coordinator (`/dev/ttyUSB0` is only an example).
+## 3. Prerequisites
+
+- A ThingsPanel platform that supports plugin installation, with the Zigbee2MQTT plugin available in its plugin catalog.
+- A Zigbee coordinator (USB dongle) attached to the machine that runs Z2M.
+- An MQTT broker reachable by both Z2M and the platform's plugin runtime.
+- Z2M's Home Assistant integration switched **off**.
+
+## 4. Deploy Zigbee2MQTT
+
+The following `docker-compose.yml` runs Mosquitto and Zigbee2MQTT. Replace the device path with your coordinator's (`/dev/ttyUSB0` is only an example).
 
 ```yaml
 services:
@@ -58,9 +70,7 @@ allow_anonymous false
 password_file /mosquitto/config/passwords
 ```
 
-Create the password file with `mosquitto_passwd -c mosquitto/config/passwords <user>` (run it inside the container or with a local Mosquitto install).
-
-`z2m-data/configuration.yaml`:
+Create the password file with `mosquitto_passwd -c mosquitto/config/passwords <user>`. Then `z2m-data/configuration.yaml`:
 
 ```yaml
 homeassistant: false
@@ -81,73 +91,134 @@ availability: true
 Do not add or copy a `network_key` or `pan_id` by hand: Z2M generates them on first start. Never publish or share your `configuration.yaml`, it contains your Zigbee network key.
 :::
 
-Notes:
+`availability: true` lets Z2M report when a device goes offline; without it ThingsPanel only learns that a device is online when it sends data and never marks it offline. Expose the broker only to networks you trust and keep authentication on. Start the stack with `docker compose up -d`.
 
-- `availability: true` lets Z2M report when a device goes offline. Without it ThingsPanel only learns that a device is online when it sends data, and never marks it offline.
-- Only expose the broker to a network you trust, and keep authentication on. The connector must be able to reach the broker address you enter in the access point.
+## 5. Install the connector (Administrator)
 
-Start the stack with `docker compose up -d` and open the Z2M web UI to check that the coordinator is running.
+1. Open **Application Management (应用管理)** → **Plugin Management (插件管理)** and switch to the **Plugin Installation (插件安装)** tab.
+2. Find the **Zigbee2MQTT** card. Once installed, it shows **已启用** (enabled) and `健康: ok` (health: ok).
 
-## 4. Install and configure the connector
+![Plugin Installation tab with the Zigbee2MQTT card enabled](./image/zigbee2mqtt/zigbee2mqtt-01-install-plugin.jpg)
 
-1. In ThingsPanel, open the plugin installation page and install **Zigbee2MQTT** (provided by your administrator through the plugin catalog). After installation the plugin is listed under service plugins with the identifier `zigbee2mqtt` and a healthy status.
-2. Open **Service Access** (device access) and create a new access point for the Zigbee2MQTT plugin.
+An installed connector appears for tenant users under **Device Access (设备接入)** → **Third-party Access (三方接入)** as the **Zigbee2MQTT** integration.
 
-### Access point form
+![Zigbee2MQTT in the Third-party Access list](./image/zigbee2mqtt/zigbee2mqtt-02-integration-list.jpg)
 
-| Field | Description |
-|---|---|
-| Z2M MQTT Broker (required) | Address of the broker Z2M publishes to, e.g. `tcp://192.0.2.10:1883` |
-| Username / Password | Broker credentials, if the broker requires them |
-| Base Topic | Z2M `base_topic`, default `zigbee2mqtt` |
-
-Each access point opens its own connection to its Z2M broker. If you have several Z2M instances, create one access point for each.
-
-## 5. Discover and bind devices
-
-1. Open the access point's device list. The connector returns the devices Z2M has paired and fully interviewed (the coordinator, unsupported and disabled devices are not listed).
-2. Select the devices and bind them in bulk. Choose a device template whose telemetry keys match the property names of the device (for example `temperature`, `humidity`, `state`, `brightness`).
-3. Within about 30 seconds the connector picks up the new bindings and starts reporting.
-
-:::note
-If the list is empty or shows an error, check the broker address, credentials and base topic, and that Z2M is running: the connector waits up to 3 seconds for Z2M's `bridge/devices` message.
-:::
-
-## 6. Pair a new device (Permit join)
+## 6. Pair devices in Zigbee2MQTT
 
 Pairing is done in Zigbee2MQTT, not in ThingsPanel:
 
-1. Open the Z2M web UI and click **Permit join (All)**, or set `permit_join: true` temporarily.
+1. Open the Z2M web UI and click **Permit join (All)**, or temporarily set `permit_join: true`.
 2. Put the device in pairing mode (usually by pressing its reset button for several seconds).
 3. Wait until Z2M shows the device as interviewed, then turn permit join off again.
-4. Refresh the device list of the access point in ThingsPanel and bind the new device.
 
-## 7. Telemetry and control
+## 7. Create a thing model and a device template (Tenant user)
 
-**Telemetry.** The keys are Z2M's own property names. Nested objects are flattened one level (`color.x` becomes `color_x`); `update`, `update_available` and `last_seen` are dropped; `ON`/`OFF` stay strings.
+Commands come from a **published thing model**. Telemetry is stored without one, but a thing model gives the values names and units, and the device template links the model to the devices.
 
-**Control.** Send commands from the device's control page or through the command API. Supported methods:
+### 7.1 Create the thing model
 
-| Method | Value | Sent to Z2M |
+1. Open **Device Access (设备接入)** → **Thing Model (物模型)** and click **New Thing Model (新建物模型)**. Enter a name, for example `Zigbee Light`, and save.
+
+![New thing model dialog](./image/zigbee2mqtt/zigbee2mqtt-03-thingmodel-new.jpg)
+
+2. In **Thing Model Definition (物模型定义)** → **Telemetry (遥测)** click **Add Telemetry (新增遥测)**. The identifier must equal the Z2M property name.
+
+![Telemetry field of the thing model](./image/zigbee2mqtt/zigbee2mqtt-04-thingmodel-telemetry.jpg)
+
+3. In the **Command (命令)** tab click **Add Command (新增命令)** and add one parameter for each command.
+
+![Command field of the thing model](./image/zigbee2mqtt/zigbee2mqtt-05-thingmodel-command.jpg)
+
+Suggested fields:
+
+| Device | Telemetry identifiers | Command identifier (parameter) |
 |---|---|---|
-| `switch` | `on`/`off`/`true`/`false`/`1`/`0` | `{"state":"ON"}` or `{"state":"OFF"}` (for devices with several switches use the property name, e.g. `state_l2`) |
-| `brightness` | 1–100 (%) | `{"brightness": <0–254>}` |
+| Light | `state` (String), `brightness` (Number, 0–254) | `switch` (`state`: on / off), `set_brightness` (`level`: 1–100) |
+| Temperature/humidity sensor | `temperature` (Number), `humidity` (Number) | none |
+
+![Thing model commands](./image/zigbee2mqtt/zigbee2mqtt-06-thingmodel-commands.jpg)
+
+:::caution
+The platform does not accept a command whose identifier equals a telemetry identifier in the same thing model. That is why the brightness command is named `set_brightness` while the telemetry is `brightness`. The connector accepts `set_<name>` for every command name.
+:::
+
+4. Click **Publish (发布)**, enter a release note and confirm. A thing model can only be used after it is published.
+
+![Publish thing model](./image/zigbee2mqtt/zigbee2mqtt-07-thingmodel-publish.jpg)
+
+### 7.2 Create the device template
+
+1. Open **Device Template (设备模板)** and click **New Device Template (新建设备模板)**. Enter a name, choose **直连设备** (direct device) as the access type, and select the **Zigbee2MQTT** service under **选择协议/服务**. Confirm with **OK (确定)**.
+
+![New device template](./image/zigbee2mqtt/zigbee2mqtt-08-template-new.jpg)
+
+2. Open the template, switch to its **Thing Model (物模型)** tab, choose the published thing model and version, and click **Save (保存)**. When you publish a new version of the thing model, select the new version here again.
+
+![Bind the thing model version to the template](./image/zigbee2mqtt/zigbee2mqtt-09-template-bind-model.jpg)
+
+## 8. Create an access point and bind devices (Tenant user)
+
+1. Open **Device Access (设备接入)** → **Third-party Access (三方接入)** → **Zigbee2MQTT**.
+
+![Access points of Zigbee2MQTT, still empty](./image/zigbee2mqtt/zigbee2mqtt-10-access-point-empty.jpg)
+
+2. Click **New Access (新建接入)** and fill in the form.
+
+![New access point form](./image/zigbee2mqtt/zigbee2mqtt-11-access-point-form.jpg)
+
+| Field | Description |
+|---|---|
+| 接入点名称 | Any name |
+| 选择模式 | Keep **手动** (manual) |
+| Base Topic | Z2M `base_topic`, default `zigbee2mqtt` |
+| Z2M MQTT Broker 地址 | Broker that Z2M publishes to, for example `tcp://<broker-host>:1883`; it must be reachable from the platform |
+| 用户名 / 密码（可选） | Broker credentials, if required |
+
+Each access point opens its own connection to its Z2M broker; create one access point per Z2M instance.
+
+![Filled access point form](./image/zigbee2mqtt/zigbee2mqtt-12-access-point-filled.jpg)
+
+3. Click **Save and Next (保存并下一步)**. The connector lists the devices Z2M has paired and interviewed (the coordinator, unsupported and disabled devices are not listed). The next time you open the access point, use **Modify Configuration (修改配置)** → **保存并下一步** to return to this list.
+
+![Access point in the list](./image/zigbee2mqtt/zigbee2mqtt-13-access-point-list.jpg)
+
+4. **Tick the devices you want to bind first**, choose the device template for each (the light uses `Zigbee Light`), then click **Confirm (确认)**. Without ticking a device, nothing is bound.
+
+![Select devices and templates](./image/zigbee2mqtt/zigbee2mqtt-14-bind-devices.jpg)
+
+A device bound without a template still reports raw data, but commands need a template with a published thing model.
+
+## 9. Monitor and control (Tenant user)
+
+1. Open **Device Access (设备接入)** → **Device Management (设备管理)**. The connector picks up new bindings within about 30 seconds; devices usually turn online (green dot) within about a minute and can take up to two minutes.
+
+![Bound devices are online](./image/zigbee2mqtt/zigbee2mqtt-15-device-list.jpg)
+
+2. Open a device and stay on the **Telemetry (遥测)** tab. Values are named after the thing model; keys that are not in the model are shown as "绑定版本未定义" (not defined in the bound version), for example `linkquality`.
+
+![Telemetry of the light after commands](./image/zigbee2mqtt/zigbee2mqtt-16-telemetry.jpg)
+
+Telemetry keys are Z2M's own property names, flattened one level (`color.x` becomes `color_x`); `update`, `update_available` and `last_seen` are dropped; `ON`/`OFF` stay strings.
+
+3. Open the **Command Dispatch (指令下发)** tab, click **Send Command (下发命令)**, choose the command and fill in its parameter.
+
+![Send command dialog](./image/zigbee2mqtt/zigbee2mqtt-17-send-command.jpg)
+
+| Command | Parameter value | Sent to Z2M |
+|---|---|---|
+| `switch` | `on`, `off`, `true`, `false`, `1`, `0` | `{"state":"ON"}` or `{"state":"OFF"}` (several switches on one device: use the property name as the command, for example `state_l2`) |
+| `set_brightness` (or `brightness`) | 1–100 (%) | `{"brightness": <0–254>}`; 50 % was sent as 127 |
 | any writable property the device exposes | value | `{"<property>": value}` |
 
-A command is reported as successful only when the device's next state matches what was sent (the connector waits up to 5 seconds). Commands for properties the device does not expose, or that are read-only, are rejected with a clear message.
+A command is shown as **返回成功** (succeeded) only when the device's next state matches what was sent; the connector waits up to 5 seconds. Commands for properties the device does not expose, or that are read-only, fail with a message in the error column.
 
-## 8. FAQ
+![Command log with successful commands](./image/zigbee2mqtt/zigbee2mqtt-18-command-log.jpg)
 
-**Devices receive data but show offline.** Turn `availability: true` on in Z2M so offline devices are reported, and make sure you use a connector build that sends status messages as non-retained (the current version does).
+## 10. Troubleshooting
 
-**The device list is empty.** Z2M must be running and publishing `bridge/devices` (it is retained by Z2M). Check the broker address, credentials and base topic of the access point.
-
-**A device I renamed in Z2M still works.** Yes: bindings use the IEEE address, not the friendly name.
-
-**A newly bound device does not report.** Wait up to 30 seconds. Check that the device has sent data since binding, and that its template contains the telemetry keys you expect.
-
-**Commands fail with "sent but not confirmed".** The device did not report the new value within 5 seconds (battery devices sleep). Try again when the device is awake.
-
-**A command is rejected before sending.** The property is not exposed by the device or is read-only; check the device's page in the Z2M web UI.
-
-**Many devices.** Each bound device uses one MQTT connection to the ThingsPanel broker. Hundreds of devices means hundreds of connections.
+- **Commands are rejected before sending.** The device was bound without a template, the template has no published thing model version bound, or the command identifier equals a telemetry identifier. Fix it as described in section 7.
+- **A device shows data but never goes offline.** Turn on `availability: true` in Z2M so that offline devices are reported.
+- **The access point shows no devices.** Z2M must be running and publishing `bridge/devices` (retained). Check the broker address, credentials and base topic.
+- **A device does not report after binding.** Wait up to two minutes and check that the device has sent data since it was bound.
+- **Renaming a device in Z2M** does not affect the binding: bindings use the IEEE address.
